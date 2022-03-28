@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monopoly</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/data-connector/error-handler.js"></script>
+    <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
+
+    <script src="assets/js/initialiser.js"></script>
+
+</head>
+<body>
+<h1>Monopoly</h1>
+<div class="username-container">
+    <from>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter Username" required>
+    </from>
+</div>
+
+<div class="join-game">
+    <h2>Join Game</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Game name</legend>
+            <legend>Players</legend>
+            <legend>Select</legend>
+        </fieldset>
+        <fieldset>
+            <label for="hippique">Hippique</label>
+            <label for="hippique">#3</label>
+            <input type="radio" id="hippique" name="choose_game" value="token_Hippique">
+        </fieldset>
+        <fieldset>
+            <label for="Castaar">Castaar</label>
+            <label for="Castaar">#5</label>
+            <input type="radio" id="Castaar" name="choose_game" value="token_Castaar">
+        </fieldset>
+        <fieldset>
+            <label for="Emma's_monopoly">Emma's Monopoly</label>
+            <label for="Emma's_monopoly">#2</label>
+            <input type="radio" id="Emma's_monopoly" name="choose_game" value="token_Emma's_monopoly">
+        </fieldset>
+        <fieldset>
+            <label for="my_game">My Game</label>
+            <label for="my_game">#3</label>
+            <input type="radio" id="my_game" name="choose_game" value="token_my_game">
+        </fieldset>
+        <button type="submit">JOIN GAME</button>
+    </form>
+</div>
+
+<div class="create_game">
+    <h2>Create Game</h2>
+    <form action="#" method="post">
+            <label for="game_name">Game name</label>
+            <input type="text" id="game_name" name="game_name" placeholder="Enter game name">
+            <label for="number_of_players">Number of players</label>
+            <select id="number_of_players">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+    </form>
+</div>
+
+<div class="errormessages">
+    <p></p>
+</div>
+</body>
+</html>
