@@ -8,10 +8,16 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    <!--    fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
+    <!--    css-->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
 
+    <!--    js-->
     <script src="assets/js/config.js"></script>
 
     <script src="assets/js/data-connector/error-handler.js"></script>
@@ -20,64 +26,22 @@
     <script src="assets/js/initialiser.js"></script>
 </head>
 <body>
-<div id="welcome_screen" class="">
+
+<header id="welcome_screen" class="">
     <p>Welcome to</p>
-    <h1>Monopoly</h1>
-    <button>START GAME</button>
-    <br>
+    <h1><span>Monopoly</span></h1>
+</header>
+
+<main id="index">
+    <button id="start_game">START GAME</button>
     <a href="#">view rules</a>
-</div>
+</main>
 
-<div id="join-create_game" class="hidden">
-    <h2>Monopoly</h2>
-    <div class="username-container">
-        <form action="#" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter Username" required>
-        </form>
+
+<footer id="footer_index">
+    <div class="errormessages">
+        <p></p>
     </div>
-
-    <div class="join-game">
-        <h2>Join Game</h2>
-        <form action="#" method="post">
-            <fieldset>
-                <ul>
-                    <li>Game name</li>
-
-                    <li>Players</li>
-
-                    <li>Select</li>
-                </ul>
-
-                <template>
-                    <label for=""></label>
-                    <label for=""></label>
-                    <input type="radio" id="" name="" value="">
-                </template>
-            </fieldset>
-            <button type="submit" value="join_game">JOIN GAME</button>
-        </form>
-    </div>
-
-    <div class="create_game">
-        <h2>Create Game</h2>
-        <form action="#" method="post">
-            <label for="game_name">Game name</label>
-            <input type="text" id="game_name" name="game_name" placeholder="Enter game name">
-            <label for="number_of_players">Number of players</label>
-            <select id="number_of_players">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button type="submit" value="create_game">CREATE GAME</button>
-        </form>
-    </div>
-</div>
-
-<div class="errormessages">
-    <p></p>
-</div>
+</footer>
 </body>
 </html>
