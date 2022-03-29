@@ -1,10 +1,9 @@
 "use strict";
 
 function showGames(games){
-    console.log(games);
     games.forEach(game => {
         if (game.started === false){
-            const $template = document.querySelector('template').content.firstElementChild.cloneNode(true);
+            const $template = document.querySelector('#radio-list').content.firstElementChild.cloneNode(true);
             $template.querySelectorAll('label').forEach(label =>
             {
                 label.setAttribute('for',game.id);
@@ -14,7 +13,7 @@ function showGames(games){
             $template.querySelector('input').setAttribute('id',game.id);
             $template.querySelector('input').setAttribute('name','Games');
             $template.querySelector('input').setAttribute('value',game.id);
-            document.querySelector('div').insertAdjacentHTML("beforeend",$template.outerHTML);
+            document.querySelector('#radio-list div').insertAdjacentHTML("beforeend",$template.outerHTML);
         }
     });
 }
