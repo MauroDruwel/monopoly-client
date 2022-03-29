@@ -4,10 +4,19 @@ let _token = null;
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
-    testConnection();
+    if (document.querySelector('#join-create')){
+        initJoinCreate();
+    }
+    else if (document.querySelector('#index')){
+        initIndex();
+    }
 }
 
-
-function testConnection(){
-    fetchFromServer('/tiles','GET').then(tiles => console.log(tiles)).catch(errorHandler);
+function initJoinCreate(){
+    fetchGames(showGames);
+    document.querySelector("#join-game button[type=submit]").addEventListener("click",joinAGame);
+    document.querySelector("#create-game button[type=submit]").addEventListener('click',createGame);
+}
+function initIndex(){
+    document.querySelector("#start-game").addEventListener('click',goToJoinCreate);
 }
