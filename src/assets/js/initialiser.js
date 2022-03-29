@@ -13,4 +13,6 @@ function init(){
 function initJoinCreate(){
     fetchGames(showGames);
     document.querySelector("#join-game button[type=submit]").addEventListener("click",joinAGame);
+    document.querySelector("#create-game button[type=submit]").addEventListener('click',createGame);
+
 }
