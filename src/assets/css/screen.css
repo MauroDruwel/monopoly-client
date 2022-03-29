@@ -76,7 +76,7 @@ h1 {
     border-radius: 1rem;
 }
 
-.header h1 {
+#header_join-create h1 {
     margin-top: 2rem;
     text-align: center;
     font-size: 4rem;
@@ -89,7 +89,7 @@ h1 {
 
 /*TODO fix background image*/
 
-.header span {
+#header_join-create span {
     background: #FFFFFF;
     padding: 2rem;
 }
@@ -126,7 +126,11 @@ h1 {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 2rem;
+}
 
+#join-game li:last-child{
+    padding-right: 0rem;
 }
 
 #join-create ul {
