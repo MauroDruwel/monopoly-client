@@ -10,5 +10,5 @@ function init(){
 }
 
 function initLoginJoin(){
-    
+    fetchGames(showGames);
 }
