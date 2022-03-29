@@ -1,0 +1,67 @@
+body {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 1rem;
+    color: #757575;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Abel', 'Arial', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    color: #333333;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    background-image: url("../media/line.svg"), url("../media/line.svg");
+    background-size: contain;
+    background-repeat: repeat, repeat;
+    background-position: left, right;
+}
+
+header h1 span {
+    background-color: #FFFFFF;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+img {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    color: #757575;
+}
+
+select, input {
+    display: block;
+    background-color: #FFFFFF;
+    height: 2.25rem;
+    border-radius: 0.3125rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    letter-spacing:  0.0625rem;
+    box-sizing: border-box;
+    caret-color: lightblue; /* cursor */
+    border-style: solid;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
