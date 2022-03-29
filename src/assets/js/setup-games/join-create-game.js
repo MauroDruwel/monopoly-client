@@ -20,8 +20,6 @@ function joinAGame(e){
 }
 function createGame(e){
     e.preventDefault();
-    console.log(getGameName());
-    console.log(getNumberOfPlayers());
     const requestBody = {"prefix": `${getGameName()}`, "numberOfPlayers": getNumberOfPlayers()};
     fetchFromServer('/games', 'POST', requestBody).catch(errorHandler);
 }

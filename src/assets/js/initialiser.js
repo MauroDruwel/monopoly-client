@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded',init);
 function init(){
     if (document.querySelector('#join-create')){
         initJoinCreate();
-        console.log("testttt");
     }
 }
 

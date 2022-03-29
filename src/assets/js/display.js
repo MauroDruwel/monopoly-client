@@ -2,7 +2,6 @@
 
 function showGames(games){
     const $template = document.querySelector('#radio-list').content.firstElementChild.cloneNode(true);
-    console.log($template);
     games.forEach(game => {
         if (game.started === false){
             $template.querySelector('td').setAttribute("for",game.id);
