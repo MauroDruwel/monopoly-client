@@ -8,67 +8,84 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
     <!--    css-->
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/general.css">
+    <link rel="stylesheet" href="assets/css/join-create.css">
 
 </head>
 <body>
 
-<header id="header_join-create"><h1><span>Monopoly</span></h1></header>
-<main id="join-create">
-    <div class="username-container">
-        <form action="#" method="post">
-            <label for="username">Username:</label>
+    <header>
+        <h1><span>Monopoly</span></h1>
+    </header>
+
+    <main id="join-create">
+
+        <form action="#" method="post" id="username-form">
+            <label for="username">Username: </label>
             <input type="text" id="username" name="username" placeholder="Enter Username" required>
         </form>
-    </div>
 
-    <div class="flex-container">
-        <div id="join-game">
-            <h2>Join Game</h2>
-            <form action="#" method="post">
-                <fieldset>
-                    <ul>
-                        <li>Game name</li>
+        <div class="grid-container">
 
-                        <li>Players</li>
+            <div id="join-game">
 
-                        <li>Select</li>
-                    </ul>
+                <h2>Join Game</h2>
+                <form action="#" method="post">
+                    <fieldset>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Game Name</th>
+                                    <th>#Players</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template id="radio-list">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <input type="radio" id="" name="" value="">
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <button type="submit" value="join-game" class="button">JOIN GAME</button>
+                </form>
+            </div>
 
-                    <template>
-                        <div class="radio_list">
-                            <label for=""></label>
-                            <label for=""></label>
-                            <input type="radio" id="" name="" value="">
-                        </div>
-                    </template>
-                </fieldset>
-                <button type="submit" value="join_game" class="button">JOIN GAME</button>
-            </form>
+            <div id="create-game">
+
+                <h2>Create Game</h2>
+                <form action="#" method="post">
+                    <label for="game-name">Game name</label>
+                    <input type="text" id="game-name" name="game_name" placeholder="Enter game name">
+                    <label for="number-of-players">Number of players</label>
+                    <select id="number-of-players">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit" value="create-game" class="button">CREATE GAME</button>
+                </form>
+            </div>
+
         </div>
 
-        <div id="create_game">
-            <h2>Create Game</h2>
-            <form action="#" method="post">
-                <label for="game_name">Game name</label>
-                <input type="text" id="game_name" name="game_name" placeholder="Enter game name">
-                <label for="number_of_players">Number of players</label>
-                <select id="number_of_players">
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button type="submit" value="create_game" class="button">CREATE GAME</button>
-            </form>
+    </main>
+    <footer>
+        <div class="errormessages">
+            <p></p>
         </div>
-    </div>
-</main>
-<div class="errormessages">
-    <p></p>
-</div>
+    </footer>
+
 </body>
 </html>
