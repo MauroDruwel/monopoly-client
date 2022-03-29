@@ -15,12 +15,12 @@ header {
     text-align: center;
     font-size: 4rem;
     background-image: url("../media/header_line_left.png"), url("../media/header_line_right.png");
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat, no-repeat;
     background-position: left, right;
 }
 
-#welcome_screen h1 span{
+#welcome_screen h1 span {
     background: #FFFFFF;
     padding: 2rem;
 }
@@ -51,38 +51,50 @@ header {
     background-color: #757575;
     color: #FFFFFF;
     border-radius: 1rem;
+
 }
+
 
 h1 {
     font-family: 'Abel', 'Arial', sans-serif;
 
 }
+
 /*join-create*/
-#join-create{
+#join-create {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, sans-serif;
 }
 
-.header h1{
+#join-create .button {
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+}
+
+.header h1 {
     margin-top: 2rem;
     text-align: center;
     font-size: 4rem;
     width: auto;
     background-image: url("../media/header_line_left.png"), url("../media/header_line_right.png");
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat, no-repeat;
     background-position: left, right;
 }
+
 /*TODO fix background image*/
 
-.header span{
+.header span {
     background: #FFFFFF;
     padding: 2rem;
 }
 
-.username-container{
+.username-container {
     margin-top: 2rem;
     /*display: flex;*/
     /*flex-wrap:wrap;*/
@@ -90,21 +102,25 @@ h1 {
 }
 
 
-
-.username-container label{
+.username-container label {
     display: block;
     font-size: 1.5rem;
 }
 
-#username{
+#username {
     width: 60%;
 }
 
-#join-create  h2{
+#join-game {
+
+}
+
+#join-create h2 {
     color: #757575;
     font-size: 2rem;
 }
-#join-create li{
+
+#join-create li {
     color: #757575;
     font-size: 1rem;
     display: inline-block;
@@ -112,10 +128,34 @@ h1 {
     margin-right: auto;
 
 }
-#join-create ul{
-    border-bottom: solid 0.1rem #757575;
 
+#join-create ul {
+    border-bottom: solid 0.1rem #757575;
 }
+
+#join-create .flex-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#create_game {
+    background-image: url("../media/vertline.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 6rem;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+#create_game form, #create_game label, #create_game button {
+    display: block;
+    margin-top: 2rem;
+}
+
 /*general*/
 .hidden {
     display: none;
