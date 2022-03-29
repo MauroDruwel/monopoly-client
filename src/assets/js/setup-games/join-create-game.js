@@ -1,9 +1,9 @@
 "use strict";
 function getJoinId(){
-    return document.querySelector('input:checked').value;
+    return document.querySelector('input[type=radio]:checked').value;
 }
 function getUsername(){
-    return document.querySelector("#username").value;
+    return document.querySelector("#username-form input").value;
 }
 function joinAGame(e){
     e.preventDefault();
