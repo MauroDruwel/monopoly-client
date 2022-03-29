@@ -11,3 +11,6 @@ function joinAGame(e){
     const path = `/games/${getJoinId()}/players`;
     fetchFromServer(path,'POST', requestBody).catch(errorHandler);
 }
+function creatGame(e){
+    e.preventDefault();
+}
