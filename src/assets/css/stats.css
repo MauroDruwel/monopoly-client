@@ -45,6 +45,12 @@ header h1 {
     padding-top: 10rem;
     padding-left:0.5rem;
 }
+/*stats_tiles*/
+#stats_tiles{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    
+}
 
 
 
