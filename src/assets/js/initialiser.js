@@ -10,6 +10,9 @@ function init(){
     else if (document.querySelector('#index')){
         initIndex();
     }
+    else if (document.querySelector('#auction')){
+        initAuction();
+    }
 }
 
 function initJoinCreate(){
@@ -19,4 +22,7 @@ function initJoinCreate(){
 }
 function initIndex(){
     document.querySelector("#start-game").addEventListener('click',goToJoinCreate);
+}
+function initAuction(){
+    document.querySelector('#offerPlaceholder button[type=submit]').addEventListener('click', bid);
 }
