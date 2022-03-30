@@ -1,6 +1,6 @@
 "use strict";
 let _token = {token: null};
-let _gameID = {gameID: null};
+let _gameID = null;
 
 document.addEventListener('DOMContentLoaded',init);
 
