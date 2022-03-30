@@ -28,5 +28,7 @@ function initIndex(){
 function initMainBoard(){
     _player = loadFromStorage("_player");
     getGameInformationByGameID(showJoinedPlayers);
+    getGameInformationByGameID(checkIfGameHasStarted);
     document.querySelector('#offerPlaceholder button[type=submit]').addEventListener('click', bid);
+
 }
