@@ -14,21 +14,36 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
     <link rel="stylesheet" href="assets/css/my-properties.css">
+    <link rel="stylesheet" href="assets/css/waiting-form.css">
 
     <!-- js-->
     <script src="assets/js/helper.js"></script>
-    <script src="assets/js/display.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
+    <script src="assets/js/render/render-joined-players.js"></script>
     <script src="assets/js/initialiser.js"></script>
 
-
 </head>
+
 <body>
 <main>
-    <div id="home-board">
+
+    <div id="waiting-form">
+        <header>
+            <h1><span>Monopoly</span></h1>
+        </header>
+        <div class="main">
+            <h2>Game Queue</h2>
+            <ul>
+                <!-- INSERT JOINED PLAYERS HERE -->
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="home-board" class="hidden">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
