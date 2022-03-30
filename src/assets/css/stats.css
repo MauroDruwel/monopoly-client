@@ -2,6 +2,18 @@ header h1 {
     margin-bottom: 5rem;
 
 }
+
+.player_balance {
+    background-color: #757575;
+    color: #FFFFFF;
+    width: fit-content;
+    padding: 0.1rem;
+    text-align: center;
+
+}
+.player_balance + h2{
+    margin-top: 4rem;
+}
 /* flex container columns*/
 .flex-container {
     justify-content:space-between;
@@ -32,12 +44,6 @@ header h1 {
     padding-top: 10rem;
     padding-left:0.5rem;
 }
-.player_balance {
-    background-color: #757575;
-    color: #FFFFFF;
-    width: fit-content;
-    padding: 0.1rem;
-    text-align: center;
 
 
-}
+
