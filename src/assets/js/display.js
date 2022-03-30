@@ -18,7 +18,6 @@ function showGames(games){
     });
 }
 function showJoinedPlayers(response){
-    console.log(response);
     const $ul = document.querySelector("ul");
     $ul.innerHTML = "";
     for (let i = 0; i < response.players.length; i++) {
