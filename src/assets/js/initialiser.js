@@ -1,10 +1,9 @@
 "use strict";
-const _player = {
+let _player = {
     username: null,
     token: null,
     gameId: null
 };
-
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
@@ -14,6 +13,9 @@ function init(){
     else if (document.querySelector('#index')){
         initIndex();
     }
+    else if (document.querySelector('#waiting-form')){
+        initWaitingForm();
+    }
 }
 
 function initConnect(){
@@ -22,4 +24,8 @@ function initConnect(){
 }
 function initIndex(){
     document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+}
+function initWaitingForm(){
+    _player = loadFromStorage("_player");
+    getGameInformationByGameID(showJoinedPlayers);
 }

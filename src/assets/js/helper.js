@@ -1,7 +1,6 @@
 "use strict";
-
-function fetchGames(myfunction) {
-    fetchFromServer('/games', 'GET').then(games => myfunction(games)).catch(errorHandler);
+function getGameInformationByGameID(myfunction){
+    fetchFromServer(`/games/${_player.gameId}`,'GET').then(response => myfunction(response)).catch(errorHandler);
 }
 
 function beautifyId(id){
