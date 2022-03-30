@@ -25,3 +25,28 @@ async function retrieveAvailableGames(numberOfPlayers){
     return await fetchFromServer(`/games?prefix=${_config.gamePrefix}&numberOfPlayers=${numberOfPlayers}&started=false`, 'GET');
 }
 
+function joinGame(gameId, username){
+    const requestBody = {
+        "playerName": username
+    };
+
+    fetchFromServer(`/games/${gameId}/players`, 'POST', requestBody)
+        .then(response => {
+            _player.token = response.token;
+            _player.username = username;
+            _player.gameId = gameId;
+            saveToStorage("_player", _player);
+        });
+}
+
+function createGame(numberOfPlayers, username) {
+    const bodyParams = {
+        "prefix": _config.gamePrefix,
+        "numberOfPlayers": parseInt(numberOfPlayers)
+    };
+
+    // joinen van een game met dit ID
+    fetchFromServer('/games', 'POST', bodyParams)
+        .then(game => joinGame(game.id, username));
+}
+
