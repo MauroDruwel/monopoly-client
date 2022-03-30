@@ -1,5 +1,6 @@
 "use strict";
-let _token = null;
+let _token = {token: null};
+let _gameID = {gameID: null};
 
 document.addEventListener('DOMContentLoaded',init);
 
@@ -10,6 +11,9 @@ function init(){
     else if (document.querySelector('#index')){
         initIndex();
     }
+    else if (document.querySelector('#waiting-form')){
+        initWaitingForm();
+    }
 }
 
 function initJoinCreate(){
@@ -19,4 +23,7 @@ function initJoinCreate(){
 }
 function initIndex(){
     document.querySelector("#start-game").addEventListener('click',goToJoinCreate);
+}
+function initWaitingForm(){
+    getGameInformationByGameID(showJoinedPlayers);
 }

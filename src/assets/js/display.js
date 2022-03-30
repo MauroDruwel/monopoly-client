@@ -1,5 +1,4 @@
 "use strict";
-
 function showGames(games){
     const $template = document.querySelector('#radio-list').content.firstElementChild.cloneNode(true);
     games.forEach(game => {
@@ -17,4 +16,17 @@ function showGames(games){
             document.querySelector('tbody').insertAdjacentHTML("beforeend",$template.outerHTML);
         }
     });
+}
+function showJoinedPlayers(response){
+    console.log(response);
+    const $ul = document.querySelector("ul");
+    $ul.innerHTML = "";
+    for (let i = 0; i < response.players.length; i++) {
+        $ul.insertAdjacentHTML("beforeend",`<li>${response.players[i].name}</li>`);
+
+    }
+    for (let i = 0; i < response.numberOfPlayers - response.players.length; i++) {
+        $ul.insertAdjacentHTML("beforeend","<li>Waiting for player...</li>");
+    }
+
 }
