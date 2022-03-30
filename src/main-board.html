@@ -13,23 +13,92 @@
     <!--    css-->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
+    <link rel="stylesheet" href="assets/css/auction.css">
+    <link rel="stylesheet" href="assets/css/stats.css">
     <link rel="stylesheet" href="assets/css/waiting-form.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
+
     <!-- js-->
     <script src="assets/js/helper.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
+    <script src="assets/js/in-game/autction.js"></script>
     <script src="assets/js/render/render-joined-players.js"></script>
     <script src="assets/js/setup-games/waiting-form.js"></script>
     <script src="assets/js/initialiser.js"></script>
-
 </head>
+
 <body>
-
 <main>
+    <div id="player_stats" class="hidden">
+        <header>
+            <h1><span>stats</span></h1>
+        </header>
+        <div class="flex-container-button">
+            <button type="button">close stats</button>
+        </div>
+        <div class="flex-container">
+            <div class="playerstats-playerbalance_pawn">
+                <h2>player stats: lucasdevis</h2>
+                <div class="player_balance">
+                    <p>player balance</p>
+                    <p>112000</p>
+                </div>
+                <h2>pawn: <!--add pawn name--></h2>
 
+                <!--pawn logo svg-->
+            </div>
+
+            <div class="stats_window-stats_tiles">
+                <h2>cards</h2>
+
+                <div class="stats_window">
+
+
+                    <!-- namaspathparameter=tilenames-->
+                    <!-- template-->
+                    <div class="stats_tiles">
+
+
+                        <div class="square electric_company"></div>
+                        <div class="square water_works"></div>
+                        <div class="square airport1"></div>
+                        <div class="square airport2"></div>
+                        <div class="square airport3"></div>
+                        <div class="square airport4"></div>
+                        <div class="square dark_yellow1"></div>
+                        <div class="square dark_yellow2"></div>
+                        <div class="square dark_yellow3"></div>
+                        <div class="square yellow1"></div>
+                        <div class="square yellow2"></div>
+                        <div class="square yellow3"></div>
+                        <div class="square red1"></div>
+                        <div class="square red2"></div>
+                        <div class="square red3"></div>
+                        <div class="square hotpink1"></div>
+                        <div class="square hotpink2"></div>
+                        <div class="square hotpink3"></div>
+                        <div class="square brown1"></div>
+                        <div class="square brown2"></div>
+                        <div class="square lightblue1"></div>
+                        <div class="square lightblue2"></div>
+                        <div class="square lightblue3"></div>
+                        <div class="square blue1"></div>
+                        <div class="square blue2"></div>
+                        <div class="square green1"></div>
+                        <div class="square green2"></div>
+                        <div class="square green3"></div>
+                    </div>
+
+
+                    <p>jail pass:<span></span></p>
+                </div>
+            </div>
+            <!-- insert clicked cards front and back -->
+        </div>
+    </div>
     <div id="waiting-form" class="">
         <header>
             <h1><span>Monopoly</span></h1>
@@ -66,14 +135,48 @@
             </div>
         </div>
     </div>
+    <div id="auction" class="hidden">
 
+        <header>
+            <h1><span>Auction</span></h1>
+        </header>
+
+        <div class="main">
+            <div class="flex-container">
+                <div id="tileDisplay">
+                    <h2>Card on sale:</h2>
+                    <template>
+                        <div>
+                            <!-- insert tiles here -->
+                        </div>
+                    </template>
+                </div>
+                <div id="offerPlaceholder">
+                    <h2>Highest offer:</h2>
+                    <div>
+                        <p><!-- currency bidder --></p>
+                        <p><!-- name bidder --></p>
+                    </div>
+                    <form action="#" method="post">
+                        <label for="offer">Your offer:</label>
+                        <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
+                        <button type="submit">OFFER</button>
+                    </form>
+                </div>
+                <div id="time">
+                    <h2>Time left:</h2>
+                    <p>
+                        <!-- display time here -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
-
 <footer>
     <div class="errormessages">
         <p></p>
     </div>
 </footer>
-
 </body>
 </html>

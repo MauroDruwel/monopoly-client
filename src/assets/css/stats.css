@@ -1,0 +1,201 @@
+#player_stats header h1 {
+    margin-bottom: 5rem;
+
+}
+#player_stats .player_balance {
+    background-color: #757575;
+    color: #FFFFFF;
+    width: fit-content;
+    padding: 0.1rem;
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+#player_stats .flex-container-button{
+    display: flex;
+    justify-content: flex-end;
+    margin:2rem;
+}
+#player_stats button {
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    max-width: 100%;
+}
+#player_stats .player_balance + h2{
+    margin-top: 5rem;
+}
+/* flex container columns*/
+#player_stats .flex-container {
+    justify-content:space-between;
+    margin: auto;
+    align-content: flex-start;
+}
+
+/*eq margins*/
+#player_stats .playerstats-playerbalance_pawn {
+    margin-left: 2rem;
+}
+#player_stats .stats_window-stats_tiles{
+    margin-right: 2rem;
+}
+#player_stats .stats_window-stats_tiles button{
+    margin-bottom: 1rem;
+
+}
+/* box for cards */
+#player_stats .stats_window{
+    background-color:#DEE1E6;
+    border: solid 0.1rem grey;
+    width: 25rem;
+    height: 12rem;
+    box-shadow:0.2rem 0.2rem 0.1rem grey ;
+}
+
+
+/*stats_tiles*/
+#player_stats .stats_tiles .square{
+    width: 1rem;
+    height: 1rem;
+    border: solid 0.1rem;
+}
+#player_stats .stats_window p{
+    padding-left: 1rem;
+}
+#player_stats .stats_tiles{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    justify-content: space-evenly;
+
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    grid-gap:1rem;
+    grid-template-areas:
+            "br1     lb1    hp1      dy1      r1    y1       g1      db1     ap1     ec"
+            "br2     lb2    hp2      dy2      r2    y2       g2      db2     ap2     ww"
+            ".       lb3    hp3      dy3      r3    y3       g3      .       ap3     ."
+            ".       .      .        .        .     .        .       .       ap4     .";
+
+
+}
+
+/*tiles*/
+#player_stats .brown1{
+    background-color: saddlebrown;
+    text-align: center;
+    grid-area: br1;
+}
+#player_stats .brown2{
+    background-color: saddlebrown;
+    grid-area: br2;
+}
+
+#player_stats .lightblue1{
+    background-color: deepskyblue;
+    grid-area: lb1;
+}
+#player_stats .lightblue2{
+    background-color: deepskyblue;
+    grid-area: lb2;
+}
+#player_stats .lightblue3{
+    background-color: deepskyblue;
+    grid-area: lb3;
+}
+#player_stats .hotpink1{
+    background-color: hotpink;
+    grid-area: hp1;
+}
+#player_stats .hotpink2{
+    background-color: hotpink;
+    grid-area: hp2;
+}
+#player_stats .hotpink3{
+    background-color: hotpink;
+    grid-area: hp3;
+}
+#player_stats .dark_yellow1{
+    background-color: darkorange;
+    grid-area: dy1;
+}
+#player_stats .dark_yellow2{
+    background-color: darkorange;
+    grid-area: dy2;
+}
+#player_stats .dark_yellow3{
+    background-color: darkorange;
+    grid-area: dy3;
+}
+#player_stats .red1{
+    background-color: red;
+    grid-area: r1;
+}
+#player_stats .red2{
+    background-color: red;
+    grid-area: r2;
+}
+#player_stats .red3{
+    background-color: red;
+    grid-area: r3;
+}
+#player_stats .yellow1{
+    background-color: yellow;
+    grid-area: y1;
+}
+#player_stats .yellow2{
+    background-color: yellow;
+    grid-area: y2;
+}
+#player_stats .yellow3{
+    background-color: yellow;
+    grid-area: y3;
+}
+#player_stats .green1{
+    background-color: green;
+    grid-area: g1;
+}
+#player_stats .green2{
+    background-color: green;
+    grid-area: g2;
+}
+#player_stats .green3{
+    background-color: green;
+    grid-area: g3;
+}
+#player_stats .blue1{
+    background-color: blue;
+    grid-area: db1;
+}
+#player_stats .blue2{
+    background-color: blue;
+    grid-area: db2;
+}
+#player_stats .airport1{
+    background-color: black;
+    grid-area: ap1;
+}
+#player_stats .airport2{
+    background-color: black;
+    grid-area: ap2;
+}
+#player_stats .airport3{
+    background-color: black;
+    grid-area: ap3;
+}
+#player_stats .airport4{
+    background-color: black;
+    grid-area: ap4;
+}
+#player_stats .electric_company{
+    background-color: white;
+    grid-area: ec;
+}
+#player_stats .water_works{
+    background-color: white;
+    grid-area: ww;
+}

@@ -14,7 +14,7 @@ function init(){
         initIndex();
     }
     else if (document.querySelector('#waiting-form')){
-        initWaitingForm();
+        initMainBoard();
     }
 }
 
@@ -25,8 +25,10 @@ function initConnect(){
 function initIndex(){
     document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
 }
-function initWaitingForm(){
+function initMainBoard(){
     _player = loadFromStorage("_player");
     getGameInformationByGameID(showJoinedPlayers);
     getGameInformationByGameID(checkIfGameHasStarted);
+    document.querySelector('#offerPlaceholder button[type=submit]').addEventListener('click', bid);
+
 }
