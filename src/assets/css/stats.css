@@ -41,16 +41,148 @@ header h1 {
     height: 12rem;
     box-shadow:0.2rem 0.2rem 0.1rem grey ;
 }
-.stats_window p{
-    padding-top: 10rem;
-    padding-left:0.5rem;
-}
+
+
 /*stats_tiles*/
-#stats_tiles{
+.stats_tiles .square{
+    width: 1rem;
+    height: 1rem;
+    border: solid 0.1rem;
+}
+.stats_window p{
+    padding-left: 1rem;
+}
+.stats_tiles{
     display: grid;
     grid-template-columns: repeat(10,1fr);
-    
+    justify-content: space-evenly;
+
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    grid-gap:1rem;
+    grid-template-areas:
+            "br1     lb1    hp1      dy1      r1    y1       g1      db1     ap1     ec"
+            "br2     lb2    hp2      dy2      r2    y2       g2      db2     ap2     ww"
+            ".       lb3    hp3      dy3      r3    y3       g3      .       ap3     ."
+            ".       .      .        .        .     .        .       .       ap4     .";
+
+
 }
 
+/*tiles*/
+.brown1{
+    background-color: saddlebrown;
+    text-align: center;
+    grid-area: br1;
+}
+.brown2{
+    background-color: saddlebrown;
+    grid-area: br2;
+}
 
-
+.lightblue1{
+    background-color: deepskyblue;
+    grid-area: lb1;
+}
+.lightblue2{
+    background-color: deepskyblue;
+    grid-area: lb2;
+}
+.lightblue3{
+    background-color: deepskyblue;
+    grid-area: lb3;
+}
+.hotpink1{
+    background-color: hotpink;
+    grid-area: hp1;
+}
+.hotpink2{
+    background-color: hotpink;
+    grid-area: hp2;
+}
+.hotpink3{
+    background-color: hotpink;
+    grid-area: hp3;
+}
+.dark_yellow1{
+    background-color: darkorange;
+    grid-area: dy1;
+}
+.dark_yellow2{
+    background-color: darkorange;
+    grid-area: dy2;
+}
+.dark_yellow3{
+    background-color: darkorange;
+    grid-area: dy3;
+}
+.red1{
+    background-color: red;
+    grid-area: r1;
+}
+.red2{
+    background-color: red;
+    grid-area: r2;
+}
+.red3{
+    background-color: red;
+    grid-area: r3;
+}
+.yellow1{
+    background-color: yellow;
+    grid-area: y1;
+}
+.yellow2{
+    background-color: yellow;
+    grid-area: y2;
+}
+.yellow3{
+    background-color: yellow;
+    grid-area: y3;
+}
+.green1{
+    background-color: green;
+    grid-area: g1;
+}
+.green2{
+    background-color: green;
+    grid-area: g2;
+}
+.green3{
+    background-color: green;
+    grid-area: g3;
+}
+.blue1{
+    background-color: blue;
+    grid-area: db1;
+}
+.blue2{
+    background-color: blue;
+    grid-area: db2;
+}
+.airport1{
+    background-color: black;
+    grid-area: ap1;
+}
+.airport2{
+    background-color: black;
+    grid-area: ap2;
+}
+.airport3{
+    background-color: black;
+    grid-area: ap3;
+}
+.airport4{
+    background-color: black;
+    grid-area: ap4;
+}
+.electric_company{
+    background-color: white;
+    grid-area: ec;
+}
+.water_works{
+    background-color: white;
+    grid-area: ww;
+}
