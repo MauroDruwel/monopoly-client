@@ -2,7 +2,6 @@ header h1 {
     margin-bottom: 5rem;
 
 }
-
 .player_balance {
     background-color: #757575;
     color: #FFFFFF;
@@ -11,6 +10,11 @@ header h1 {
     text-align: center;
     font-size: 1.5rem;
 
+}
+
+.flex-container-button{
+    display: flex;
+    justify-content: flex-end;
 }
 .player_balance + h2{
     margin-top: 5rem;
