@@ -27,3 +27,11 @@ function renderGames(games){
     });
 }
 
+function hideGames(){
+    document.querySelector('#available-games').classList.add('hidden');
+
+    // remove html, so radio values in form are removed as well
+    const $template = document.querySelector('#radio-list');
+    const $tbody = document.querySelector('#available-games tbody');
+    $tbody.innerHTML = $template.outerHTML; // reset html
+}
