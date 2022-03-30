@@ -14,24 +14,24 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
     <link rel="stylesheet" href="assets/css/stats.css">
+    <link rel="stylesheet" href="assets/css/waiting-form.css">
 
     <!-- js-->
     <script src="assets/js/helper.js"></script>
-    <script src="assets/js/display.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
+    <script src="assets/js/render/render-joined-players.js"></script>
     <script src="assets/js/initialiser.js"></script>
 
 </head>
 <body>
-
-<div id="player_stats">
-    <header>
-        <h1><span>stats</span></h1>
-    </header>
-    <main>
+<main>
+    <div id="player_stats" class="">
+        <header>
+            <h1><span>stats</span></h1>
+        </header>
         <div class="flex-container-button">
             <button type="button">close stats</button>
         </div>
@@ -94,16 +94,23 @@
             </div>
             <!-- insert clicked cards front and back -->
         </div>
-
-    </main>
-
-</div>
-
+    </div>
+        <div id="waiting-form" class="hidden">
+            <header>
+                <h1><span>Monopoly</span></h1>
+            </header>
+            <div class="main">
+                <h2>Game Queue</h2>
+                <ul>
+                    <!-- INSERT JOINED PLAYERS HERE -->
+                </ul>
+            </div>
+        </div>
+</main>
 <footer>
     <div class="errormessages">
         <p></p>
     </div>
 </footer>
-
 </body>
 </html>
