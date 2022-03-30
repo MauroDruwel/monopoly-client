@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>stats</title>
 
+    <meta charset="UTF-8">
+    <title>Monopoly</title>
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -14,32 +14,49 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
     <link rel="stylesheet" href="assets/css/stats.css">
+
+    <!-- js-->
+    <script src="assets/js/helper.js"></script>
+    <script src="assets/js/display.js"></script>
+    <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
+    <script src="assets/js/data-connector/error-handler.js"></script>
+    <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/initialiser.js"></script>
+
 </head>
 <body>
+
 <div id="player_stats">
-<h1>stats</h1>
-<main>
-<p>player stats:<!--add playername--></p>
+    <header>
+        <h1><span>stats</span></h1>
+        <p>player stats:<!--add playername--></p>
 
 
-<p>pawn: <!--add pawn name--></p>
-<!--pawn logo svg-->
-<a href="#">this is the closing button/link</a>
-<div class="stats_window">
-    <!-- namaspathparameter=tilenames-->
-    <!-- template-->
-    <template id="stats_tiles">
-        <div id=""></div>
-    </template>
-    jail pass:
+        <p>pawn: <!--add pawn name--></p>
+        <!--pawn logo svg-->
+        <a href="#">this is the closing button/link</a>
+        <div class="stats_window">
+            <!-- namaspathparameter=tilenames-->
+            <!-- template-->
+            <template id="stats_tiles">
+
+            </template>
+            jail pass:
+        </div>
+    </header>
+
+    <main>
+
+
+    </main>
 </div>
-</main>
+
 <footer>
     <div class="errormessages">
         <p></p>
     </div>
 </footer>
-</div>
 
 </body>
 </html>
