@@ -32,3 +32,12 @@ header h1 {
     padding-top: 10rem;
     padding-left:0.5rem;
 }
+.player_balance {
+    background-color: #757575;
+    color: #FFFFFF;
+    width: fit-content;
+    padding: 0.1rem;
+    text-align: center;
+
+
+}
