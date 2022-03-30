@@ -28,4 +28,5 @@ function initIndex(){
 function initWaitingForm(){
     _player = loadFromStorage("_player");
     getGameInformationByGameID(showJoinedPlayers);
+    getGameInformationByGameID(checkIfGameHasStarted);
 }
