@@ -19,6 +19,23 @@ function processAvailableGames(e){
     });
 }
 
+function processConnectionForm(e){
+    e.preventDefault();
+
+    const username = document.querySelector("#username").value;
+    const numberOfPlayers = document.querySelector("#number-of-players").value;
+
+    const $areGamesLoaded = document.querySelector('#available-games td input[type="radio"]');
+    const $selectedGame = document.querySelector('#available-games td input[type="radio"]:checked');
+
+    if($areGamesLoaded && $selectedGame){
+        joinGame($selectedGame.value, username);
+    }
+    else if(!$areGamesLoaded){
+        createGame(numberOfPlayers, username);
+    }
+
+}
 
 
 async function retrieveAvailableGames(numberOfPlayers){
@@ -49,4 +66,3 @@ function createGame(numberOfPlayers, username) {
     fetchFromServer('/games', 'POST', bodyParams)
         .then(game => joinGame(game.id, username));
 }
-
