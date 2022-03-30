@@ -39,7 +39,7 @@ function processConnectionForm(e){
 
 
 async function retrieveAvailableGames(numberOfPlayers){
-    return await fetchFromServer(`/games?prefix=${_config.gamePrefix}&numberOfPlayers=${numberOfPlayers}&started=false`, 'GET');
+    return fetchFromServer(`/games?prefix=${_config.gamePrefix}&numberOfPlayers=${numberOfPlayers}&started=false`, 'GET');
 }
 
 function joinGame(gameId, username){
