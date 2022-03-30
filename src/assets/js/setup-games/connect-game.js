@@ -53,7 +53,11 @@ function joinGame(gameId, username){
             _player.username = username;
             _player.gameId = gameId;
             saveToStorage("_player", _player);
+        })
+        .then(() => {
+            location.href = "main-board.html";
         });
+
 }
 
 function createGame(numberOfPlayers, username) {
