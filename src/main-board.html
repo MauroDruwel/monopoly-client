@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Monopoly</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+    <!--    css-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/general.css">
+    <link rel="stylesheet" href="assets/css/auction.css">
+
+    <!-- js-->
+    <script src="assets/js/helper.js"></script>
+    <script src="assets/js/display.js"></script>
+    <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
+    <script src="assets/js/data-connector/error-handler.js"></script>
+    <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/initialiser.js"></script>
+
+</head>
+<body>
+
+<div id="auction">
+    <header>
+        <h1><span>Auction</span></h1>
+    </header>
+
+    <main>
+        <div class="flex-container">
+            <div id="tileDisplay">
+                <h2>Card on sale:</h2>
+                <article>
+                    <!-- insert tiles here -->
+                </article>
+            </div>
+            <div id="offerPlaceholder">
+                <h2>Highest offer:</h2>
+                <div>
+                    <p><!-- currency bidder -->123€</p>
+                    <p><!-- name bidder -->thibo</p>
+                </div>
+                <form action="#" method="post">
+                    <label for="offer">Your offer:</label>
+                    <input type="text" id="offer" placeholder="Enter your offer here" name="offer">
+                    <button type="submit">OFFER</button>
+                </form>
+            </div>
+            <div id="time">
+                <h2>Time left:</h2>
+                <h3>
+                    <!-- display time here -->
+                    29s
+                </h3>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="errormessages">
+        <p></p>
+    </div>
+</footer>
+
+</body>
+</html>

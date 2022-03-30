@@ -1,0 +1,41 @@
+#auction .flex-container{
+    justify-content: space-evenly;
+}
+
+#offerPlaceholder p:first-child{
+    padding-top: 1rem;
+}
+
+#offerPlaceholder div{
+    font-size: 2rem;
+    text-align: center;
+    background-color: #757575;
+    color: #FFFFFF;
+    width: 16rem;
+    height: 6rem;
+}
+
+#auction form{
+    margin-top: 1rem;
+}
+
+#auction button{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+}
+
+#auction input{
+    width: 100%;
+    font-size: 1rem;
+}
+
+#auction label{
+    font-size: 2rem;
+}
+
+#time h3{
+    font-size: 6rem;
+}
