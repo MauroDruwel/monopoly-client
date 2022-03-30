@@ -1,4 +1,16 @@
 header h1 {
     margin-bottom: 4rem;
 }
-
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.stats_window{
+    background-color:#DEE1E6;
+    border: solid 0.1rem grey;
+    width: 20rem;
+    height: 12rem;
+    box-shadow:0.2rem 0.2rem 0.1rem grey ;
+}
