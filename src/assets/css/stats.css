@@ -1,16 +1,33 @@
 header h1 {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+
 }
-.flex-container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+
+.flex-container {
+    justify-content:space-between;
+    margin: auto;
     align-content: flex-start;
+
 }
+
+.playerstats-playerbalance_pawn {
+    margin-left: 2rem;
+}
+.stats_window-stats_tiles{
+    margin-right: 2rem;
+}
+.stats_window-stats_tiles button{
+    margin-bottom: 1rem;
+}
+/* box for cards */
 .stats_window{
     background-color:#DEE1E6;
     border: solid 0.1rem grey;
-    width: 20rem;
+    width: 25rem;
     height: 12rem;
     box-shadow:0.2rem 0.2rem 0.1rem grey ;
+}
+.stats_window p{
+    padding-top: 10rem;
+    padding-left:0.5rem ;
 }
