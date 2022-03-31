@@ -14,6 +14,6 @@ function renderQueue(response){
         $ul.insertAdjacentHTML("beforeend", html);
     }
     else {
-        location.href = "main-board.html";
+        location.href = "select-pawn.html";
     }
 }
