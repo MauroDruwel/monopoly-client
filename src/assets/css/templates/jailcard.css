@@ -1,24 +1,29 @@
 #jail_card{
     display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content:space-between;
     align-items: center;
     text-align: center;
     border: solid 0.1rem;
     width: 15rem;
     height: 18rem;
-
-
 }
-#jail_card h2{
-
-    padding-bottom: 0.8rem;
+#jail_card #jail_card_inside h3{
     border-bottom: solid 0.1rem black;
+
+    margin-top: inherit;
+    margin-bottom: 2rem;
+    vertical-align: center;
+    font-size: 1.5rem;
+    line-height: 220%;
+    background: repeating-linear-gradient(
+            90deg,
+           white ,
+            lightgray 5%,
+            grey 5%,
+            darkgray 10%)
 }
 
 #jail_card figure img{
     width: 10rem;
-    padding-bottom: 1rem;
-
-
 }
