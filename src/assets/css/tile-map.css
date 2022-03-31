@@ -1,0 +1,78 @@
+
+#tile-map {
+    background-image: url("../media/bg-pixels.png");
+    display: grid;
+    grid-template-columns: repeat(12, 1.383rem);
+    grid-template-rows: repeat(5, 1.383rem);
+    gap: 1.25rem;
+    padding: 1.2rem;
+    width: 30.5rem;
+    height: 12rem;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+
+    grid-template-areas:
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . ."
+    "player player player player player player player player player player player player";
+}
+
+#tile-map div[data-tile-id]{
+    background-color: #DEE1E6;
+    border-radius: 0.25rem;
+}
+
+#tile-map div[data-color="purple"].owns{
+    background-color: purple;
+}
+
+
+#tile-map div[data-color="lightblue"].owns{
+    background-color: lightblue;
+}
+
+#tile-map div[data-color="violet"].owns{
+    background-color: violet;
+}
+
+#tile-map div[data-color="orange"].owns{
+    background-color: orange;
+}
+
+#tile-map div[data-color="red"].owns{
+    background-color: red;
+}
+
+#tile-map div[data-color="yellow"].owns{
+    background-color: yellow;
+}
+
+#tile-map div[data-color="darkgreen"].owns{
+    background-color: darkgreen;
+}
+
+#tile-map div[data-color="darkblue"].owns{
+    background-color: darkblue;
+}
+
+#tile-map div[data-color="black"].owns{
+    background-color: black;
+}
+
+#tile-map div[data-color="white"].owns{
+    background-color: burlywood;
+}
+
+#tile-map .player {
+    grid-area: player;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#tile-map .player span {
+    font-style: italic;
+}
+
