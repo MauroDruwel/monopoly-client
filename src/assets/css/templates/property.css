@@ -1,27 +1,27 @@
-.property-card-back,.property-card-front{
+.property-card-front,.property-card-back{
     width: 15rem;
     height: 18rem;
     border: solid black 0.1rem;
     font-family: Arial,sans-serif;
 }
-.property-card-back p,.property-card-back li{
+.property-card-front p,.property-card-front li{
     margin-top: 0.5rem;
     font-size: 0.8rem;
 }
-.property-card-back{
+.property-card-front{
     text-align: center;
 }
-.property-card-front h4, .property-card-front li, .property-card-front p{
+.property-card-back h4, .property-card-back li, .property-card-back p{
     margin-top: 0.5rem;
     font-size: 0.8rem;
     text-align: center;
 }
-.property-card-front h4{
+.property-card-back h4{
     font-size: 0.9rem;
     color: #474747;
     font-weight: bolder;
 }
-.property-card-back h3,.property-card-front h3{
+.property-card-front h3,.property-card-back h3{
     font-size: 1.5rem;
     text-align: center;
     color: white;
@@ -30,6 +30,6 @@
     border-bottom: solid black 0.1rem;
 
 }
-.property-card-front p:last-child{
+.property-card-back p:last-child{
     margin-bottom: 0.5rem;
 }
