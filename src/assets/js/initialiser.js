@@ -28,5 +28,5 @@ function initIndex(){
 function initMainBoard(){
     _player = loadFromStorage("_player");
     gameState(renderQueue);
-    document.querySelector('#offerPlaceholder button[type=submit]').addEventListener('click', bid);
+    document.querySelector('#offer-placeholder button[type=submit]').addEventListener('click', bid);
 }

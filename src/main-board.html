@@ -149,33 +149,29 @@
         </header>
 
         <div class="main">
-            <div class="flex-container">
-                <div id="tileDisplay">
-                    <h2>Card on sale:</h2>
-                    <template>
-                        <div>
-                            <!-- insert tiles here -->
-                        </div>
-                    </template>
+            <div class="display-tile">
+                <h2>Card on sale:</h2>
+                <div>
+                    <!-- insert tiles here -->
                 </div>
-                <div id="offerPlaceholder">
-                    <h2>Highest offer:</h2>
-                    <div>
-                        <p><!-- currency bidder --></p>
-                        <p><!-- name bidder --></p>
-                    </div>
-                    <form action="#" method="post">
-                        <label for="offer">Your offer:</label>
-                        <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
-                        <button type="submit">OFFER</button>
-                    </form>
+            </div>
+            <div id="offer-placeholder">
+                <h2>Highest offer:</h2>
+                <div>
+                    <p><!-- currency bidder --></p>
+                    <p><!-- name bidder --></p>
                 </div>
-                <div id="time">
-                    <h2>Time left:</h2>
-                    <p>
-                        <!-- display time here -->
-                    </p>
-                </div>
+                <form action="#" method="post">
+                    <label for="offer">Your offer:</label>
+                    <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
+                    <button type="submit">OFFER</button>
+                </form>
+            </div>
+            <div id="time">
+                <h2>Time left:</h2>
+                <p>
+                    <!-- display time here -->
+                </p>
             </div>
         </div>
     </div>
