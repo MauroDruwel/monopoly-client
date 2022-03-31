@@ -1,0 +1,24 @@
+#jail_card{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    text-align: center;
+    border: solid 0.1rem;
+    width: 15rem;
+    height: 18rem;
+
+
+}
+#jail_card h2{
+
+    padding-bottom: 0.8rem;
+    border-bottom: solid 0.1rem black;
+}
+
+#jail_card figure img{
+    width: 10rem;
+    padding-bottom: 1rem;
+
+
+}
