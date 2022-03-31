@@ -27,6 +27,8 @@
     <script src="assets/js/in-game/auction.js"></script>
     <script src="assets/js/render/render-joined-players.js"></script>
     <script src="assets/js/in-game/waiting-form.js"></script>
+    <script src="assets/js/in-game/process-properties.js"></script>
+    <script src="assets/js/render/render-property-info.js"></script>
     <script src="assets/js/initialiser.js"></script>
 </head>
 
@@ -99,7 +101,7 @@
             <!-- insert clicked cards front and back -->
         </div>
     </div>
-    <div id="waiting-form" class="">
+    <div id="waiting-form" class="hidden">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
@@ -170,6 +172,35 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="tile" class="">
+        <template>
+            <div id="property-card-back">
+                <h2>Information about: <span></span></h2>
+                <p>Owner <span></span></p>
+                <p>Building(s):</p>
+                <ul>
+
+                </ul>
+                <p>Mortgaged: <span></span></p>
+            </div>
+        </template>
+        <div id="frond-card-container">
+            <template id="frond-card">
+                <div id="property-card-front">
+                    <h3></h3>
+                    <h4>Rent: <span></span></h4>
+                    <ul>
+
+                    </ul>
+                    <h4>Mortgage value: <span></span></h4>
+                    <p>An appartement costs <span></span> per piece</p>
+                    <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                    <p>If a player owns all the properties of the color group, the rent doubles</p>
+                </div>
+            </template>
         </div>
     </div>
 </main>
