@@ -2,7 +2,8 @@
 let _player = {
     username: null,
     token: null,
-    gameId: null
+    gameId: null,
+    pawn: null
 };
 document.addEventListener('DOMContentLoaded',init);
 
