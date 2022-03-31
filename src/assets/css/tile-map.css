@@ -19,7 +19,7 @@
     "player player player player player player player player player player player player";
 }
 
-.tile-map div[data-tile-id]{
+.tile-map div[data-tileId]{
     background-color: #DEE1E6;
     border-radius: 0.25rem;
 }
