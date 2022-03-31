@@ -7,6 +7,11 @@ function beautifyId(id){
     return capitalizeFirstLetter(id.replace(/_/g, ' '));
 }
 
+function convertSpaceToDash(string){
+    return capitalizeFirstLetter(string.replace(/ /g,"_"));
+
+}
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -16,4 +21,10 @@ function getTiles(){
         getProperties(response);
     }).catch(errorHandler);
 
+}
+
+function getSpecificTile(tilename){
+    fetchFromServer(`/tiles/${tilename}`, "GET").then(response => {
+        renderFrondTiles(response);
+    }).catch(errorHandler);
 }

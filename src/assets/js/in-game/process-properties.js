@@ -3,7 +3,7 @@
 function getProperties(properties){
     properties.forEach(property => {
         if (property.type === "street"){
-            // renderTiles(property);
+            renderFrondTiles(property);
             console.log("property", property);
         }
         else if (property.type === "railroad"){
