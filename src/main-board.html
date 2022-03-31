@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="assets/css/stats.css">
     <link rel="stylesheet" href="assets/css/waiting-form.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
+    <link rel="stylesheet" href="assets/css/templates/property.css">
+    <link rel="stylesheet" href="assets/css/unmortgage.css">
 
     <!-- js-->
     <script src="assets/js/helper.js"></script>
@@ -99,7 +101,7 @@
             <!-- insert clicked cards front and back -->
         </div>
     </div>
-    <div id="waiting-form" class="">
+    <div id="waiting-form" class="hidden">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
@@ -172,9 +174,9 @@
             </div>
         </div>
     </div>
-    <div id="unmortgage" class="hidden">
+    <div id="unmortgage" class="">
         <header>
-            <h1><span>Mortgage</span></h1>
+            <h1><span>Unmortgage</span></h1>
         </header>
         <div class="main">
             <div class="flex-container">
@@ -183,8 +185,29 @@
             </div>
             <div class="flex-container">
                 <div class="flex-item">
+                    <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
+                        <h3>Brussels</h3>
+                        <p>Owner: <span></span></p>
+                        <p>Building(s):</p>
+                        <ul>
+
+                        </ul>
+                        <p>Mortgaged: <span></span></p>
+                    </div>
+                    <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
+                        <h3>Brussels</h3>
+                        <h4>Rent: <span></span></h4>
+                        <ul>
+
+                        </ul>
+                        <h4>Mortgage value: <span></span></h4>
+                        <p>An appartement costs <span></span> per piece</p>
+                        <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                        <p>If a player owns all the properties of the color group, the rent doubles</p>
+                    </div>
                     <template>
-                        <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
+                        <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
                             <h3></h3>
                             <p>Owner: <span></span></p>
                             <p>Building(s):</p>
@@ -195,7 +218,7 @@
                         </div>
                     </template>
                     <template>
-                        <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
+                        <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
                             <h3></h3>
                             <h4>Rent: <span></span></h4>
                             <ul>
@@ -213,6 +236,10 @@
                     <p>To unmortgage a property 10% interest is added</p>
                 </div>
             </div>
+                <div class="buttons">
+                    <button>cancel unmortgage</button>
+                    <button>unmortgage</button>
+                </div>
         </div>
     </div>
 </main>

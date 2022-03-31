@@ -1,0 +1,45 @@
+#unmortgage .main{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+#unmortgage .flexcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+#unmortgage .flex-item{
+    display: flex;
+}
+#unmortgage .property-card-front{
+    margin-right: 1rem;
+}
+#unmortgage #information{
+
+}
+#unmortgage #information p{
+    border-radius: 0.5rem;
+    width: 18rem;
+    display: inline-block;
+    background-color: rgb(206, 206, 206);
+    color: black;
+    padding: 0.5rem 0.5rem 0.5rem 3.2rem;
+}
+#unmortgage #information p{
+    background-image: url("../media/icons8-info.svg");
+    background-repeat: no-repeat;
+    background-size: 1.8rem 1.8rem;
+    background-position: 0.6rem 0.6rem;
+}
+#unmortgage .buttons button{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    width: 13rem;
+    display: block;
+}
+#unmortgage .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12rem;
+}
