@@ -1,6 +1,8 @@
 .property-card-back,.property-card-front{
     width: 15rem;
+    height: 18rem;
     border: solid black 0.1rem;
+    font-family: Arial,sans-serif;
 }
 .property-card-back p,.property-card-back li{
     margin-top: 0.5rem;
@@ -26,6 +28,7 @@
     background-color: blue;
     line-height: 220%;
     border-bottom: solid black 0.1rem;
+
 }
 .property-card-front p:last-child{
     margin-bottom: 0.5rem;

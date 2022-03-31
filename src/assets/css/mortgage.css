@@ -1,22 +1,60 @@
 #mortgage .main{
     margin-left: 2rem;
     margin-right: 2rem;
+    font-family: Arial,sans-serif;
 }
 #mortgage .flexcontainer{
     display: flex;
     justify-content: space-evenly;
 }
-
 #mortgage #information p{
     border-radius: 0.5rem;
-    max-width: 18rem;
+    width: 18rem;
     display: inline-block;
     background-color: rgb(206, 206, 206);
     color: black;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 3.2rem;
 }
-#mortgage .flex-item div{
-    display: inline-block;
-    background-color: hotpink;
+#mortgage #information p{
+    background-image: url("../media/icons8-info.svg");
+    background-repeat: no-repeat;
+    background-size: 1.8rem 1.8rem;
+    background-position: 0.6rem 0.6rem;
+}
+#mortgage .property-card-front{
+    margin-left: 1rem;
+}
+#mortgage #property-card-front-and-back{
+    display: flex;
+}
+#mortgage div.flexcontainer h2:first-child{
+    margin-right: 14rem;
+}
+#mortgage div.flexcontainer h2:last-child{
+    margin-right: 7rem;
+}
 
+#mortgage .buttons{
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    font-family: Arial,sans-serif;
+}
+#mortgage .buttons button{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    width: 12rem;
+}
+#mortgage .buttons button:nth-child(1){
+    margin-left: auto;
+    display: block;
+}
+#mortgage .buttons button:nth-child(3){
+    display: inline;
+    margin-left: 90rem;
 }

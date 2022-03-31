@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="assets/css/stats.css">
     <link rel="stylesheet" href="assets/css/waiting-form.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
+    <link rel="stylesheet" href="assets/css/mortgage.css">
+    <link rel="stylesheet" href="assets/css/templates/property.css">
 
     <!-- js-->
     <script src="assets/js/helper.js"></script>
@@ -147,7 +149,7 @@
                     <h2>Card on sale:</h2>
                     <template>
                         <div>
-                            <!-- insert tiles here -->
+                            <!-- insert templates here -->
                         </div>
                     </template>
                 </div>
@@ -182,7 +184,7 @@
                 <h2>Receiving: <span>$200<!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
             </div>
             <div class="flexcontainer">
-                <div class="flex-item">
+                <div id="property-card-front-and-back">
                     <div class="property-card-back">
                         <h3>Brussels</h3>
                         <p>Owner: <span>Michiel Stragier</span></p>
@@ -214,11 +216,18 @@
                     <p>Before you can mortgage you need to sell all buildings from this color-group</p>
                     <p>If you want to unmortage an property a 10% interest will be added</p>
                 </div>
+
+
+            </div>
+            <div class="buttons">
+                <button id="sell-building">Sell Buildings</button>
+                <button>Cancel Mortgage</button>
+                <button>Mortgage</button>
             </div>
             <!-- <template>
-                <div id="information-card">
-                    <h2>Information about: <span></span></h2>
-                    <p>Owner <span></span></p>
+                <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
+                    <h3></h3>
+                    <p>Owner: <span></span></p>
                     <p>Building(s):</p>
                     <ul>
 
@@ -227,7 +236,7 @@
                 </div>
             </template>
             <template>
-                <div id="mortage-card">
+                <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
                     <h3></h3>
                     <h4>Rent: <span></span></h4>
                     <ul>
@@ -239,9 +248,7 @@
 
                     <p>If a player owns all the properties of the color group, the rent doubles</p>
                 </div>
-            </template>
-            <p>Before you can mortgage you need to sell all buildings from this color-group</p>
-            <p>If you want to unmortage an property a 10% interest will be added</p> -->
+            </template> -->
         </div>
     </div>
 </main>
