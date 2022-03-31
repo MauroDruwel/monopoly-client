@@ -3,20 +3,20 @@
     background-image: url("../media/bg-pixels.png");
     display: grid;
     grid-template-columns: repeat(12, 1.383rem);
-    grid-template-rows: repeat(5, 1.383rem);
+    grid-template-rows: repeat(4, 1.383rem);
     gap: 1.25rem;
     padding: 1.2rem;
     width: 30.5rem;
-    height: 12rem;
+    height: fit-content;
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 
     grid-template-areas:
     ". . . . . . . . . . . ."
     ". . . . . . . . . . . ."
     ". . . . . . . . . . . ."
-    ". . . . . . . . . . . ."
-    "player player player player player player player player player player player player";
+    "player player player player player player player player . . . .";
 }
 
 .tile-map div[data-tile]{
@@ -67,9 +67,12 @@
 
 .tile-map .player {
     grid-area: player;
-    padding: 0;
+    padding-left: 0.3rem;
     margin: 0;
     font-size: 1.2rem;
+    border-left: solid #C4C4C4 0.1rem;
+    background-color: rgba(236, 236, 239, 0.75);
+    border-radius: 0.25rem;
 }
 
 .tile-map .player span {
