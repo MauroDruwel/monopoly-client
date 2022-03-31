@@ -10,3 +10,7 @@ function beautifyId(id){
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+function convertSpacesToUnderscores(string){
+    return string.replace(/ /g, "_");
+}
