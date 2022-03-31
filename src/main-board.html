@@ -13,7 +13,6 @@
     <!--    css-->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
-    <link rel="stylesheet" href="assets/css/queue.css">
     <link rel="stylesheet" href="assets/css/auction.css">
     <link rel="stylesheet" href="assets/css/stats.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
@@ -31,9 +30,6 @@
     <!-- js: auction -->
     <script src="assets/js/in-game/auction.js"></script>
 
-    <!-- js: queue -->
-    <script src="assets/js/render/render-queue.js"></script>
-
     <!-- js: tile-map template -->
     <script src="assets/js/in-game/tile-map.js"></script>
     <script src="assets/js/render/render-tile-map.js"></script>
@@ -41,57 +37,148 @@
 </head>
 
 <body>
-<main>
+    <main id="main-board">
 
-    <div id="queue" class="">
-        <header>
-            <h1><span>Monopoly</span></h1>
-        </header>
-        <div class="main">
-            <h2>Game Queue</h2>
-            <ul>
-                <!-- INSERT JOINED PLAYERS HERE -->
-            </ul>
-        </div>
-    </div>
-
-    <div id="select-pawn" class="hidden">
-        <header>
-            <h1><span>Monopoly</span></h1>
-        </header>
-        <div class="main">
-            <h2>Select a pawn:</h2>
-            <div class="flexcontainer">
-                <figure data-target="home-board" data-pawn="dog">
-                    <img src="assets/media/pawns/dog.svg" alt="pawn-dog" title="pawn">
-                </figure>
-                <figure data-target="home-board" data-pawn="dolphin">
-                    <img src="assets/media/pawns/dolphin.svg" alt="pawn-dolphin" title="pawn-dolphin">
-                </figure>
-                <figure data-target="home-board" data-pawn="donkey">
-                    <img src="assets/media/pawns/donkey.svg" alt="pawn-donkey" title="pawn-donkey">
-                </figure>
-                <figure data-target="home-board" data-pawn="gun">
-                    <img src="assets/media/pawns/gun.svg" alt="pawn-gun" title="pawn-gun">
-                </figure>
-                <figure data-target="home-board" data-pawn="king">
-                    <img src="assets/media/pawns/king.svg" alt="pawn-king" title="pawn-king">
-                </figure>
+        <div id="select-pawn" class="">
+            <header>
+                <h1><span>Monopoly</span></h1>
+            </header>
+            <div class="main">
+                <h2>Select a pawn:</h2>
+                <div class="flexcontainer">
+                    <figure data-target="home-board" data-pawn="dog">
+                        <img src="assets/media/pawns/dog.svg" alt="pawn-dog" title="pawn">
+                    </figure>
+                    <figure data-target="home-board" data-pawn="dolphin">
+                        <img src="assets/media/pawns/dolphin.svg" alt="pawn-dolphin" title="pawn-dolphin">
+                    </figure>
+                    <figure data-target="home-board" data-pawn="donkey">
+                        <img src="assets/media/pawns/donkey.svg" alt="pawn-donkey" title="pawn-donkey">
+                    </figure>
+                    <figure data-target="home-board" data-pawn="gun">
+                        <img src="assets/media/pawns/gun.svg" alt="pawn-gun" title="pawn-gun">
+                    </figure>
+                    <figure data-target="home-board" data-pawn="king">
+                        <img src="assets/media/pawns/king.svg" alt="pawn-king" title="pawn-king">
+                    </figure>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="home-board" class="hidden">
-        <header>
-            <h1><span>Monopoly</span></h1>
-        </header>
+        <div id="home-board" class="hidden">
+            <header>
+                <h1><span>Monopoly</span></h1>
+            </header>
 
-        <div class="main">
+            <div class="main">
 
-            <div class="top-grid"></div>
-            <div class="mid-grid"></div>
+                <div class="top-grid"></div>
+                <div class="mid-grid"></div>
 
-            <div class="bottom-grid">
+                <div class="bottom-grid">
+                    <div class="tile-map">
+                        <!-- first row -->
+                        <div data-color="purple" data-tile="Mediterranean" data-postition="1"></div>
+                        <div data-color="lightblue" data-tile="Oriental" data-postition="6"></div>
+                        <div data-color="violet" data-tile="Saint_Charles_Place" data-postition="11"></div>
+                        <div data-color="orange" data-tile="Saint_James" data-postition="16"></div>
+                        <div data-color="red" data-tile="Kentucky_Avenue" data-postition="21"></div>
+                        <div data-color="yellow" data-tile="Atlantic" data-postition="26"></div>
+                        <div data-color="darkgreen" data-tile="Pacific" data-postition="31"></div>
+                        <div data-color="darkblue" data-tile="Park_Place" data-postition="37"></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Reading_RR" data-postition="5"></div>
+                        <div data-color="white" data-tile="Electric_Company" data-postition="12"></div>
+                        <!-- second row -->
+                        <div data-color="purple" data-tile="Baltic" data-postition="3"></div>
+                        <div data-color="lightblue" data-tile="Vermont" data-postition="8"></div>
+                        <div data-color="violet" data-tile="States" data-postition="13"></div>
+                        <div data-color="orange" data-tile="Tennessee" data-postition="18"></div>
+                        <div data-color="red" data-tile="Indiana_Avenue" data-postition="23"></div>
+                        <div data-color="yellow" data-tile="Marvin_Gardens" data-postition="29"></div>
+                        <div data-color="darkgreen" data-tile="North_Carolina" data-postition="32"></div>
+                        <div data-color="darkblue" data-tile="Boardwalk" data-postition="39"></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Pennsylvania_RR" data-postition="15"></div>
+                        <div data-color="white" data-tile="Water_Works" data-postition="28"></div>
+                        <!-- third row -->
+                        <div></div>
+                        <div data-color="lightblue" data-tile="Connecticut" data-postition="9"></div>
+                        <div data-color="violet" data-tile="Virginia" data-postition="14"></div>
+                        <div data-color="orange" data-tile="New_York" data-postition="19"></div>
+                        <div data-color="red" data-tile="Illinois_Avenue" data-postition="24"></div>
+                        <div data-color="yellow" data-tile="Ventnor" data-postition="27"></div>
+                        <div data-color="darkgreen" data-tile="Pennsylvania" data-postition="34"></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-postition="25"></div>
+                        <div></div>
+                        <!-- fourth row -->
+                        <p class="player">Username: <span></span></p>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Short_Line_RR" data-postition="35"></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="auction" class="hidden">
+            <header>
+                <h1><span>Auction</span></h1>
+            </header>
+
+            <div class="main">
+                <div class="display-tile">
+                    <h2>Card on sale:</h2>
+                    <div>
+                        <!-- insert tiles here -->
+                    </div>
+                </div>
+                <div id="offer-placeholder">
+                    <h2>Highest offer:</h2>
+                    <div>
+                        <p><!-- currency bidder --></p>
+                        <p><!-- name bidder --></p>
+                    </div>
+                    <form action="#" method="post">
+                        <label for="offer">Your offer:</label>
+                        <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
+                        <button type="submit">OFFER</button>
+                    </form>
+                </div>
+                <div id="time">
+                    <h2>Time left:</h2>
+                    <p>
+                        <!-- display time here -->
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="player_stats" class="hidden">
+            <header>
+                <h1><span>stats</span></h1>
+            </header>
+            <div class="flex-container-button">
+                <button type="button">close stats</button>
+            </div>
+            <div class="flex-container">
+                <div class="playerstats-playerbalance_pawn">
+                    <h2>player stats: lucasdevis</h2>
+                    <div class="player_balance">
+                        <p>player balance</p>
+                        <p>112000</p>
+                    </div>
+                    <h2>pawn: <!--add pawn name--></h2>
+
+                    <!--pawn logo svg-->
+                </div>
+
                 <div class="tile-map">
                     <!-- first row -->
                     <div data-color="purple" data-tile="Mediterranean" data-postition="1"></div>
@@ -139,118 +226,15 @@
                     <div data-color="black" data-tile="Short_Line_RR" data-postition="35"></div>
                     <div></div>
                 </div>
+                <!-- insert clicked cards front and back -->
             </div>
         </div>
-    </div>
 
-    <div id="auction" class="hidden">
-        <header>
-            <h1><span>Auction</span></h1>
-        </header>
-
-        <div class="main">
-            <div class="display-tile">
-                <h2>Card on sale:</h2>
-                <div>
-                    <!-- insert tiles here -->
-                </div>
-            </div>
-            <div id="offer-placeholder">
-                <h2>Highest offer:</h2>
-                <div>
-                    <p><!-- currency bidder --></p>
-                    <p><!-- name bidder --></p>
-                </div>
-                <form action="#" method="post">
-                    <label for="offer">Your offer:</label>
-                    <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
-                    <button type="submit">OFFER</button>
-                </form>
-            </div>
-            <div id="time">
-                <h2>Time left:</h2>
-                <p>
-                    <!-- display time here -->
-                </p>
-            </div>
+    </main>
+    <footer>
+        <div class="errormessages">
+            <p></p>
         </div>
-    </div>
-
-    <div id="player_stats" class="hidden">
-        <header>
-            <h1><span>stats</span></h1>
-        </header>
-        <div class="flex-container-button">
-            <button type="button">close stats</button>
-        </div>
-        <div class="flex-container">
-            <div class="playerstats-playerbalance_pawn">
-                <h2>player stats: lucasdevis</h2>
-                <div class="player_balance">
-                    <p>player balance</p>
-                    <p>112000</p>
-                </div>
-                <h2>pawn: <!--add pawn name--></h2>
-
-                <!--pawn logo svg-->
-            </div>
-
-            <div class="tile-map">
-                <!-- first row -->
-                <div data-color="purple" data-tile="Mediterranean" data-postition="1"></div>
-                <div data-color="lightblue" data-tile="Oriental" data-postition="6"></div>
-                <div data-color="violet" data-tile="Saint_Charles_Place" data-postition="11"></div>
-                <div data-color="orange" data-tile="Saint_James" data-postition="16"></div>
-                <div data-color="red" data-tile="Kentucky_Avenue" data-postition="21"></div>
-                <div data-color="yellow" data-tile="Atlantic" data-postition="26"></div>
-                <div data-color="darkgreen" data-tile="Pacific" data-postition="31"></div>
-                <div data-color="darkblue" data-tile="Park_Place" data-postition="37"></div>
-                <div></div>
-                <div></div>
-                <div data-color="black" data-tile="Reading_RR" data-postition="5"></div>
-                <div data-color="white" data-tile="Electric_Company" data-postition="12"></div>
-                <!-- second row -->
-                <div data-color="purple" data-tile="Baltic" data-postition="3"></div>
-                <div data-color="lightblue" data-tile="Vermont" data-postition="8"></div>
-                <div data-color="violet" data-tile="States" data-postition="13"></div>
-                <div data-color="orange" data-tile="Tennessee" data-postition="18"></div>
-                <div data-color="red" data-tile="Indiana_Avenue" data-postition="23"></div>
-                <div data-color="yellow" data-tile="Marvin_Gardens" data-postition="29"></div>
-                <div data-color="darkgreen" data-tile="North_Carolina" data-postition="32"></div>
-                <div data-color="darkblue" data-tile="Boardwalk" data-postition="39"></div>
-                <div></div>
-                <div></div>
-                <div data-color="black" data-tile="Pennsylvania_RR" data-postition="15"></div>
-                <div data-color="white" data-tile="Water_Works" data-postition="28"></div>
-                <!-- third row -->
-                <div></div>
-                <div data-color="lightblue" data-tile="Connecticut" data-postition="9"></div>
-                <div data-color="violet" data-tile="Virginia" data-postition="14"></div>
-                <div data-color="orange" data-tile="New_York" data-postition="19"></div>
-                <div data-color="red" data-tile="Illinois_Avenue" data-postition="24"></div>
-                <div data-color="yellow" data-tile="Ventnor" data-postition="27"></div>
-                <div data-color="darkgreen" data-tile="Pennsylvania" data-postition="34"></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-postition="25"></div>
-                <div></div>
-                <!-- fourth row -->
-                <p class="player">Username: <span></span></p>
-                <div></div>
-                <div></div>
-                <div data-color="black" data-tile="Short_Line_RR" data-postition="35"></div>
-                <div></div>
-            </div>
-            <!-- insert clicked cards front and back -->
-        </div>
-    </div>
-
-</main>
-<footer>
-    <div class="errormessages">
-        <p></p>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

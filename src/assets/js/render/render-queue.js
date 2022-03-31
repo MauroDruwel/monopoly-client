@@ -1,7 +1,7 @@
 "use strict";
 function renderQueue(response){
     if (!response.started){
-        const $ul = document.querySelector("#waiting-form ul");
+        const $ul = document.querySelector("#queue ul");
         let html = '';
         $ul.innerHTML = html;
 
@@ -14,7 +14,6 @@ function renderQueue(response){
         $ul.insertAdjacentHTML("beforeend", html);
     }
     else {
-        document.querySelector("#waiting-form").classList.add("hidden");
-        document.querySelector("#select-pawn").classList.remove("hidden");
+        location.href = "main-board.html";
     }
 }
