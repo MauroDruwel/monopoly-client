@@ -16,12 +16,8 @@
     vertical-align: center;
     font-size: 1.5rem;
     line-height: 220%;
-    background: repeating-linear-gradient(
-            90deg,
-           white ,
-            lightgray 5%,
-            grey 5%,
-            darkgray 10%)
+    background: repeating-linear-gradient( 90deg,grey 10%,white 20%,grey 30%,white 40%,grey 50%);
+
 }
 
 #jail_card figure img{
