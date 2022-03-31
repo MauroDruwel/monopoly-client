@@ -1,0 +1,32 @@
+.property-card-back,.property-card-front{
+    width: 15rem;
+    border: solid black 0.1rem;
+}
+.property-card-back p,.property-card-back li{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+.property-card-back{
+    text-align: center;
+}
+.property-card-front h4, .property-card-front li, .property-card-front p{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.property-card-front h4{
+    font-size: 0.9rem;
+    color: #474747;
+    font-weight: bolder;
+}
+.property-card-back h3,.property-card-front h3{
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    background-color: blue;
+    line-height: 220%;
+    border-bottom: solid black 0.1rem;
+}
+.property-card-front p:last-child{
+    margin-bottom: 0.5rem;
+}
