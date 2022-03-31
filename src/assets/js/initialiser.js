@@ -17,6 +17,9 @@ function init(){
     else if (document.querySelector('#queue')){
         initQueue();
     }
+    else if(document.querySelector('#select-pawn')){
+        initSelectPawn();
+    }
     else if (document.querySelector('#main-board')){
         initMainBoard();
     }
@@ -35,6 +38,13 @@ function initQueue(){
     _player = loadFromStorage("_player");
     gameState(renderQueue);
 
+}
+
+function initSelectPawn(){
+    _player = loadFromStorage("_player");
+
+    // select pawn
+    document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
 function initMainBoard(){
