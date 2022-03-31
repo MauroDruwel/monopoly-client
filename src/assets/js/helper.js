@@ -1,5 +1,5 @@
 "use strict";
-function getGameInformationByGameID(myfunction){
+function gameState(myfunction){
     fetchFromServer(`/games/${_player.gameId}`,'GET').then(response => myfunction(response)).catch(errorHandler);
 }
 
