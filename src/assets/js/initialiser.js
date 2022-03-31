@@ -23,7 +23,7 @@ function initConnect(){
     document.querySelector("#connect-form").addEventListener("submit", processConnectionForm);
 }
 function initIndex(){
-    // document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+    document.querySelector("#start-game").addEventListener('click',() => location.href = "better-luck-next-time.html");
 }
 function initMainBoard(){
     _player = loadFromStorage("_player");
