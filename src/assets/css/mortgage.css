@@ -40,10 +40,9 @@
     color: #FFFFFF;
     border-radius: 1rem;
     width: 12rem;
+    display: block;
 }
-#mortgage .buttons div{
-    text-align: right;
-}
-#mortgage #last_2_buttons{
-    display: flex;
+#mortgage .buttons.flexcontainer{
+    align-items: flex-end;
+    margin-top: 9rem;
 }

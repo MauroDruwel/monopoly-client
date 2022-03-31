@@ -179,36 +179,14 @@
             <h1><span>Mortgage</span></h1>
         </header>
         <div class="main">
-            <div class="flexcontainer">
-                <h2>Mortgage Card:</h2>
-                <h2>Receiving: <span><!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
-            </div>
-            <div class="flexcontainer">
-                <div id="property-card-front-and-back">
-                    <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
-                        <h3>Brussels</h3>
-                        <p>Owner: <span></span></p>
-                        <p>Building(s):</p>
-                        <ul>
-
-                        </ul>
-                        <p>Mortgaged: <span></span></p>
-                    </div>
-                    <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
-                        <h3>Brussels</h3>
-                        <h4>Rent: <span></span></h4>
-                        <ul>
-
-                        </ul>
-                        <h4>Mortgage value: <span></span></h4>
-                        <p>An appartement costs <span></span> per piece</p>
-                        <p>An hotel costs <span></span> plus 4 appartements</p>
-
-                        <p>If a player owns all the properties of the color group, the rent doubles</p>
-                    </div>
-                    <template>
+                <div class="flexcontainer">
+                    <h2>Mortgage Card:</h2>
+                    <h2>Receiving: <span><!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
+                </div>
+                <div class="flexcontainer">
+                    <div id="property-card-front-and-back">
                         <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
-                            <h3></h3>
+                            <h3>Brussels</h3>
                             <p>Owner: <span></span></p>
                             <p>Building(s):</p>
                             <ul>
@@ -216,10 +194,8 @@
                             </ul>
                             <p>Mortgaged: <span></span></p>
                         </div>
-                    </template>
-                    <template>
                         <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
-                            <h3></h3>
+                            <h3>Brussels</h3>
                             <h4>Rent: <span></span></h4>
                             <ul>
 
@@ -230,19 +206,43 @@
 
                             <p>If a player owns all the properties of the color group, the rent doubles</p>
                         </div>
-                    </template>
+                        <template>
+                            <div class="property-card-front" data-colour="" data-owner="" data-property="" data-position="">
+                                <h3></h3>
+                                <p>Owner: <span></span></p>
+                                <p>Building(s):</p>
+                                <ul>
+
+                                </ul>
+                                <p>Mortgaged: <span></span></p>
+                            </div>
+                        </template>
+                        <template>
+                            <div class="property-card-back" data-colour="" data-owner="" data-property="" data-position="">
+                                <h3></h3>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                                <p>An appartement costs <span></span> per piece</p>
+                                <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </template>
+                    </div>
+                    <div id="information">
+                        <p>Before you can mortgage you need to sell all buildings from this color-group</p>
+                        <p>If you want to unmortage an property a 10% interest will be added</p>
+                    </div>
                 </div>
-                <div id="information">
-                    <p>Before you can mortgage you need to sell all buildings from this color-group</p>
-                    <p>If you want to unmortage an property a 10% interest will be added</p>
+                <div class="buttons flexcontainer">
+                <div>
+                    <button>Cancel Mortgage</button>
                 </div>
-            </div>
-            <div class="buttons">
                 <div>
                     <button id="sell-building">Sell Buildings</button>
-                </div>
-                <div class="flexcontainer">
-                    <button>Cancel Mortgage</button>
                     <button>Mortgage</button>
                 </div>
             </div>
