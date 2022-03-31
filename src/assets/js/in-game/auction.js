@@ -4,9 +4,9 @@ function getAuctionValue() {
 
 function bid(e){
     e.preventDefault();
-    const requestbody = {
+    const requestBody = {
         "bidder": "string",
         "amount": getAuctionValue()
     };
-    fetchFromServer(`/games/${gameId}/players/${playerName}/auctions/${propertyName}/bid`, 'POST', requestbody).catch(errorHandler);
+    fetchFromServer(`/games/${gameId}/players/${playerName}/auctions/${propertyName}/bid`, 'POST', requestBody).catch(errorHandler);
 }
