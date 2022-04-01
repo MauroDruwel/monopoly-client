@@ -1,0 +1,13 @@
+body{
+    background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
+    background-size: 20rem;
+}
+main h2{
+    margin-top: 8rem;
+}
+main h2,p{
+    padding-top: 5rem;
+    font-size: 5rem;
+    text-align: center;
+    text-decoration: #333333;
+}
