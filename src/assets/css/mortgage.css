@@ -14,10 +14,9 @@
     background-color: rgb(206, 206, 206);
     color: black;
     padding: 0.5rem 0.5rem 0.5rem 3.2rem;
-}
-#mortgage #information p{
     margin-bottom: 1rem;
 }
+
 #mortgage #information p{
     background-image: url("../../assets/media/icons8-info.svg");
     background-repeat: no-repeat;
