@@ -26,7 +26,8 @@ function init(){
 }
 
 function initIndex(){
-    document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+    // document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+    window.location.replace("https://www.omfgdogs.com/#");
 }
 
 function initConnect(){
