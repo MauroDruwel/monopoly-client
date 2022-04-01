@@ -13,10 +13,10 @@
 #unmortgage .property-card-front{
     margin-right: 1rem;
 }
-#unmortgage #information{
+#unmortgage .information{
 
 }
-#unmortgage #information p{
+#unmortgage .information p{
     border-radius: 0.5rem;
     width: 18rem;
     display: inline-block;
@@ -24,7 +24,7 @@
     color: black;
     padding: 0.5rem 0.5rem 0.5rem 3.2rem;
 }
-#unmortgage #information p{
+#unmortgage .information p{
     background-image: url("../media/icons8-info.svg");
     background-repeat: no-repeat;
     background-size: 1.8rem 1.8rem;

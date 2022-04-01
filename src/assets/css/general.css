@@ -43,6 +43,15 @@ label {
     color: #757575;
 }
 
+p {
+    font-family: 'Arial', sans-serif;
+}
+
+a {
+    color: #757575;
+    text-decoration: none;
+}
+
 select, input {
     display: block;
     background-color: #FFFFFF;

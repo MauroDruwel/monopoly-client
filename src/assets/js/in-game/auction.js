@@ -8,5 +8,5 @@ function bid(e){
         "bidder": "string",
         "amount": getAuctionValue()
     };
-    fetchFromServer(`/games/${gameId}/players/${playerName}/auctions/${propertyName}/bid`, 'POST', requestBody).catch(errorHandler);
+    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/auctions/${propertyName}/bid`, 'POST', requestBody).catch(errorHandler);
 }

@@ -15,145 +15,106 @@
     <link rel="stylesheet" href="assets/css/general.css">
     <link rel="stylesheet" href="assets/css/auction.css">
     <link rel="stylesheet" href="assets/css/stats.css">
-    <link rel="stylesheet" href="assets/css/waiting-form.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
-    <link rel="stylesheet" href="assets/css/templates/property.css">
     <link rel="stylesheet" href="assets/css/unmortgage.css">
+    <link rel="stylesheet" href="assets/css/mortgage.css">
+    <link rel="stylesheet" href="assets/css/templates/property.css">
+    <link rel="stylesheet" href="assets/css/templates/tile-map.css">
+    <link rel="stylesheet" href="assets/css/home-board.css">
 
-    <!-- js-->
+    <!-- js: general-->
     <script src="assets/js/helper.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/in-game/auction.js"></script>
-    <script src="assets/js/render/render-joined-players.js"></script>
-    <script src="assets/js/in-game/waiting-form.js"></script>
     <script src="assets/js/initialiser.js"></script>
+
+    <!-- js: auction -->
+    <script src="assets/js/in-game/auction.js"></script>
+
+    <!-- js: tile-map template -->
+    <script src="assets/js/in-game/tile-map.js"></script>
+    <script src="assets/js/render/render-tile-map.js"></script>
+
 </head>
 
 <body>
-<main>
-    <div id="player_stats" class="hidden">
-        <header>
-            <h1><span>stats</span></h1>
-        </header>
-        <div class="flex-container-button">
-            <button type="button">close stats</button>
-        </div>
-        <div class="flex-container">
-            <div class="playerstats-playerbalance_pawn">
-                <h2>player stats: lucasdevis</h2>
-                <div class="player_balance">
-                    <p>player balance</p>
-                    <p>112000</p>
-                </div>
-                <h2>pawn: <!--add pawn name--></h2>
+    <main id="main-board">
+        <div id="home-board" class="">
+            <header>
+                <h1><span>Monopoly</span></h1>
+            </header>
 
-                <!--pawn logo svg-->
-            </div>
+            <div class="main">
 
-            <div class="stats_window-stats_tiles">
-                <h2>cards</h2>
+                <div class="top-grid"></div>
+                <div class="mid-grid"></div>
 
-                <div class="stats_window">
-
-
-                    <!-- namaspathparameter=tilenames-->
-                    <!-- template-->
-                    <div class="stats_tiles">
-
-
-                        <div class="square electric_company"></div>
-                        <div class="square water_works"></div>
-                        <div class="square airport1"></div>
-                        <div class="square airport2"></div>
-                        <div class="square airport3"></div>
-                        <div class="square airport4"></div>
-                        <div class="square dark_yellow1"></div>
-                        <div class="square dark_yellow2"></div>
-                        <div class="square dark_yellow3"></div>
-                        <div class="square yellow1"></div>
-                        <div class="square yellow2"></div>
-                        <div class="square yellow3"></div>
-                        <div class="square red1"></div>
-                        <div class="square red2"></div>
-                        <div class="square red3"></div>
-                        <div class="square hotpink1"></div>
-                        <div class="square hotpink2"></div>
-                        <div class="square hotpink3"></div>
-                        <div class="square brown1"></div>
-                        <div class="square brown2"></div>
-                        <div class="square lightblue1"></div>
-                        <div class="square lightblue2"></div>
-                        <div class="square lightblue3"></div>
-                        <div class="square blue1"></div>
-                        <div class="square blue2"></div>
-                        <div class="square green1"></div>
-                        <div class="square green2"></div>
-                        <div class="square green3"></div>
+                <div class="bottom-grid">
+                    <div class="tile-map">
+                        <!-- first row -->
+                        <div data-color="purple" data-tile="Mediterranean" data-postition="1"></div>
+                        <div data-color="lightblue" data-tile="Oriental" data-postition="6"></div>
+                        <div data-color="violet" data-tile="Saint_Charles_Place" data-postition="11"></div>
+                        <div data-color="orange" data-tile="Saint_James" data-postition="16"></div>
+                        <div data-color="red" data-tile="Kentucky_Avenue" data-postition="21"></div>
+                        <div data-color="yellow" data-tile="Atlantic" data-postition="26"></div>
+                        <div data-color="darkgreen" data-tile="Pacific" data-postition="31"></div>
+                        <div data-color="darkblue" data-tile="Park_Place" data-postition="37"></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Reading_RR" data-postition="5"></div>
+                        <div data-color="white" data-tile="Electric_Company" data-postition="12"></div>
+                        <!-- second row -->
+                        <div data-color="purple" data-tile="Baltic" data-postition="3"></div>
+                        <div data-color="lightblue" data-tile="Vermont" data-postition="8"></div>
+                        <div data-color="violet" data-tile="States" data-postition="13"></div>
+                        <div data-color="orange" data-tile="Tennessee" data-postition="18"></div>
+                        <div data-color="red" data-tile="Indiana_Avenue" data-postition="23"></div>
+                        <div data-color="yellow" data-tile="Marvin_Gardens" data-postition="29"></div>
+                        <div data-color="darkgreen" data-tile="North_Carolina" data-postition="32"></div>
+                        <div data-color="darkblue" data-tile="Boardwalk" data-postition="39"></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Pennsylvania_RR" data-postition="15"></div>
+                        <div data-color="white" data-tile="Water_Works" data-postition="28"></div>
+                        <!-- third row -->
+                        <div></div>
+                        <div data-color="lightblue" data-tile="Connecticut" data-postition="9"></div>
+                        <div data-color="violet" data-tile="Virginia" data-postition="14"></div>
+                        <div data-color="orange" data-tile="New_York" data-postition="19"></div>
+                        <div data-color="red" data-tile="Illinois_Avenue" data-postition="24"></div>
+                        <div data-color="yellow" data-tile="Ventnor" data-postition="27"></div>
+                        <div data-color="darkgreen" data-tile="Pennsylvania" data-postition="34"></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-postition="25"></div>
+                        <div></div>
+                        <!-- fourth row -->
+                        <p class="player">Username: <span></span></p>
+                        <div></div>
+                        <div></div>
+                        <div data-color="black" data-tile="Short_Line_RR" data-postition="35"></div>
+                        <div></div>
                     </div>
-
-
-                    <p>jail pass:<span></span></p>
                 </div>
             </div>
-            <!-- insert clicked cards front and back -->
         </div>
-    </div>
-    <div id="waiting-form" class="">
-        <header>
-            <h1><span>Monopoly</span></h1>
-        </header>
-        <div class="main">
-            <h2>Game Queue</h2>
-            <ul>
-                <!-- INSERT JOINED PLAYERS HERE -->
-            </ul>
-        </div>
-    </div>
-    <div id="select-pawn" class="hidden">
-        <header>
-            <h1><span>Monopoly</span></h1>
-        </header>
-        <div class="main">
-            <h2>Select a pawn:</h2>
-            <div class="flexcontainer">
-                <figure>
-                    <img src="assets/media/pawns/dog.svg" alt="pawn-dog" title="pawn">
-                </figure>
-                <figure>
-                    <img src="assets/media/pawns/dolphine.svg" alt="pawn-dolphine" title="pawn-dolphine">
-                </figure>
-                <figure>
-                    <img src="assets/media/pawns/donkey.svg" alt="pawn-donkey" title="pawn-donkey">
-                </figure>
-                <figure>
-                    <img src="assets/media/pawns/gun.svg" alt="pawn-gun" title="pawn-gun">
-                </figure>
-                <figure>
-                    <img src="assets/media/pawns/king.svg" alt="pawn-king" title="pawn-king">
-                </figure>
-            </div>
-        </div>
-    </div>
-    <div id="auction" class="hidden">
+        <div id="auction" class="hidden">
+            <header>
+                <h1><span>Auction</span></h1>
+            </header>
 
-        <header>
-            <h1><span>Auction</span></h1>
-        </header>
-
-        <div class="main">
-            <div class="flex-container">
-                <div id="tileDisplay">
+            <div class="main">
+                <div class="display-tile">
                     <h2>Card on sale:</h2>
-                    <template>
-                        <div>
-                            <!-- insert tiles here -->
-                        </div>
-                    </template>
+                    <div>
+                        <!-- insert tiles here -->
+                    </div>
                 </div>
-                <div id="offerPlaceholder">
+                <div id="offer-placeholder">
                     <h2>Highest offer:</h2>
                     <div>
                         <p><!-- currency bidder --></p>
@@ -173,8 +134,125 @@
                 </div>
             </div>
         </div>
+        <div id="mortgage" class="hidden">
+        <header>
+            <h1><span>Mortgage</span></h1>
+        </header>
+        <div class="main">
+                <div class="flexcontainer">
+                    <h2>Mortgage Card:</h2>
+                    <h2>Receiving: <span><!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
+                </div>
+                <div class="flexcontainer">
+                    <div id="property-card-front-and-back">
+                            <div class="property-card-front" data-color="" data-tile="" data-postition="">
+                                <h3>Title card</h3>
+                                <p>Owner: <span></span></p>
+                                <p>Building(s):</p>
+                                <ul>
+
+                                </ul>
+                                <p>Mortgaged: <span></span></p>
+                            </div>
+                            <div class="property-card-back" data-color="" data-tile="" data-postition="">
+                                <h3>Title card</h3>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                                <p>An appartement costs <span></span> per piece</p>
+                                <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                    </div>
+                    <div id="information">
+                        <p>Before you can mortgage you need to sell all buildings from this color-group</p>
+                        <p>If you want to unmortage an property a 10% interest will be added</p>
+                    </div>
+                </div>
+                <div class="buttons flexcontainer">
+                <div>
+                    <button>Cancel Mortgage</button>
+                </div>
+                <div>
+                    <button id="sell-building">Sell Buildings</button>
+                    <button>Mortgage</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="unmortgage" class="hidden">
+        <div id="player_stats" class="hidden">
+            <header>
+                <h1><span>stats</span></h1>
+            </header>
+            <div class="flex-container-button">
+                <button type="button">close stats</button>
+            </div>
+            <div class="flex-container">
+                <div class="playerstats-playerbalance_pawn">
+                    <h2>player stats: lucasdevis</h2>
+                    <div class="player_balance">
+                        <p>player balance</p>
+                        <p>112000</p>
+                    </div>
+                    <h2>pawn: <!--add pawn name--></h2>
+
+                    <!--pawn logo svg-->
+                </div>
+
+                <div class="tile-map">
+                    <!-- first row -->
+                    <div data-color="purple" data-tile="Mediterranean" data-postition="1"></div>
+                    <div data-color="lightblue" data-tile="Oriental" data-postition="6"></div>
+                    <div data-color="violet" data-tile="Saint_Charles_Place" data-postition="11"></div>
+                    <div data-color="orange" data-tile="Saint_James" data-postition="16"></div>
+                    <div data-color="red" data-tile="Kentucky_Avenue" data-postition="21"></div>
+                    <div data-color="yellow" data-tile="Atlantic" data-postition="26"></div>
+                    <div data-color="darkgreen" data-tile="Pacific" data-postition="31"></div>
+                    <div data-color="darkblue" data-tile="Park_Place" data-postition="37"></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Reading_RR" data-postition="5"></div>
+                    <div data-color="white" data-tile="Electric_Company" data-postition="12"></div>
+                    <!-- second row -->
+                    <div data-color="purple" data-tile="Baltic" data-postition="3"></div>
+                    <div data-color="lightblue" data-tile="Vermont" data-postition="8"></div>
+                    <div data-color="violet" data-tile="States" data-postition="13"></div>
+                    <div data-color="orange" data-tile="Tennessee" data-postition="18"></div>
+                    <div data-color="red" data-tile="Indiana_Avenue" data-postition="23"></div>
+                    <div data-color="yellow" data-tile="Marvin_Gardens" data-postition="29"></div>
+                    <div data-color="darkgreen" data-tile="North_Carolina" data-postition="32"></div>
+                    <div data-color="darkblue" data-tile="Boardwalk" data-postition="39"></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Pennsylvania_RR" data-postition="15"></div>
+                    <div data-color="white" data-tile="Water_Works" data-postition="28"></div>
+                    <!-- third row -->
+                    <div></div>
+                    <div data-color="lightblue" data-tile="Connecticut" data-postition="9"></div>
+                    <div data-color="violet" data-tile="Virginia" data-postition="14"></div>
+                    <div data-color="orange" data-tile="New_York" data-postition="19"></div>
+                    <div data-color="red" data-tile="Illinois_Avenue" data-postition="24"></div>
+                    <div data-color="yellow" data-tile="Ventnor" data-postition="27"></div>
+                    <div data-color="darkgreen" data-tile="Pennsylvania" data-postition="34"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-postition="25"></div>
+                    <div></div>
+                    <!-- fourth row -->
+                    <p class="player">Username: <span></span></p>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Short_Line_RR" data-postition="35"></div>
+                    <div></div>
+                </div>
+                <!-- insert clicked cards front and back -->
+            </div>
+        </div>
+        <div id="unmortgage" class="hidden">
         <header>
             <h1><span>Unmortgage</span></h1>
         </header>
@@ -207,7 +285,7 @@
                         <p>If a player owns all the properties of the color group, the rent doubles</p>
                     </div>
                 </div>
-                <div id="information">
+                <div class="information">
                     <p>To unmortgage a property 10% interest is added</p>
                 </div>
             </div>
@@ -217,7 +295,7 @@
                 </div>
         </div>
     </div>
-</main>
+    </main>
 <footer>
     <div class="errormessages">
         <p></p>
