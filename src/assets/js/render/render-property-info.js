@@ -6,7 +6,7 @@ function renderPropertyBack(property){
     const $tr = $template.content.firstElementChild.cloneNode(true);
 
     const $tbody = document.querySelector('#front-card-container');
-    //$tbody.innerHTML = $template.outerHTML; // reset html
+    $tbody.innerHTML = $template.outerHTML; // reset html
 
     $tr.querySelector('h3').innerHTML = property.name;
     $tr.querySelector('h4 span').innerHTML = property.rent;
@@ -35,7 +35,7 @@ function renderPropertyFront(searchProperty, gameState){
                 owner = player.name;
             }
             houseCount = property.houseCount;
-            houseCount = property.hotelCount;
+            hotelCount = property.hotelCount;
             if (property.mortgage){
                 mortgage = "yes";
             }
@@ -50,7 +50,7 @@ function renderPropertyFront(searchProperty, gameState){
     $tr.querySelector('p:first-of-type').innerHTML = owner;
 
     $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${houseCount} house(s)</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${houseCount} hotel)</li>`)
+    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${hotelCount} hotel)</li>`);
 
     $tr.querySelector('p:last-of-type span').innerHTML = mortgage;
 

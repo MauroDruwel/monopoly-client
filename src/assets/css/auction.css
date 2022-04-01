@@ -2,6 +2,10 @@
     justify-content: space-evenly;
 }
 
+#time p{
+    font-size: 6rem;
+}
+
 #offerPlaceholder p:first-child{
     padding-top: 1rem;
 }
@@ -36,6 +40,3 @@
     font-size: 2rem;
 }
 
-#time p{
-    font-size: 6rem;
-}
