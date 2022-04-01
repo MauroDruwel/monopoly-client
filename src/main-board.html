@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="assets/css/auction.css">
     <link rel="stylesheet" href="assets/css/stats.css">
     <link rel="stylesheet" href="assets/css/select-pawn.css">
-    <link rel="stylesheet" href="assets/css/tile-map.css">
+    <link rel="stylesheet" href="assets/css/mortgage.css">
+    <link rel="stylesheet" href="assets/css/templates/property.css">
+    <link rel="stylesheet" href="assets/css/templates/tile-map.css">
     <link rel="stylesheet" href="assets/css/home-board.css">
 
     <!-- js: general-->
@@ -38,7 +40,6 @@
 
 <body>
     <main id="main-board">
-
         <div id="home-board" class="">
             <header>
                 <h1><span>Monopoly</span></h1>
@@ -100,7 +101,6 @@
                 </div>
             </div>
         </div>
-
         <div id="auction" class="hidden">
             <header>
                 <h1><span>Auction</span></h1>
@@ -133,7 +133,55 @@
                 </div>
             </div>
         </div>
+        <div id="mortgage" class="hidden">
+        <header>
+            <h1><span>Mortgage</span></h1>
+        </header>
+        <div class="main">
+                <div class="flexcontainer">
+                    <h2>Mortgage Card:</h2>
+                    <h2>Receiving: <span><!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
+                </div>
+                <div class="flexcontainer">
+                    <div id="property-card-front-and-back">
+                            <div class="property-card-front" data-color="" data-tile="" data-postition="">
+                                <h3>Title card</h3>
+                                <p>Owner: <span></span></p>
+                                <p>Building(s):</p>
+                                <ul>
 
+                                </ul>
+                                <p>Mortgaged: <span></span></p>
+                            </div>
+                            <div class="property-card-back" data-color="" data-tile="" data-postition="">
+                                <h3>Title card</h3>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                                <p>An appartement costs <span></span> per piece</p>
+                                <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                    </div>
+                    <div id="information">
+                        <p>Before you can mortgage you need to sell all buildings from this color-group</p>
+                        <p>If you want to unmortage an property a 10% interest will be added</p>
+                    </div>
+                </div>
+                <div class="buttons flexcontainer">
+                <div>
+                    <button>Cancel Mortgage</button>
+                </div>
+                <div>
+                    <button id="sell-building">Sell Buildings</button>
+                    <button>Mortgage</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <div id="player_stats" class="hidden">
             <header>
                 <h1><span>stats</span></h1>
@@ -203,7 +251,6 @@
                 <!-- insert clicked cards front and back -->
             </div>
         </div>
-
     </main>
     <footer>
         <div class="errormessages">
