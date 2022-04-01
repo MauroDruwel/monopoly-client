@@ -1,12 +1,13 @@
-#auction .flex-container{
+#auction .main{
+    display: flex;
     justify-content: space-evenly;
 }
 
-#offerPlaceholder p:first-child{
+#offer-placeholder p:first-child{
     padding-top: 1rem;
 }
 
-#offerPlaceholder div{
+#offer-placeholder div{
     font-size: 2rem;
     text-align: center;
     background-color: #757575;

@@ -1,8 +1,8 @@
-#waiting-form .main{
+#queue {
     max-width: 25rem;
     margin: 10rem auto auto auto;
 }
-#waiting-form li{
+#queue li{
     font-size: 1.5rem;
     border: solid grey 0.1rem;
     border-radius: 0.5rem;

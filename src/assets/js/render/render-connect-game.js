@@ -5,7 +5,7 @@ function renderGames(games){
     const $template = document.querySelector('#radio-list');
     const $tr = $template.content.firstElementChild.cloneNode(true);
 
-    const $tbody = document.querySelector('tbody');
+    const $tbody = document.querySelector('#available-games tbody');
     $tbody.innerHTML = $template.outerHTML; // reset html
 
     games.forEach(game => {
