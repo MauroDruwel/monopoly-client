@@ -3,7 +3,7 @@
 function processPropertyBack(property){
     fetchFromServer(`/tiles/${convertSpacesToUnderscores(property)}`, "GET").then(tile => {
         renderPropertyBack(tile);
-    });
+    }).catch(errorHandler);
 }
 
 function processPropertyFront(property){

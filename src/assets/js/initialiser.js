@@ -8,7 +8,6 @@ let _player = {
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
-    processPropertyFront("Connecticut");
     if (document.querySelector('#index')){
         initIndex();
     }
