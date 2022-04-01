@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/templates/property.css">
     <link rel="stylesheet" href="assets/css/templates/tile-map.css">
     <link rel="stylesheet" href="assets/css/home-board.css">
+    <link rel="stylesheet" href="assets/css/sell-house.css">
 
     <!-- js: general-->
     <script src="assets/js/helper.js"></script>
@@ -40,7 +41,7 @@
 
 <body>
     <main id="main-board">
-        <div id="home-board" class="">
+        <div id="home-board" class="hidden">
             <header>
                 <h1><span>Monopoly</span></h1>
             </header>
@@ -249,6 +250,50 @@
                     <div></div>
                 </div>
                 <!-- insert clicked cards front and back -->
+            </div>
+        </div>
+        <div id="sell-house" class="">
+            <header>
+                <h1><span>Sell house</span></h1>
+            </header>
+            <div class="main">
+                <div class="flex-container">
+                    <h2>Card:</h2>
+                    <h2>Receiving:<span></span></h2>
+                </div>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <div class="property-card-front" data-color="" data-tile="" data-postition="">
+                            <h3>Title card</h3>
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgaged: <span></span></p>
+                        </div>
+                        <div class="property-card-back" data-color="" data-tile="" data-postition="">
+                            <h3>Title card</h3>
+                            <h4>Rent: <span></span></h4>
+                            <ul>
+
+                            </ul>
+                            <h4>Mortgage value: <span></span></h4>
+                            <p>An house costs <span></span> per piece</p>
+                            <p>An hotel costs <span></span> plus 4 appartements</p>
+
+                            <p>If a player owns all the properties of the color group, the rent doubles</p>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <p>Houses and hotels may be sold back to the Bank at any time for
+                            one-half the price paid for them.</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button>Cancel</button>
+                    <button>Sell house(s)</button>
+                </div>
             </div>
         </div>
     </main>

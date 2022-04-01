@@ -1,0 +1,46 @@
+#sell-house .main{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-family: Arial,sans-serif;
+}
+#sell-house .flexcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+#sell-house .flex-item{
+    display: flex;
+}
+#sell-house .property-card-front{
+    margin-right: 1rem;
+}
+#sell-house .information{
+
+}
+#sell-house .information p{
+    border-radius: 0.5rem;
+    width: 18rem;
+    display: inline-block;
+    background-color: rgb(206, 206, 206);
+    color: black;
+    padding: 0.5rem 0.5rem 0.5rem 3.2rem;
+}
+#sell-house .information p{
+    background-image: url("../media/icons8-info.svg");
+    background-repeat: no-repeat;
+    background-size: 1.8rem 1.8rem;
+    background-position: 0.6rem 0.6rem;
+}
+#sell-house .buttons button{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    width: 13rem;
+    display: block;
+}
+#sell-house .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12rem;
+}

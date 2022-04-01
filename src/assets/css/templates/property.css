@@ -28,7 +28,7 @@
     background-color: blue;
     line-height: 220%;
     border-bottom: solid black 0.1rem;
-    margin: inherit;
+    margin: auto;
 
 }
 .property-card-back p:last-child{
