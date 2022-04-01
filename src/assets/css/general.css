@@ -87,6 +87,15 @@ select, input {
     color: #757575;
 }
 
+.button:focus {
+    animation: click 1s ease-out;
+}
+
 .hidden {
     display: none;
+}
+
+@keyframes click {
+    from {background-color: #FFFFFF;}
+    to {background-color: #757575;}
 }
