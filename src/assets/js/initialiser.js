@@ -26,8 +26,7 @@ function init(){
 }
 
 function initIndex(){
-    // document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
-    window.location.replace("https://www.omfgdogs.com/#");
+    document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
 }
 
 function initConnect(){
@@ -50,6 +49,9 @@ function initSelectPawn(){
 
 function initMainBoard(){
     _player = loadFromStorage("_player");
+
+    // tile map template
+    addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
     // auction
     document.querySelector('#offer-placeholder button[type=submit]').addEventListener('click', bid);
