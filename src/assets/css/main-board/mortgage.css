@@ -1,46 +1,48 @@
-#unmortgage .main{
+#mortgage .main{
     margin-left: 2rem;
     margin-right: 2rem;
     font-family: Arial,sans-serif;
 }
-#unmortgage .flexcontainer{
+#mortgage .flexcontainer{
     display: flex;
     justify-content: space-between;
 }
-#unmortgage .flex-item{
-    display: flex;
-}
-#unmortgage .property-card-front{
-    margin-right: 1rem;
-}
-#unmortgage .information{
-
-}
-#unmortgage .information p{
+#mortgage .information p{
     border-radius: 0.5rem;
     width: 18rem;
-    display: inline-block;
+    display: block;
     background-color: rgb(206, 206, 206);
     color: black;
     padding: 0.5rem 0.5rem 0.5rem 3.2rem;
 }
-#unmortgage .information p{
-    background-image: url("../media/icons8-info.svg");
+#mortgage .information p{
+    margin-bottom: 1rem;
+}
+#mortgage .information p{
+    background-image: url("../../media/icons8-info.svg");
     background-repeat: no-repeat;
     background-size: 1.8rem 1.8rem;
     background-position: 0.6rem 0.6rem;
 }
-#unmortgage .buttons button{
+#mortgage .property-card-back{
+    margin-left: 1rem;
+}
+#mortgage #property-card-front-and-back{
+    display: flex;
+}
+#mortgage div.flexcontainer h2:first-child{
+    margin-right: 14rem;
+}
+#mortgage .buttons button{
     font-size: 1rem;
     padding: 0.5rem 2rem;
     background-color: #757575;
     color: #FFFFFF;
     border-radius: 1rem;
-    width: 13rem;
+    width: 12rem;
     display: block;
 }
-#unmortgage .buttons{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12rem;
+#mortgage .buttons.flexcontainer{
+    align-items: flex-end;
+    margin-top: 9rem;
 }

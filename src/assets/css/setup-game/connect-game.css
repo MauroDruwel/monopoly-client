@@ -41,7 +41,7 @@ table {
 
 fieldset {
     margin-bottom: 1rem;
-    background: url("../media/bg-pixels.png");
+    background: url("../../media/bg-pixels.png");
     border-radius: 0.5rem;
     border-top: lightgray solid 0.2rem;
     padding: 1rem;

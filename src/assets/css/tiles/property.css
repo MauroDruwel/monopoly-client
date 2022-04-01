@@ -1,8 +1,9 @@
 .property-card-front,.property-card-back{
     width: 15rem;
-    height: 18rem;
-    border: solid black 0.1rem;
-    font-family: Arial,sans-serif;
+    height: 21rem;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
 .property-card-front p,.property-card-front li{
     margin-top: 0.5rem;
