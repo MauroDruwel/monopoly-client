@@ -8,7 +8,7 @@
 #select-pawn figure img:hover{
     background-color: gray;
 }
-#select-pawn .flexcontainer{
+#select-pawn .flex-container{
     margin-top: 5rem;
     display: flex;
     justify-content: center;

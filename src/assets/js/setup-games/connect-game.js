@@ -55,7 +55,7 @@ function joinGame(gameId, username){
             saveToStorage("_player", _player);
         })
         .then(() => {
-            location.href = "main-board.html";
+            location.href = "queue.html";
         });
 
 }
