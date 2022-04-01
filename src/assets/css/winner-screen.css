@@ -1,13 +1,28 @@
-body{
+ main .winner_background{
     background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
-    background-size: 20rem;
+    background-size: 40rem;
+    padding-top: 3rem;
+    text-align: center;
 }
+
 main h2{
-    margin-top: 8rem;
+    margin-top: 3rem;
 }
 main h2,p{
     padding-top: 5rem;
     font-size: 5rem;
     text-align: center;
     text-decoration: #333333;
+}
+button {
+    font-size: 2rem;
+    padding: 4rem 8rem;
+    background-color: #757575;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    display: block;
+    margin:auto;
+    text-align: center;
+
+
 }
