@@ -8,7 +8,6 @@ let _player = {
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
-    processProperty("Baltic")
     if (document.querySelector('#index')){
         initIndex();
     }
