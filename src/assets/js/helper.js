@@ -1,10 +1,5 @@
 "use strict";
 
-/* Server Fetch Helpers */
-function gameState(myfunction){
-    fetchFromServer(`/games/${_player.gameId}`,'GET').then(response => myfunction(response)).catch(errorHandler);
-}
-
 /* String Convert Helpers */
 function beautifyId(id){
     return capitalizeFirstLetter(id.replace(/_/g, ' '));
