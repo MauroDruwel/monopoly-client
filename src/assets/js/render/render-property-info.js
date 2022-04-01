@@ -1,27 +1,22 @@
 "use strict";
 
 function renderPropertyBack(property){
-    document.querySelector('#tile').classList.remove('hidden');
-    const $template = document.querySelector('#front-card');
-    const $tr = $template.content.firstElementChild.cloneNode(true);
+    const $tbody = document.querySelector('.property-card-back');
+    //$tbody.innerHTML = $template.outerHTML; // reset html
 
-    const $tbody = document.querySelector('#front-card-container');
-    $tbody.innerHTML = $template.outerHTML; // reset html
+    $tbody.querySelector('h3').innerHTML = property.name;
+    $tbody.querySelector('h4 span').innerHTML = property.rent;
 
-    $tr.querySelector('h3').innerHTML = property.name;
-    $tr.querySelector('h4 span').innerHTML = property.rent;
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 1 appartement: ${property.rentWithOneHouse}</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 2 appartement: ${property.rentWithTwoHouses}</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 3 appartement: ${property.rentWithThreeHouses}</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 4 appartement: ${property.rentWithFourHouses}</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With hotel ${property.rentWithHotel}</li>`);
 
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 1 appartement: ${property.rentWithOneHouse}</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 2 appartement: ${property.rentWithTwoHouses}</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 3 appartement: ${property.rentWithThreeHouses}</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With 4 appartement: ${property.rentWithFourHouses}</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>With hotel ${property.rentWithHotel}</li>`);
+    $tbody.querySelector('ul + h4 span').innerHTML = property.mortgage;
+    $tbody.querySelector('p:first-of-type span').innerHTML = property.housePrice;
+    $tbody.querySelector('p + p span').innerHTML = property.housePrice;
 
-    $tr.querySelector('ul + h4 span').innerHTML = property.mortgage;
-    $tr.querySelector('p:first-of-type span').innerHTML = property.housePrice;
-    $tr.querySelector('p + p span').innerHTML = property.housePrice;
-
-    $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 }
 
 function renderPropertyFront(searchProperty, game){
@@ -38,20 +33,16 @@ function renderPropertyFront(searchProperty, game){
             }
         });
     });
-    document.querySelector('#tile').classList.remove('hidden');
-    const $template = document.querySelector('#back-card');
-    const $tr = $template.content.firstElementChild.cloneNode(true);
-    const $tbody = document.querySelector('#back-card-container');
+    const $tbody = document.querySelector('.property-card-front');
 
-    $tr.querySelector('h3').innerHTML = searchProperty;
-    $tr.querySelector('p:first-of-type').innerHTML = propertyState[0];
+    $tbody.querySelector('h3').innerHTML = searchProperty;
+    $tbody.querySelector('p:first-of-type').innerHTML = propertyState[0];
 
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[1]} house(s)</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[2]} hotel)</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[1]} house(s)</li>`);
+    $tbody.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[2]} hotel)</li>`);
 
-    $tr.querySelector('p:last-of-type span').innerHTML = propertyState[3];
+    $tbody.querySelector('p:last-of-type span').innerHTML = propertyState[3];
 
-    $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 
 }
 
