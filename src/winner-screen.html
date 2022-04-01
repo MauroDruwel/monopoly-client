@@ -30,6 +30,7 @@
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/initialiser.js"></script>
+    <script src="assets/js/winner-screen"></script>
 
     <!-- js: auction -->
     <script src="assets/js/in-game/auction.js"></script>
@@ -42,12 +43,13 @@
 <header>
     <h1><span>Monopoly</span></h1>
 </header>
-<main class="winner_background">
+<div id="=party_background">
+<main>
     <h2>Congratulations!</h2>
     <p class="Winner"><span></span></p>
     <h2>You are the winner!</h2>
-    <button type="button">Click to party! </button>
+    <button onclick="partyMode()">Click to party! </button>
 </main>
-
+</div>
 </body>
 </html>
