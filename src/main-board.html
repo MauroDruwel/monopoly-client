@@ -41,7 +41,7 @@
 
 <body>
     <main id="main-board">
-        <div id="home-board" class="">
+        <div id="home-board" class="hidden">
             <header>
                 <h1><span>Monopoly</span></h1>
             </header>
@@ -159,8 +159,8 @@
 
                                 </ul>
                                 <h4>Mortgage value: <span></span></h4>
-                                <p>An appartement costs <span></span> per piece</p>
-                                <p>An hotel costs <span></span> plus 4 appartements</p>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>An hotel costs <span></span> plus 4 houses</p>
 
                                 <p>If a player owns all the properties of the color group, the rent doubles</p>
                             </div>
@@ -250,49 +250,51 @@
                 <!-- insert clicked cards front and back -->
             </div>
         </div>
-        <div id="unmortgage" class="hidden">
-        <header>
-            <h1><span>Unmortgage</span></h1>
-        </header>
-        <div class="main">
-            <div class="flex-container">
-                <h2>Unmortgage card:</h2>
-                <h2>Total cost:<span></span></h2>
-            </div>
-            <div class="flex-container">
-                <div class="flex-item">
-                    <div class="property-card-front" data-color="" data-tile="" data-postition="">
-                        <h3>Title card</h3>
-                        <p>Owner: <span></span></p>
-                        <p>Building(s):</p>
-                        <ul>
+        <div id="unmortgage" class="">
+            <header>
+                <h1><span>Unmortgage</span></h1>
+            </header>
+            <div class="main">
+                <div class="card">
+                    <h2>Unmortgage card:</h2>
+                    <div class="flex-item">
+                        <div class="property-card-front" data-color="" data-tile="" data-postition="">
+                            <h3>Title card</h3>
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
 
-                        </ul>
-                        <p>Mortgaged: <span></span></p>
-                    </div>
-                    <div class="property-card-back" data-color="" data-tile="" data-postition="">
-                        <h3>Title card</h3>
-                        <h4>Rent: <span></span></h4>
-                        <ul>
+                            </ul>
+                            <p>Mortgaged: <span></span></p>
+                        </div>
+                        <div class="property-card-back" data-color="" data-tile="" data-postition="">
+                            <h3>Title card</h3>
+                            <h4>Rent: <span></span></h4>
+                            <ul>
 
-                        </ul>
-                        <h4>Mortgage value: <span></span></h4>
-                        <p>An appartement costs <span></span> per piece</p>
-                        <p>An hotel costs <span></span> plus 4 appartements</p>
+                            </ul>
+                            <h4>Mortgage value: <span></span></h4>
+                            <p>A house costs <span></span> per piece</p>
+                            <p>An hotel costs <span></span> plus 4 houses</p>
 
-                        <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            <p>If a player owns all the properties of the color group, the rent doubles</p>
+                        </div>
                     </div>
                 </div>
-                <div class="information">
-                    <p>To unmortgage a property 10% interest is added</p>
+
+                <div class="cost">
+                    <h2>Total cost:<span></span></h2>
+                    <div class="information">
+                        <p>To unmortgage a property 10% interest is added</p>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" value="cancel" class="button"> cancel unmortgage</button>
+                    <button type="button" value="unmortgage" class="button">unmortgage</button>
                 </div>
             </div>
-                <div class="buttons">
-                    <button>cancel unmortgage</button>
-                    <button>unmortgage</button>
-                </div>
         </div>
-    </div>
     </main>
 <footer>
     <div class="errormessages">
