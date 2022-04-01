@@ -7,7 +7,7 @@ function processPropertyBack(property){
 }
 
 function processPropertyFront(property){
-    fetchFromServer(`/games/dummy`, "GET").then(game => {
+    fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
         renderPropertyFront(property, game);
     }).catch(errorHandler);
 }
