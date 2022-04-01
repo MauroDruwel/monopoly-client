@@ -1,11 +1,11 @@
 "use strict";
 
-function renderFrondTiles(property){
+function renderPropertyBack(property){
     document.querySelector('#tile').classList.remove('hidden');
-    const $template = document.querySelector('#frond-card');
+    const $template = document.querySelector('#front-card');
     const $tr = $template.content.firstElementChild.cloneNode(true);
 
-    const $tbody = document.querySelector('#frond-card-container');
+    const $tbody = document.querySelector('#front-card-container');
     //$tbody.innerHTML = $template.outerHTML; // reset html
 
     $tr.querySelector('h3').innerHTML = property.name;
@@ -19,32 +19,43 @@ function renderFrondTiles(property){
 
     $tr.querySelector('ul + h4 span').innerHTML = property.mortgage;
     $tr.querySelector('p:first-of-type span').innerHTML = property.housePrice;
-
+    $tr.querySelector('p + p span').innerHTML = property.housePrice;
 
     $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 }
 
-function renderBackTiles(property){
+function renderPropertyFront(searchProperty, gameState){
+    let owner = "none";
+    let houseCount = 0;
+    let hotelCount = 0;
+    let mortgage = "no";
+    gameState.players.forEach(player => {
+        player.properties.forEach(property => {
+            if (property.property === searchProperty){
+                owner = player.name;
+            }
+            houseCount = property.houseCount;
+            houseCount = property.hotelCount;
+            if (property.mortgage){
+                mortgage = "yes";
+            }
+        });
+    });
     document.querySelector('#tile').classList.remove('hidden');
     const $template = document.querySelector('#back-card');
     const $tr = $template.content.firstElementChild.cloneNode(true);
-
     const $tbody = document.querySelector('#back-card-container');
 
+    $tr.querySelector('h3').innerHTML = searchProperty;
+    $tr.querySelector('p:first-of-type').innerHTML = owner;
+
+    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${houseCount} house(s)</li>`);
+    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${houseCount} hotel)</li>`)
+
+    $tr.querySelector('p:last-of-type span').innerHTML = mortgage;
+
+    $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 
 }
 
-async function getOwner(searchProperty){
-    let res = null;
-     return fetchFromServer(`/games/${_player.gameId}`, "GET").then(response => {
-        response.players.forEach(player => {
-            player.properties.forEach(property => {
-                if (property.property === searchProperty){
-                    res = player.name;
-                    return res;
-                }
-            });
-        });
-        return res;
-    }).catch(errorHandler);
-}
+

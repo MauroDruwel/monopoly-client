@@ -7,6 +7,7 @@ let _player = {
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
+    processProperty("Connecticut");
     if (document.querySelector('#connect-game')){
         initConnect();
     }
@@ -30,7 +31,4 @@ function initMainBoard(){
     getGameInformationByGameID(showJoinedPlayers);
     getGameInformationByGameID(checkIfGameHasStarted);
     document.querySelector('#offerPlaceholder button[type=submit]').addEventListener('click', bid);
-    getOwner("Pennsylvania RR").then(response => {
-        console.log(response);
-    });
 }

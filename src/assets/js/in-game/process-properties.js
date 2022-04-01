@@ -1,16 +1,18 @@
 "use strict";
 
-function getProperties(properties){
-    properties.forEach(property => {
-        if (property.type === "street"){
-            renderFrondTiles(property);
-            console.log("property", property);
-        }
-        else if (property.type === "railroad"){
-            //console.log("railroad", property);
-        }
-        else if (property.type === "utility"){
-            //console.log("utility", property);
-        }
+function processPropertyBack(property){
+    fetchFromServer(`/tiles/${convertSpaceToDash(property)}`, "GET").then(tile => {
+        renderPropertyBack(tile);
     });
+}
+
+function processPropertyFront(property){
+    fetchFromServer(`/games/dummy`, "GET").then(gameState => {
+        renderPropertyFront(property, gameState);
+    }).catch(errorHandler);
+}
+
+function processProperty(property){
+    processPropertyFront(property);
+    processPropertyBack(property);
 }
