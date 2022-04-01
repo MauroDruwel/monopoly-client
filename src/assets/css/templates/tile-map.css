@@ -1,6 +1,6 @@
 
 .tile-map {
-    background-image: url("../media/bg-pixels.png");
+    background-image: url("../../media/bg-pixels.png");
     display: grid;
     grid-template-columns: repeat(12, 1.383rem);
     grid-template-rows: repeat(4, 1.383rem);
