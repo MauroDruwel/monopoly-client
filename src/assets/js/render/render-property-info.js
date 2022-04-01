@@ -24,20 +24,17 @@ function renderPropertyBack(property){
     $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 }
 
-function renderPropertyFront(searchProperty, gameState){
-    let owner = "none";
-    let houseCount = 0;
-    let hotelCount = 0;
-    let mortgage = "no";
-    gameState.players.forEach(player => {
+function renderPropertyFront(searchProperty, game){
+    const propertyState = ["none", 0, 0, "no"];
+    game.players.forEach(player => {
         player.properties.forEach(property => {
             if (property.property === searchProperty){
-                owner = player.name;
+                propertyState[0] = player.name;
             }
-            houseCount = property.houseCount;
-            hotelCount = property.hotelCount;
+            propertyState[1] = property.houseCount;
+            propertyState[2] = property.hotelCount;
             if (property.mortgage){
-                mortgage = "yes";
+                propertyState[3] = "yes";
             }
         });
     });
@@ -47,12 +44,12 @@ function renderPropertyFront(searchProperty, gameState){
     const $tbody = document.querySelector('#back-card-container');
 
     $tr.querySelector('h3').innerHTML = searchProperty;
-    $tr.querySelector('p:first-of-type').innerHTML = owner;
+    $tr.querySelector('p:first-of-type').innerHTML = propertyState[0];
 
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${houseCount} house(s)</li>`);
-    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${hotelCount} hotel)</li>`);
+    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[1]} house(s)</li>`);
+    $tr.querySelector('ul').insertAdjacentHTML("beforeend", `<li>${propertyState[2]} hotel)</li>`);
 
-    $tr.querySelector('p:last-of-type span').innerHTML = mortgage;
+    $tr.querySelector('p:last-of-type span').innerHTML = propertyState[3];
 
     $tbody.insertAdjacentHTML("beforeend", $tr.outerHTML);
 
