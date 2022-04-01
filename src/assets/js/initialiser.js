@@ -36,8 +36,9 @@ function initConnect(){
 
 function initQueue(){
     _player = loadFromStorage("_player");
-    gameState(renderQueue);
 
+    // queue
+    processQueueState();
 }
 
 function initSelectPawn(){
