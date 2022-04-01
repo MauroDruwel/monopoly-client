@@ -9,7 +9,7 @@ function renderPropertyBack(property) {
                                                                                    <li>With 2 houses: ${property.rentWithTwoHouses}</li>
                                                                                    <li>With 3 houses: ${property.rentWithThreeHouses}</li>
                                                                                    <li>With 4 houses: ${property.rentWithFourHouses}</li>
-                                                                                   <li>With hotel ${property.rentWithHotel}</li>`);
+                                                                                   <li>With hotel: ${property.rentWithHotel}</li>`);
 
 
     $tbody.querySelector('ul + h4 span').innerHTML = property.mortgage;
