@@ -24,10 +24,10 @@
     background-size: 1.8rem 1.8rem;
     background-position: 0.6rem 0.6rem;
 }
-#mortgage .property-card-back{
+#mortgage .property-back{
     margin-left: 1rem;
 }
-#mortgage #property-card-front-and-back{
+#mortgage #property-front-and-back{
     display: flex;
 }
 #mortgage div.flexcontainer h2:first-child{

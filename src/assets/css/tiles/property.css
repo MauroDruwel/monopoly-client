@@ -1,28 +1,28 @@
-.property-card-front,.property-card-back{
+.property-front,.property-back{
     width: 15rem;
     height: 21rem;
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
-.property-card-front p,.property-card-front li{
+.property-front p,.property-front li{
     margin-top: 0.5rem;
     font-size: 0.8rem;
 }
-.property-card-front{
+.property-front{
     text-align: center;
 }
-.property-card-back h4, .property-card-back li, .property-card-back p{
+.property-back h4, .property-back li, .property-back p{
     margin-top: 0.5rem;
     font-size: 0.8rem;
     text-align: center;
 }
-.property-card-back h4{
+.property-back h4{
     font-size: 0.9rem;
     color: #474747;
     font-weight: bolder;
 }
-.property-card-front h3,.property-card-back h3{
+.property-front h3,.property-back h3{
     font-size: 1.5rem;
     text-align: center;
     color: white;
@@ -32,6 +32,6 @@
     margin: auto;
 
 }
-.property-card-back p:last-child{
+.property-back p:last-child{
     margin-bottom: 0.5rem;
 }
