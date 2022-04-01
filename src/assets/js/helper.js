@@ -1,25 +1,22 @@
 "use strict";
-function getGameInformationByGameID(myfunction){
-    fetchFromServer(`/games/${_player.gameId}`,'GET').then(response => myfunction(response)).catch(errorHandler);
-}
 
+/* String Convert Helpers */
 function beautifyId(id){
     return capitalizeFirstLetter(id.replace(/_/g, ' '));
-}
-
-function convertSpaceToDash(string){
-    return capitalizeFirstLetter(string.replace(/ /g,"_"));
-
 }
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function convertSpacesToUnderscores(string){
+    return string.replace(/ /g, "_");
+}
 
-function getSpecificTile(tilename){
-    fetchFromServer(`/tiles/${tilename}`, "GET").then(response => {
-        renderPropertyBack(response);
-    }).catch(errorHandler);
+/* Event Helpers */
+
+function addEventListenerToElements(type, handler, selector){
+    const $elements = document.querySelectorAll(selector);
+    $elements.forEach(($element) => $element.addEventListener(type, handler));
 }
 

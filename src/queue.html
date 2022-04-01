@@ -7,40 +7,37 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
-    <!--    fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
-    <!--    css-->
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/queue.css">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
-    <link rel="stylesheet" href="assets/css/index.css">
 
-    <!--    js-->
+    <!-- js: general-->
     <script src="assets/js/helper.js"></script>
-    <script src="assets/js/render/render-connect-game.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/setup-games/connect-game.js"></script>
     <script src="assets/js/initialiser.js"></script>
+
+    <!-- js: queue -->
+    <script src="assets/js/setup-games/queue.js"></script>
+    <script src="assets/js/render/render-queue.js"></script>
 
 </head>
 <body>
-
     <header>
-        <p>Welcome to</p>
         <h1><span>Monopoly</span></h1>
     </header>
-
-    <main id="index">
-        <button id="start-game" class="button">START GAME</button>
-        <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi49ffkz-v2AhUYuKQKHf-XDH4QFnoECA0QAQ&url=https%3A%2F%2Fwww.hasbro.com%2Fcommon%2Finstruct%2F00009.pdf&usg=AOvVaw1-VsUKeK7w_BSaSy4KlLEY">view rules</a>
+    <main id="queue">
+        <h2>Game Queue</h2>
+        <ul>
+            <!-- INSERT JOINED PLAYERS HERE -->
+        </ul>
     </main>
-
 
     <footer>
         <div class="errormessages">

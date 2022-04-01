@@ -1,0 +1,18 @@
+#home-board .main {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: 12fr 41fr 16fr;
+    padding: 0 1rem 1rem 1rem;
+}
+
+#home-board .top-grid {
+    background-color: burlywood;
+}
+
+#home-board .mid-grid{
+    background-color: purple;
+}
+#home-board .bottom-grid {
+    display: flex;
+    align-content: flex-end;
+}

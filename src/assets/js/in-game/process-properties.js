@@ -1,7 +1,7 @@
 "use strict";
 
 function processPropertyBack(property){
-    fetchFromServer(`/tiles/${convertSpaceToDash(property)}`, "GET").then(tile => {
+    fetchFromServer(`/tiles/${convertSpacesToUnderscores(property)}`, "GET").then(tile => {
         renderPropertyBack(tile);
     });
 }
