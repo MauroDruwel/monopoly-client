@@ -1,8 +1,11 @@
  main {
      background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
-     background-size: 40rem;
-     padding-top: 3rem;
+     background-size: 50rem;
+     padding-top: 15rem;
      text-align: center;
+     background-repeat: no-repeat;
+     background-position: center;
+
  }
 main h2{
     margin-top: 3rem;

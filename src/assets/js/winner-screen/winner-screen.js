@@ -1,9 +1,6 @@
 "use strict";
+const partyButton = document.querySelector('#party_button');
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+partyButton.addEventListener('click',()=>{
+    document.body.style.backgroundImage = "url('https://cdn.discordapp.com/attachments/955800521409703966/959439396560584704/fortnite-monopoly.gif')";
 });
-
-function partyMode() {
-    document.getElementById("=party_background").style.backgroundImage = "url(https://cdn.discordapp.com/attachments/955800521409703966/959439396560584704/fortnite-monopoly.gif)";
-}
