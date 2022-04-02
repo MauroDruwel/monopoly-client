@@ -1,6 +1,11 @@
 
 /* general style for properties*/
 
+.pair {
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
 .property-front, .property-back {
     display: grid;
     grid-template-columns: 1fr;

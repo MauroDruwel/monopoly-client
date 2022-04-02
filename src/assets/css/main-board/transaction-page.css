@@ -4,11 +4,6 @@
     flex-direction: column;
 }
 
-.transaction-board .card {
-    justify-content: flex-start;
-    gap: 1rem;
-}
-
 .transaction-board .cancel {
     position: fixed;
     bottom: 2rem;
