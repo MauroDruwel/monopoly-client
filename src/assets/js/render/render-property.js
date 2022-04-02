@@ -7,6 +7,11 @@ function renderPropertyBack(property) {
     const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-back`);
 
     $properties.forEach($property => {
+
+        // set dataset values
+        $property.dataset.color = property.color.toLowerCase();
+        $property.dataset.position = property.position;
+
         $property.querySelector('.grid-header h3').innerHTML = property.name;
         $property.querySelector('.grid-body h4:first-of-type span').innerHTML = property.rent;
 
@@ -27,13 +32,17 @@ function renderPropertyBack(property) {
 
 
 
-function renderPropertyFront(property, game) {
+function renderPropertyFront(property, game, tile) {
 
     // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
-    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-front`);
+    const $properties = document.querySelectorAll(`[data-tile="${tile.nameAsPathParameter}"].property-front`);
 
     $properties.forEach($property => {
+
+        // set dataset values
+        $property.dataset.color = tile.color.toLowerCase();
+        $property.dataset.position = tile.position;
 
         const propertyState = retrievePropertyState(game, property);
 
