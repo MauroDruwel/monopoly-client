@@ -55,7 +55,7 @@
 <body>
 
     <main id="main-board">
-        <div id="home-board" class="">
+        <div id="home-board" class="hidden">
             <header>
                 <h1><span>Monopoly</span></h1>
             </header>
@@ -403,14 +403,14 @@
                 </div>
             </div>
         </div>
-        <div id="sell-house" class="hidden">
+        <div id="sell-house" class="transaction-board">
             <header>
                 <h1><span>Sell house</span></h1>
             </header>
+
             <div class="main">
-                <div class="card">
-                    <h2>Card:</h2>
-                    <div class="flex-container">
+                <div class="flex-container">
+                    <div class="pair-horizontal">
                         <div class="property-front tile" data-color="" data-tile="" data-postition="">
                             <div class="grid-header">
                                 <h3>card</h3>
@@ -424,6 +424,7 @@
                                 <p>Mortgaged? <span></span></p>
                             </div>
                         </div>
+
                         <div class="property-back tile" data-color="" data-tile="" data-postition="">
                             <div class="grid-header">
                                 <h3>card</h3>
@@ -446,16 +447,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="information flex-container">
+                        <h2>Receiving: <span></span></h2>
+                        <div>
+                            <p>Houses and hotels may be sold back to the Bank at any time for
+                                one-half of the price paid for them.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="information">
-                    <h2>Receiving: <span></span></h2>
-                    <p>Houses and hotels may be sold back to the Bank at any time for
-                        one-half of the price paid for them.</p>
+
+                <div class="cancel">
+                    <button type="button" value="cancel" class="button">Cancel</button>
                 </div>
-            </div>
-            <div class="buttons flex-container">
-                <button type="button" value="cancel" class="button">Cancel</button>
-                <button type="button" value="sell-house" class="button">Sell house</button>
+
+                <div class="proceed">
+                    <button type="button" value="sell-house" class="button">Sell house</button>
+                </div>
             </div>
         </div>
     </main>
