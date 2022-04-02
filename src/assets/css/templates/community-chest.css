@@ -1,7 +1,4 @@
 .community-chest{
-    width: 15rem;
-    height: 18rem;
-    border: solid 0.1rem;
     display: grid;
 }
 .community-chest h3{
