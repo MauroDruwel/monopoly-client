@@ -1,7 +1,4 @@
 .chance-tile{
-    width: 15rem;
-    height: 18rem;
-    border: solid 0.1rem;
     display: grid;
 }
 .chance-tile h3{
