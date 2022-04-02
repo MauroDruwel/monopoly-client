@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="assets/css/main-board/auction.css">
     <link rel="stylesheet" href="assets/css/main-board/stats.css">
     <link rel="stylesheet" href="assets/css/setup-game/select-pawn.css">
-    <link rel="stylesheet" href="assets/css/main-board/unmortgage.css">
-    <link rel="stylesheet" href="assets/css/main-board/mortgage.css">
+    <link rel="stylesheet" href="assets/css/main-board/transaction-page.css">
     <link rel="stylesheet" href="assets/css/tiles/property.css">
     <link rel="stylesheet" href="assets/css/main-board/tile-map.css">
     <link rel="stylesheet" href="assets/css/main-board/home-board.css">
@@ -101,49 +100,81 @@
                 </div>
             </div>
         </div>
-        <div id="auction" class="hidden">
+        <div id="auction" class="">
             <header>
                 <h1><span>Auction</span></h1>
             </header>
 
             <div class="main">
-                <div class="display-tile">
-                    <h2>Card on sale:</h2>
-                    <div>
-                        <!-- insert tiles here -->
+
+                <div class="pair-horizontal">
+                    <div class="property-front tile" data-color="" data-tile="" data-postition="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgaged? <span></span></p>
+                        </div>
+                    </div>
+                    <div class="property-back tile" data-color="" data-tile="" data-postition="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div id="offer-placeholder">
-                    <h2>Highest offer:</h2>
                     <div>
-                        <p><!-- currency bidder --></p>
-                        <p><!-- name bidder --></p>
+                        <h2>Highest offer:</h2>
+                        <div>
+                            <p><!-- currency bidder --></p>
+                            <p><!-- name bidder --></p>
+                        </div>
                     </div>
+
                     <form action="#" method="post">
                         <label for="offer">Your offer:</label>
-                        <input type="text" id="offer" name="offer" placeholder="Enter your offer here">
-                        <button type="submit">OFFER</button>
+                        <input type="text" id="offer" name="offer" placeholder="Amount">
+                        <button type="button" value="offer" class="button">offer</button>
                     </form>
                 </div>
+
                 <div id="time">
-                    <h2>Time left:</h2>
+                    <h2>Timer (sec): </h2>
                     <p>
-                        <!-- display time here -->
+                       <!-- display time here -->
                     </p>
                 </div>
             </div>
         </div>
-        <div id="mortgage" class="hidden">
-        <header>
-            <h1><span>Mortgage</span></h1>
-        </header>
-        <div class="main">
-                <div class="flexcontainer">
-                    <h2>Mortgage Card:</h2>
-                    <h2>Receiving: <span><!-- INSERT HOW MUCH YOU WILL GET IF YOU MORTGAGE --></span></h2>
-                </div>
-                <div class="flexcontainer">
-                    <div id="property-front-and-back tile">
+        <div id="mortgage" class="transaction-board hidden">
+            <header>
+                <h1><span>Mortgage</span></h1>
+            </header>
+            <div class="main">
+                <div class="flex-container">
+                    <div class="pair-horizontal">
                         <div class="property-front tile" data-color="" data-tile="" data-postition="">
                             <div class="grid-header">
                                 <h3>card</h3>
@@ -179,25 +210,28 @@
                             </div>
                         </div>
                     </div>
-                    <div id="information">
-                        <p>Before you can mortgage you need to sell all buildings from this color-group</p>
-                        <p>If you want to unmortage an property a 10% interest will be added</p>
+
+                    <div class="information flex-container">
+                        <h2>Receiving: <span></span></h2>
+                        <div>
+                            <p>All buildings of this color-group need to be sold</p>
+                            <p>To unmortgage a property, 10% interest is added</p>
+                        </div>
                     </div>
                 </div>
-                <div class="buttons flexcontainer">
-                <div>
-                    <button>Cancel Mortgage</button>
+
+                <div class="cancel">
+                    <button type="button" value="cancel" class="button"> cancel mortgage</button>
                 </div>
-                <div>
-                    <button id="sell-building">Sell Buildings</button>
-                    <button>Mortgage</button>
+                <div class="proceed">
+                    <button type="button" value="sell-buildings" class="button">sell buildings</button>
+                    <button type="button" value="mortgage" class="button">mortgage</button>
                 </div>
             </div>
         </div>
-    </div>
         <div id="player_stats" class="hidden">
             <header>
-                <h1><span>stats</span></h1>
+                <h1><span>Stats</span></h1>
             </header>
             <div class="flex-container-button">
                 <button type="button">close stats</button>
@@ -264,14 +298,13 @@
                 <!-- insert clicked cards front and back -->
             </div>
         </div>
-        <div id="unmortgage" class="">
+        <div id="unmortgage" class="transaction-board hidden">
             <header>
                 <h1><span>Unmortgage</span></h1>
             </header>
             <div class="main">
-                <div class="card">
-                    <h2>Unmortgage card:</h2>
-                    <div class="flex-item">
+                <div class="flex-container">
+                    <div class="pair-horizontal">
                         <div class="property-front tile" data-color="" data-tile="" data-postition="">
                             <div class="grid-header">
                                 <h3>card</h3>
@@ -307,17 +340,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cost">
-                    <h2>Total cost:<span></span></h2>
-                    <div class="information">
-                        <p>To unmortgage a property 10% interest is added</p>
+                    <div class="information flex-container">
+                        <h2>Total cost: <span></span></h2>
+                        <div>
+                            <p>To unmortgage a property, 10% interest is added</p>
+                        </div>
                     </div>
                 </div>
 
-                <div>
+                <div class="cancel">
                     <button type="button" value="cancel" class="button"> cancel unmortgage</button>
+                </div>
+                <div class="proceed">
                     <button type="button" value="unmortgage" class="button">unmortgage</button>
                 </div>
             </div>

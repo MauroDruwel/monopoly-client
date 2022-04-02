@@ -1,42 +1,60 @@
 #auction .main{
+    padding: 3rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
-#offer-placeholder p:first-child{
-    padding-top: 1rem;
+#auction .pair-horizontal {
+    width: 30%;
 }
 
-#offer-placeholder div{
+#offer-placeholder {
+    width: 30%;
+}
+#time {
+    width: 30%;
+
+}
+#time p {
+    font-size: 6.5rem;
+    background-image: url("../../media/bg-pixels.png");
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+#offer-placeholder h2 + div{
     font-size: 2rem;
     text-align: center;
-    background-color: #757575;
-    color: #FFFFFF;
-    width: 16rem;
-    height: 6rem;
+    background-image: url("../../media/bg-pixels.png");
+    margin-bottom: 2rem;
+    padding: 2rem 0 2rem 0;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
 
-#auction form{
-    margin-top: 1rem;
+#offer-placeholder h2 + div p:first-of-type {
+    font-size: 3rem;
 }
 
-#auction button{
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    background-color: #757575;
-    color: #FFFFFF;
-    border-radius: 1rem;
+#offer-placeholder h2 + div p:last-of-type {
+    font-size: 1.5rem;
+    font-style: italic;
 }
 
-#auction input{
+#auction input {
     width: 100%;
-    font-size: 1rem;
+    height: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: #757575;
 }
 
 #auction label{
     font-size: 2rem;
-}
-
-#time p{
-    font-size: 6rem;
 }
