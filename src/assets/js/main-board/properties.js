@@ -18,7 +18,7 @@ function processProperty(property){
 }
 
 function retrievePropertyState(game, property) {
-    // default property values ["owner: none", "houses: 0", "hotels: 0", "mortgaged? FALSE"]
+    // default property values ["owner: none", "houses: 0", "hotels: 0", "mortgage: FALSE"]
     const propertyState = ["none", 0, 0, "FALSE"];
 
     game.players.forEach(player => {
