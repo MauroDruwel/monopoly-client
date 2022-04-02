@@ -1,0 +1,45 @@
+
+.transaction-board .main {
+    padding: 3rem;
+    flex-direction: column;
+}
+
+.transaction-board .card {
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.transaction-board .cancel {
+    position: fixed;
+    bottom: 2rem;
+    left: 3rem;
+}
+
+.transaction-board .information {
+    flex-direction: column;
+    min-width: 15rem;
+    width: 25%;
+    background-image: url("../../media/bg-pixels.png");
+    padding: 1rem;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+}
+
+.transaction-board .information p {
+    margin-bottom: 0.5rem;
+    text-align: center;
+    border-radius: 0.75rem;
+    padding: 1rem 2rem 1rem 2.5rem;
+    background-color: rgba(230, 230, 230, 0.73);
+    background-image: url("../../media/icons8-info.svg");
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    background-position: 0.5rem center;
+}
+
+.transaction-board .proceed {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+}
