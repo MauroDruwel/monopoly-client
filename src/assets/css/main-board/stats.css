@@ -1,56 +1,35 @@
-#player_stats header h1 {
-    margin-bottom: 5rem;
 
-}
-#player_stats .player_balance {
-    background-color: #757575;
-    color: #FFFFFF;
-    width: fit-content;
-    padding: 0.1rem;
-    text-align: center;
-    font-size: 1.5rem;
-
-}
-
-#player_stats .flex-container-button{
+#stats .main {
+    padding: 3rem;
     display: flex;
-    justify-content: flex-end;
-    margin:2rem;
-}
-#player_stats button {
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    background-color: #757575;
-    color: #FFFFFF;
-    border-radius: 1rem;
-    max-width: 100%;
-}
-#player_stats .player_balance + h2{
-    margin-top: 5rem;
-}
-/* flex container columns*/
-#player_stats .flex-container {
-    justify-content:space-between;
-    margin: auto;
-    align-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-/*eq margins*/
-#player_stats .playerstats-playerbalance_pawn {
-    margin-left: 2rem;
+#stats button {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
 }
-#player_stats .stats_window-stats_tiles{
-    margin-right: 2rem;
-}
-#player_stats .stats_window-stats_tiles button{
-    margin-bottom: 1rem;
 
+#stats .tile-map {
+    margin-bottom: 2rem;
 }
-/* box for cards */
-#player_stats .stats_window{
-    background-color:#DEE1E6;
-    border: solid 0.1rem grey;
-    width: 25rem;
-    height: 12rem;
-    box-shadow:0.2rem 0.2rem 0.1rem grey ;
+
+#stats .pair-horizontal {
+    justify-content: space-between;
+}
+
+#stats .balance {
+    background-image: url("../../media/bg-pixels.png");
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#stats .balance p:last-of-type {
+    font-size: 5rem;
+    text-align: center;
 }
