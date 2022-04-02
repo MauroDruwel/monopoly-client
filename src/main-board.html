@@ -20,12 +20,19 @@
     <link rel="stylesheet" href="assets/css/templates/tile-map.css">
     <link rel="stylesheet" href="assets/css/home-board.css">
 
+
     <!-- js: general-->
     <script src="assets/js/helper.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
     <script src="assets/js/data-connector/error-handler.js"></script>
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
+
+    <!-- js: property info -->
+    <script src="assets/js/in-game/process-properties.js"></script>
+    <script src="assets/js/render/render-property-info.js"></script>
+
+
     <script src="assets/js/initialiser.js"></script>
 
     <!-- js: auction -->
@@ -39,7 +46,7 @@
 
 <body>
 <main id="main-board">
-    <div id="home-board" class="hidden">
+    <div id="home-board" class="">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
@@ -250,7 +257,7 @@
             <!-- insert clicked cards front and back -->
         </div>
     </div>
-    <div id="sell-house" class="">
+    <div id="sell-house" class="hidden">
         <header>
             <h1><span>Sell house</span></h1>
         </header>
