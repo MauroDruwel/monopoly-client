@@ -10,18 +10,27 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
 
-    <!--    css-->
+    <!-- ####### STYLESHEET ######## -->
+    <!-- css: general -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/general.css">
+
+    <!-- css: main board -->
+    <link rel="stylesheet" href="assets/css/main-board/home-board.css">
     <link rel="stylesheet" href="assets/css/main-board/auction.css">
     <link rel="stylesheet" href="assets/css/main-board/stats.css">
-    <link rel="stylesheet" href="assets/css/setup-game/select-pawn.css">
     <link rel="stylesheet" href="assets/css/main-board/transaction-page.css">
-    <link rel="stylesheet" href="assets/css/tiles/property.css">
     <link rel="stylesheet" href="assets/css/main-board/tile-map.css">
-    <link rel="stylesheet" href="assets/css/main-board/home-board.css">
-    <link rel="stylesheet" href="assets/css/tiles/tile.css">
 
+    <!-- css: tiles -->
+    <link rel="stylesheet" href="assets/css/tiles/tile.css">
+    <link rel="stylesheet" href="assets/css/tiles/property-tile.css">
+    <link rel="stylesheet" href="assets/css/tiles/chance-tile.css">
+    <link rel="stylesheet" href="assets/css/tiles/community-chest.css">
+    <link rel="stylesheet" href="assets/css/tiles/go-tile.css">
+    <link rel="stylesheet" href="assets/css/tiles/station-tile.css">
+
+    <!-- ####### JAVASCRIPT ######## -->
     <!-- js: general-->
     <script src="assets/js/helper.js"></script>
     <script src="assets/js/data-connector/api-communication-abstractor.js"></script>
@@ -29,6 +38,10 @@
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/initialiser.js"></script>
+
+    <!-- js: property info -->
+    <script src="assets/js/main-board/properties.js"></script>
+    <script src="assets/js/render/render-property.js"></script>
 
     <!-- js: auction -->
     <script src="assets/js/main-board/auction.js"></script>
@@ -40,6 +53,7 @@
 </head>
 
 <body>
+
     <main id="main-board">
         <div id="home-board" class="">
             <header>
@@ -389,11 +403,68 @@
                 </div>
             </div>
         </div>
+        <div id="sell-house" class="hidden">
+            <header>
+                <h1><span>Sell house</span></h1>
+            </header>
+            <div class="main">
+                <div class="card">
+                    <h2>Card:</h2>
+                    <div class="flex-container">
+                        <div class="property-front tile" data-color="" data-tile="" data-postition="">
+                            <div class="grid-header">
+                                <h3>card</h3>
+                            </div>
+                            <div class="grid-body">
+                                <p>Owner: <span></span></p>
+                                <p>Building(s):</p>
+                                <ul>
+
+                                </ul>
+                                <p>Mortgaged? <span></span></p>
+                            </div>
+                        </div>
+                        <div class="property-back tile" data-color="" data-tile="" data-postition="">
+                            <div class="grid-header">
+                                <h3>card</h3>
+                            </div>
+                            <div class="grid-body">
+                                <div>
+                                    <h4>Rent: <span></span></h4>
+                                    <ul>
+
+                                    </ul>
+                                    <h4>Mortgage value: <span></span></h4>
+                                </div>
+                                <div>
+                                    <p>A house costs <span></span> per piece</p>
+                                    <p>A hotel costs <span></span> plus 4 houses</p>
+                                </div>
+                                <div>
+                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="information">
+                    <h2>Receiving: <span></span></h2>
+                    <p>Houses and hotels may be sold back to the Bank at any time for
+                        one-half of the price paid for them.</p>
+                </div>
+            </div>
+            <div class="buttons flex-container">
+                <button type="button" value="cancel" class="button">Cancel</button>
+                <button type="button" value="sell-house" class="button">Sell house</button>
+            </div>
+        </div>
     </main>
-<footer>
-    <div class="errormessages">
-        <p></p>
-    </div>
-</footer>
+
+    <footer>
+        <div class="errormessages">
+            <p></p>
+        </div>
+    </footer>
+
 </body>
 </html>
