@@ -1,7 +1,16 @@
 
 /* general style for properties*/
 
-.pair {
+.pair-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.pair-vertical {
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
 }
