@@ -7,6 +7,12 @@
     flex-direction: column;
 
 }
+
+/* added h2 to make article valid*/
+.go-tile h2 {
+    display: none;
+}
+
 .go-tile img{
     max-width: 100%;
 }
