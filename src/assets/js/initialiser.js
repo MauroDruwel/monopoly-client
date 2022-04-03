@@ -8,6 +8,7 @@ let _player = {
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
+    document.querySelector('#party_button').addEventListener('click', changeBackground);
     if (document.querySelector('#index')){
         initIndex();
     }
