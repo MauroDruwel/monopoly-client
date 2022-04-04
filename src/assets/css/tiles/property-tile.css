@@ -1,0 +1,132 @@
+
+/* general style for properties*/
+
+.pair-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.pair-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.property-front, .property-back {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+.property-front .grid-header, .property-back .grid-header {
+    text-align: center;
+    border-radius: 0.75rem 0.75rem 0 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.property-front .grid-body, .property-back .grid-body {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.property-back .grid-body div:nth-of-type(2), .property-back .grid-body div:last-of-type{
+    text-align: center;
+
+}
+
+.property-back li:last-of-type, .property-front li:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.property-back h3, .property-front h3 {
+    line-height: 220%;
+}
+
+.property-back h4, .property-front p {
+    border-left: solid #757575 0.1rem;
+    padding-left: 0.5rem;
+    border-radius: 0.15rem;
+    background-image: url("../../media/bg-pixels.png");
+    margin-bottom: 1rem;
+}
+
+/* specific style for property front */
+
+/* specific style for property back */
+
+.property-back .grid-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.property-back .grid-body div:first-of-type {
+    border-bottom: solid #C4C4C4 0.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.property-back .grid-body div:last-of-type {
+    background-image: url("../../media/bg-pixels.png");
+    border-radius: 0.5rem;
+    border: solid #C4C4C4 0.1rem;
+    padding: 0.5rem;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.property-back h4:first-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.property-back li {
+    font-size: 0.9rem;
+}
+
+
+
+/* dataset colors on tile header*/
+
+
+[data-color="purple"] .grid-header{
+    background-color: purple;
+}
+
+[data-color="lightblue"] .grid-header{
+    background-color: lightblue;
+}
+
+[data-color="violet"] .grid-header{
+    background-color: violet;
+}
+
+[data-color="orange"] .grid-header{
+    background-color: orange;
+}
+
+[data-color="red"] .grid-header{
+    background-color: red;
+}
+
+[data-color="yellow"] .grid-header{
+    background-color: yellow;
+}
+
+[data-color="darkgreen"] .grid-header{
+    background-color: darkgreen;
+}
+
+[data-color="darkblue"] .grid-header{
+    background-color: darkblue;
+}
+
+[data-color="black"] .grid-header{
+    background-color: black;
+}
+
+[data-color="white"] .grid-header{
+    background-color: burlywood;
+}

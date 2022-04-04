@@ -19,4 +19,3 @@ function addEventListenerToElements(type, handler, selector){
     const $elements = document.querySelectorAll(selector);
     $elements.forEach(($element) => $element.addEventListener(type, handler));
 }
-

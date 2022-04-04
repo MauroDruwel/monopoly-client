@@ -1,0 +1,35 @@
+
+#stats .main {
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#stats button {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+#stats .tile-map {
+    margin-bottom: 2rem;
+}
+
+#stats .pair-horizontal {
+    justify-content: space-between;
+}
+
+#stats .balance {
+    background-image: url("../../media/bg-pixels.png");
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#stats .balance p:last-of-type {
+    font-size: 5rem;
+    text-align: center;
+}

@@ -56,5 +56,5 @@ function initMainBoard(){
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
     // auction
-    document.querySelector('#offer-placeholder button[type=submit]').addEventListener('click', bid);
+    document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid);
 }

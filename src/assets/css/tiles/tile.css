@@ -1,0 +1,8 @@
+
+.tile {
+    width: 15rem;
+    height: 21rem;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+}
