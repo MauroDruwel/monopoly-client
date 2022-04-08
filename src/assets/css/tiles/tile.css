@@ -6,3 +6,11 @@
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
+
+.medium {
+    transform: scale(0.9);
+}
+
+.small {
+    transform: scale(0.8);
+}
