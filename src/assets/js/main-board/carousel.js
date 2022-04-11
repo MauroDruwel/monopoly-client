@@ -7,5 +7,30 @@ function navigateCarousel(e){
     if(!$navigation) {
         return;
     }
-    console.log($navigation);
+    const direction = $navigation.id;
+    processCarouselPosition(direction);
+}
+
+function processCarouselPosition(direction){
+    if(direction === 'left-arrow'){
+        _player.carousel += 1;
+
+        // reached last tile,then:
+        if(_player.carousel === Object.keys(_tiles).length){
+            _player.carousel = 0;
+        }
+    }
+    else if(direction === 'right-arrow'){
+        _player.carousel -= 1;
+
+        // reached first tile,then:
+        if(_player.carousel < 0 ){
+            _player.carousel =  Object.keys(_tiles).length - 1;
+        }
+    }
+    else  if(direction === 'return-home'){
+        const currentTile = _players[_player.username].currentTile;
+        _player.carousel = _tiles[convertSpacesToUnderscores(currentTile)].position;
+    }
+    saveToStorage("_player", _player);
 }

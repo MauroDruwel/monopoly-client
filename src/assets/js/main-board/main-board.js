@@ -14,7 +14,7 @@ function processTiles() {
 }
 
 function processPlayers(){
-    fetchFromServer(`/games/dummy`, "GET").then(game => {
+    fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
         game["players"].forEach(player => {
             _players[player.name] = {};
             for(const key in player){
