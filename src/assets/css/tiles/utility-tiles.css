@@ -1,0 +1,18 @@
+.utility-tiles{
+    display: grid;
+    font-family: Arial,sans-serif;
+    grid-template-rows: auto;
+}
+.utility-tiles h3{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+.utility-tiles figure{
+    width: 50%;
+    margin: auto;
+}
+.utility-tiles .footer-grid h4{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
