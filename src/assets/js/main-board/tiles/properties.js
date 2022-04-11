@@ -1,40 +1,34 @@
 "use strict";
 
-function processPropertyBack(property){
-    fetchFromServer(`/tiles/${convertSpacesToUnderscores(property)}`, "GET").then(tile => {
-        renderPropertyBack(tile);
-    }).catch(errorHandler);
+function processPropertyBack(name){
+    const property = _tiles[tilePosition(name)];
+    renderPropertyBack(property);
 }
 
-function processPropertyFront(property){
-    fetchFromServer(`/tiles/${convertSpacesToUnderscores(property)}`, "GET").then(tile => {
-        fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
-            renderPropertyFront(property, game, tile);
-        }).catch(errorHandler);
-    }).catch(errorHandler);
-}
+function processPropertyFront(name){
+    const property = _tiles[tilePosition(name)];
+    const owner = retrieveTileOwner(name);
 
-function processProperty(property){
-    processPropertyFront(property);
-    processPropertyBack(property);
-}
+    let ownerName = "none";
+    let mortgage = "false";
+    let houseCount = 0;
+    let hotelCount = 0;
 
-function retrievePropertyState(game, property) {
-    // default property values ["owner: none", "houses: 0", "hotels: 0", "mortgage: false"]
-    const propertyState = ["none", 0, 0, "false"];
-
-    game.players.forEach(player => {
-        player.properties.forEach(ownedProperty => {
-            if (ownedProperty.property === property) {
-                propertyState[0] = player.name;
+    if(owner){
+        ownerName = owner.name;
+        for(const ownedProperty of owner.properties){
+            if(ownedProperty.property === convertUnderscoresToSpaces(name)){
+                mortgage = ownedProperty.mortgage;
+                houseCount = ownedProperty.houseCount;
+                hotelCount = ownedProperty.hotelCount;
             }
-            propertyState[1] = ownedProperty.houseCount;
-            propertyState[2] = ownedProperty.hotelCount;
+        }
+    }
 
-            if (ownedProperty.mortgage) {
-                propertyState[3] = "true";
-            }
-        });
-    });
-    return propertyState;
+    renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCount);
+}
+
+function processProperty(name){
+    processPropertyFront(name);
+    processPropertyBack(name);
 }

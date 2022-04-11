@@ -32,26 +32,24 @@ function renderPropertyBack(property) {
 
 
 
-function renderPropertyFront(property, game, tile) {
+function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCount) {
 
     // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
-    const $properties = document.querySelectorAll(`[data-tile="${tile.nameAsPathParameter}"].property-front`);
+    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-front`);
 
     $properties.forEach($property => {
 
         // set dataset values
-        $property.dataset.color = tile.color.toLowerCase();
-        $property.dataset.position = tile.position;
+        $property.dataset.color = property.color.toLowerCase();
+        $property.dataset.position = property.position;
 
-        const propertyState = retrievePropertyState(game, property);
-
-        $property.querySelector('.grid-header h3').innerHTML = property;
-        $property.querySelector('.grid-body p:first-of-type').innerHTML = propertyState[0]; // set owner
+        $property.querySelector('.grid-header h3').innerHTML = property.name;
+        $property.querySelector('.grid-body p:first-of-type').innerHTML = ownerName; // set owner
         $property.querySelector('.grid-body ul').insertAdjacentHTML("beforeend",
-            `<li>${propertyState[1]} house(s)</li>
-                <li>${propertyState[2]} hotel</li>`
+            `<li>${houseCount} house(s)</li>
+                <li>${hotelCount} hotel</li>`
         );
-        $property.querySelector('.grid-body p:last-of-type span').innerHTML = propertyState[3];
+        $property.querySelector('.grid-body p:last-of-type span').innerHTML = mortgage;
     });
 }
