@@ -1,0 +1,14 @@
+.free-parking-tile{
+    display: grid;
+}
+.free-parking-tile h3{
+    text-align: center;
+    font-size: 2.5rem;
+    margin: auto;
+    grid-gap: 0.1rem;
+    font-family: Arial,sans-serif;
+}
+.free-parking-tile figure{
+    width: 80%;
+    margin: auto;
+}
