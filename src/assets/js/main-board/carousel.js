@@ -9,6 +9,7 @@ function navigateCarousel(e){
     }
     const direction = $navigation.id;
     processCarouselPosition(direction);
+    renderCarousel();
 }
 
 function processCarouselPosition(direction){
