@@ -38,6 +38,7 @@
     <script src="assets/js/data-connector/local-storage-abstractor.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/initialiser.js"></script>
+    <script src="assets/js/main-board/main-board.js"></script>
 
     <!-- js: property info -->
     <script src="assets/js/main-board/properties.js"></script>
@@ -49,6 +50,10 @@
     <!-- js: tile-map template -->
     <script src="assets/js/main-board/tile-map.js"></script>
     <script src="assets/js/render/render-tile-map.js"></script>
+
+    <!-- js: carousel -->
+    <script src="assets/js/main-board/carousel.js"></script>
+    <script src="assets/js/render/render-carousel.js"></script>
 
 </head>
 
@@ -143,7 +148,38 @@
                                     </div>
                                 </article>
                             </template>
-                            <template class="utility-template"></template>
+                            <template class="electric-company-template">
+                                <article class="tile utility-tiles" data-tile="Electric_Company" data-position="12">
+                                    <div class="header-grid">
+                                        <h3>Electric Company</h3>
+                                    </div>
+                                    <div class="body-grid">
+                                        <figure>
+                                            <img src="assets/media/monopoly-bulb.jpg" alt="light-bulb" title="light-bulb">
+                                        </figure>
+                                    </div>
+                                    <div class="footer-grid">
+                                        <h4>Price: <span></span></h4>
+                                        <h4>Owner: <span></span></h4>
+                                    </div>
+                                </article>
+                            </template>
+                            <template class="water-works-template">
+                                <article class="tile utility-tiles" data-tile="Water_Works" data-position="28">
+                                    <div class="header-grid">
+                                        <h3>Water works</h3>
+                                    </div>
+                                    <div class="body-grid">
+                                        <figure>
+                                            <img src="assets/media/water-crane.svg" alt="water-crane" title="water-crane">
+                                        </figure>
+                                    </div>
+                                    <div class="footer-grid">
+                                        <h4>Price: <span></span></h4>
+                                        <h4>Owner: <span></span></h4>
+                                    </div>
+                                </article>
+                            </template>
 
                             <article class="property-front tile small" data-color="" data-tile="" data-position="">
                                 <div class="grid-header">
