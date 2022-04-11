@@ -1,11 +1,6 @@
 .go-tile {
-    width: 15rem;
-    height: 18rem;
-    border: solid black 0.1rem;
-    font-family: Arial,sans-serif;
     display: flex;
     flex-direction: column;
-
 }
 
 /* added h2 to make article valid*/
