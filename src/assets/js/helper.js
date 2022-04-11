@@ -13,6 +13,10 @@ function convertSpacesToUnderscores(string){
     return string.replace(/ /g, "_");
 }
 
+function convertUnderscoresToSpaces(string){
+    return string.replace(/_/g, " ");
+}
+
 /* Event Helpers */
 
 function addEventListenerToElements(type, handler, selector){
@@ -27,6 +31,17 @@ function tilePosition(name){
     for(const tile of _tiles){
         if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
             return tile.position;
+        }
+    }
+    return null;
+}
+
+function retrieveTileOwner(tileName){
+    for(const player of _players){
+        for (const ownedProperty of player.properties){
+            if(ownedProperty.property === convertUnderscoresToSpaces(tileName)){
+                return player;
+            }
         }
     }
     return null;

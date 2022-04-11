@@ -13,6 +13,7 @@ const _tiles = [];
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
+
     if (document.querySelector('#index')){
         initIndex();
     }
@@ -55,10 +56,9 @@ function initSelectPawn(){
 
 async function initMainBoard() {
     _player = loadFromStorage("_player");
+
     await processTiles();
     await processPlayers();
-    console.log(_players);
-    console.log(_tiles);
 
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
