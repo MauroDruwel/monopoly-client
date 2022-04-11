@@ -19,3 +19,15 @@ function addEventListenerToElements(type, handler, selector){
     const $elements = document.querySelectorAll(selector);
     $elements.forEach(($element) => $element.addEventListener(type, handler));
 }
+
+
+/* Getters */
+
+function tilePosition(name){
+    for(const tile of _tiles){
+        if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
+            return tile.position;
+        }
+    }
+    return null;
+}
