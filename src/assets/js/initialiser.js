@@ -7,12 +7,15 @@ let _player = {
     carousel: 0
 };
 
-const _players = {};
-const _tiles = [];
+let _players = {};
+let _tiles = [];
 
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
+    _players = loadFromStorage("_players"); // DEV MODE _ DELETE LATER
+    _tiles = loadFromStorage("_tiles"); // DEV MODE _ DELETE LATER
+
     if (document.querySelector('#index')){
         initIndex();
     }
@@ -55,6 +58,7 @@ function initSelectPawn(){
 
 async function initMainBoard() {
     _player = loadFromStorage("_player");
+
     await processTiles();
     await processPlayers();
     console.log(_players);
