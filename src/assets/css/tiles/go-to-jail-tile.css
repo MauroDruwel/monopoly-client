@@ -1,0 +1,14 @@
+.go-to-jail-tile{
+    display: grid;
+}
+.go-to-jail-tile h3{
+    text-align: center;
+    font-size: 2.5rem;
+    margin: auto;
+    grid-gap: 0.1rem;
+    font-family: Arial,sans-serif;
+}
+.go-to-jail-tile figure{
+    width: 80%;
+    margin: auto;
+}
