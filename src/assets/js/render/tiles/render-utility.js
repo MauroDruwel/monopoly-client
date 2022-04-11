@@ -1,10 +1,9 @@
 "use strict";
 
-function renderUtilityTile(name, owner){
+function renderUtilityTile(utility, owner){
 
     // data set in selector is added. Why? Select specific tile from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
-    const utility = _tiles[tilePosition(name)];
     const $utilities = document.querySelectorAll(`[data-tile="${utility.nameAsPathParameter}"]`);
 
     $utilities.forEach($utility => {

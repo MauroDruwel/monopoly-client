@@ -2,7 +2,8 @@
 
 function processUtilityTile(name){
     const owner = retrieveUtilityOwner(name);
-    renderUtilityTile(name, owner);
+    const utility = _tiles[tilePosition(name)];
+    renderUtilityTile(utility, owner);
 }
 
 function retrieveUtilityOwner(name){
