@@ -2,7 +2,7 @@
 
 function processUtilityTile(name){
     const owner = retrieveTileOwner(name);
-    let ownerName = "None";
+    let ownerName = "none";
     if(owner){
         ownerName = owner.name;
     }
