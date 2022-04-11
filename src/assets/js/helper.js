@@ -13,6 +13,10 @@ function convertSpacesToUnderscores(string){
     return string.replace(/ /g, "_");
 }
 
+function convertUnderscoresToSpaces(string){
+    return string.replace(/_/g, " ");
+}
+
 /* Event Helpers */
 
 function addEventListenerToElements(type, handler, selector){
