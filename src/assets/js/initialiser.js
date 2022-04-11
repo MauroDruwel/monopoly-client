@@ -3,8 +3,13 @@ let _player = {
     username: null,
     token: null,
     gameId: null,
-    pawn: null
+    pawn: null,
+    carousel: 0
 };
+
+const _players = {};
+const _tiles = {};
+
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
@@ -48,12 +53,19 @@ function initSelectPawn(){
     document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
-function initMainBoard(){
+async function initMainBoard() {
     _player = loadFromStorage("_player");
+    await processTiles();
+    await processPlayers();
+    console.log(_players);
+    console.log(_tiles);
 
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
     // auction
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid);
+
+    // carousel
+    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
 }
