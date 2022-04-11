@@ -35,3 +35,14 @@ function tilePosition(name){
     }
     return null;
 }
+
+function retrieveTileOwner(tileName){
+    for(const player of _players){
+        for (const ownedProperty of player.properties){
+            if(ownedProperty.property === convertUnderscoresToSpaces(tileName)){
+                return player;
+            }
+        }
+    }
+    return null;
+}
