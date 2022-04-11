@@ -7,14 +7,12 @@ let _player = {
     carousel: 0
 };
 
-let _players = {};
-let _tiles = [];
+const _players = {};
+const _tiles = [];
 
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
-    _players = loadFromStorage("_players"); // DEV MODE _ DELETE LATER
-    _tiles = loadFromStorage("_tiles"); // DEV MODE _ DELETE LATER
 
     if (document.querySelector('#index')){
         initIndex();
@@ -61,8 +59,6 @@ async function initMainBoard() {
 
     await processTiles();
     await processPlayers();
-    console.log(_players);
-    console.log(_tiles);
 
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
