@@ -16,7 +16,7 @@ function processCarouselPosition(direction){
         _player.carousel += 1;
 
         // reached last tile,then:
-        if(_player.carousel === Object.keys(_tiles).length){
+        if(_player.carousel === _tiles.length){
             _player.carousel = 0;
         }
     }
@@ -25,12 +25,12 @@ function processCarouselPosition(direction){
 
         // reached first tile,then:
         if(_player.carousel < 0 ){
-            _player.carousel =  Object.keys(_tiles).length - 1;
+            _player.carousel =  _tiles.length - 1;
         }
     }
     else  if(direction === 'return-home'){
         const currentTile = _players[_player.username].currentTile;
-        _player.carousel = _tiles[convertSpacesToUnderscores(currentTile)].position;
+        _player.carousel = tilePosition(currentTile);
     }
     saveToStorage("_player", _player);
 }

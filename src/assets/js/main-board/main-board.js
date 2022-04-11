@@ -3,10 +3,7 @@
 function processTiles() {
     fetchFromServer(`/tiles`, "GET").then(tiles => {
         tiles.forEach(tile => {
-            _tiles[tile.nameAsPathParameter] ={};
-            for(const key in tile){
-                _tiles[tile.nameAsPathParameter][key] = tile[key];
-            }
+            _tiles.push(tile);
         });
     }).then(() => {
         saveToStorage("_tiles", _tiles);

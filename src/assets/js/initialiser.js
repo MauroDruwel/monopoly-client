@@ -8,7 +8,7 @@ let _player = {
 };
 
 const _players = {};
-const _tiles = {};
+const _tiles = [];
 
 document.addEventListener('DOMContentLoaded',init);
 
