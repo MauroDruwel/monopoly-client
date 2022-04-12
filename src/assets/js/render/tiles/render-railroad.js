@@ -8,7 +8,7 @@ function renderRailroad(railroad, ownerName, mortgage){
 
     $railroads.forEach($railroad => {
         $railroad.dataset.position = railroad.position;
-        console.log($railroad);
+
         $railroad.querySelector('.body-grid h3').innerHTML = railroad.name;
         $railroad.querySelector('.body-grid h4:first-of-type span').innerHTML = railroad.cost;
         $railroad.querySelector('.body-grid h4:nth-of-type(2) span').innerHTML = mortgage;
