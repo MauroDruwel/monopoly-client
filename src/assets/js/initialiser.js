@@ -7,8 +7,8 @@ let _player = {
     carousel: 0
 };
 
-const _players = {};
-const _tiles = [];
+let _players = {}; // don't change to const
+let _tiles = []; // don't change to const
 
 document.addEventListener('DOMContentLoaded',init);
 

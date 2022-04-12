@@ -46,3 +46,13 @@ function retrieveTileOwner(tileName){
     }
     return null;
 }
+
+function retrievePlayersOnTile(tileName){
+    const players = [];
+    for(const name of Object.keys(_players)){
+        if(_players[name].currentTile === convertUnderscoresToSpaces(tileName)){
+            players.push(_players[name]);
+        }
+    }
+    return players;
+}

@@ -16,6 +16,7 @@ function renderCarousel(){
         renderTile(_tiles.at(pointer), scale[counter]);
         pointer -= 1; // index can be negative with array.at(i)
     }
+    renderPlayerPositionOnCarousel();
 }
 
 function renderTile(tile, scale) {
@@ -125,4 +126,21 @@ function renderRailroadTile(tile, scale){
     $template.dataset.tile = tile.nameAsPathParameter;
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
+}
+
+/* render player position */
+
+function renderPlayerPositionOnCarousel() {
+    const $playerPosition = document.querySelector('#home-board .mid section .player-position');
+    $playerPosition.innerHTML = '&#8205;';
+    const playersOnTile = retrievePlayersOnTile(_tiles[_player.carousel].name);
+    if (playersOnTile.length > 0) {
+        let text = playersOnTile[0].name;
+        if (playersOnTile.length > 1) {
+            for (let i = 1; i < playersOnTile.length; i++) {
+                text = `${text} & ${playersOnTile[i].name}`;
+            }
+        }
+        $playerPosition.innerHTML = text;
+    }
 }

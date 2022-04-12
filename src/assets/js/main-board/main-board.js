@@ -2,6 +2,7 @@
 
 function retrieveTiles() {
     return fetchFromServer(`/tiles`, "GET").then(tiles => {
+        _tiles = []; // empty array
         tiles.forEach(tile => {
             _tiles.push(tile);
         });
@@ -12,6 +13,7 @@ function retrieveTiles() {
 
 function retrievePlayers(){
     return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
+        _players = {}; // empty object
         game["players"].forEach(player => {
             _players[player.name] = {};
             for(const key in player){
