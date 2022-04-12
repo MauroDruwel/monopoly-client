@@ -10,44 +10,40 @@ let _player = {
 let _players = {}; // don't change to const
 let _tiles = []; // don't change to const
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded', init);
 
-function init(){
+function init() {
 
-    if (document.querySelector('#index')){
+    if (document.querySelector('#index')) {
         initIndex();
-    }
-    else if (document.querySelector('#connect-game')){
+    } else if (document.querySelector('#connect-game')) {
         initConnect();
-    }
-    else if (document.querySelector('#queue')){
+    } else if (document.querySelector('#queue')) {
         initQueue();
-    }
-    else if(document.querySelector('#select-pawn')){
+    } else if (document.querySelector('#select-pawn')) {
         initSelectPawn();
-    }
-    else if (document.querySelector('#main-board')){
+    } else if (document.querySelector('#main-board')) {
         loadGame().then(() => initMainBoard()).catch(errorHandler);
     }
 }
 
-function initIndex(){
-    document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+function initIndex() {
+    document.querySelector("#start-game").addEventListener('click', () => location.href = "connect-game.html");
 }
 
-function initConnect(){
+function initConnect() {
     document.querySelector('#connect-form select').addEventListener('change', processAvailableGames);
     document.querySelector("#connect-form").addEventListener("submit", processConnectionForm);
 }
 
-function initQueue(){
+function initQueue() {
     _player = loadFromStorage("_player");
 
     // queue
     processQueueState();
 }
 
-function initSelectPawn(){
+function initSelectPawn() {
     _player = loadFromStorage("_player");
 
     // select pawn
@@ -59,11 +55,12 @@ async function loadGame() {
 
     await retrieveTiles();
     await retrievePlayers();
+    await checkBankrupt();
 
     setTimeout(loadGame, 1000);
 }
 
-function initMainBoard(){
+function initMainBoard() {
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
