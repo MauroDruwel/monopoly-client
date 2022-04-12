@@ -10,7 +10,7 @@ async function reloadGame() {
     await retrieveGame();
 
     // check game status here:
-    checkBankrupt();
+    checkGameState();
 
     // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
@@ -36,4 +36,19 @@ function retrieveGame(){
     }).then(() => {
         saveToStorage("_game", _game);
     }).catch(errorHandler);
+}
+
+function checkGameState() {
+    if (retrievePlayer(_player.username).bankrupt){
+        location.href = "loss-screen.html";
+    }
+    else if (_game.winner === _player.username) {
+        location.href = "winner-screen.html";
+    }
+}
+
+/* player events */
+
+function bankrupt() {
+    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/bankruptcy`, "POST").catch(errorHandler);
 }
