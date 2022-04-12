@@ -1,6 +1,6 @@
 "use strict";
 
-function processTiles() {
+function retrieveTiles() {
     fetchFromServer(`/tiles`, "GET").then(tiles => {
         tiles.forEach(tile => {
             _tiles.push(tile);
@@ -10,7 +10,7 @@ function processTiles() {
     }).catch(errorHandler);
 }
 
-function processPlayers(){
+function retrievePlayers(){
     fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
         game["players"].forEach(player => {
             _players[player.name] = {};
