@@ -37,10 +37,10 @@ function tilePosition(name){
 }
 
 function retrieveTileOwner(tileName){
-    for(let i = 0; i < _players.length; i++){
-        for (const ownedProperty of _player[i].properties){
+    for(const name of Object.keys(_players)){
+        for (const ownedProperty of _players[name].properties){
             if(ownedProperty.property === convertUnderscoresToSpaces(tileName)){
-                return _player[i];
+                return _players[name];
             }
         }
     }
