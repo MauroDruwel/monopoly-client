@@ -42,6 +42,7 @@ function checkGameState() {
     // update game that effect this player
     processEndState();
     processRoleDiceButtonState();
+    processTileMap(_player.username);
 
     disableButtons(); // buttons that don't have .active class
     enableButtons(); // buttons that have .active class
