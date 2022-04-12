@@ -13,7 +13,7 @@ function processUtility(name){
             }
         }
     }
-    const utility = _tiles[tilePosition(name)];
+    const utility = _tiles[retrieveTilePosition(name)];
     renderUtility(utility, ownerName, mortgage);
 }
 

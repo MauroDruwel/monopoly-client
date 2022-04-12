@@ -27,7 +27,7 @@ function addEventListenerToElements(type, handler, selector){
 
 /* Getters */
 
-function tilePosition(name){
+function retrieveTilePosition(name){
     for(const tile of _tiles){
         if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
             return tile.position;
