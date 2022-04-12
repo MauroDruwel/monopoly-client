@@ -1,7 +1,7 @@
 "use strict";
 
 function renderCarousel(){
-    const scale = ["small", "medium", "", "medium", "small"];
+    const scale = ["small", "medium", "normal", "medium", "small"];
     const numberOfTiles = scale.length;
     let pointer = _player.carousel + (Math.floor(numberOfTiles / 2));
 
