@@ -17,15 +17,18 @@ function renderCarousel(){
 
 function renderTile(tile, scale="") {
     switch(tile.type) {
+        /* tiles that a player can actually own */
         case "street":
-            renderStreetTile(scale);
+            renderStreetTile(tile, scale);
             break;
         case "utility":
-            renderUtilityTile(scale);
+            renderUtilityTile(tile, scale);
             break;
         case "railroad":
-            renderRailroadTile(scale);
+            renderRailroadTile(tile, scale);
             break;
+
+        /* basic tile */
         case "Go":
             renderGoTile(scale);
             break;
@@ -93,4 +96,30 @@ function renderBasicTile(template, scale=""){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+}
+
+/* tiles that a player can actually own */
+
+function renderStreetTile(tile, scale = ""){
+    const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
+    $template.classList.add(scale);
+    $template.dataset.tile = tile.name;
+    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    processPropertyFront(tile.name);
+}
+
+function renderUtilityTile(tile, scale = ""){
+    const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
+    $template.classList.add(scale);
+    $template.dataset.tile = tile.name;
+    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    processUtility(tile.name);
+}
+
+function renderRailroadTile(tile, scale = ""){
+    const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
+    $template.classList.add(scale);
+    $template.dataset.tile = tile.name;
+    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    processRailroad(tile.name);
 }
