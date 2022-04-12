@@ -27,7 +27,7 @@ function init(){
         initSelectPawn();
     }
     else if (document.querySelector('#main-board')){
-        initMainBoard();
+        loadGame().then(() => initMainBoard()).catch(errorHandler);
     }
 }
 
@@ -54,12 +54,16 @@ function initSelectPawn(){
     document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
-async function initMainBoard() {
+async function loadGame() {
     _player = loadFromStorage("_player");
 
-    await processTiles();
-    await processPlayers();
+    await retrieveTiles();
+    await retrievePlayers();
 
+    setTimeout(loadGame, 1000);
+}
+
+function initMainBoard(){
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
@@ -67,5 +71,6 @@ async function initMainBoard() {
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid);
 
     // carousel
+    renderCarousel();
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
 }
