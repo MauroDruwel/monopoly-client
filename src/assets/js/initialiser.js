@@ -65,9 +65,6 @@ function initMainBoard() {
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
     document.querySelector('#role-dice').addEventListener('click', processRoleDice); // main-board.js
 
-    /* render here: */
-    renderCarousel();
-
 }
 
 function initLosingScreen(){
