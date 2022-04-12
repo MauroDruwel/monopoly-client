@@ -1,7 +1,7 @@
 "use strict";
 
 function retrieveTiles() {
-    fetchFromServer(`/tiles`, "GET").then(tiles => {
+    return fetchFromServer(`/tiles`, "GET").then(tiles => {
         tiles.forEach(tile => {
             _tiles.push(tile);
         });
@@ -11,7 +11,7 @@ function retrieveTiles() {
 }
 
 function retrievePlayers(){
-    fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
+    return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
         game["players"].forEach(player => {
             _players[player.name] = {};
             for(const key in player){
