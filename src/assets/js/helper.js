@@ -37,12 +37,12 @@ function tilePosition(name){
 }
 
 function retrieveTileOwner(tileName){
-    for(const player of _players){
+    _players.forEach(player => {
         for (const ownedProperty of player.properties){
             if(ownedProperty.property === convertUnderscoresToSpaces(tileName)){
                 return player;
             }
         }
-    }
+    });
     return null;
 }

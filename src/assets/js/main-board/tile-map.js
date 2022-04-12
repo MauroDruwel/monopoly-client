@@ -1,11 +1,11 @@
 "use strict";
 
 function processTileMap(username){
-    for(const player of _players){
+    _players.forEach(player => {
         if(player.name === username){
             renderTileMap(player);
         }
-    }
+    });
 }
 
 function processTileMapNavigation(e){
