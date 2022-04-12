@@ -10,18 +10,24 @@ function renderCarousel(){
     }
 
     for(let counter = 0; counter < numberOfTiles; counter++){
-        renderTile(_tiles.at(pointer));
+        renderTile(_tiles.at(pointer), scale[counter]);
         pointer -= 1; // index can be negative with array.at(i)
     }
 }
 
 function renderTile(tile, scale="") {
     switch(tile.type) {
-        case "Go":
-            renderGoTile(scale);
-            break;
         case "street":
             renderStreetTile(scale);
+            break;
+        case "utility":
+            renderUtilityTile(scale);
+            break;
+        case "railroad":
+            renderRailroadTile(scale);
+            break;
+        case "Go":
+            renderGoTile(scale);
             break;
         case "community chest":
             renderCommunityChestTile(scale);
@@ -29,17 +35,11 @@ function renderTile(tile, scale="") {
         case "Tax Income":
             renderTaxIncomeTile(scale);
             break;
-        case "railroad":
-            renderRailroadTile(scale);
-            break;
         case "chance":
             renderChanceTile(scale);
             break;
         case "Jail":
             renderJailTile(scale);
-            break;
-        case "utility":
-            renderUtilityTile(scale);
             break;
         case "Free Parking":
             renderFreeParkingTile(scale);
@@ -55,6 +55,8 @@ function renderTile(tile, scale="") {
     }
 }
 
+/* Basic Tiles */
+
 function renderGoTile(scale=""){
     renderBasicTile(".go-template", scale);
 }
@@ -68,12 +70,23 @@ function renderChanceTile(scale=""){
 }
 
 function renderJailTile(scale=""){
-    renderBasicTile("");
+    renderBasicTile(".jail-template");
+}
+
+function renderGoToJailTile(scale=""){
+    renderBasicTile(".go-to-jail-template");
 }
 
 function renderTaxIncomeTile(scale=""){
-    // TODO: change to actual tile
-    renderBasicTile(".community-chest-template", scale);
+    renderBasicTile(".tax-income-template", scale);
+}
+
+function renderLuxuryTaxTile(scale=""){
+    renderBasicTile(".luxury-tax-template", scale);
+}
+
+function renderFreeParkingTile(scale=""){
+    renderBasicTile(".free-parking-template", scale);
 }
 
 function renderBasicTile(template, scale=""){
