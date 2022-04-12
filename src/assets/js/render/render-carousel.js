@@ -9,6 +9,9 @@ function renderCarousel(){
         pointer -= _tiles.length ;
     }
 
+    // reset carousel
+    document.querySelector('#carousel > div:last-of-type').innerHTML = '';
+
     for(let counter = 0; counter < numberOfTiles; counter++){
         renderTile(_tiles.at(pointer), scale[counter]);
         pointer -= 1; // index can be negative with array.at(i)
@@ -95,7 +98,7 @@ function renderFreeParkingTile(scale=""){
 function renderBasicTile(template, scale=""){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
 }
 
 /* tiles that a player can actually own */
@@ -104,7 +107,7 @@ function renderStreetTile(tile, scale = ""){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
-    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processPropertyFront(tile.name);
 }
 
@@ -112,7 +115,7 @@ function renderUtilityTile(tile, scale = ""){
     const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
-    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processUtility(tile.name);
 }
 
@@ -120,6 +123,6 @@ function renderRailroadTile(tile, scale = ""){
     const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
-    document.querySelector('#carousel').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
 }
