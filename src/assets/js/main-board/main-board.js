@@ -39,14 +39,15 @@ function retrieveGame(){
 }
 
 function checkGameState() {
-
+    // update game that effect this player
     processEndState();
     processRoleDiceButtonState();
 
-
-
     disableButtons(); // buttons that don't have .active class
     enableButtons(); // buttons that have .active class
+
+    // update screen that effect all users
+    renderCarousel();
 }
 
 function disableButtons(){
@@ -113,7 +114,9 @@ function bankrupt() {
 }
 
 function roleDice(){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
+    if(_game.currentPlayer === _player.username && _game.canRoll){
+        fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
+    }
 }
 
 
