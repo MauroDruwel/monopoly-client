@@ -39,7 +39,32 @@ function retrieveGame(){
 }
 
 function checkGameState() {
-    processButtonsSate();
+
+    processEndState();
+    processRoleDiceButtonState();
+
+
+
+    disableButtons(); // buttons that don't have .active class
+    enableButtons(); // buttons that have .active class
+}
+
+function disableButtons(){
+    // disable buttons that don't contain .active class
+    document.querySelectorAll('.button:not(.active)').forEach($button => {
+        $button.disabled = true;
+    });
+}
+
+function enableButtons(){
+    // enable buttons that do contain .active class
+    document.querySelectorAll('.button.active').forEach($button => {
+        $button.disabled = false;
+    });
+}
+
+
+function processEndState(){
     // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
@@ -49,19 +74,18 @@ function checkGameState() {
     }
 }
 
-function processButtonsSate(){
-    // disable buttons that don't contain .active class
-    document.querySelectorAll('.button:not(.active)').forEach($button => {
-        $button.disabled = true;
-    });
-    // enable buttons that do contain .active class
-    document.querySelectorAll('.button.active').forEach($button => {
-        $button.disabled = false;
-    });
-}
 
 
 /* home screen */
+
+function processRoleDiceButtonState(){
+    if(_game.currentPlayer === _player.username && _game.canRoll){
+        document.querySelector('#role-dice').classList.add('active');
+    }
+    else {
+        document.querySelector('#role-dice').classList.remove('active');
+    }
+}
 
 function processRoleDice(e){
     e.preventDefault();
