@@ -106,7 +106,7 @@ function renderBasicTile(template, scale){
 function renderStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    $template.dataset.tile = tile.name;
+    $template.dataset.tile = tile.nameAsPathParameter;
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processPropertyFront(tile.name);
 }
@@ -114,7 +114,7 @@ function renderStreetTile(tile, scale){
 function renderUtilityTile(tile, scale){
     const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    $template.dataset.tile = tile.name;
+    $template.dataset.tile = tile.nameAsPathParameter;
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processUtility(tile.name);
 }
@@ -122,7 +122,7 @@ function renderUtilityTile(tile, scale){
 function renderRailroadTile(tile, scale){
     const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    $template.dataset.tile = tile.name;
+    $template.dataset.tile = tile.nameAsPathParameter;
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
 }
