@@ -55,7 +55,7 @@ async function loadGame() {
 
     await retrieveTiles();
     await retrievePlayers();
-    await checkBankrupt();
+    checkBankrupt();
 
     setTimeout(loadGame, 1000);
 }
