@@ -14,5 +14,5 @@ function processRailroad(name){
         }
     }
     const railroad = _tiles[tilePosition(name)];
-    renderRailroadTile(railroad, ownerName, mortgage);
+    renderRailroad(railroad, ownerName, mortgage);
 }
