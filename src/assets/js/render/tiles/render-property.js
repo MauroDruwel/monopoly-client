@@ -4,7 +4,7 @@ function renderPropertyBack(property) {
 
     // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
-    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-back`);
+    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-back.tile`);
 
     $properties.forEach($property => {
 
@@ -36,7 +36,7 @@ function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCou
 
     // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
-    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-front`);
+    const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-front.tile`);
 
     $properties.forEach($property => {
 
