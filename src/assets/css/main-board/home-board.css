@@ -49,6 +49,36 @@
 
 /* BOTTOM */
 #home-board .bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
     position: fixed;
     bottom: 1rem;
+}
+
+#dice-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem
+}
+
+#dice-container .dice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+    color: #FFFFFF;
+    height: 100%;
+}
+
+#dice-container .dice-left, #dice-container .dice-right{
+    background-color: #E0E0E0;
+    text-align: center;
+    padding-top: 50%;
+    font-size: 3.5rem;
+    font-weight: bold;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
