@@ -76,11 +76,11 @@ function renderChanceTile(scale){
 }
 
 function renderJailTile(scale){
-    renderBasicTile(".jail-template");
+    renderBasicTile(".jail-template", scale);
 }
 
 function renderGoToJailTile(scale){
-    renderBasicTile(".go-to-jail-template");
+    renderBasicTile(".go-to-jail-template", scale);
 }
 
 function renderTaxIncomeTile(scale){
