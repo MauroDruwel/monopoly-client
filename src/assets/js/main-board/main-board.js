@@ -39,6 +39,8 @@ function retrieveGame(){
 }
 
 function checkGameState() {
+
+    // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
     }
@@ -47,6 +49,12 @@ function checkGameState() {
     }
 }
 
+
+/* home screen */
+
+function processRoleDice(e){
+    e.preventDefault();
+}
 
 
 
