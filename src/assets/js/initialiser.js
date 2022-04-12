@@ -30,8 +30,8 @@ function init() {
         initSelectPawn();
     }
     else if (document.querySelector('#main-board')) {
+        initMainBoard();
         startGame().then(() => {
-            initMainBoard();
             reloadGame().catch(errorHandler);
         }).catch(errorHandler);
     }
