@@ -1,5 +1,21 @@
 "use strict";
 
+async function startGame(){
+    await retrieveTiles(); // fetch board tiles
+    await retrievePlayers(); // fetch game data
+}
+
+async function reloadGame() {
+    // fetch game data here:
+    await retrievePlayers();
+
+    // check game status here:
+    checkBankrupt();
+
+    // this does not reinitialize initMainBoard!
+    setTimeout(reloadGame, 1000);
+}
+
 function retrieveTiles() {
     return fetchFromServer(`/tiles`, "GET").then(tiles => {
         _tiles = []; // empty array

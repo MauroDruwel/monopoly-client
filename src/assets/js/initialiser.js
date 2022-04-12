@@ -13,17 +13,27 @@ let _tiles = []; // don't change to const
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    if(loadFromStorage("_player")){
+        _player = loadFromStorage("_player");
+    }
 
-    if (document.querySelector('#index')) {
+    if (document.querySelector('#index')){
         initIndex();
-    } else if (document.querySelector('#connect-game')) {
+    }
+    else if (document.querySelector('#connect-game')) {
         initConnect();
-    } else if (document.querySelector('#queue')) {
+    }
+    else if (document.querySelector('#queue')) {
         initQueue();
-    } else if (document.querySelector('#select-pawn')) {
+    }
+    else if (document.querySelector('#select-pawn')) {
         initSelectPawn();
-    } else if (document.querySelector('#main-board')) {
-        loadGame().then(() => initMainBoard()).catch(errorHandler);
+    }
+    else if (document.querySelector('#main-board')) {
+        startGame().then(() => {
+            initMainBoard();
+            reloadGame().catch(errorHandler);
+        }).catch(errorHandler);
     }
 }
 
@@ -37,27 +47,11 @@ function initConnect() {
 }
 
 function initQueue() {
-    _player = loadFromStorage("_player");
-
-    // queue
     processQueueState();
 }
 
 function initSelectPawn() {
-    _player = loadFromStorage("_player");
-
-    // select pawn
     document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
-}
-
-async function loadGame() {
-    _player = loadFromStorage("_player");
-
-    await retrieveTiles();
-    await retrievePlayers();
-    checkBankrupt();
-
-    setTimeout(loadGame, 1000);
 }
 
 function initMainBoard() {
