@@ -14,7 +14,7 @@ function processUtilityTile(name){
         }
     }
     const utility = _tiles[tilePosition(name)];
-    renderUtilityTile(utility, ownerName, mortgage);
+    renderUtility(utility, ownerName, mortgage);
 }
 
 
