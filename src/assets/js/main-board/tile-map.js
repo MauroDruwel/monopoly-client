@@ -1,7 +1,7 @@
 "use strict";
 
 function processTileMap(username){
-    renderTileMap(_players[username]);
+    renderTileMap(retrievePlayer(username));
 }
 
 function processTileMapNavigation(e){

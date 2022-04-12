@@ -5,7 +5,7 @@ function bankrupt() {
 }
 
 function checkBankrupt() {
-    if (_players[_player.username].bankrupt){
+    if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
     }
 }
