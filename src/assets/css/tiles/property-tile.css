@@ -113,6 +113,7 @@
 
 [data-color="yellow"] .grid-header{
     background-color: yellow;
+    color: #757575;
 }
 
 [data-color="darkgreen"] .grid-header{

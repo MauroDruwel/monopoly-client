@@ -1,24 +1,24 @@
-.station-tile{
+.railroad-tile{
     display: grid;
     font-family: Arial,sans-serif;
 }
-.station-tile .header-grid{
+.railroad-tile .header-grid{
     width: 50%;
     margin: auto;
 }
-.station-tile h3{
+.railroad-tile h3{
     text-align: center;
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-.station-tile h4{
+.railroad-tile h4{
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-.station-tile li{
+.railroad-tile li{
     text-align: center;
     margin-bottom: 0.5rem;
 }

@@ -1,14 +1,14 @@
-.community-chest{
+.basic-tile{
     display: grid;
 }
-.community-chest h3{
+.basic-tile h3{
     text-align: center;
     font-size: 1.5rem;
     margin: auto;
     grid-gap: 0.1rem;
     font-family: Arial,sans-serif;
 }
-.community-chest figure{
+.basic-tile figure{
     width: 80%;
     margin: auto;
 }

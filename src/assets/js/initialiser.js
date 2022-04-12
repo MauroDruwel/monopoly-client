@@ -3,11 +3,17 @@ let _player = {
     username: null,
     token: null,
     gameId: null,
-    pawn: null
+    pawn: null,
+    carousel: 0
 };
+
+let _players = {}; // don't change to const
+let _tiles = []; // don't change to const
+
 document.addEventListener('DOMContentLoaded',init);
 
 function init(){
+
     if (document.querySelector('#index')){
         initIndex();
     }
@@ -21,7 +27,7 @@ function init(){
         initSelectPawn();
     }
     else if (document.querySelector('#main-board')){
-        initMainBoard();
+        loadGame().then(() => initMainBoard()).catch(errorHandler);
     }
 }
 
@@ -48,12 +54,23 @@ function initSelectPawn(){
     document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
-function initMainBoard(){
+async function loadGame() {
     _player = loadFromStorage("_player");
 
+    await retrieveTiles();
+    await retrievePlayers();
+
+    setTimeout(loadGame, 1000);
+}
+
+function initMainBoard(){
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
     // auction
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid);
+
+    // carousel
+    renderCarousel();
+    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
 }
