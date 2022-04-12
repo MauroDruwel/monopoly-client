@@ -1,7 +1,7 @@
 "use strict";
 
 function processRailroad(name){
-    const owner = retrieveTileOwner(name);
+    const owner = retrieveOwner(name);
 
     let ownerName = "none";
     let mortgage = "false";

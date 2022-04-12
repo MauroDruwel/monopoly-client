@@ -7,7 +7,7 @@ function processPropertyBack(name){
 
 function processPropertyFront(name){
     const property = _tiles[retrieveTilePosition(name)];
-    const owner = retrieveTileOwner(name);
+    const owner = retrieveOwner(name);
 
     let ownerName = "none";
     let mortgage = "false";
