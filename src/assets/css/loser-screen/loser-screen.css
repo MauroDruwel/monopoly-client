@@ -1,0 +1,16 @@
+#losing-screen main {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+#losing-screen img {
+    margin: auto;
+    max-width: 50%;
+}
+
+#losing-screen .button{
+    margin: 3rem auto auto auto;
+    max-width: 22rem;
+}

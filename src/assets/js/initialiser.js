@@ -29,6 +29,9 @@ function init(){
     else if (document.querySelector('#main-board')){
         loadGame().then(() => initMainBoard()).catch(errorHandler);
     }
+    else if (document.querySelector("#losing-screen")){
+        initLosingScreen();
+    }
 }
 
 function initIndex(){
@@ -73,4 +76,8 @@ function initMainBoard(){
     // carousel
     renderCarousel();
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
+}
+
+function initLosingScreen(){
+    document.querySelector("#lost-button").addEventListener('click',() => location.href = "connect-game.html");
 }
