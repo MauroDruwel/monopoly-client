@@ -1,6 +1,6 @@
 "use strict";
 
-function processUtilityTile(name){
+function processUtility(name){
     const owner = retrieveTileOwner(name);
 
     let ownerName = "none";
