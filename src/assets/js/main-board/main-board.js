@@ -39,7 +39,7 @@ function retrieveGame(){
 }
 
 function checkGameState() {
-
+    processButtonsSate();
     // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
@@ -49,11 +49,23 @@ function checkGameState() {
     }
 }
 
+function processButtonsSate(){
+    // disable buttons that don't contain .active class
+    document.querySelectorAll('.button:not(.active)').forEach($button => {
+        $button.disabled = true;
+    });
+    // enable buttons that do contain .active class
+    document.querySelectorAll('.button.active').forEach($button => {
+        $button.disabled = false;
+    });
+}
+
 
 /* home screen */
 
 function processRoleDice(e){
     e.preventDefault();
+    console.log(e.target);
 }
 
 
