@@ -50,10 +50,8 @@ function retrieveTileOwner(tileName){
 function retrievePlayersOnTile(tileName){
     const players = [];
     for(const name of Object.keys(_players)){
-        for (const player of _players[name]){
-            if(player.currentTile === convertUnderscoresToSpaces(tileName)){
-                players.push(_players[name]);
-            }
+        if(_players[name].currentTile === convertUnderscoresToSpaces(tileName)){
+            players.push(_players[name]);
         }
     }
     return players;
