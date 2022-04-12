@@ -48,6 +48,7 @@ function checkGameState() {
 
     // update screen that effect all users
     renderCarousel();
+    renderDiceRole();
 }
 
 function disableButtons(){
