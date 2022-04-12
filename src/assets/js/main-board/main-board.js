@@ -29,14 +29,11 @@ function retrieveTiles() {
 
 function retrievePlayers(){
     return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
-        _players = {}; // empty object
-        game["players"].forEach(player => {
-            _players[player.name] = {};
-            for(const key in player){
-                _players[player.name][key] = player[key];
-            }
-        });
+        _game = {}; // empty object
+        for (const key in game){
+            _game[key] = game[key];
+        }
     }).then(() => {
-        saveToStorage("_players", _players);
+        saveToStorage("_game", _game);
     }).catch(errorHandler);
 }
