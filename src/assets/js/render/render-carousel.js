@@ -18,7 +18,7 @@ function renderCarousel(){
     }
 }
 
-function renderTile(tile, scale="") {
+function renderTile(tile, scale) {
     switch(tile.type) {
         /* tiles that a player can actually own */
         case "street":
@@ -63,39 +63,39 @@ function renderTile(tile, scale="") {
 
 /* Basic Tiles */
 
-function renderGoTile(scale=""){
+function renderGoTile(scale){
     renderBasicTile(".go-template", scale);
 }
 
-function renderCommunityChestTile(scale=""){
+function renderCommunityChestTile(scale){
     renderBasicTile(".community-chest-template", scale);
 }
 
-function renderChanceTile(scale=""){
+function renderChanceTile(scale){
     renderBasicTile(".chance-template", scale);
 }
 
-function renderJailTile(scale=""){
+function renderJailTile(scale){
     renderBasicTile(".jail-template");
 }
 
-function renderGoToJailTile(scale=""){
+function renderGoToJailTile(scale){
     renderBasicTile(".go-to-jail-template");
 }
 
-function renderTaxIncomeTile(scale=""){
+function renderTaxIncomeTile(scale){
     renderBasicTile(".tax-income-template", scale);
 }
 
-function renderLuxuryTaxTile(scale=""){
+function renderLuxuryTaxTile(scale){
     renderBasicTile(".luxury-tax-template", scale);
 }
 
-function renderFreeParkingTile(scale=""){
+function renderFreeParkingTile(scale){
     renderBasicTile(".free-parking-template", scale);
 }
 
-function renderBasicTile(template, scale=""){
+function renderBasicTile(template, scale){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
@@ -103,7 +103,7 @@ function renderBasicTile(template, scale=""){
 
 /* tiles that a player can actually own */
 
-function renderStreetTile(tile, scale = ""){
+function renderStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
@@ -111,7 +111,7 @@ function renderStreetTile(tile, scale = ""){
     processPropertyFront(tile.name);
 }
 
-function renderUtilityTile(tile, scale = ""){
+function renderUtilityTile(tile, scale){
     const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
@@ -119,7 +119,7 @@ function renderUtilityTile(tile, scale = ""){
     processUtility(tile.name);
 }
 
-function renderRailroadTile(tile, scale = ""){
+function renderRailroadTile(tile, scale){
     const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.name;
