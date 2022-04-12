@@ -30,8 +30,8 @@ function processCarouselPosition(direction){
         }
     }
     else  if(direction === 'return-home'){
-        const currentTile = _players[_player.username].currentTile;
-        _player.carousel = tilePosition(currentTile);
+        const currentTile = retrievePlayer(_player.username).currentTile;
+        _player.carousel = retrieveTilePosition(currentTile);
     }
     saveToStorage("_player", _player);
 }

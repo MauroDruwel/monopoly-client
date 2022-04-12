@@ -1,7 +1,7 @@
 "use strict";
 
 function processRailroad(name){
-    const owner = retrieveTileOwner(name);
+    const owner = retrieveOwner(name);
 
     let ownerName = "none";
     let mortgage = "false";
@@ -13,6 +13,6 @@ function processRailroad(name){
             }
         }
     }
-    const railroad = _tiles[tilePosition(name)];
+    const railroad = _tiles[retrieveTilePosition(name)];
     renderRailroad(railroad, ownerName, mortgage);
 }

@@ -1,13 +1,13 @@
 "use strict";
 
 function processPropertyBack(name){
-    const property = _tiles[tilePosition(name)];
+    const property = _tiles[retrieveTilePosition(name)];
     renderPropertyBack(property);
 }
 
 function processPropertyFront(name){
-    const property = _tiles[tilePosition(name)];
-    const owner = retrieveTileOwner(name);
+    const property = _tiles[retrieveTilePosition(name)];
+    const owner = retrieveOwner(name);
 
     let ownerName = "none";
     let mortgage = "false";

@@ -25,9 +25,9 @@ function addEventListenerToElements(type, handler, selector){
 }
 
 
-/* Getters */
+/* retrieve data from tiles */
 
-function tilePosition(name){
+function retrieveTilePosition(name){
     for(const tile of _tiles){
         if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
             return tile.position;
@@ -36,22 +36,33 @@ function tilePosition(name){
     return null;
 }
 
-function retrieveTileOwner(tileName){
-    for(const name of Object.keys(_players)){
-        for (const ownedProperty of _players[name].properties){
-            if(ownedProperty.property === convertUnderscoresToSpaces(tileName)){
-                return _players[name];
+/* retrieve data from game */
+
+function retrievePlayer(username){
+    for(const player of _game["players"]){
+        if(player.name === username){
+            return player;
+        }
+    }
+    return null;
+}
+
+function retrieveOwner(tilename){
+    for(const player of _game["players"]){
+        for (const ownedProperty of player.properties){
+            if(ownedProperty.property === convertUnderscoresToSpaces(tilename)){
+                return player;
             }
         }
     }
     return null;
 }
 
-function retrievePlayersOnTile(tileName){
+function retrievePlayersOnTile(tilename){
     const players = [];
-    for(const name of Object.keys(_players)){
-        if(_players[name].currentTile === convertUnderscoresToSpaces(tileName)){
-            players.push(_players[name]);
+    for(const player of _game["players"]){
+        if(player.currentTile === convertUnderscoresToSpaces(tilename)){
+            players.push(player);
         }
     }
     return players;

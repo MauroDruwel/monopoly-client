@@ -7,66 +7,57 @@ let _player = {
     carousel: 0
 };
 
-let _players = {}; // don't change to const
+let _game = {}; // don't change to const
 let _tiles = []; // don't change to const
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded', init);
 
-function init(){
+function init() {
+    if(loadFromStorage("_player")){
+        _player = loadFromStorage("_player");
+    }
 
     if (document.querySelector('#index')){
         initIndex();
     }
-    else if (document.querySelector('#connect-game')){
+    else if (document.querySelector('#connect-game')) {
         initConnect();
     }
-    else if (document.querySelector('#queue')){
+    else if (document.querySelector('#queue')) {
         initQueue();
     }
-    else if(document.querySelector('#select-pawn')){
+    else if (document.querySelector('#select-pawn')) {
         initSelectPawn();
     }
-    else if (document.querySelector('#main-board')){
-        loadGame().then(() => initMainBoard()).catch(errorHandler);
+    else if (document.querySelector('#main-board')) {
+        startGame().then(() => {
+            initMainBoard();
+            reloadGame().catch(errorHandler);
+        }).catch(errorHandler);
     }
     else if (document.querySelector("#losing-screen")){
         initLosingScreen();
     }
 }
 
-function initIndex(){
-    document.querySelector("#start-game").addEventListener('click',() => location.href = "connect-game.html");
+function initIndex() {
+    document.querySelector("#start-game").addEventListener('click', () => location.href = "connect-game.html");
 }
 
-function initConnect(){
+function initConnect() {
     document.querySelector('#connect-form select').addEventListener('change', processAvailableGames);
     document.querySelector("#connect-form").addEventListener("submit", processConnectionForm);
 }
 
-function initQueue(){
-    _player = loadFromStorage("_player");
-
-    // queue
+function initQueue() {
     processQueueState();
 }
 
-function initSelectPawn(){
-    _player = loadFromStorage("_player");
-
-    // select pawn
+function initSelectPawn() {
     document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
-async function loadGame() {
-    _player = loadFromStorage("_player");
-
-    await retrieveTiles();
-    await retrievePlayers();
-
-    setTimeout(loadGame, 1000);
-}
-
-function initMainBoard(){
+function initMainBoard() {
     // tile map template
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
