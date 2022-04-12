@@ -48,7 +48,7 @@ function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCou
         $property.querySelector('.grid-body p:first-of-type span').innerHTML = ownerName; // set owner
         $property.querySelector('.grid-body ul').insertAdjacentHTML("beforeend",
             `<li>${houseCount} house(s)</li>
-                <li>${hotelCount} hotel</li>`
+                <li>${hotelCount} hotel(s)</li>`
         );
         $property.querySelector('.grid-body p:last-of-type span').innerHTML = mortgage;
     });
