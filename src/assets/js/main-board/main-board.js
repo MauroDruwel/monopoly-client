@@ -2,12 +2,12 @@
 
 async function startGame(){
     await retrieveTiles(); // fetch board tiles
-    await retrievePlayers(); // fetch game data
+    await retrieveGame(); // fetch game data
 }
 
 async function reloadGame() {
     // fetch game data here:
-    await retrievePlayers();
+    await retrieveGame();
 
     // check game status here:
     checkBankrupt();
@@ -27,7 +27,7 @@ function retrieveTiles() {
     }).catch(errorHandler);
 }
 
-function retrievePlayers(){
+function retrieveGame(){
     return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
         _game = {}; // empty object
         for (const key in game){
