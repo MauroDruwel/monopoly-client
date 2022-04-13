@@ -108,9 +108,12 @@ function processDiceRoll(e){
     rollDice();
 }
 
-function navigateMainBoard(e){
+function processMainBoardAction(e){
     e.preventDefault();
-    console.log(e.target);
+}
+
+function processMainBoardNavigation(e){
+    e.preventDefault();
 }
 
 
