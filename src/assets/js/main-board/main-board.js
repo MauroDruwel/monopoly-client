@@ -23,6 +23,7 @@ async function reloadGame() {
 function checkGameState() {
     checkEndState();
     checkDiceRollState();
+    checkBuyProperty();
     // add check state here
 }
 
@@ -57,7 +58,7 @@ function checkEndState(){
 }
 
 function checkDiceRollState(){
-    if(_game.currentPlayer === _player.username && _game.canRoll){
+    if(isItMyTurn() && _game.canRoll){
         document.querySelector('#roll-dice').classList.add('active');
     }
     else {
@@ -75,6 +76,30 @@ function checkDiceRollState(){
     }
 }
 
+function checkBuyProperty(){
+    if(diceRolled() && isMyCurrentTileOnCarousel() && !ownerOfTileOnCarousel()){
+        document.querySelector('[data-action="buy-property"]').classList.add('active');
+        document.querySelector('[data-action="dont-buy-property"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-action="buy-property"]').classList.remove('active');
+        document.querySelector('[data-action="dont-buy-property"]').classList.remove('active');
+        reloadGame().catch(errorHandler);
+    }
+}
+
+function ownerOfTileOnCarousel(){
+    return retrieveOwner( _tiles[_player.carousel].name);
+}
+function isItMyTurn(){
+    return _game.currentPlayer === _player.username;
+}
+function diceRolled(){
+    return isItMyTurn() && !_game.canRoll;
+}
+function isMyCurrentTileOnCarousel(){
+    return retrievePlayer(_player.username).currentTile === _tiles[_player.carousel].name;
+}
 
 /* ---------------- event handlers ---------------- */
 
