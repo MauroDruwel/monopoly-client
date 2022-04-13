@@ -64,6 +64,7 @@ function initMainBoard() {
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid); // auction.js
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
     document.querySelector('#roll-dice').addEventListener('click', processDiceRoll); // main-board.js
+    addEventListenerToElements('click', navigateMainBoard, '#home-buttons-grid button[data-action]');
 
 }
 

@@ -83,6 +83,10 @@ function processDiceRoll(e){
     rollDice();
 }
 
+function navigateMainBoard(e){
+    e.preventDefault();
+    console.log(e.target);
+}
 
 
 
@@ -125,7 +129,7 @@ function buyProperty(property){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "POST").catch(errorHandler);
 }
 
-function notBuyProperty(property){
+function dontBuyProperty(property){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "DELETE").catch(errorHandler);
 }
 
@@ -196,7 +200,7 @@ function bidPlayerAuction(property, username, amount){
     fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions/${property}/bid`, 'POST', requestBody).catch(errorHandler);
 }
 
-function startPlayerAuction(property, startBid, duration){
+function startPlayerAuction(property, startBid, duration=30){
     const requestBody = {
         "start-bid": startBid,
         "duration": duration
