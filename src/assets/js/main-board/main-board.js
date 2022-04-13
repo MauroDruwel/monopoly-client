@@ -97,9 +97,6 @@ function setBuyPropertyState(){
 
 /* ---------------- main board helpers ---------------- */
 
-function ownerOfTileOnCarousel(){
-    return retrieveOwner( _tiles[_player.carousel].name);
-}
 function isItMyTurn(){
     return _game.currentPlayer === _player.username;
 }
@@ -107,7 +104,15 @@ function diceRolled(){
     return isItMyTurn() && !_game.canRoll;
 }
 function isMyCurrentTileOnCarousel(){
-    return retrievePlayer(_player.username).currentTile === _tiles[_player.carousel].name;
+    return retrieveMyCurrentTileName() === _tiles[_player.carousel].name;
+}
+
+function ownerOfTileOnCarousel(){
+    return retrieveOwner( _tiles[_player.carousel].name);
+}
+
+function retrieveMyCurrentTileName(){
+    return retrievePlayer(_player.username).currentTile;
 }
 
 /* ---------------- event handlers ---------------- */
@@ -120,6 +125,9 @@ function processMainBoardAction(e){
         case "roll-dice":
             rollDice();
             break;
+        case "buy-property":
+            const property = retrieveMyCurrentTileName();
+            buyProperty(property);
         default:
             throw "Unknown actions";
     }
@@ -149,7 +157,7 @@ function bankrupt() {
 }
 
 function rollDice(){
-    if(_game.currentPlayer === _player.username && _game.canRoll){
+    if(isItMyTurn() && _game.canRoll){
         fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
     }
 }
@@ -167,7 +175,9 @@ function computeTax(){
 
 // ####################################### Buying Property ##############################################
 function buyProperty(property){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "POST").catch(errorHandler);
+    if(!retrieveOwner(property)){
+        fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "POST").catch(errorHandler);
+    }
 }
 
 function dontBuyProperty(property){
