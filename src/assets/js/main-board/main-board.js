@@ -12,6 +12,7 @@ async function reloadGame() {
     await retrieveGame();
 
     checkGameState();
+    setGameState();
     rerender();
 
     enableOrDisableButtons();
@@ -22,9 +23,13 @@ async function reloadGame() {
 
 function checkGameState() {
     checkEndState();
-    checkDiceRollState();
-    checkBuyProperty();
     // add check state here
+}
+
+function setGameState(){
+    setDiceRollState();
+    setBuyPropertyState();
+    // add set state here
 }
 
 function rerender(){
@@ -57,7 +62,9 @@ function checkEndState(){
     }
 }
 
-function checkDiceRollState(){
+/* ---------------- set game state ------------------- */
+
+function setDiceRollState(){
     if(isItMyTurn() && _game.canRoll){
         document.querySelector('[data-action="roll-dice"]').classList.add('active');
     }
@@ -76,7 +83,7 @@ function checkDiceRollState(){
     }
 }
 
-function checkBuyProperty(){
+function setBuyPropertyState(){
     if(diceRolled() && isMyCurrentTileOnCarousel() && !ownerOfTileOnCarousel()){
         document.querySelector('[data-action="buy-property"]').classList.add('active');
         document.querySelector('[data-action="dont-buy-property"]').classList.add('active');
@@ -87,6 +94,8 @@ function checkBuyProperty(){
         reloadGame().catch(errorHandler);
     }
 }
+
+/* ---------------- main board helpers ---------------- */
 
 function ownerOfTileOnCarousel(){
     return retrieveOwner( _tiles[_player.carousel].name);
