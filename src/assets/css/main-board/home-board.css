@@ -51,9 +51,19 @@
 #home-board .bottom {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: flex-end;
     position: fixed;
     bottom: 1rem;
+    top:  auto;
+    right: 1rem;
+    left: 1rem;
+}
+
+#home-board .bottom-left {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
 #dice-container {
@@ -81,4 +91,22 @@
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+}
+
+#home-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+
+    grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . .";
+}
+
+#home-buttons-grid button {
+    text-transform: capitalize;
+    font-size: 1rem;
 }
