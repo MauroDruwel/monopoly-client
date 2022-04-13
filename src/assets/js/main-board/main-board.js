@@ -9,65 +9,42 @@ async function reloadGame() {
     // fetch game data here:
     await retrieveGame();
 
-    // check game status here:
     checkGameState();
+    rerender();
+
+    enableOrDisableButtons();
 
     // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
 }
 
-function retrieveTiles() {
-    return fetchFromServer(`/tiles`, "GET").then(tiles => {
-        _tiles = []; // empty array
-        tiles.forEach(tile => {
-            _tiles.push(tile);
-        });
-    }).then(() => {
-        saveToStorage("_tiles", _tiles);
-    }).catch(errorHandler);
-}
-
-function retrieveGame(){
-    return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
-        _game = {}; // empty object
-        for (const key in game){
-            _game[key] = game[key];
-        }
-    }).then(() => {
-        saveToStorage("_game", _game);
-    }).catch(errorHandler);
-}
-
 function checkGameState() {
-    // update game that effect this player
-    processEndState();
-    processRoleDiceButtonState();
-    processTileMap(_player.username);
+    checkEndState();
+    checkDiceRoleState();
+    // add check state here
+}
 
-    disableButtons(); // buttons that don't have .active class
-    enableButtons(); // buttons that have .active class
-
-    // update screen that effect all users
+function rerender(){
     renderCarousel();
     renderDiceRole();
+    processTileMap(_player.username);
+    // add component you would like to reload here
 }
 
-function disableButtons(){
+function enableOrDisableButtons(){
     // disable buttons that don't contain .active class
     document.querySelectorAll('.button:not(.active)').forEach($button => {
         $button.disabled = true;
     });
-}
-
-function enableButtons(){
     // enable buttons that do contain .active class
     document.querySelectorAll('.button.active').forEach($button => {
         $button.disabled = false;
     });
 }
 
+/* ---------------- check game state ------------------- */
 
-function processEndState(){
+function checkEndState(){
     // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
@@ -77,11 +54,7 @@ function processEndState(){
     }
 }
 
-
-
-/* home screen */
-
-function processRoleDiceButtonState(){
+function checkDiceRoleState(){
     if(_game.currentPlayer === _player.username && _game.canRoll){
         document.querySelector('#role-dice').classList.add('active');
     }
@@ -89,6 +62,9 @@ function processRoleDiceButtonState(){
         document.querySelector('#role-dice').classList.remove('active');
     }
 }
+
+
+/* ---------------- event handlers ---------------- */
 
 function processRoleDice(e){
     e.preventDefault();
