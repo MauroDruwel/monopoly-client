@@ -1,5 +1,7 @@
 "use strict";
 
+let landedTileShown = false;
+
 async function startGame(){
     await retrieveTiles(); // fetch board tiles
     await retrieveGame(); // fetch game data
@@ -61,6 +63,16 @@ function checkDiceRoleState(){
     else {
         document.querySelector('#role-dice').classList.remove('active');
     }
+
+    // move all players to tile where current player landed on
+    if(!landedTileShown && !_game.canRoll){
+        const currentTile = retrievePlayer(_game.currentPlayer).currentTile;
+        _player.carousel = retrieveTilePosition(currentTile);
+        landedTileShown = true;
+    }
+    else if(_game.canRoll){
+        landedTileShown = false;
+    }
 }
 
 
@@ -68,7 +80,7 @@ function checkDiceRoleState(){
 
 function processRoleDice(e){
     e.preventDefault();
-    console.log(e.target);
+    roleDice();
 }
 
 
