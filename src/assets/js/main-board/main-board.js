@@ -91,7 +91,6 @@ function setBuyPropertyState(){
     else {
         document.querySelector('[data-action="buy-property"]').classList.remove('active');
         document.querySelector('[data-action="dont-buy-property"]').classList.remove('active');
-        reloadGame().catch(errorHandler);
     }
 }
 
@@ -120,7 +119,7 @@ function retrieveMyCurrentTileName(){
 function processMainBoardAction(e){
     e.preventDefault();
     const action = e.target.dataset.action;
-
+    console.log(action);
     switch (action){
         case "roll-dice":
             rollDice();
@@ -128,8 +127,9 @@ function processMainBoardAction(e){
         case "buy-property":
             const property = retrieveMyCurrentTileName();
             buyProperty(property);
+            break;
         default:
-            throw "Unknown actions";
+            throw "Unknown action";
     }
 }
 
