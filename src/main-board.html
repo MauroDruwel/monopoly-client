@@ -76,7 +76,7 @@
 <body>
 
 <main id="main-board">
-    <section id="home-board" class="hidden">
+    <section id="home-board" class="">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
@@ -296,7 +296,7 @@
             </div>
         </div>
     </section>
-    <section id="setup-auction" class="transaction-board">
+    <section id="setup-auction" class="transaction-board hidden">
         <header>
             <h1><span>Monopoly</span></h1>
         </header>
@@ -306,8 +306,6 @@
                     <legend>choose start price please</legend>
                     <label for="startbid">starting amount</label>
                     <input type="number" id="startbid" name="startbid" min="0" value="0">
-                    <label for="sell-buildings">sell all buildings on this street</label>
-                    <input type="checkbox" id="sell-buildings">
                 </fieldset>
 
             </form>
@@ -315,6 +313,7 @@
                 <button class="button active">cancel</button>
             </div>
             <div class="proceed">
+                <button type="button" value="sell-buildings" class="button">sell buildings</button>
                 <button class="button active">proceed</button>
             </div>
         </div>
