@@ -59,10 +59,10 @@ function checkEndState(){
 
 function checkDiceRollState(){
     if(isItMyTurn() && _game.canRoll){
-        document.querySelector('#roll-dice').classList.add('active');
+        document.querySelector('[data-action="roll-dice"]').classList.add('active');
     }
     else {
-        document.querySelector('#roll-dice').classList.remove('active');
+        document.querySelector('[data-action="roll-dice"]').classList.remove('active');
     }
 
     // move all players to tile where current player landed on
@@ -103,13 +103,17 @@ function isMyCurrentTileOnCarousel(){
 
 /* ---------------- event handlers ---------------- */
 
-function processDiceRoll(e){
-    e.preventDefault();
-    rollDice();
-}
-
 function processMainBoardAction(e){
     e.preventDefault();
+    const action = e.target.dataset.action;
+
+    switch (action){
+        case "roll-dice":
+            rollDice();
+            break;
+        default:
+            throw "Unknown actions";
+    }
 }
 
 function processMainBoardNavigation(e){
