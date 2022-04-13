@@ -1,5 +1,7 @@
 "use strict";
 
+let landedTileShown = false;
+
 async function startGame(){
     await retrieveTiles(); // fetch board tiles
     await retrieveGame(); // fetch game data
@@ -9,36 +11,43 @@ async function reloadGame() {
     // fetch game data here:
     await retrieveGame();
 
-    // check game status here:
     checkGameState();
+    rerender();
+
+    enableOrDisableButtons();
 
     // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
 }
 
-function retrieveTiles() {
-    return fetchFromServer(`/tiles`, "GET").then(tiles => {
-        _tiles = []; // empty array
-        tiles.forEach(tile => {
-            _tiles.push(tile);
-        });
-    }).then(() => {
-        saveToStorage("_tiles", _tiles);
-    }).catch(errorHandler);
-}
-
-function retrieveGame(){
-    return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
-        _game = {}; // empty object
-        for (const key in game){
-            _game[key] = game[key];
-        }
-    }).then(() => {
-        saveToStorage("_game", _game);
-    }).catch(errorHandler);
-}
-
 function checkGameState() {
+    checkEndState();
+    checkDiceRoleState();
+    // add check state here
+}
+
+function rerender(){
+    renderCarousel();
+    renderDiceRole();
+    processTileMap(_player.username);
+    // add component you would like to reload here
+}
+
+function enableOrDisableButtons(){
+    // disable buttons that don't contain .active class
+    document.querySelectorAll('.button:not(.active)').forEach($button => {
+        $button.disabled = true;
+    });
+    // enable buttons that do contain .active class
+    document.querySelectorAll('.button.active').forEach($button => {
+        $button.disabled = false;
+    });
+}
+
+/* ---------------- check game state ------------------- */
+
+function checkEndState(){
+    // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "loss-screen.html";
     }
@@ -47,6 +56,32 @@ function checkGameState() {
     }
 }
 
+function checkDiceRoleState(){
+    if(_game.currentPlayer === _player.username && _game.canRoll){
+        document.querySelector('#role-dice').classList.add('active');
+    }
+    else {
+        document.querySelector('#role-dice').classList.remove('active');
+    }
+
+    // move all players to tile where current player landed on
+    if(!landedTileShown && !_game.canRoll){
+        const currentTile = retrievePlayer(_game.currentPlayer).currentTile;
+        _player.carousel = retrieveTilePosition(currentTile);
+        landedTileShown = true;
+    }
+    else if(_game.canRoll){
+        landedTileShown = false;
+    }
+}
+
+
+/* ---------------- event handlers ---------------- */
+
+function processRoleDice(e){
+    e.preventDefault();
+    roleDice();
+}
 
 
 
@@ -69,7 +104,9 @@ function bankrupt() {
 }
 
 function roleDice(){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
+    if(_game.currentPlayer === _player.username && _game.canRoll){
+        fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
+    }
 }
 
 

@@ -8,30 +8,31 @@ function navigateCarousel(e){
         return;
     }
     const direction = $navigation.id;
-    processCarouselPosition(direction);
+    processCarouselDirection(direction);
     renderCarousel();
 }
 
-function processCarouselPosition(direction){
+function processCarouselDirection(direction){
     if(direction === 'left-arrow'){
-        _player.carousel += 1;
-
-        // reached last tile,then:
-        if(_player.carousel === _tiles.length){
-            _player.carousel = 0;
-        }
+        processCarouselMove(1);
     }
     else if(direction === 'right-arrow'){
-        _player.carousel -= 1;
-
-        // reached first tile,then:
-        if(_player.carousel < 0 ){
-            _player.carousel =  _tiles.length - 1;
-        }
+        processCarouselMove(-1);
     }
     else  if(direction === 'return-home'){
         const currentTile = retrievePlayer(_player.username).currentTile;
         _player.carousel = retrieveTilePosition(currentTile);
     }
     saveToStorage("_player", _player);
+}
+
+function processCarouselMove(positions){
+    _player.carousel += positions;
+
+    if(_player.carousel >= _tiles.length){
+        _player.carousel = _player.carousel - _tiles.length;
+    }
+    else if(_player.carousel < 0 ){
+        _player.carousel =  _player.carousel + _tiles.length;
+    }
 }

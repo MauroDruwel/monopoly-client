@@ -30,8 +30,8 @@ function init() {
         initSelectPawn();
     }
     else if (document.querySelector('#main-board')) {
+        initMainBoard();
         startGame().then(() => {
-            initMainBoard();
             reloadGame().catch(errorHandler);
         }).catch(errorHandler);
     }
@@ -58,15 +58,13 @@ function initSelectPawn() {
 }
 
 function initMainBoard() {
-    // tile map template
-    addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
 
-    // auction
-    document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid);
+    /* add event listeners here: */
+    addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
+    document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid); // auction.js
+    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
+    document.querySelector('#role-dice').addEventListener('click', processRoleDice); // main-board.js
 
-    // carousel
-    renderCarousel();
-    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
 }
 
 function initLosingScreen(){

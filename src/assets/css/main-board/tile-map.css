@@ -24,6 +24,11 @@
     border-radius: 0.25rem;
 }
 
+.tile-map div[data-tile]:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .tile-map div[data-color="purple"].owns{
     background-color: purple;
 }

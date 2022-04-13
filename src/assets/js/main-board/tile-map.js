@@ -10,5 +10,6 @@ function processTileMapNavigation(e){
     if(!$tile){
         return;
     }
-    // do something here
+    _player.carousel = parseInt($tile.dataset.position);
+    renderCarousel();
 }

@@ -75,12 +75,16 @@ select, input {
 .button {
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
-    background-color: #757575;
+    background-color: #E0E0E0;
     color: #FFFFFF;
     border-radius: 0.75rem;
     border: solid #C4C4C4 0.1rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
     text-transform: uppercase;
+}
+
+.button.active {
+    background-color: #757575;
 }
 
 .button:hover {
