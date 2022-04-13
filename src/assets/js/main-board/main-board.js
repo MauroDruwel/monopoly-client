@@ -22,13 +22,13 @@ async function reloadGame() {
 
 function checkGameState() {
     checkEndState();
-    checkDiceRoleState();
+    checkDiceRollState();
     // add check state here
 }
 
 function rerender(){
     renderCarousel();
-    renderDiceRole();
+    renderDiceRoll();
     processTileMap(_player.username);
     // add component you would like to reload here
 }
@@ -56,12 +56,12 @@ function checkEndState(){
     }
 }
 
-function checkDiceRoleState(){
+function checkDiceRollState(){
     if(_game.currentPlayer === _player.username && _game.canRoll){
-        document.querySelector('#role-dice').classList.add('active');
+        document.querySelector('#roll-dice').classList.add('active');
     }
     else {
-        document.querySelector('#role-dice').classList.remove('active');
+        document.querySelector('#roll-dice').classList.remove('active');
     }
 
     // move all players to tile where current player landed on
@@ -78,9 +78,9 @@ function checkDiceRoleState(){
 
 /* ---------------- event handlers ---------------- */
 
-function processRoleDice(e){
+function processDiceRoll(e){
     e.preventDefault();
-    roleDice();
+    rollDice();
 }
 
 
@@ -103,7 +103,7 @@ function bankrupt() {
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/bankruptcy`, "POST").catch(errorHandler);
 }
 
-function roleDice(){
+function rollDice(){
     if(_game.currentPlayer === _player.username && _game.canRoll){
         fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/dice`, "POST").catch(errorHandler);
     }
