@@ -8,11 +8,11 @@ function navigateCarousel(e){
         return;
     }
     const direction = $navigation.id;
-    processCarouselPosition(direction);
+    processCarouselDirection(direction);
     renderCarousel();
 }
 
-function processCarouselPosition(direction){
+function processCarouselDirection(direction){
     if(direction === 'left-arrow'){
         _player.carousel += 1;
 
