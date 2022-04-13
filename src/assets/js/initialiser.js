@@ -63,7 +63,7 @@ function initMainBoard() {
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid); // auction.js
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
-    document.querySelector('#role-dice').addEventListener('click', processRoleDice); // main-board.js
+    document.querySelector('#roll-dice').addEventListener('click', processDiceRoll); // main-board.js
 
 }
 

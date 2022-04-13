@@ -1,6 +1,6 @@
 "use strict";
 
-function renderDiceRole(){
+function renderDiceRoll(){
     if(_game["lastDiceRoll"]){
         document.querySelector('#dice-container .dice-right').innerHTML = _game["lastDiceRoll"][0];
         document.querySelector('#dice-container .dice-left').innerHTML = _game["lastDiceRoll"][1];
