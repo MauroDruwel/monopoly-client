@@ -134,8 +134,10 @@ function processMainBoardAction(e){
             rollDice();
             break;
         case "buy-property":
-            const property = retrieveMyCurrentTileName();
-            buyProperty(property);
+            buyProperty(retrieveMyCurrentTileName());
+            break;
+        case "dont-buy-property":
+            dontBuyProperty(retrieveMyCurrentTileName());
             break;
         default:
             throw "Unknown action";
@@ -190,7 +192,9 @@ function buyProperty(property){
 }
 
 function dontBuyProperty(property){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "DELETE").catch(errorHandler);
+    if(!retrieveOwner(property)){
+        fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "DELETE").catch(errorHandler);
+    }
 }
 
 
