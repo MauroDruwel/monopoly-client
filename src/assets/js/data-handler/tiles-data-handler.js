@@ -21,3 +21,12 @@ function retrieveTilePosition(name){
     }
     return null;
 }
+
+function retrieveTileOnName(name){
+    for(const tile of _tiles){
+        if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
+            return tile;
+        }
+    }
+    return null;
+}
