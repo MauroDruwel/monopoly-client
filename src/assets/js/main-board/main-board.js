@@ -85,7 +85,12 @@ function setDiceRollState(){
 
 function setBuyPropertyState(){
     if(diceRolled() && isMyCurrentTileOnCarousel() && !ownerOfTileOnCarousel()){
-        document.querySelector('[data-action="buy-property"]').classList.add('active');
+        if(retrieveMyBalance() >= retrieveTileOnName(retrieveMyCurrentTileName()).cost){
+            document.querySelector('[data-action="buy-property"]').classList.add('active');
+        }
+        else {
+            document.querySelector('[data-action="buy-property"]').classList.remove('active');
+        }
         document.querySelector('[data-action="dont-buy-property"]').classList.add('active');
     }
     else {
@@ -112,6 +117,10 @@ function ownerOfTileOnCarousel(){
 
 function retrieveMyCurrentTileName(){
     return retrievePlayer(_player.username).currentTile;
+}
+
+function retrieveMyBalance(){
+    return retrievePlayer(_player.username).money;
 }
 
 /* ---------------- event handlers ---------------- */
