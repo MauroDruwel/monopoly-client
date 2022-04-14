@@ -63,8 +63,24 @@ function initMainBoard() {
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
     document.querySelector('#offer-placeholder button[type="button"]').addEventListener('click', bid); // auction.js
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
-    addEventListenerToElements('click', processMainBoardAction, '#main-board button[data-action]');
-    addEventListenerToElements('click', processMainBoardNavigation, '#main-board button[data-navigate]');
+
+    addEventListenerToElements(
+        'click',
+        (e) => {
+            e.preventDefault();
+            playerAction(e.target.dataset.action);
+        },
+        '#main-board button[data-action]'
+    );
+
+    addEventListenerToElements(
+        'click',
+        (e) => {
+            e.preventDefault();
+            navigateMainBoard(e.target.dataset.navigate);
+        },
+        '#main-board button[data-navigate]'
+    );
 
 }
 

@@ -125,10 +125,7 @@ function retrieveMyBalance(){
 
 /* ---------------- event handlers ---------------- */
 
-function processMainBoardAction(e){
-    e.preventDefault();
-    const action = e.target.dataset.action;
-    console.log(action);
+function playerAction(action){
     switch (action){
         case "roll-dice":
             rollDice();
@@ -144,8 +141,11 @@ function processMainBoardAction(e){
     }
 }
 
-function processMainBoardNavigation(e){
-    e.preventDefault();
+function navigateMainBoard(navigation){
+    switch (navigation){
+        default:
+            throw "Unknown navigation";
+    }
 }
 
 
