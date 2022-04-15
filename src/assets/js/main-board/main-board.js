@@ -62,6 +62,19 @@ function checkEndState(){
     }
 }
 
+function checkAuctionState(){
+    return retrieveBankAuctions().then(bankAuctions => {
+        for(const player of _game.players) {
+            retrievePlayerAuctions(player.name).then(playerAuctions => {
+                if(bankAuctions || playerAuctions){
+                    return true
+                }
+                }).catch(errorHandler);
+        }
+        return false;
+    }).catch(errorHandler);
+}
+
 /* ---------------- set game state ------------------- */
 
 function setDiceRollState(){
@@ -135,6 +148,7 @@ function playerAction(action){
             break;
         case "dont-buy-property":
             dontBuyProperty(retrieveMyCurrentTileName());
+            // bank auction should start, players redirected to auction with checkAuctionState
             break;
         default:
             throw "Unknown action";
@@ -143,6 +157,12 @@ function playerAction(action){
 
 function navigateMainBoard(navigation){
     switch (navigation){
+        case "setup-auction":
+            // make setup auction visible
+            break;
+        case "auction":
+            // make auction visible
+            break;
         default:
             throw "Unknown navigation";
     }
@@ -238,12 +258,12 @@ function freeFromPrison(){
 // ############################################# Auctions #################################################
 // TODO: GETTER
 function retrieveBankAuctions(){
-    fetchFromServer(`/games/${_player.gameId}/bank/auctions`, "GET").catch(errorHandler);
+    return fetchFromServer(`/games/${_player.gameId}/bank/auctions`, "GET").catch(errorHandler);
 }
 
 // TODO: GETTER
 function retrievePlayerAuctions(username){
-    fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions`, "GET").catch(errorHandler);
+    return fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions`, "GET").catch(errorHandler);
 }
 
 function bidBankAuction(property, amount){
@@ -270,7 +290,7 @@ function startPlayerAuction(property, startBid, duration=30){
         "duration": duration
     };
 
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/auctions/${property}/bid`, 'POST', requestBody).catch(errorHandler);
+    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/auctions/${property}`, 'POST', requestBody).catch(errorHandler);
 }
 
 
