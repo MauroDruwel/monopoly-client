@@ -36,3 +36,13 @@ function renderBuyHotel(tile){
     processProperty(tile.name);
     document.querySelector('#buy-hotel .information h2 span').innerHTML = tile.housePrice;
 }
+
+function renderSellHotel(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector('#sell-hotel').classList.remove('hidden');
+    document.querySelectorAll('#sell-hotel .tile').forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    processProperty(tile.name);
+    document.querySelector('#sell-hotel .information h2 span').innerHTML = tile.housePrice;
+}
