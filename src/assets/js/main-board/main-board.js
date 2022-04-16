@@ -34,6 +34,7 @@ function setGameState(){
     setBuyHotelState();
     setSellHotelState();
     setTakeMortgageState();
+    setSettleMortgageState();
     // add set state here
 }
 
@@ -165,6 +166,15 @@ function setTakeMortgageState() {
     }
 }
 
+function setSettleMortgageState(){
+    const tile = retrieveTileOnCarousel();
+    if (canSettleMortgage(tile)) {
+        document.querySelector('[data-navigate="settle-mortgage"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="settle-mortgage"]').classList.remove('active');
+    }
+}
+
 /* ---------------- main board helpers ---------------- */
 
 function isItMyTurn(){
@@ -213,7 +223,8 @@ function canBuyHouse(tile){
         for(const propertyOfStreet of street){
             // check if there is a property in the street "that is running behind" on house improvement
             if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
-                propertyOfStreet.hotelCount !== property.hotelCount){
+                propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage ||
+                property.hotelCount >= 1){
                 return false;
             }
         }
@@ -231,7 +242,8 @@ function canBuyHotel(tile){
         for(const propertyOfStreet of street){
             // check if there is a property in the street "that is running behind" on hotel improvement
             if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
-                (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0)){
+                (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage ||
+                property.hotelCount >= 1){
                 return false;
             }
         }
@@ -249,7 +261,7 @@ function canSellHouse(tile){
         for(const propertyOfStreet of street){
             // check if there is a property in the street that has more houses than current property
             if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
-                propertyOfStreet.hotelCount !== property.hotelCount){
+                propertyOfStreet.hotelCount !== property.hotelCount || property.mortgage){
                 return false;
             }
         }
@@ -266,7 +278,7 @@ function canSellHotel(tile){
 
         for(const propertyOfStreet of street){
             // check if there is a property in the street "that is running behind" on hotel improvement
-            if(propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0){
+            if(propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0 || property.mortgage){
                 return false;
             }
         }
@@ -281,12 +293,21 @@ function canTakeMortgage(tile){
         const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
 
         for(const propertyOfStreet of street){
-            // check if there is a property in the street "that is running behind" on hotel improvement
             if(propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 || property.mortgage){
                 return false;
             }
         }
         return true;
+    }
+    return false;
+}
+
+function canSettleMortgage(tile){
+    if(doIOwnTile(tile.name) && retrieveMyBalance() >= (parseInt(tile.mortgage) * 1.1)){
+        const property = retrievePropertyWithOwnershipData(tile.name);
+        if(property.mortgage){
+            return true;
+        }
     }
     return false;
 }
@@ -346,6 +367,9 @@ function playerAction(action){
         case "take-mortgage":
             takeMortgage(tile.name);
             break;
+        case "settle-mortgage":
+            settleMortgage(tile.name);
+            break;
         default:
             throw "Unknown action";
     }
@@ -376,6 +400,9 @@ function navigateMainBoard(navigation){
             break;
         case "take-mortgage":
             renderTakeMortgage(tile);
+            break;
+        case "settle-mortgage":
+            renderSettleMortgage(tile);
             break;
         case "setup-auction":
             break;
