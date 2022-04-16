@@ -73,8 +73,9 @@ function checkAuctionState(){
         for(const player of _game.players) {
             retrievePlayerAuctions(player.name).then(playerAuctions => {
                 if(bankAuctions || playerAuctions){
-                    return true
+                    return true;
                 }
+                return false;
                 }).catch(errorHandler);
         }
         return false;
@@ -103,18 +104,19 @@ function setDiceRollState(){
 }
 
 function setBuyPropertyState(){
+    const attribute = '[data-navigate="buy-property"]';
     if(isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null){
         if(retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).cost){
-            document.querySelector('[data-navigate="buy-property"]').classList.add('active');
+            document.querySelector(attribute).classList.add('active');
         }
         else {
-            document.querySelector('[data-navigate="buy-property"]').classList.remove('active');
+            document.querySelector(attribute).classList.remove('active');
         }
-        document.querySelector('[data-action="dont-buy-property"]').classList.add('active');
+        document.querySelector(attribute).classList.add('active');
     }
     else {
-        document.querySelector('[data-navigate="buy-property"]').classList.remove('active');
-        document.querySelector('[data-action="dont-buy-property"]').classList.remove('active');
+        document.querySelector(attribute).classList.remove('active');
+        document.querySelector(attribute).classList.remove('active');
     }
 }
 
@@ -197,7 +199,7 @@ function doIOwnTile(tilename){
     return null;
 }
 
-function retrieveStreetWithOwnershipDataByProperty(propertyName){
+function retrieveStreetWithOwnershipData(propertyName){
     const properties = retrievePlayer(_player.username).properties;
     const streetFromTiles = retrieveStreetWithTileDataByProperty(propertyName);
     const streetFromGame = [];
@@ -217,7 +219,7 @@ function retrieveStreetWithOwnershipDataByProperty(propertyName){
 // check if street is improved evenly with houses...
 function canBuyHouse(tile){
     if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
-        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for(const propertyOfStreet of street){
@@ -236,7 +238,7 @@ function canBuyHouse(tile){
 // check if street is improved evenly with hotels...
 function canBuyHotel(tile){
     if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
-        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for(const propertyOfStreet of street){
@@ -255,7 +257,7 @@ function canBuyHotel(tile){
 // check if street is sold evenly...
 function canSellHouse(tile){
     if(doIOwnTheStreet(tile.name)){
-        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for(const propertyOfStreet of street){
@@ -273,7 +275,7 @@ function canSellHouse(tile){
 // check if street is sold evenly...
 function canSellHotel(tile){
     if(doIOwnTheStreet(tile.name)){
-        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for(const propertyOfStreet of street){
@@ -290,7 +292,7 @@ function canSellHotel(tile){
 function canTakeMortgage(tile){
     if(doIOwnTile(tile.name)){
         const property = retrievePropertyWithOwnershipData(tile.name);
-        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const street = retrieveStreetWithOwnershipData(tile.name);
 
         for(const propertyOfStreet of street){
             if(propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 || property.mortgage){
@@ -501,12 +503,10 @@ function freeFromPrison(){
 }
 
 // ############################################# Auctions #################################################
-// TODO: GETTER
 function retrieveBankAuctions(){
     return fetchFromServer(`/games/${_player.gameId}/bank/auctions`, "GET").catch(errorHandler);
 }
 
-// TODO: GETTER
 function retrievePlayerAuctions(username){
     return fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions`, "GET").catch(errorHandler);
 }
