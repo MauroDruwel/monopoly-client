@@ -22,11 +22,30 @@ function retrieveTilePosition(name){
     return null;
 }
 
-function retrieveTileOnName(name){
+function retrieveTileByName(name){
     for(const tile of _tiles){
         if(tile.nameAsPathParameter === convertSpacesToUnderscores(name)){
             return tile;
         }
     }
     return null;
+}
+
+function retrieveStreetByColorFromTiles(color){
+    const street = [];
+    _tiles.forEach(tile => {
+        if(tile.streetColor === color.toUpperCase()){
+            street.push(tile);
+        }
+    });
+    return street;
+}
+
+function retrieveStreetByPropertyFromTiles(name){
+    const property =  retrieveTileByName(name);
+    if(property.type === 'street'){
+        const color = property.streetColor;
+        return retrieveStreetByColorFromTiles(color);
+    }
+    return [];
 }
