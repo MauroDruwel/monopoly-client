@@ -23,3 +23,10 @@ function addEventListenerToElements(type, handler, selector){
     const $elements = document.querySelectorAll(selector);
     $elements.forEach(($element) => $element.addEventListener(type, handler));
 }
+
+/* Element helpers */
+function addClassToElements(selector, clss){
+    document.querySelectorAll(selector).forEach($element => {
+        $element.classList.add(clss);
+    });
+}
