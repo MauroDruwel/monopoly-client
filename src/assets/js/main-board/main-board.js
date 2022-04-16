@@ -30,6 +30,7 @@ function setGameState(){
     setDiceRollState();
     setBuyPropertyState();
     setBuyHouseState();
+    setSellHouseState();
     // add set state here
 }
 
@@ -115,12 +116,22 @@ function setBuyPropertyState(){
 
 function setBuyHouseState(){
     const tile = retrieveTileOnCarousel();
-    if(doIOwnTheStreet(tile.name) && canImprovePropertyWithHouse(tile.name) &&
+    if(doIOwnTheStreet(tile.name) && canBuyHouse(tile.name) &&
         (retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).housePrice)){
         document.querySelector('[data-navigate="buy-house"]').classList.add('active');
     }
     else {
         document.querySelector('[data-navigate="buy-house"]').classList.remove('active');
+    }
+}
+
+function setSellHouseState(){
+    const tile = retrieveTileOnCarousel();
+    if(doIOwnTheStreet(tile.name) && canSellHouse(tile.name)){
+        document.querySelector('[data-navigate="sell-house"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="sell-house"]').classList.remove('active');
     }
 }
 
@@ -155,7 +166,7 @@ function retrieveStreetByPropertyFromGame(propertyName){
 }
 
 // check if street is improved evenly with houses...
-function canImprovePropertyWithHouse(propertyName){
+function canBuyHouse(propertyName){
     let property;
     const street = retrieveStreetByPropertyFromGame(propertyName);
     for(const propertyOfStreet of street){
@@ -164,7 +175,8 @@ function canImprovePropertyWithHouse(propertyName){
         }
     }
     for(const propertyOfStreet of street){
-        if(propertyOfStreet.houseCount < property.houseCount){
+        // check if there is a property in the street "that is running behind" on house improvement
+        if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
             return false;
         }
     }
@@ -172,7 +184,7 @@ function canImprovePropertyWithHouse(propertyName){
 }
 
 // check if street is improved evenly with hotels...
-function canImprovePropertyWithHotel(propertyName){
+function canBuyHotel(propertyName){
     let property;
     const street = retrieveStreetByPropertyFromGame(propertyName);
     for(const propertyOfStreet of street){
@@ -181,7 +193,26 @@ function canImprovePropertyWithHotel(propertyName){
         }
     }
     for(const propertyOfStreet of street){
+        // check if there is a property in the street "that is running behind" on hotel improvement
         if(propertyOfStreet.hotelCount < property.hotelCount || propertyOfStreet.houseCount < 4){
+            return false;
+        }
+    }
+    return true;
+}
+
+// check if street is selled evenly...
+function canSellHouse(propertyName){
+    let property;
+    const street = retrieveStreetByPropertyFromGame(propertyName);
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.property === propertyName){
+            property = propertyOfStreet;
+        }
+    }
+    for(const propertyOfStreet of street){
+        // check if there is a property in the street that has more houses than current property
+        if(propertyOfStreet.houseCount > property.houseCount || propertyOfStreet.houseCount <= 0){
             return false;
         }
     }
@@ -216,6 +247,7 @@ function retrieveMyBalance(){
 /* ---------------- event handlers ---------------- */
 
 function playerAction(action){
+    const tile = retrieveTileOnCarousel();
     switch (action){
         case "roll-dice":
             rollDice();
@@ -228,8 +260,10 @@ function playerAction(action){
             // bank auction should start, players redirected to auction with checkAuctionState
             break;
         case "buy-house":
-            const tile = retrieveTileOnCarousel();
             buyHouse(tile.name);
+            break;
+        case "sell-house":
+            sellHouse(tile.name);
             break;
         default:
             throw "Unknown action";
@@ -237,6 +271,7 @@ function playerAction(action){
 }
 
 function navigateMainBoard(navigation){
+    const tile = retrieveTileOnCarousel();
     switch (navigation){
         case "home":
             // make home board visible
@@ -245,11 +280,11 @@ function navigateMainBoard(navigation){
             break;
         case "buy-house":
             // make buy house page visible
-            const tile = retrieveTileOnCarousel();
             renderBuyHouse(tile);
             break;
         case "sell-house":
             // make sell house page visible
+            renderSellHouse(tile);
             break;
         case "buy-hotel":
             // make buy hotel page visible
