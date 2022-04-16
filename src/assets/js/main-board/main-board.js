@@ -31,6 +31,7 @@ function setGameState(){
     setBuyPropertyState();
     setBuyHouseState();
     setSellHouseState();
+    setBuyHotelState();
     // add set state here
 }
 
@@ -135,6 +136,16 @@ function setSellHouseState(){
     }
 }
 
+function setBuyHotelState(){
+    const tile = retrieveTileOnCarousel();
+    if(doIOwnTheStreet(tile.name) && canBuyHotel(tile.name)){
+        document.querySelector('[data-navigate="buy-hotel"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="buy-hotel"]').classList.remove('active');
+    }
+}
+
 /* ---------------- main board helpers ---------------- */
 
 function isItMyTurn(){
@@ -176,7 +187,8 @@ function canBuyHouse(propertyName){
     }
     for(const propertyOfStreet of street){
         // check if there is a property in the street "that is running behind" on house improvement
-        if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
+        if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
+            propertyOfStreet.hotelCount !== property.hotelCount){
             return false;
         }
     }
@@ -194,7 +206,8 @@ function canBuyHotel(propertyName){
     }
     for(const propertyOfStreet of street){
         // check if there is a property in the street "that is running behind" on hotel improvement
-        if(propertyOfStreet.hotelCount < property.hotelCount || propertyOfStreet.houseCount < 4){
+        if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
+            (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0)){
             return false;
         }
     }
@@ -212,7 +225,8 @@ function canSellHouse(propertyName){
     }
     for(const propertyOfStreet of street){
         // check if there is a property in the street that has more houses than current property
-        if(propertyOfStreet.houseCount > property.houseCount || propertyOfStreet.houseCount <= 0){
+        if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
+            propertyOfStreet.hotelCount !== property.hotelCount){
             return false;
         }
     }
@@ -265,6 +279,9 @@ function playerAction(action){
         case "sell-house":
             sellHouse(tile.name);
             break;
+        case "buy-hotel":
+            buyHotel(tile.name);
+            break;
         default:
             throw "Unknown action";
     }
@@ -288,6 +305,7 @@ function navigateMainBoard(navigation){
             break;
         case "buy-hotel":
             // make buy hotel page visible
+            renderBuyHotel(tile);
             break;
         case "sell-hotel":
             // make sell hotel page visible
