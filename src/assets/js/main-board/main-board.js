@@ -32,6 +32,7 @@ function setGameState(){
     setBuyHouseState();
     setSellHouseState();
     setBuyHotelState();
+    setSellHotelState();
     // add set state here
 }
 
@@ -138,11 +139,21 @@ function setSellHouseState(){
 
 function setBuyHotelState(){
     const tile = retrieveTileOnCarousel();
-    if(doIOwnTheStreet(tile.name) && canBuyHotel(tile.name)){
+    if(doIOwnTheStreet(tile.name) && canBuyHotel(tile.name) &&
+        (retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).housePrice)){
         document.querySelector('[data-navigate="buy-hotel"]').classList.add('active');
     }
     else {
         document.querySelector('[data-navigate="buy-hotel"]').classList.remove('active');
+    }
+}
+
+function setSellHotelState() {
+    const tile = retrieveTileOnCarousel();
+    if (doIOwnTheStreet(tile.name) && canSellHotel(tile.name)) {
+        document.querySelector('[data-navigate="sell-hotel"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="sell-hotel"]').classList.remove('active');
     }
 }
 
@@ -214,7 +225,7 @@ function canBuyHotel(propertyName){
     return true;
 }
 
-// check if street is selled evenly...
+// check if street is sold evenly...
 function canSellHouse(propertyName){
     let property;
     const street = retrieveStreetByPropertyFromGame(propertyName);
@@ -227,6 +238,24 @@ function canSellHouse(propertyName){
         // check if there is a property in the street that has more houses than current property
         if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
             propertyOfStreet.hotelCount !== property.hotelCount){
+            return false;
+        }
+    }
+    return true;
+}
+
+// check if street is sold evenly...
+function canSellHotel(propertyName){
+    let property;
+    const street = retrieveStreetByPropertyFromGame(propertyName);
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.property === propertyName){
+            property = propertyOfStreet;
+        }
+    }
+    for(const propertyOfStreet of street){
+        // check if there is a property in the street "that is running behind" on hotel improvement
+        if(propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0){
             return false;
         }
     }
@@ -282,6 +311,9 @@ function playerAction(action){
         case "buy-hotel":
             buyHotel(tile.name);
             break;
+        case "sell-hotel":
+            sellHotel(tile.name);
+            break;
         default:
             throw "Unknown action";
     }
@@ -296,25 +328,20 @@ function navigateMainBoard(navigation){
             document.querySelector('#home-board').classList.remove('hidden');
             break;
         case "buy-house":
-            // make buy house page visible
             renderBuyHouse(tile);
             break;
         case "sell-house":
-            // make sell house page visible
             renderSellHouse(tile);
             break;
         case "buy-hotel":
-            // make buy hotel page visible
             renderBuyHotel(tile);
             break;
         case "sell-hotel":
-            // make sell hotel page visible
+            renderSellHotel(tile);
             break;
         case "setup-auction":
-            // make setup auction visible
             break;
         case "auction":
-            // make auction visible
             break;
         default:
             throw "Unknown navigation";
