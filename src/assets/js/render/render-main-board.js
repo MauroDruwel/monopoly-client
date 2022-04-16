@@ -16,3 +16,13 @@ function renderBuyHouse(tile){
     processProperty(tile.name);
     document.querySelector('#buy-house .information h2 span').innerHTML = tile.housePrice;
 }
+
+function renderSellHouse(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector('#sell-house').classList.remove('hidden');
+    document.querySelectorAll('#sell-house .tile').forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    processProperty(tile.name);
+    document.querySelector('#sell-house .information h2 span').innerHTML = tile.housePrice;
+}
