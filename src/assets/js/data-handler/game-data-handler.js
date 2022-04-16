@@ -42,3 +42,14 @@ function retrievePlayersOnTile(tilename){
     }
     return players;
 }
+
+function retrievePropertyWithOwnershipData(propertyName){
+    for(const player of _game.players){
+        for(const property of player.properties){
+            if(property.property === propertyName){
+                return property;
+            }
+        }
+    }
+    return null;
+}
