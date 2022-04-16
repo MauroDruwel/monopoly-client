@@ -1,0 +1,8 @@
+#setup-auction .main {
+    max-width: 25rem;
+    margin: 10rem auto auto auto;
+}
+#setup-auction .main legend{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
