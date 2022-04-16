@@ -311,7 +311,7 @@
                             <div></div>
                             <button type="button" class="button" data-navigate="trade-property">Trade Property</button>
                             <button type="button" class="button" data-navigate="buy-hotel">Buy Hotel</button>
-                            <button type="button" class="button" data-action="buy-property">Buy Property</button> <!-- don't navigate -->
+                            <button type="button" class="button" data-navigate="buy-property">Buy Property</button> <!-- don't navigate -->
                             <!-- fourth row -->
                             <button type="button" class="button" data-action="pay-prison-fine">Pay Prison Fine</button> <!-- don't navigate -->
                             <button type="button" class="button" data-navigate="setup-auction">Auction Property</button>
@@ -488,6 +488,69 @@
                 </div>
             </div>
         </section>
+        <section id="buy-property" class="transaction-board hidden">
+            <header>
+                <h1><span>Buy Property</span></h1>
+            </header>
+            <div class="main">
+                <div class="flex-container">
+                    <div class="pair-horizontal">
+                        <article class="property-front tile" data-color="" data-tile="" data-position="">
+                            <div class="grid-header">
+                                <h3>card</h3>
+                            </div>
+                            <div class="grid-body">
+                                <p>Owner: <span></span></p>
+                                <p>Building(s):</p>
+                                <ul>
+
+                                </ul>
+                                <p>Mortgage: <span></span></p>
+                            </div>
+                        </article>
+
+                        <article class="property-back tile" data-color="" data-tile="" data-position="">
+                            <div class="grid-header">
+                                <h3>card</h3>
+                            </div>
+                            <div class="grid-body">
+                                <div>
+                                    <h4>Rent: <span></span></h4>
+                                    <ul>
+
+                                    </ul>
+                                    <h4>Mortgage value: <span></span></h4>
+                                </div>
+                                <div>
+                                    <p>A house costs <span></span> per piece</p>
+                                    <p>A hotel costs <span></span> plus 4 houses</p>
+                                </div>
+                                <div>
+                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="information flex-container">
+                        <h2>Cost: <span></span></h2>
+                        <p>Unimproved properties, railroads and
+                            utilities (but not buildings) may be sold to any player as a private
+                            transaction for any amount the owner can get; however, no property
+                            can be sold to another player if buildings are standing on any
+                            properties of that color-group.</p>
+                    </div>
+                </div>
+
+                <div class="cancel">
+                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+                </div>
+
+                <div class="proceed">
+                    <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+                </div>
+            </div>
+        </section>
         <section id="take-mortgage" class="transaction-board hidden">
             <header>
                 <h1><span>Take Mortgage</span></h1>
@@ -541,11 +604,10 @@
                 </div>
 
                 <div class="cancel">
-                    <button type="button" value="cancel" class="button active"> cancel</button>
+                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
                 </div>
                 <div class="proceed">
-                    <button type="button" value="sell-buildings" class="button">sell buildings</button>
-                    <button type="button" value="take-mortgage" class="button">take mortgage</button>
+                    <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
                 </div>
             </div>
         </section>

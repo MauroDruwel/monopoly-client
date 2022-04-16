@@ -33,6 +33,7 @@ function setGameState(){
     setSellHouseState();
     setBuyHotelState();
     setSellHotelState();
+    setTakeMortgageState();
     // add set state here
 }
 
@@ -103,23 +104,22 @@ function setDiceRollState(){
 function setBuyPropertyState(){
     if(isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null){
         if(retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).cost){
-            document.querySelector('[data-action="buy-property"]').classList.add('active');
+            document.querySelector('[data-navigate="buy-property"]').classList.add('active');
         }
         else {
-            document.querySelector('[data-action="buy-property"]').classList.remove('active');
+            document.querySelector('[data-navigate="buy-property"]').classList.remove('active');
         }
         document.querySelector('[data-action="dont-buy-property"]').classList.add('active');
     }
     else {
-        document.querySelector('[data-action="buy-property"]').classList.remove('active');
+        document.querySelector('[data-navigate="buy-property"]').classList.remove('active');
         document.querySelector('[data-action="dont-buy-property"]').classList.remove('active');
     }
 }
 
 function setBuyHouseState(){
     const tile = retrieveTileOnCarousel();
-    if(doIOwnTheStreet(tile.name) && canBuyHouse(tile.name) &&
-        (retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).housePrice)){
+    if(canBuyHouse(tile)){
         document.querySelector('[data-navigate="buy-house"]').classList.add('active');
     }
     else {
@@ -129,7 +129,7 @@ function setBuyHouseState(){
 
 function setSellHouseState(){
     const tile = retrieveTileOnCarousel();
-    if(doIOwnTheStreet(tile.name) && canSellHouse(tile.name)){
+    if(canSellHouse(tile)){
         document.querySelector('[data-navigate="sell-house"]').classList.add('active');
     }
     else {
@@ -139,8 +139,7 @@ function setSellHouseState(){
 
 function setBuyHotelState(){
     const tile = retrieveTileOnCarousel();
-    if(doIOwnTheStreet(tile.name) && canBuyHotel(tile.name) &&
-        (retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).housePrice)){
+    if(canBuyHotel(tile)){
         document.querySelector('[data-navigate="buy-hotel"]').classList.add('active');
     }
     else {
@@ -150,10 +149,19 @@ function setBuyHotelState(){
 
 function setSellHotelState() {
     const tile = retrieveTileOnCarousel();
-    if (doIOwnTheStreet(tile.name) && canSellHotel(tile.name)) {
+    if (canSellHotel(tile)) {
         document.querySelector('[data-navigate="sell-hotel"]').classList.add('active');
     } else {
         document.querySelector('[data-navigate="sell-hotel"]').classList.remove('active');
+    }
+}
+
+function setTakeMortgageState() {
+    const tile = retrieveTileOnCarousel();
+    if (canTakeMortgage(tile)) {
+        document.querySelector('[data-navigate="take-mortgage"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="take-mortgage"]').classList.remove('active');
     }
 }
 
@@ -171,11 +179,20 @@ function retrieveTileOnCarousel(){
     return _tiles[_player.carousel];
 }
 
-function retrieveStreetByPropertyFromGame(propertyName){
+function doIOwnTile(tilename){
+    const owner = retrieveOwner(tilename);
+    if(owner){
+        return owner.name === _player.username;
+    }
+    return null;
+}
+
+function retrieveStreetWithOwnershipDataByProperty(propertyName){
     const properties = retrievePlayer(_player.username).properties;
-    const streetFromTiles = retrieveStreetByPropertyFromTiles(propertyName);
+    const streetFromTiles = retrieveStreetWithTileDataByProperty(propertyName);
     const streetFromGame = [];
-    if(Object.keys(streetFromTiles).length >= 1 && doIOwnTheStreet(propertyName)){
+
+    if(Object.keys(streetFromTiles).length >= 1){
         streetFromTiles.forEach(propertyFromTiles => {
             properties.forEach(propertyFromProperties => {
                 if(propertyFromTiles.name === propertyFromProperties.property){
@@ -188,82 +205,94 @@ function retrieveStreetByPropertyFromGame(propertyName){
 }
 
 // check if street is improved evenly with houses...
-function canBuyHouse(propertyName){
-    let property;
-    const street = retrieveStreetByPropertyFromGame(propertyName);
-    for(const propertyOfStreet of street){
-        if(propertyOfStreet.property === propertyName){
-            property = propertyOfStreet;
+function canBuyHouse(tile){
+    if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
+        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on house improvement
+            if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
+                propertyOfStreet.hotelCount !== property.hotelCount){
+                return false;
+            }
         }
+        return true;
     }
-    for(const propertyOfStreet of street){
-        // check if there is a property in the street "that is running behind" on house improvement
-        if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
-            propertyOfStreet.hotelCount !== property.hotelCount){
-            return false;
-        }
-    }
-    return true;
+    return false;
 }
 
 // check if street is improved evenly with hotels...
-function canBuyHotel(propertyName){
-    let property;
-    const street = retrieveStreetByPropertyFromGame(propertyName);
-    for(const propertyOfStreet of street){
-        if(propertyOfStreet.property === propertyName){
-            property = propertyOfStreet;
+function canBuyHotel(tile){
+    if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
+        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on hotel improvement
+            if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
+                (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0)){
+                return false;
+            }
         }
+        return true;
     }
-    for(const propertyOfStreet of street){
-        // check if there is a property in the street "that is running behind" on hotel improvement
-        if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
-            (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0)){
-            return false;
-        }
-    }
-    return true;
+    return false;
 }
 
 // check if street is sold evenly...
-function canSellHouse(propertyName){
-    let property;
-    const street = retrieveStreetByPropertyFromGame(propertyName);
-    for(const propertyOfStreet of street){
-        if(propertyOfStreet.property === propertyName){
-            property = propertyOfStreet;
+function canSellHouse(tile){
+    if(doIOwnTheStreet(tile.name)){
+        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street that has more houses than current property
+            if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
+                propertyOfStreet.hotelCount !== property.hotelCount){
+                return false;
+            }
         }
+        return true;
     }
-    for(const propertyOfStreet of street){
-        // check if there is a property in the street that has more houses than current property
-        if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
-            propertyOfStreet.hotelCount !== property.hotelCount){
-            return false;
-        }
-    }
-    return true;
+    return false;
 }
 
 // check if street is sold evenly...
-function canSellHotel(propertyName){
-    let property;
-    const street = retrieveStreetByPropertyFromGame(propertyName);
-    for(const propertyOfStreet of street){
-        if(propertyOfStreet.property === propertyName){
-            property = propertyOfStreet;
+function canSellHotel(tile){
+    if(doIOwnTheStreet(tile.name)){
+        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on hotel improvement
+            if(propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0){
+                return false;
+            }
         }
+        return true;
     }
-    for(const propertyOfStreet of street){
-        // check if there is a property in the street "that is running behind" on hotel improvement
-        if(propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0){
-            return false;
+    return false;
+}
+
+function canTakeMortgage(tile){
+    if(doIOwnTile(tile.name)){
+        const property = retrievePropertyWithOwnershipData(tile.name);
+        const street = retrieveStreetWithOwnershipDataByProperty(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on hotel improvement
+            if(propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 || property.mortgage){
+                return false;
+            }
         }
+        return true;
     }
-    return true;
+    return false;
 }
 
 function doIOwnTheStreet(property){
-    const street = retrieveStreetByPropertyFromTiles(property);
+    const street = retrieveStreetWithTileDataByProperty(property);
     let numberOfPropertiesIOwnInStreet = 0;
     if(Object.keys(street).length >= 1){
         street.forEach(tile => {
@@ -296,10 +325,10 @@ function playerAction(action){
             rollDice();
             break;
         case "buy-property":
-            buyProperty(retrieveMyCurrentTileName());
+            buyProperty(tile.name);
             break;
         case "dont-buy-property":
-            dontBuyProperty(retrieveMyCurrentTileName());
+            dontBuyProperty(tile.name);
             // bank auction should start, players redirected to auction with checkAuctionState
             break;
         case "buy-house":
@@ -314,6 +343,9 @@ function playerAction(action){
         case "sell-hotel":
             sellHotel(tile.name);
             break;
+        case "take-mortgage":
+            takeMortgage(tile.name);
+            break;
         default:
             throw "Unknown action";
     }
@@ -327,6 +359,9 @@ function navigateMainBoard(navigation){
             addClassToElements('#main-board > section', 'hidden');
             document.querySelector('#home-board').classList.remove('hidden');
             break;
+        case "buy-property":
+            renderBuyProperty(tile);
+            break;
         case "buy-house":
             renderBuyHouse(tile);
             break;
@@ -338,6 +373,9 @@ function navigateMainBoard(navigation){
             break;
         case "sell-hotel":
             renderSellHotel(tile);
+            break;
+        case "take-mortgage":
+            renderTakeMortgage(tile);
             break;
         case "setup-auction":
             break;
