@@ -7,6 +7,16 @@ function renderDiceRoll(){
     }
 }
 
+function renderBuyProperty(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector('#buy-property').classList.remove('hidden');
+    document.querySelectorAll('#buy-property .tile').forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    processProperty(tile.name);
+    document.querySelector('#buy-property .information h2 span').innerHTML = tile.cost;
+}
+
 function renderBuyHouse(tile){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector('#buy-house').classList.remove('hidden');
@@ -45,4 +55,14 @@ function renderSellHotel(tile){
     });
     processProperty(tile.name);
     document.querySelector('#sell-hotel .information h2 span').innerHTML = tile.housePrice;
+}
+
+function renderTakeMortgage(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector('#take-mortgage').classList.remove('hidden');
+    document.querySelectorAll('#take-mortgage .tile').forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    processProperty(tile.name);
+    document.querySelector('#take-mortgage .information h2 span').innerHTML = tile.mortgage;
 }
