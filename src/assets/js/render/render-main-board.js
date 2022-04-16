@@ -34,7 +34,7 @@ function renderSellHouse(tile){
         $element.dataset.tile = tile.nameAsPathParameter;
     });
     processProperty(tile.name);
-    document.querySelector('#sell-house .information h2 span').innerHTML = tile.housePrice;
+    document.querySelector('#sell-house .information h2 span').innerHTML = parseInt(tile.housePrice) / 2;
 }
 
 function renderBuyHotel(tile){
@@ -44,7 +44,7 @@ function renderBuyHotel(tile){
         $element.dataset.tile = tile.nameAsPathParameter;
     });
     processProperty(tile.name);
-    document.querySelector('#buy-hotel .information h2 span').innerHTML = tile.housePrice;
+    document.querySelector('#buy-hotel .information h2 span').innerHTML = tile.housePrice + " + 4 houses";
 }
 
 function renderSellHotel(tile){
@@ -54,7 +54,7 @@ function renderSellHotel(tile){
         $element.dataset.tile = tile.nameAsPathParameter;
     });
     processProperty(tile.name);
-    document.querySelector('#sell-hotel .information h2 span').innerHTML = tile.housePrice;
+    document.querySelector('#sell-hotel .information h2 span').innerHTML = "N/A";
 }
 
 function renderTakeMortgage(tile){
@@ -65,4 +65,14 @@ function renderTakeMortgage(tile){
     });
     processProperty(tile.name);
     document.querySelector('#take-mortgage .information h2 span').innerHTML = tile.mortgage;
+}
+
+function renderSettleMortgage(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector('#settle-mortgage').classList.remove('hidden');
+    document.querySelectorAll('#settle-mortgage .tile').forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    processProperty(tile.name);
+    document.querySelector('#settle-mortgage .information h2 span').innerHTML = parseInt(tile.mortgage) * 1.1;
 }
