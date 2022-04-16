@@ -31,7 +31,7 @@ function retrieveTileByName(name){
     return null;
 }
 
-function retrieveStreetByColorFromTiles(color){
+function retrieveStreetWithTileDataByColor(color){
     const street = [];
     _tiles.forEach(tile => {
         if(tile.streetColor === color.toUpperCase()){
@@ -41,11 +41,11 @@ function retrieveStreetByColorFromTiles(color){
     return street;
 }
 
-function retrieveStreetByPropertyFromTiles(name){
+function retrieveStreetWithTileDataByProperty(name){
     const property =  retrieveTileByName(name);
     if(property.type === 'street'){
         const color = property.streetColor;
-        return retrieveStreetByColorFromTiles(color);
+        return retrieveStreetWithTileDataByColor(color);
     }
     return [];
 }
