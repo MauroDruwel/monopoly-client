@@ -29,6 +29,7 @@ function checkGameState() {
 function setGameState(){
     setDiceRollState();
     setBuyPropertyState();
+    setBuyHouseState();
     // add set state here
 }
 
@@ -97,8 +98,8 @@ function setDiceRollState(){
 }
 
 function setBuyPropertyState(){
-    if(diceRolled() && isMyCurrentTileOnCarousel() && !ownerOfTileOnCarousel()){
-        if(retrieveMyBalance() >= retrieveTileOnName(retrieveMyCurrentTileName()).cost){
+    if(isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null){
+        if(retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).cost){
             document.querySelector('[data-action="buy-property"]').classList.add('active');
         }
         else {
@@ -112,20 +113,96 @@ function setBuyPropertyState(){
     }
 }
 
+function setBuyHouseState(){
+    const tile = retrieveTileOnCarousel();
+    if(doIOwnTheStreet(tile.name) && canImprovePropertyWithHouse(tile.name) &&
+        (retrieveMyBalance() >= retrieveTileByName(retrieveMyCurrentTileName()).housePrice)){
+        document.querySelector('[data-navigate="buy-house"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="buy-house"]').classList.remove('active');
+    }
+}
+
 /* ---------------- main board helpers ---------------- */
 
 function isItMyTurn(){
     return _game.currentPlayer === _player.username;
 }
-function diceRolled(){
-    return isItMyTurn() && !_game.canRoll;
-}
-function isMyCurrentTileOnCarousel(){
-    return retrieveMyCurrentTileName() === _tiles[_player.carousel].name;
+
+function isDirectSaleTileOnCarousel(){
+    return _game.directSale === _tiles[_player.carousel].name;
 }
 
-function ownerOfTileOnCarousel(){
-    return retrieveOwner( _tiles[_player.carousel].name);
+function retrieveTileOnCarousel(){
+    return _tiles[_player.carousel];
+}
+
+function retrieveStreetByPropertyFromGame(propertyName){
+    const properties = retrievePlayer(_player.username).properties;
+    const streetFromTiles = retrieveStreetByPropertyFromTiles(propertyName);
+    const streetFromGame = [];
+    if(Object.keys(streetFromTiles).length >= 1 && doIOwnTheStreet(propertyName)){
+        streetFromTiles.forEach(propertyFromTiles => {
+            properties.forEach(propertyFromProperties => {
+                if(propertyFromTiles.name === propertyFromProperties.property){
+                    streetFromGame.push(propertyFromProperties);
+                }
+            });
+        });
+    }
+    return streetFromGame;
+}
+
+// check if street is improved evenly with houses...
+function canImprovePropertyWithHouse(propertyName){
+    let property;
+    const street = retrieveStreetByPropertyFromGame(propertyName);
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.property === propertyName){
+            property = propertyOfStreet;
+        }
+    }
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.houseCount < property.houseCount){
+            return false;
+        }
+    }
+    return true;
+}
+
+// check if street is improved evenly with hotels...
+function canImprovePropertyWithHotel(propertyName){
+    let property;
+    const street = retrieveStreetByPropertyFromGame(propertyName);
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.property === propertyName){
+            property = propertyOfStreet;
+        }
+    }
+    for(const propertyOfStreet of street){
+        if(propertyOfStreet.hotelCount < property.hotelCount || propertyOfStreet.houseCount < 4){
+            return false;
+        }
+    }
+    return true;
+}
+
+function doIOwnTheStreet(property){
+    const street = retrieveStreetByPropertyFromTiles(property);
+    let numberOfPropertiesIOwnInStreet = 0;
+    if(Object.keys(street).length >= 1){
+        street.forEach(tile => {
+            const owner = retrieveOwner(tile.name);
+            if(owner && owner.name === _player.username){
+                numberOfPropertiesIOwnInStreet++;
+            }
+        });
+        if(street[0].groupSize === numberOfPropertiesIOwnInStreet){
+            return true;
+        }
+    }
+    return false;
 }
 
 function retrieveMyCurrentTileName(){
@@ -150,6 +227,10 @@ function playerAction(action){
             dontBuyProperty(retrieveMyCurrentTileName());
             // bank auction should start, players redirected to auction with checkAuctionState
             break;
+        case "buy-house":
+            const tile = retrieveTileOnCarousel();
+            buyHouse(tile.name);
+            break;
         default:
             throw "Unknown action";
     }
@@ -157,6 +238,25 @@ function playerAction(action){
 
 function navigateMainBoard(navigation){
     switch (navigation){
+        case "home":
+            // make home board visible
+            addClassToElements('#main-board > section', 'hidden');
+            document.querySelector('#home-board').classList.remove('hidden');
+            break;
+        case "buy-house":
+            // make buy house page visible
+            const tile = retrieveTileOnCarousel();
+            renderBuyHouse(tile);
+            break;
+        case "sell-house":
+            // make sell house page visible
+            break;
+        case "buy-hotel":
+            // make buy hotel page visible
+            break;
+        case "sell-hotel":
+            // make sell hotel page visible
+            break;
         case "setup-auction":
             // make setup auction visible
             break;
