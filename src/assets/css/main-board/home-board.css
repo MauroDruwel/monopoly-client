@@ -94,6 +94,18 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
 }
 
+#home-board .bottom-mid{
+    padding: 2rem;
+    font-size: x-large;
+    text-align: center;
+    color: white;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(1.25rem);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.06rem 0.75rem rgba(0,0,0,0.25);
+    border: 0.06rem solid rgba(255,255,255,0.3);
+}
+
 #home-buttons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
