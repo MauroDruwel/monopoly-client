@@ -32,6 +32,8 @@ function setGameState(){
     setSellHouseState();
     setBuyHotelState();
     setSellHotelState();
+    setTakeMortgageState();
+    setSettleMortgageState();
     // add set state here
 }
 
@@ -117,6 +119,12 @@ function navigateMainBoard(navigation){
             break;
         case "sell-hotel":
             renderSellHotel(tile);
+            break;
+        case "take-mortgage":
+            renderTakeMortgage(tile);
+            break;
+        case "settle-mortgage":
+            renderSettleMortgage(tile);
             break;
         default:
             throw "Unknown navigation";
