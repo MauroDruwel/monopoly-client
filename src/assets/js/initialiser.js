@@ -62,7 +62,24 @@ function initMainBoard() {
     /* add event listeners here: */
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
-    document.querySelector('#roll-dice').addEventListener('click', processDiceRoll); // main-board.js
+
+    addEventListenerToElements(
+        'click',
+        (e) => {
+            e.preventDefault();
+            playerAction(e.target.dataset.action);
+        },
+        '#main-board button[data-action]'
+    );
+
+    addEventListenerToElements(
+        'click',
+        (e) => {
+            e.preventDefault();
+            navigateMainBoard(e.target.dataset.navigate);
+        },
+        '#main-board button[data-navigate]'
+    );
 
 }
 

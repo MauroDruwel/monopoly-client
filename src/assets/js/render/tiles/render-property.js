@@ -15,6 +15,7 @@ function renderPropertyBack(property) {
         $property.querySelector('.grid-header h3').innerHTML = property.name;
         $property.querySelector('.grid-body h4:first-of-type span').innerHTML = property.rent;
 
+        $property.querySelector('.grid-body ul').innerHTML = '';
         $property.querySelector('.grid-body ul').insertAdjacentHTML("beforeend",
             `<li>With 1 house: ${property.rentWithOneHouse}</li>
                 <li>With 2 houses: ${property.rentWithTwoHouses}</li>   
@@ -46,6 +47,8 @@ function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCou
 
         $property.querySelector('.grid-header h3').innerHTML = property.name;
         $property.querySelector('.grid-body p:first-of-type span').innerHTML = ownerName; // set owner
+
+        $property.querySelector('.grid-body ul').innerHTML = '';
         $property.querySelector('.grid-body ul').insertAdjacentHTML("beforeend",
             `<li>${houseCount} house(s)</li>
                 <li>${hotelCount} hotel(s)</li>`
