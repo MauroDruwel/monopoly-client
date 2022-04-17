@@ -25,6 +25,11 @@ function renderBuyProperty(tile){
     }
 }
 
+function renderBuyHouse(tile){
+    renderTransactionPage(tile, '#buy-house',  tile.housePrice);
+    processProperty(tile.name);
+}
+
 function renderTransactionPage(tile, section, transactionValue){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');

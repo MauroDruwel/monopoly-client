@@ -41,3 +41,13 @@ function setBuyPropertyState(){
         document.querySelector(attributeDontBuy).classList.remove('active');
     }
 }
+
+function setBuyHouseState(){
+    const tile = retrieveTileOnCarousel();
+    if(canBuyHouse(tile)){
+        document.querySelector('[data-navigate="buy-house"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="buy-house"]').classList.remove('active');
+    }
+}
