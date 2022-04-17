@@ -27,6 +27,7 @@ function checkGameState() {
 
 function setGameState(){
     setDiceRollState();
+    setBuyPropertyState();
     // add set state here
 }
 
@@ -97,6 +98,9 @@ function navigateMainBoard(navigation){
             // make home board visible
             addClassToElements('#main-board > section', 'hidden');
             document.querySelector('#home-board').classList.remove('hidden');
+            break;
+        case "buy-property":
+            renderBuyProperty(tile);
             break;
         default:
             throw "Unknown navigation";
