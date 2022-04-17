@@ -53,3 +53,24 @@ function retrievePropertyWithOwnershipData(propertyName){
     }
     return null;
 }
+
+function retrieveStreetWithOwnershipData(propertyName){
+    const properties = retrievePlayer(_player.username).properties;
+    const streetFromTiles = retrieveStreetWithTileData(propertyName);
+    const streetFromGame = [];
+
+    if(Object.keys(streetFromTiles).length >= 1){
+        streetFromTiles.forEach(propertyFromTiles => {
+            properties.forEach(propertyFromProperties => {
+                if(propertyFromTiles.name === propertyFromProperties.property){
+                    streetFromGame.push(propertyFromProperties);
+                }
+            });
+        });
+    }
+    return streetFromGame;
+}
+
+function retrieveMyBalance(){
+    return retrievePlayer(_player.username).money;
+}

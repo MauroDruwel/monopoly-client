@@ -41,11 +41,15 @@ function retrieveStreetWithTileDataByColor(color){
     return street;
 }
 
-function retrieveStreetWithTileDataByProperty(name){
+function retrieveStreetWithTileData(name){
     const property =  retrieveTileByName(name);
     if(property.type === 'street'){
         const color = property.streetColor;
         return retrieveStreetWithTileDataByColor(color);
     }
     return [];
+}
+
+function retrieveTileOnCarousel(){
+    return _tiles[_player.carousel];
 }
