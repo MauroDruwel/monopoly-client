@@ -61,3 +61,14 @@ function setSellHouseState(){
         document.querySelector('[data-navigate="sell-house"]').classList.remove('active');
     }
 }
+
+function setBuyHotelState(){
+    const tile = retrieveTileOnCarousel();
+    if(canBuyHotel(tile)){
+        document.querySelector('[data-navigate="buy-hotel"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="buy-hotel"]').classList.remove('active');
+    }
+}
+
