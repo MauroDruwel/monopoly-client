@@ -142,3 +142,17 @@ function canSettleMortgage(tile){
     }
     return false;
 }
+
+function canBeAuctioned(tile){
+    if(doIOwnTile(tile.name)){
+        const street = retrieveStreetWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            if(propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}

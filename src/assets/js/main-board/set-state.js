@@ -98,3 +98,12 @@ function setSettleMortgageState(){
         document.querySelector('[data-navigate="settle-mortgage"]').classList.remove('active');
     }
 }
+
+function setPlayerAuctionState(){
+    const tile = retrieveTileOnCarousel();
+    if (canBeAuctioned(tile)) {
+        document.querySelector('[data-navigate="setup-auction"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="setup-auction"]').classList.remove('active');
+    }
+}

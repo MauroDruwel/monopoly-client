@@ -12,3 +12,14 @@ function checkEndState(){
     }
 }
 
+function checkAuctionState(){
+    return retrieveBankAuctions().then(bankAuctions => {
+        for(const player of _game.players) {
+            retrievePlayerAuctions(player.name).then(playerAuctions => {
+                if(Object.keys(bankAuctions).length >= 1 || Object.keys(playerAuctions).length >= 1){
+                    navigateMainBoard("auction");
+                }
+            }).catch(errorHandler);
+        }
+    }).catch(errorHandler);
+}

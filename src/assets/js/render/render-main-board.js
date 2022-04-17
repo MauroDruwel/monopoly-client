@@ -92,3 +92,9 @@ function renderSettleMortgage(tile){
             throw "Invalid tile type";
     }
 }
+
+function renderSetupAuction(tile){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector(`#setup-auction`).classList.remove('hidden');
+    document.querySelector(`#setup-auction legend > span`).innerHTML = tile.name;
+}
