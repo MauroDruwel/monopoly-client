@@ -39,6 +39,7 @@ function doIOwnTheStreet(property){
 
 /* ######## set state helpers ######## */
 
+// check if street is improved evenly with houses...
 function canBuyHouse(tile){
     // also checks if tile has an actual street
     if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
@@ -57,3 +58,24 @@ function canBuyHouse(tile){
     }
     return false;
 }
+
+// check if street is sold evenly...
+function canSellHouse(tile){
+    // also checks if tile has an actual street
+    if(doIOwnTheStreet(tile.name)){
+        const street = retrieveStreetWithOwnershipData(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street that has more houses than current property
+            if(propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
+                propertyOfStreet.hotelCount !== property.hotelCount || property.mortgage){
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+

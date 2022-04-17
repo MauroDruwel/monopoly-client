@@ -30,6 +30,11 @@ function renderBuyHouse(tile){
     processProperty(tile.name);
 }
 
+function renderSellHouse(tile){
+    renderTransactionPage(tile, '#sell-house', parseInt(tile.housePrice) / 2);
+    processProperty(tile.name);
+}
+
 function renderTransactionPage(tile, section, transactionValue){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');

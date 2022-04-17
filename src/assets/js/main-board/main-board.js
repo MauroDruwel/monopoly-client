@@ -29,6 +29,7 @@ function setGameState(){
     setDiceRollState();
     setBuyPropertyState();
     setBuyHouseState();
+    setSellHouseState();
     // add set state here
 }
 
@@ -105,6 +106,9 @@ function navigateMainBoard(navigation){
             break;
         case "buy-house":
             renderBuyHouse(tile);
+            break;
+        case "sell-house":
+            renderSellHouse(tile);
             break;
         default:
             throw "Unknown navigation";

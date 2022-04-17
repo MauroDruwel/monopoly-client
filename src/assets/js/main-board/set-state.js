@@ -51,3 +51,13 @@ function setBuyHouseState(){
         document.querySelector('[data-navigate="buy-house"]').classList.remove('active');
     }
 }
+
+function setSellHouseState(){
+    const tile = retrieveTileOnCarousel();
+    if(canSellHouse(tile)){
+        document.querySelector('[data-navigate="sell-house"]').classList.add('active');
+    }
+    else {
+        document.querySelector('[data-navigate="sell-house"]').classList.remove('active');
+    }
+}
