@@ -80,3 +80,21 @@ function setSellHotelState() {
         document.querySelector('[data-navigate="sell-hotel"]').classList.remove('active');
     }
 }
+
+function setTakeMortgageState() {
+    const tile = retrieveTileOnCarousel();
+    if (canTakeMortgage(tile)) {
+        document.querySelector('[data-navigate="take-mortgage"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="take-mortgage"]').classList.remove('active');
+    }
+}
+
+function setSettleMortgageState(){
+    const tile = retrieveTileOnCarousel();
+    if (canSettleMortgage(tile)) {
+        document.querySelector('[data-navigate="settle-mortgage"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="settle-mortgage"]').classList.remove('active');
+    }
+}

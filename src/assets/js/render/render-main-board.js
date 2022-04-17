@@ -53,3 +53,42 @@ function renderTransactionPage(tile, section, transactionValue){
     });
     document.querySelector(`${section} .information h2 span`).innerHTML = transactionValue;
 }
+
+
+function renderTakeMortgage(tile){
+    switch (tile.type){
+        case "street":
+            renderTransactionPage(tile, '#take-mortgage-property',tile.mortgage);
+            processProperty(tile.name);
+            break;
+        case "utility":
+            renderTransactionPage(tile, '#take-mortgage-utility',tile.mortgage);
+            processUtility(tile.name);
+            break;
+        case "railroad":
+            renderTransactionPage(tile, '#take-mortgage-railroad',tile.mortgage);
+            processRailroad(tile.name);
+            break;
+        default:
+            throw "Invalid tile type";
+    }
+}
+
+function renderSettleMortgage(tile){
+    switch (tile.type){
+        case "street":
+            renderTransactionPage(tile, '#settle-mortgage-property', Math.floor(parseInt(tile.mortgage) * 1.1));
+            processProperty(tile.name);
+            break;
+        case "utility":
+            renderTransactionPage(tile, '#settle-mortgage-utility', Math.floor(parseInt(tile.mortgage) * 1.1));
+            processUtility(tile.name);
+            break;
+        case "railroad":
+            renderTransactionPage(tile, '#settle-mortgage-railroad', Math.floor(parseInt(tile.mortgage) * 1.1));
+            processRailroad(tile.name);
+            break;
+        default:
+            throw "Invalid tile type";
+    }
+}
