@@ -6,3 +6,30 @@ function renderDiceRoll(){
         document.querySelector('#dice-container .dice-left').innerHTML = _game["lastDiceRoll"][1];
     }
 }
+function renderBuyProperty(tile){
+    switch (tile.type){
+        case "street":
+            renderTransactionPage(tile, '#buy-property-property',  tile.cost);
+            processProperty(tile.name);
+            break;
+        case "utility":
+            renderTransactionPage(tile, '#buy-property-utility',  tile.cost);
+            processUtility(tile.name);
+            break;
+        case "railroad":
+            renderTransactionPage(tile, '#buy-property-railroad',  tile.cost);
+            processRailroad(tile.name);
+            break;
+        default:
+            throw "Invalid tile type";
+    }
+}
+
+function renderTransactionPage(tile, section, transactionValue){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector(`${section}`).classList.remove('hidden');
+    document.querySelectorAll(`${section} .tile`).forEach($element => {
+        $element.dataset.tile = tile.nameAsPathParameter;
+    });
+    document.querySelector(`${section} .information h2 span`).innerHTML = transactionValue;
+}

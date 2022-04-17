@@ -22,3 +22,22 @@ function setDiceRollState(){
     }
 }
 
+function setBuyPropertyState(){
+    const attributeBuy = '[data-navigate="buy-property"]';
+    const attributeDontBuy = '[data-action="dont-buy-property"]';
+
+    if(isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null){
+        const tile = retrieveTileByName( _game.directSale);
+        if(retrieveMyBalance() >= tile.cost){
+            document.querySelector(attributeBuy).classList.add('active');
+        }
+        else {
+            document.querySelector(attributeBuy).classList.remove('active');
+        }
+        document.querySelector(attributeDontBuy).classList.add('active');
+    }
+    else {
+        document.querySelector(attributeBuy).classList.remove('active');
+        document.querySelector(attributeDontBuy).classList.remove('active');
+    }
+}
