@@ -72,3 +72,11 @@ function setBuyHotelState(){
     }
 }
 
+function setSellHotelState() {
+    const tile = retrieveTileOnCarousel();
+    if (canSellHotel(tile)) {
+        document.querySelector('[data-navigate="sell-hotel"]').classList.add('active');
+    } else {
+        document.querySelector('[data-navigate="sell-hotel"]').classList.remove('active');
+    }
+}
