@@ -21,7 +21,7 @@ async function reloadGame() {
 
 function checkGameState() {
     checkEndState();
-    checkAuctionState();
+    // checkAuctionState();
     // add check state here
 }
 
