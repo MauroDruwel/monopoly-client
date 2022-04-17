@@ -21,7 +21,7 @@ async function reloadGame() {
 
 function checkGameState() {
     checkEndState();
-    // checkAuctionState();
+    checkAuctionState();
     // add check state here
 }
 
@@ -34,6 +34,7 @@ function setGameState(){
     setSellHotelState();
     setTakeMortgageState();
     setSettleMortgageState();
+    setPlayerAuctionState();
     // add set state here
 }
 
@@ -125,6 +126,12 @@ function navigateMainBoard(navigation){
             break;
         case "settle-mortgage":
             renderSettleMortgage(tile);
+            break;
+        case "setup-auction":
+            renderSetupAuction(tile);
+            break;
+        case "auction":
+            // render auction
             break;
         default:
             throw "Unknown navigation";
