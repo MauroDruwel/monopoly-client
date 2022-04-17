@@ -35,6 +35,11 @@ function renderSellHouse(tile){
     processProperty(tile.name);
 }
 
+function renderBuyHotel(tile){
+    renderTransactionPage(tile, '#buy-hotel', tile.housePrice + " + 4 houses");
+    processProperty(tile.name);
+}
+
 function renderTransactionPage(tile, section, transactionValue){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');
