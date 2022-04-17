@@ -78,4 +78,22 @@ function canSellHouse(tile){
     return false;
 }
 
+// check if street is improved evenly with hotels...
+function canBuyHotel(tile){
+    // also checks if tile has an actual street
+    if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
+        const street = retrieveStreetWithOwnershipData(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
 
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on hotel improvement
+            if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
+                (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage ||
+                property.hotelCount >= 1){
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
