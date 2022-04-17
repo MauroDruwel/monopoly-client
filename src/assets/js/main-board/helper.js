@@ -39,3 +39,21 @@ function doIOwnTheStreet(property){
 
 /* ######## set state helpers ######## */
 
+function canBuyHouse(tile){
+    // also checks if tile has an actual street
+    if(doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice){
+        const street = retrieveStreetWithOwnershipData(tile.name);
+        const property = retrievePropertyWithOwnershipData(tile.name);
+
+        for(const propertyOfStreet of street){
+            // check if there is a property in the street "that is running behind" on house improvement
+            if(propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
+                propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage ||
+                property.hotelCount >= 1){
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
