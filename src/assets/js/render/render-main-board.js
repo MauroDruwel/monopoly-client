@@ -98,3 +98,15 @@ function renderSetupAuction(tile){
     document.querySelector(`#setup-auction`).classList.remove('hidden');
     document.querySelector(`#setup-auction legend > span`).innerHTML = tile.name;
 }
+
+function renderPlayerBalance(namePlayer){
+    const $container = document.querySelector(".player-balance");
+    let balance = 0;
+    _game.players.forEach(player => {
+        if (player.name === namePlayer){
+            balance = player.money;
+        }
+    });
+
+    $container.innerHTML = balance;
+}

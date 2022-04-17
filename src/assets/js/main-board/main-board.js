@@ -42,6 +42,7 @@ function rerender(){
     renderCarousel();
     renderDiceRoll();
     processTileMap(_player.username);
+    renderPlayerBalance(_player.username);
     // add component you would like to reload here
 }
 
@@ -63,6 +64,7 @@ function playerAction(action){
     switch (action){
         case "roll-dice":
             rollDice();
+            rerender();
             break;
         case "buy-property":
             buyProperty(tile.name);
