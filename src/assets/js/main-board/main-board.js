@@ -27,14 +27,6 @@ function checkGameState() {
 
 function setGameState(){
     setDiceRollState();
-    setBuyPropertyState();
-    setBuyHouseState();
-    setSellHouseState();
-    setBuyHotelState();
-    setSellHotelState();
-    setTakeMortgageState();
-    setSettleMortgageState();
-    setPlayerAuctionState();
     // add set state here
 }
 
@@ -105,33 +97,6 @@ function navigateMainBoard(navigation){
             // make home board visible
             addClassToElements('#main-board > section', 'hidden');
             document.querySelector('#home-board').classList.remove('hidden');
-            break;
-        case "buy-property":
-            renderBuyProperty(tile);
-            break;
-        case "buy-house":
-            renderBuyHouse(tile);
-            break;
-        case "sell-house":
-            renderSellHouse(tile);
-            break;
-        case "buy-hotel":
-            renderBuyHotel(tile);
-            break;
-        case "sell-hotel":
-            renderSellHotel(tile);
-            break;
-        case "take-mortgage":
-            renderTakeMortgage(tile);
-            break;
-        case "settle-mortgage":
-            renderSettleMortgage(tile);
-            break;
-        case "setup-auction":
-            renderSetupAuction(tile);
-            break;
-        case "auction":
-            // render auction
             break;
         default:
             throw "Unknown navigation";
