@@ -4,7 +4,8 @@ let _player = {
     token: null,
     gameId: null,
     pawn: null,
-    carousel: 0
+    carousel: 0,
+    collectedRent: false
 };
 
 let _game = {}; // don't change to const
