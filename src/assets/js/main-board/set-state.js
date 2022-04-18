@@ -1,7 +1,6 @@
 /* ---------------- set game state ------------------- */
 /* ---------------- part of main-board.js ------------------- */
 
-let landedTileShown = false;
 
 function setDiceRollState(){
     if(isItMyTurn() && _game.canRoll){
@@ -9,16 +8,6 @@ function setDiceRollState(){
     }
     else {
         document.querySelector('[data-action="roll-dice"]').classList.remove('active');
-    }
-
-    // move all players to tile where current player landed on
-    if(!landedTileShown && !_game.canRoll){
-        const currentTile = retrievePlayer(_game.currentPlayer).currentTile;
-        _player.carousel = retrieveTilePosition(currentTile);
-        landedTileShown = true;
-    }
-    else if(_game.canRoll){
-        landedTileShown = false;
     }
 }
 
@@ -105,5 +94,14 @@ function setPlayerAuctionState(){
         document.querySelector('[data-navigate="setup-auction"]').classList.add('active');
     } else {
         document.querySelector('[data-navigate="setup-auction"]').classList.remove('active');
+    }
+}
+
+function setCollectRentState(){
+    if(canCollectRent()){
+        document.querySelector('[data-action="collect-rent"]').classList.add('active');
+    }
+    else{
+        document.querySelector('[data-action="collect-rent"]').classList.remove('active');
     }
 }

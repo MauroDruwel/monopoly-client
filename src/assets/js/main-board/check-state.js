@@ -23,3 +23,17 @@ function checkAuctionState(){
         }
     }).catch(errorHandler);
 }
+
+function checkTurnState(prevGame){
+    // check if there is a new move by the same player or a new move by another player
+    if(newPlayer(prevGame)|| (newMove(prevGame) && !newPlayer(prevGame))){
+        // collect rent only once on new turn
+        _player.collectedRent = false;
+        
+        // show tile of a players most recent turn
+        const currentTile = retrievePlayer(prevGame.currentPlayer).currentTile;
+        console.log(prevGame.currentPlayer, currentTile);
+        _player.carousel = retrieveTilePosition(currentTile);
+        rerender();
+    }
+}
