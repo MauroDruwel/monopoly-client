@@ -6,10 +6,13 @@ async function startGame(){
 }
 
 async function reloadGame() {
+    // remember previous game state
+    const prevGame = Object.assign({}, _game);
+
     // fetch game data here:
     await retrieveGame();
 
-    checkGameState();
+    checkGameState(prevGame);
     setGameState();
     rerender();
 
@@ -19,8 +22,9 @@ async function reloadGame() {
     setTimeout(reloadGame, 1000);
 }
 
-function checkGameState() {
+function checkGameState(prevGame) {
     checkEndState();
+    checkTurnState(prevGame);
     checkAuctionState();
     // add check state here
 }
@@ -35,6 +39,7 @@ function setGameState(){
     setTakeMortgageState();
     setSettleMortgageState();
     setPlayerAuctionState();
+    setCollectRentState();
     // add set state here
 }
 
@@ -64,7 +69,6 @@ function playerAction(action){
     switch (action){
         case "roll-dice":
             rollDice();
-            rerender();
             break;
         case "buy-property":
             buyProperty(tile.name);
@@ -94,6 +98,12 @@ function playerAction(action){
         case "setup-auction":
             const startBid = document.querySelector('#start-bid').value;
             startPlayerAuction(tile.name, startBid);
+            break;
+        case "collect-rent":
+            const debtorName = _game['turns'].at(-1)['player']; // most recent player who moved
+            const property = _game['turns'].at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
+            collectDebt(property, debtorName);
+            _player.collectedRent = true;
             break;
         default:
             throw "Unknown action";

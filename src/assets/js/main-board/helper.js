@@ -36,6 +36,14 @@ function doIOwnTheStreet(property){
     return false;
 }
 
+function newPlayer(prevGame){
+    return prevGame['turns'].at(-1)['player'] !== _game['turns'].at(-1)['player'];
+}
+
+function newMove(prevGame){
+    return prevGame['turns'].at(-1)['moves'].at(-1)['tile'] !== _game['turns'].at(-1)['moves'].at(-1)['tile'];
+}
+
 
 /* ######## set state helpers ######## */
 
@@ -153,6 +161,22 @@ function canBeAuctioned(tile){
             }
         }
         return true;
+    }
+    return false;
+}
+
+function canCollectRent(){
+    const turns =  _game['turns'];
+    if(Object.keys(turns).length >= 1 && !_player.collectedRent){
+        const debtorName = turns.at(-1)['player']; // most recent player who moved
+        const tileName = turns.at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
+        // if tile is not a property or not owned by me, if statement will return false
+        if(doIOwnTile(tileName) && debtorName !== _player.username){
+            const property = retrievePropertyWithOwnershipData(tileName);
+            if(!property.mortgage){
+                return true;
+            }
+        }
     }
     return false;
 }
