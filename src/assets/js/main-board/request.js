@@ -128,3 +128,9 @@ function trade(other, offerProperty, offerAmount, wantProperty){
 
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/trades`, 'POST', requestBody).catch(errorHandler);
 }
+
+// ############################################# Player Interaction #################################################
+
+function collectDebt(property, debtorName){
+    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/visitors/${debtorName}/rent`, "DELETE").catch(errorHandler);
+}
