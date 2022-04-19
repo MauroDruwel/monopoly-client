@@ -49,6 +49,7 @@ function rerender(){
     processTileMap(_player.username);
     renderPlayerBalance(_player.username);
     renderPlayerAtTurn();
+    renderPlayerStatsButtons();
     // add component you would like to reload here
 }
 

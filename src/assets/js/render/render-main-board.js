@@ -114,3 +114,15 @@ function renderPlayerBalance(namePlayer){
 function renderPlayerAtTurn(){
     document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
 }
+
+function renderPlayerStatsButtons(){
+    const $template = document.querySelector(`#home-board .player-stat-button-template`).content.firstElementChild.cloneNode(true);
+    document.querySelector('#home-board .player-stats-buttons').innerHTML ='';
+    let html = '';
+    _game['players'] .forEach(player => {
+        $template.dataset.player = player['name'];
+        $template.innerHTML = player['name'];
+        html += $template.outerHTML;
+    });
+    document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
+}
