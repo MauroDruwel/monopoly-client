@@ -23,9 +23,7 @@
 #home-board .top .top-left span{
     font-weight: bold;
 }
-#home-board .top .top-right h2{
-    font-size:1.5rem
-}
+
 #home-board .top .top-right .player-stats-buttons{
     display: flex;
     flex-direction: column;
