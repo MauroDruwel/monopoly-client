@@ -105,3 +105,13 @@ function setCollectRentState(){
         document.querySelector('[data-action="collect-rent"]').classList.remove('active');
     }
 }
+
+function setJailCardState(){
+    document.querySelector('#amount-jail-cards-player').innerHTML = `${retrieveMyAmountOfJailCards()}`;
+    if(canIUseAJailCard()){
+        document.querySelector('[data-action="use-jail-card"]').classList.add('active');
+    }
+    else{
+        document.querySelector('[data-action="use-jail-card"]').classList.remove('active');
+    }
+}

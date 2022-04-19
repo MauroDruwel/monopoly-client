@@ -40,6 +40,7 @@ function setGameState(){
     setSettleMortgageState();
     setPlayerAuctionState();
     setCollectRentState();
+    setJailCardState();
     // add set state here
 }
 
