@@ -132,5 +132,8 @@ function renderPlayerStats(player){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
     processTileMap('#stats', player.name);
+    document.querySelector('#stats h2 span').innerHTML =player.name;
+    document.querySelector('#stats .balance p:last-of-type').innerHTML = player.money;
+
 
 }
