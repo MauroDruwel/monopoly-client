@@ -25,7 +25,10 @@
 #home-board .top .top-left span{
     font-weight: bold;
 }
-#home-board
+#home-board .top .top-right .player-stats-button{
+    display: flex;
+    flex-direction: column;
+}
 /* MID */
 
 #home-board .mid{
