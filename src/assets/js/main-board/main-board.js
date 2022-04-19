@@ -1,6 +1,6 @@
 "use strict";
 
-async function startGame(){
+async function startGame() {
     await retrieveTiles(); // fetch board tiles
     await retrieveGame(); // fetch game data
 }
@@ -29,7 +29,7 @@ function checkGameState(prevGame) {
     // add check state here
 }
 
-function setGameState(){
+function setGameState() {
     setDiceRollState();
     setBuyPropertyState();
     setBuyHouseState();
@@ -44,7 +44,7 @@ function setGameState(){
     // add set state here
 }
 
-function rerender(){
+function rerender() {
     renderCarousel();
     renderDiceRoll();
     processTileMap(_player.username);
@@ -53,7 +53,7 @@ function rerender(){
     // add component you would like to reload here
 }
 
-function enableOrDisableButtons(){
+function enableOrDisableButtons() {
     // disable buttons that don't contain .active class
     document.querySelectorAll('.button:not(.active)').forEach($button => {
         $button.disabled = true;
@@ -66,9 +66,9 @@ function enableOrDisableButtons(){
 
 /* ---------------- event handlers ---------------- */
 
-function playerAction(action){
+function playerAction(action) {
     const tile = retrieveTileOnCarousel();
-    switch (action){
+    switch (action) {
         case "roll-dice":
             rollDice();
             break;
@@ -107,14 +107,17 @@ function playerAction(action){
             collectDebt(property, debtorName);
             _player.collectedRent = true;
             break;
+        case "use-jail-card":
+            getOutOfJailWithCard();
+            break;
         default:
             throw "Unknown action";
     }
 }
 
-function navigateMainBoard(navigation){
+function navigateMainBoard(navigation) {
     const tile = retrieveTileOnCarousel();
-    switch (navigation){
+    switch (navigation) {
         case "home":
             // make home board visible
             addClassToElements('#main-board > section', 'hidden');
