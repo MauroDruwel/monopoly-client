@@ -10,8 +10,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
     gap: 0.5rem;
+
 }
 
 #home-board .top .top-left{
@@ -26,6 +26,23 @@
     padding: 0.5rem 0;
 }
 
+#home-board .top .top-right .player-stats-buttons{
+    display: flex;
+    flex-direction: column;
+}
+#home-board .top .top-right .player-stats-buttons button {
+    background-image: url("../../media/bg-pixels.png"), url("../../media/button-right-arrow.png");
+    background-repeat: repeat, no-repeat;
+    background-color: #FFFFFF;
+    color: #757575;
+    padding-right: 3rem;
+    background-position: center, right center;
+    background-size: auto, 1.2rem 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+
 #home-board .top .top-left .player-activity{
     width: auto;
     height: 4rem;
@@ -35,6 +52,8 @@
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+    padding-right: 0.5rem;
+    max-width: 200%;
 }
 
 #home-board .top .top-left .player-activity li{

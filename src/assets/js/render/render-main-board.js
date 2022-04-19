@@ -115,6 +115,32 @@ function renderPlayerAtTurn(){
     document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
 }
 
+
+function renderPlayerStatsButtons(){
+    const $template = document.querySelector(`#home-board .player-stat-button-template`).content.firstElementChild.cloneNode(true);
+    document.querySelector('#home-board .player-stats-buttons').innerHTML ='';
+    let html = '';
+    _game['players'] .forEach(player => {
+        if (player['name'] !== _player.username ){
+            $template.dataset.player = player['name'];
+            $template.innerHTML = player['name'];
+            html += $template.outerHTML;
+        }
+    });
+    document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
+}
+function renderPlayerStats(player){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector(`#stats`).classList.remove('hidden');
+    processTileMap('#stats', player.name);
+    document.querySelector('#stats h2 span').innerHTML =player.name;
+    document.querySelector('#stats .balance p:last-of-type').innerHTML = player.money;
+    document.querySelector('#stats .flex-item1 > p:first-of-type span').innerHTML = player.getOutOfJailFreeCards;
+    document.querySelector('#stats .flex-item1 > p:last-of-type span').innerHTML = player.bankrupt;
+
+
+}
+
 function renderLog(res){
     const $container = document.querySelector(".player-activity");
     $container.innerHTML = "";
@@ -122,3 +148,4 @@ function renderLog(res){
         $container.insertAdjacentHTML("beforeend", `<li>${log}</li>`);
     });
 }
+

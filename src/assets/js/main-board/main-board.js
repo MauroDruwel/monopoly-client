@@ -49,9 +49,10 @@ function setGameState() {
 function rerender() {
     renderCarousel();
     renderDiceRoll();
-    processTileMap(_player.username);
+    processTileMap('#home-board', _player.username);
     renderPlayerBalance(_player.username);
     renderPlayerAtTurn();
+    renderPlayerStatsButtons();
     // add component you would like to reload here
 }
 
@@ -158,4 +159,26 @@ function navigateMainBoard(navigation) {
         default:
             throw "Unknown navigation";
     }
+}
+
+function processPlayerStats(e) {
+    e.preventDefault();
+    const $target = e.target.closest('.player-stats-buttons > button');
+    if (!$target) {
+        return;
+    }
+    const player = retrievePlayer($target.dataset.player);
+    renderPlayerStats(player);
+
+}
+
+function processPlayerStatsTileMap(e) {
+    e.preventDefault();
+    const $tile = e.target.closest('.tile-map div[data-tile]');
+    if (!$tile) {
+        return;
+    }
+    document.querySelector('#stats .property-front').dataset.tile = $tile.dataset.tile;
+    document.querySelector('#stats .property-back').dataset.tile = $tile.dataset.tile;
+    processProperty($tile.dataset.tile);
 }

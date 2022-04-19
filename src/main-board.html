@@ -71,290 +71,195 @@
     <!-- js: carousel -->
     <script src="assets/js/main-board/carousel.js"></script>
     <script src="assets/js/render/render-carousel.js"></script>
-    
+
 </head>
 
 <body>
 
-    <main id="main-board">
+<main id="main-board">
 
-        <section id="home-board" class="">
-            <header>
-                <h1><span>Monopoly</span></h1>
-            </header>
-            <div class="main">
-                <div class="top">
-                    <div class="top-left">
-                        <p>Player Turn: <span></span></p>
-                            <p>Player activity:</p>
-                            <ul class="player-activity">
-                                <!-- insert log here -->
-                            </ul>
-                    </div>
-                    <div class="top-right">
-
-                    </div>
+    <section id="home-board" class="">
+        <header>
+            <h1><span>Monopoly</span></h1>
+        </header>
+        <div class="main">
+            <div class="top">
+                <div class="top-left">
+                    <p>Player Turn: <span></span></p>
+                    <p>Player activity:</p>
+                    <ul class="player-activity">
+                        <!-- insert log here -->
+                    </ul>
                 </div>
-                <div class="mid">
-                    <section>
-                        <h2 class="player-position">&#8205;</h2>
-                        <div id="carousel">
-                            <template class="property-back-template">
-                                <article class="property-back tile" data-color="" data-tile="" data-position="">
-                                    <div class="grid-header">
-                                        <h3>card</h3>
-                                    </div>
-                                    <div class="grid-body">
-                                        <div>
-                                            <h4>Rent: <span></span></h4>
-                                            <ul>
+                <div class="top-right">
 
-                                            </ul>
-                                            <h4>Mortgage value: <span></span></h4>
-                                        </div>
-                                        <div>
-                                            <p>A house costs <span></span> per piece</p>
-                                            <p>A hotel costs <span></span> plus 4 houses</p>
-                                        </div>
-                                        <div>
-                                            <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                        </div>
-                                    </div>
-                                </article>
-                            </template>
-                            <template class="property-front-template">
-                                <article class="property-front tile" data-color="" data-tile="" data-position="">
-                                    <div class="grid-header">
-                                        <h3>card</h3>
-                                    </div>
-                                    <div class="grid-body">
-                                        <p>Owner: <span></span></p>
-                                        <p>Building(s):</p>
-                                        <ul>
+                    <div>
+                        <template class="player-stat-button-template">
+                            <button type="button" class="button  active" data-navigate="stats"
+                                    data-playername=""></button>
+                        </template>
+                        <div class="player-stats-buttons">
 
-                                        </ul>
-                                        <p>Mortgage: <span></span></p>
-                                    </div>
-                                </article>
-                            </template>
-                            <template class="chance-template">
-                                <article class="basic-tile tile" data-tile="" data-position="">
-                                    <h3>Chance</h3>
-                                    <figure>
-                                        <img src="assets/media/chance.png" alt="chance" title="chance">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="community-chest-template">
-                                <article class="basic-tile tile" data-tile="" data-position="">
-                                    <h3>Community chest</h3>
-                                    <figure>
-                                        <img src="assets/media/community-chest.gif" alt="chance" title="chance">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="go-template">
-                                <article class="go-tile tile" data-tile="Go" data-position="0">
-                                    <h2>Go</h2>
-                                    <figure>
-                                        <img src="assets/media/go.gif" alt="go-tile" title="go-title">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="railroad-template">
-                                <article class="railroad-tile tile" data-tile="" data-position="">
-                                    <div class="header-grid">
-                                        <figure>
-                                            <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
-                                        </figure>
-                                    </div>
-                                    <div class="body-grid">
-                                        <h3>railroad</h3>
-                                        <h4>Cost: <span></span></h4>
-                                        <h4>Mortgage: <span></span></h4>
-                                        <h4>Owner: <span></span></h4>
-                                    </div>
-                                </article>
-                            </template>
-                            <template class="utility-template">
-                                <article class="tile utility-tiles" data-tile="" data-position="">
-                                    <div class="header-grid">
-                                        <h3>util</h3>
-                                    </div>
-                                    <div class="body-grid">
-                                        <figure>
-                                            <img src="assets/media/utility.png" alt="utility" title="utility">
-                                        </figure>
-                                    </div>
-                                    <div class="footer-grid">
-                                        <h4>Price: <span></span></h4>
-                                        <h4>Mortgage: <span></span></h4>
-                                        <h4>Owner: <span></span></h4>
-                                    </div>
-                                </article>
-                            </template>
-                            <template class="jail-template">
-                                <article class="basic-tile tile">
-                                    <h3>Jail</h3>
-                                    <figure>
-                                        <img src="assets/media/jail.png" alt="jail" title="jail">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="go-to-jail-template">
-                                <article class="basic-tile tile">
-                                    <h3>Go to Jail</h3>
-                                    <figure>
-                                        <img src="assets/media/go-to-jail.png" alt="go-to-jail" title="go-to-jail">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="free-parking-template">
-                                <article class="basic-tile tile">
-                                    <h3>Free Parking</h3>
-                                    <figure>
-                                        <img src="assets/media/free-parking.png" alt=free-parking title="free-parking">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="tax-income-template">
-                                <article class="basic-tile tile" data-tile="" data-position="">
-                                    <h3>Tax Income</h3>
-                                    <figure>
-                                        <img src="assets/media/tax-income.png" alt="tax-income" title="tax-income">
-                                    </figure>
-                                </article>
-                            </template>
-                            <template class="luxury-tax-template">
-                                <article class="basic-tile tile" data-tile="" data-position="">
-                                    <h3>Luxury Tax</h3>
-                                    <figure>
-                                        <img src="assets/media/luxury-tax.png" alt="luxury-tax" title="luxury-tax">
-                                    </figure>
-                                </article>
-                            </template>
-
-                            <div class="pair-horizontal">
-                                <!-- carousel tiles are inserted here -->
-                            </div>
-
-                        </div>
-                    </section>
-
-                    <div id="carousel-navigation">
-                        <img src="assets/media/left-arrow.png" alt="left-arrow" title="left-arrow" id="left-arrow">
-                        <img src="assets/media/house.png" alt="return home" title="return home" id="return-home">
-                        <img src="assets/media/right-arrow.png" alt="right-arrow" title="right-arrow" id="right-arrow">
-                    </div>
-
-                </div>
-
-                <div class="bottom">
-                    <div class="bottom-left">
-                        <div class="tile-map">
-                            <!-- first row -->
-                            <div data-color="purple" data-tile="Mediterranean" data-position="1"></div>
-                            <div data-color="lightblue" data-tile="Oriental" data-position="6"></div>
-                            <div data-color="violet" data-tile="Saint_Charles_Place" data-position="11"></div>
-                            <div data-color="orange" data-tile="Saint_James" data-position="16"></div>
-                            <div data-color="red" data-tile="Kentucky_Avenue" data-position="21"></div>
-                            <div data-color="yellow" data-tile="Atlantic" data-position="26"></div>
-                            <div data-color="darkgreen" data-tile="Pacific" data-position="31"></div>
-                            <div data-color="darkblue" data-tile="Park_Place" data-position="37"></div>
-                            <div></div>
-                            <div></div>
-                            <div data-color="black" data-tile="Reading_RR" data-position="5"></div>
-                            <div data-color="white" data-tile="Electric_Company" data-position="12"></div>
-                            <!-- second row -->
-                            <div data-color="purple" data-tile="Baltic" data-position="3"></div>
-                            <div data-color="lightblue" data-tile="Vermont" data-position="8"></div>
-                            <div data-color="violet" data-tile="States" data-position="13"></div>
-                            <div data-color="orange" data-tile="Tennessee" data-position="18"></div>
-                            <div data-color="red" data-tile="Indiana_Avenue" data-position="23"></div>
-                            <div data-color="yellow" data-tile="Marvin_Gardens" data-position="29"></div>
-                            <div data-color="darkgreen" data-tile="North_Carolina" data-position="32"></div>
-                            <div data-color="darkblue" data-tile="Boardwalk" data-position="39"></div>
-                            <div></div>
-                            <div></div>
-                            <div data-color="black" data-tile="Pennsylvania_RR" data-position="15"></div>
-                            <div data-color="white" data-tile="Water_Works" data-position="28"></div>
-                            <!-- third row -->
-                            <div></div>
-                            <div data-color="lightblue" data-tile="Connecticut" data-position="9"></div>
-                            <div data-color="violet" data-tile="Virginia" data-position="14"></div>
-                            <div data-color="orange" data-tile="New_York" data-position="19"></div>
-                            <div data-color="red" data-tile="Illinois_Avenue" data-position="24"></div>
-                            <div data-color="yellow" data-tile="Ventnor" data-position="27"></div>
-                            <div data-color="darkgreen" data-tile="Pennsylvania" data-position="34"></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-position="25"></div>
-                            <div></div>
-                            <!-- fourth row -->
-                            <p class="player">Username: <span></span></p>
-                            <div></div>
-                            <div></div>
-                            <div data-color="black" data-tile="Short_Line_RR" data-position="35"></div>
-                            <div></div>
-                        </div>
-                        <div id="dice-container">
-                            <div class="dice">
-                                <p class="dice-left">0</p>
-                                <p class="dice-right">0</p>
-                            </div>
-                            <div>
-                                <button type="button" class="button" data-action="roll-dice">roll dice</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom-mid">
-                        <p>Balance:</p>
-                        <p class="player-balance"></p>
-                    </div>
-                    <div class="bottom-right">
-                        <div id="home-buttons-grid">
-                            <!-- first row -->
-                            <div></div>
-                            <div></div>
-                            <button type="button" class="button" data-navigate="buy-house">Buy House</button>
-                            <button type="button" class="button" data-navigate="settle-mortgage">Settle Mortgage</button>
-                            <!-- second row -->
-                            <div></div>
-                            <button type="button" class="button" data-action="collect-rent">Collect Rent</button> <!-- don't navigate -->
-                            <button type="button" class="button" data-navigate="sell-house">Sell House</button>
-                            <button type="button" class="button" data-navigate="take-mortgage">Take Mortgage</button>
-                            <!-- third row -->
-                            <button type="button" class="button" data-action="use-jail-card">Use Jail Card (<span id="amount-jail-cards-player"></span>)</button>
-                            <button type="button" class="button" data-navigate="trade-property">Trade Property</button>
-                            <button type="button" class="button" data-navigate="buy-hotel">Buy Hotel</button>
-                            <button type="button" class="button" data-navigate="buy-property">Buy Property</button> <!-- don't navigate -->
-                            <!-- fourth row -->
-                            <button type="button" class="button" data-action="pay-prison-fine">Pay Prison Fine</button> <!-- don't navigate -->
-                            <button type="button" class="button" data-navigate="setup-auction">Auction Property</button>
-                            <button type="button" class="button" data-navigate="sell-hotel">Sell Hotel</button>
-                            <button type="button" class="button" data-action="dont-buy-property">Don't Buy Property</button> <!-- don't navigate -->
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="mid">
+                <section>
+                    <h2 class="player-position">&#8205;</h2>
+                    <div id="carousel">
+                        <template class="property-back-template">
+                            <article class="property-back tile" data-color="" data-tile="" data-position="">
+                                <div class="grid-header">
+                                    <h3>card</h3>
+                                </div>
+                                <div class="grid-body">
+                                    <div>
+                                        <h4>Rent: <span></span></h4>
+                                        <ul>
 
-        <!-- player stats -->
-        <section id="stats" class="hidden">
-            <header>
-                <h1><span>Stats</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-item1">
-                    <h2>Player: <span></span></h2>
-                    <div class="balance">
-                        <p>Player balance:</p>
-                        <p><!-- insert balance --></p>
+                                        </ul>
+                                        <h4>Mortgage value: <span></span></h4>
+                                    </div>
+                                    <div>
+                                        <p>A house costs <span></span> per piece</p>
+                                        <p>A hotel costs <span></span> plus 4 houses</p>
+                                    </div>
+                                    <div>
+                                        <p>If a player owns all the properties of the color group, the rent doubles</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </template>
+                        <template class="property-front-template">
+                            <article class="property-front tile" data-color="" data-tile="" data-position="">
+                                <div class="grid-header">
+                                    <h3>card</h3>
+                                </div>
+                                <div class="grid-body">
+                                    <p>Owner: <span></span></p>
+                                    <p>Building(s):</p>
+                                    <ul>
+
+                                    </ul>
+                                    <p>Mortgage: <span></span></p>
+                                </div>
+                            </article>
+                        </template>
+                        <template class="chance-template">
+                            <article class="basic-tile tile" data-tile="" data-position="">
+                                <h3>Chance</h3>
+                                <figure>
+                                    <img src="assets/media/chance.png" alt="chance" title="chance">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="community-chest-template">
+                            <article class="basic-tile tile" data-tile="" data-position="">
+                                <h3>Community chest</h3>
+                                <figure>
+                                    <img src="assets/media/community-chest.gif" alt="chance" title="chance">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="go-template">
+                            <article class="go-tile tile" data-tile="Go" data-position="0">
+                                <h2>Go</h2>
+                                <figure>
+                                    <img src="assets/media/go.gif" alt="go-tile" title="go-title">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="railroad-template">
+                            <article class="railroad-tile tile" data-tile="" data-position="">
+                                <div class="header-grid">
+                                    <figure>
+                                        <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
+                                    </figure>
+                                </div>
+                                <div class="body-grid">
+                                    <h3>railroad</h3>
+                                    <h4>Cost: <span></span></h4>
+                                    <h4>Mortgage: <span></span></h4>
+                                    <h4>Owner: <span></span></h4>
+                                </div>
+                            </article>
+                        </template>
+                        <template class="utility-template">
+                            <article class="tile utility-tiles" data-tile="" data-position="">
+                                <div class="header-grid">
+                                    <h3>util</h3>
+                                </div>
+                                <div class="body-grid">
+                                    <figure>
+                                        <img src="assets/media/utility.png" alt="utility" title="utility">
+                                    </figure>
+                                </div>
+                                <div class="footer-grid">
+                                    <h4>Price: <span></span></h4>
+                                    <h4>Mortgage: <span></span></h4>
+                                    <h4>Owner: <span></span></h4>
+                                </div>
+                            </article>
+                        </template>
+                        <template class="jail-template">
+                            <article class="basic-tile tile">
+                                <h3>Jail</h3>
+                                <figure>
+                                    <img src="assets/media/jail.png" alt="jail" title="jail">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="go-to-jail-template">
+                            <article class="basic-tile tile">
+                                <h3>Go to Jail</h3>
+                                <figure>
+                                    <img src="assets/media/go-to-jail.png" alt="go-to-jail" title="go-to-jail">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="free-parking-template">
+                            <article class="basic-tile tile">
+                                <h3>Free Parking</h3>
+                                <figure>
+                                    <img src="assets/media/free-parking.png" alt=free-parking title="free-parking">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="tax-income-template">
+                            <article class="basic-tile tile" data-tile="" data-position="">
+                                <h3>Tax Income</h3>
+                                <figure>
+                                    <img src="assets/media/tax-income.png" alt="tax-income" title="tax-income">
+                                </figure>
+                            </article>
+                        </template>
+                        <template class="luxury-tax-template">
+                            <article class="basic-tile tile" data-tile="" data-position="">
+                                <h3>Luxury Tax</h3>
+                                <figure>
+                                    <img src="assets/media/luxury-tax.png" alt="luxury-tax" title="luxury-tax">
+                                </figure>
+                            </article>
+                        </template>
+
+                        <div class="pair-horizontal">
+                            <!-- carousel tiles are inserted here -->
+                        </div>
+
                     </div>
-                    <img src="assets/media/monopoly-man.png" alt="monopoly man" title="monopoly man">
+                </section>
+
+                <div id="carousel-navigation">
+                    <img src="assets/media/left-arrow.png" alt="left-arrow" title="left-arrow" id="left-arrow">
+                    <img src="assets/media/house.png" alt="return home" title="return home" id="return-home">
+                    <img src="assets/media/right-arrow.png" alt="right-arrow" title="right-arrow" id="right-arrow">
                 </div>
-                <div class="flex-item1">
+
+            </div>
+
+            <div class="bottom">
+                <div class="bottom-left">
                     <div class="tile-map">
                         <!-- first row -->
                         <div data-color="purple" data-tile="Mediterranean" data-position="1"></div>
@@ -402,75 +307,487 @@
                         <div data-color="black" data-tile="Short_Line_RR" data-position="35"></div>
                         <div></div>
                     </div>
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
+                    <div id="dice-container">
+                        <div class="dice">
+                            <p class="dice-left">0</p>
+                            <p class="dice-right">0</p>
+                        </div>
+                        <div>
+                            <button type="button" class="button" data-action="roll-dice">roll dice</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-mid">
+                    <p>Balance:</p>
+                    <p class="player-balance"></p>
+                </div>
+                <div class="bottom-right">
+                    <div id="home-buttons-grid">
+                        <!-- first row -->
+                        <div></div>
+                        <div></div>
+                        <button type="button" class="button" data-navigate="buy-house">Buy House</button>
+                        <button type="button" class="button" data-navigate="settle-mortgage">Settle Mortgage</button>
+                        <!-- second row -->
+                        <div></div>
+                        <button type="button" class="button" data-action="collect-rent">Collect Rent</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-navigate="sell-house">Sell House</button>
+                        <button type="button" class="button" data-navigate="take-mortgage">Take Mortgage</button>
+                        <!-- third row -->
+                        <button type="button" class="button" data-action="use-jail-card">Use Jail Card (<span id="amount-jail-cards-player"></span>)</button>
+                        <button type="button" class="button" data-navigate="trade-property">Trade Property</button>
+                        <button type="button" class="button" data-navigate="buy-hotel">Buy Hotel</button>
+                        <button type="button" class="button" data-navigate="buy-property">Buy Property</button> <!-- don't navigate -->
+                        <!-- fourth row -->
+                        <button type="button" class="button" data-action="pay-prison-fine">Pay Prison Fine</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-navigate="setup-auction">Auction Property</button>
+                        <button type="button" class="button" data-navigate="sell-hotel">Sell Hotel</button>
+                        <button type="button" class="button" data-action="dont-buy-property">Don't Buy Property</button> <!-- don't navigate -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- player stats -->
+    <section id="stats" class="hidden">
+        <header>
+            <h1><span>Stats</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-item1">
+                <h2>Player: <span></span></h2>
+                <div class="balance">
+                    <p>Player balance:</p>
+                    <p><!-- insert balance --></p>
+                </div>
+                <p>Get out of jail free cards: <span></span></p>
+                <p>Bankrupt: <span></span></p>
+                <img src="assets/media/monopoly-man.png" alt="monopoly man" title="monopoly man">
+            </div>
+            <div class="flex-item1">
+                <div class="tile-map">
+                    <!-- first row -->
+                    <div data-color="purple" data-tile="Mediterranean" data-position="1"></div>
+                    <div data-color="lightblue" data-tile="Oriental" data-position="6"></div>
+                    <div data-color="violet" data-tile="Saint_Charles_Place" data-position="11"></div>
+                    <div data-color="orange" data-tile="Saint_James" data-position="16"></div>
+                    <div data-color="red" data-tile="Kentucky_Avenue" data-position="21"></div>
+                    <div data-color="yellow" data-tile="Atlantic" data-position="26"></div>
+                    <div data-color="darkgreen" data-tile="Pacific" data-position="31"></div>
+                    <div data-color="darkblue" data-tile="Park_Place" data-position="37"></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Reading_RR" data-position="5"></div>
+                    <div data-color="white" data-tile="Electric_Company" data-position="12"></div>
+                    <!-- second row -->
+                    <div data-color="purple" data-tile="Baltic" data-position="3"></div>
+                    <div data-color="lightblue" data-tile="Vermont" data-position="8"></div>
+                    <div data-color="violet" data-tile="States" data-position="13"></div>
+                    <div data-color="orange" data-tile="Tennessee" data-position="18"></div>
+                    <div data-color="red" data-tile="Indiana_Avenue" data-position="23"></div>
+                    <div data-color="yellow" data-tile="Marvin_Gardens" data-position="29"></div>
+                    <div data-color="darkgreen" data-tile="North_Carolina" data-position="32"></div>
+                    <div data-color="darkblue" data-tile="Boardwalk" data-position="39"></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Pennsylvania_RR" data-position="15"></div>
+                    <div data-color="white" data-tile="Water_Works" data-position="28"></div>
+                    <!-- third row -->
+                    <div></div>
+                    <div data-color="lightblue" data-tile="Connecticut" data-position="9"></div>
+                    <div data-color="violet" data-tile="Virginia" data-position="14"></div>
+                    <div data-color="orange" data-tile="New_York" data-position="19"></div>
+                    <div data-color="red" data-tile="Illinois_Avenue" data-position="24"></div>
+                    <div data-color="yellow" data-tile="Ventnor" data-position="27"></div>
+                    <div data-color="darkgreen" data-tile="Pennsylvania" data-position="34"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Baltimore_and_Ohio_RR" data-position="25"></div>
+                    <div></div>
+                    <!-- fourth row -->
+                    <p class="player">Username: <span></span></p>
+                    <div></div>
+                    <div></div>
+                    <div data-color="black" data-tile="Short_Line_RR" data-position="35"></div>
+                    <div></div>
+                </div>
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
                                 <ul>
 
                                 </ul>
-                                <p>Mortgage: <span></span></p>
+                                <h4>Mortgage value: <span></span></h4>
                             </div>
-                        </article>
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
                             </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <button type="button" class="button active" value="close" data-navigate="home">close</button>
+            </div>
+        </div>
+    </section>
 
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
+    <!-- auction -->
+    <section id="setup-auction" class="transaction-board hidden">
+        <header>
+            <h1><span>Setup Auction</span></h1>
+        </header>
+        <div class="main">
+            <form action="#" method="post" id="input-auction">
+                <fieldset>
+                    <legend>Enter start bid for <span></span>!</legend>
+                    <label for="start-bid">Starting Amount:</label>
+                    <input type="number" id="start-bid" name="start-bid" min="0" value="0">
+                </fieldset>
+            </form>
+            <div class="cancel">
+                <button type="button" data-navigate="home" class="button active">cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="auction" data-action="setup-auction" class="button active">Start Auction</button>
+            </div>
+        </div>
+    </section>
+    <section id="auction-property" class="auction hidden">
+        <header>
+            <h1><span>Auction</span></h1>
+        </header>
+
+        <div class="main">
+
+            <div class="pair-horizontal">
+                <article class="property-front tile" data-color="" data-tile="" data-position="">
+                    <div class="grid-header">
+                        <h3>card</h3>
                     </div>
-                    <button type="button" class="button active" value="close">close</button>
-                </div>
-            </div>
-        </section>
+                    <div class="grid-body">
+                        <p>Owner: <span></span></p>
+                        <p>Building(s):</p>
+                        <ul>
 
-        <!-- auction -->
-        <section id="setup-auction" class="transaction-board hidden">
-            <header>
-                <h1><span>Setup Auction</span></h1>
-            </header>
-            <div class="main">
-                <form action="#" method="post" id="input-auction">
-                    <fieldset>
-                        <legend>Enter start bid for <span></span>!</legend>
-                        <label for="start-bid">Starting Amount:</label>
-                        <input type="number" id="start-bid" name="start-bid" min="0" value="0">
-                    </fieldset>
+                        </ul>
+                        <p>Mortgage: <span></span></p>
+                    </div>
+                </article>
+                <article class="property-back tile" data-color="" data-tile="" data-position="">
+                    <div class="grid-header">
+                        <h3>card</h3>
+                    </div>
+                    <div class="grid-body">
+                        <div>
+                            <h4>Rent: <span></span></h4>
+                            <ul>
+
+                            </ul>
+                            <h4>Mortgage value: <span></span></h4>
+                        </div>
+                        <div>
+                            <p>A house costs <span></span> per piece</p>
+                            <p>A hotel costs <span></span> plus 4 houses</p>
+                        </div>
+                        <div>
+                            <p>If a player owns all the properties of the color group, the rent doubles</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="offer-placeholder">
+                <div>
+                    <h2>Highest offer:</h2>
+                    <div>
+                        <p><!-- currency bidder --></p>
+                        <p><!-- name bidder --></p>
+                    </div>
+                </div>
+
+                <form action="#" method="post">
+                    <label for="offer-property">Your offer:</label>
+                    <input type="text" id="offer-property" data-action="offer" name="offer" placeholder="Amount">
+                    <button type="button" value="offer" class="button active">offer</button>
                 </form>
-                <div class="cancel">
-                    <button type="button" data-navigate="home" class="button active">cancel</button>
+            </div>
+
+            <div class="time">
+                <h2>Duration (sec): </h2>
+                <p>
+                    <!-- display time here -->
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="auction-railroad" class="auction hidden">
+        <header>
+            <h1><span>Auction</span></h1>
+        </header>
+
+        <div class="main">
+
+            <article class="railroad-tile tile" data-tile="" data-position="">
+                <div class="header-grid">
+                    <figure>
+                        <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
+                    </figure>
                 </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="auction" data-action="setup-auction" class="button active">Start Auction</button>
+                <div class="body-grid">
+                    <h3>railroad</h3>
+                    <h4>Cost: <span></span></h4>
+                    <h4>Mortgage: <span></span></h4>
+                    <h4>Owner: <span></span></h4>
+                </div>
+            </article>
+
+            <div class="offer-placeholder">
+                <div>
+                    <h2>Highest offer:</h2>
+                    <div>
+                        <p><!-- currency bidder --></p>
+                        <p><!-- name bidder --></p>
+                    </div>
+                </div>
+
+                <form action="#" method="post">
+                    <label for="offer-railroad">Your offer:</label>
+                    <input type="text" id="offer-railroad" data-action="offer" name="offer" placeholder="Amount">
+                    <button type="button" value="offer" class="button active">offer</button>
+                </form>
+            </div>
+
+            <div class="time">
+                <h2>Duration (sec): </h2>
+                <p>
+                    <!-- display time here -->
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="auction-utility" class="auction hidden">
+        <header>
+            <h1><span>Auction</span></h1>
+        </header>
+
+        <div class="main">
+
+            <article class="tile utility-tiles" data-tile="" data-position="">
+                <div class="header-grid">
+                    <h3>util</h3>
+                </div>
+                <div class="body-grid">
+                    <figure>
+                        <img src="assets/media/utility.png" alt="utility" title="utility">
+                    </figure>
+                </div>
+                <div class="footer-grid">
+                    <h4>Price: <span></span></h4>
+                    <h4>Mortgage: <span></span></h4>
+                    <h4>Owner: <span></span></h4>
+                </div>
+            </article>
+
+            <div class="offer-placeholder">
+                <div>
+                    <h2>Highest offer:</h2>
+                    <div>
+                        <p><!-- currency bidder --></p>
+                        <p><!-- name bidder --></p>
+                    </div>
+                </div>
+
+                <form action="#" method="post">
+                    <label for="offer-utility">Your offer:</label>
+                    <input type="text" id="offer-utility" data-action="offer" name="offer" placeholder="Amount">
+                    <button type="button" value="offer" class="button active">offer</button>
+                </form>
+            </div>
+
+            <div class="time">
+                <h2>Duration (sec): </h2>
+                <p>
+                    <!-- display time here -->
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- buy property -->
+    <section id="buy-property-property" class="transaction-board hidden">
+        <header>
+            <h1><span>Buy Property</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information flex-container">
+                    <h2>Cost: <span></span></h2>
+                    <p>Unimproved properties, railroads and
+                        utilities (but not buildings) may be sold to any player as a private
+                        transaction for any amount the owner can get; however, no property
+                        can be sold to another player if buildings are standing on any
+                        properties of that color-group.</p>
                 </div>
             </div>
-        </section>
-        <section id="auction-property" class="auction hidden">
-            <header>
-                <h1><span>Auction</span></h1>
-            </header>
 
-            <div class="main">
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
 
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+            </div>
+        </div>
+    </section>
+    <section id="buy-property-railroad" class="transaction-board hidden">
+        <header>
+            <h1><span>Buy Property</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <article class="railroad-tile tile" data-tile="" data-position="">
+                    <div class="header-grid">
+                        <figure>
+                            <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
+                        </figure>
+                    </div>
+                    <div class="body-grid">
+                        <h3>railroad</h3>
+                        <h4>Cost: <span></span></h4>
+                        <h4>Mortgage: <span></span></h4>
+                        <h4>Owner: <span></span></h4>
+                    </div>
+                </article>
+
+                <div class="information flex-container">
+                    <h2>Cost: <span></span></h2>
+                    <p>Unimproved properties, railroads and
+                        utilities (but not buildings) may be sold to any player as a private
+                        transaction for any amount the owner can get; however, no property
+                        can be sold to another player if buildings are standing on any
+                        properties of that color-group.</p>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+            </div>
+        </div>
+    </section>
+    <section id="buy-property-utility" class="transaction-board hidden">
+        <header>
+            <h1><span>Buy Property</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <article class="tile utility-tiles" data-tile="" data-position="">
+                    <div class="header-grid">
+                        <h3>util</h3>
+                    </div>
+                    <div class="body-grid">
+                        <figure>
+                            <img src="assets/media/utility.png" alt="utility" title="utility">
+                        </figure>
+                    </div>
+                    <div class="footer-grid">
+                        <h4>Price: <span></span></h4>
+                        <h4>Mortgage: <span></span></h4>
+                        <h4>Owner: <span></span></h4>
+                    </div>
+                </article>
+
+                <div class="information flex-container">
+                    <h2>Cost: <span></span></h2>
+                    <p>Unimproved properties, railroads and
+                        utilities (but not buildings) may be sold to any player as a private
+                        transaction for any amount the owner can get; however, no property
+                        can be sold to another player if buildings are standing on any
+                        properties of that color-group.</p>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- take mortgage -->
+    <section id="take-mortgage-property" class="transaction-board hidden">
+        <header>
+            <h1><span>Take Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
                 <div class="pair-horizontal">
                     <article class="property-front tile" data-color="" data-tile="" data-position="">
                         <div class="grid-header">
@@ -508,37 +825,29 @@
                     </article>
                 </div>
 
-                <div class="offer-placeholder">
+                <div class="information flex-container">
+                    <h2>Receiving: <span></span></h2>
                     <div>
-                        <h2>Highest offer:</h2>
-                        <div>
-                            <p><!-- currency bidder --></p>
-                            <p><!-- name bidder --></p>
-                        </div>
+                        <p>All buildings of this color-group need to be sold</p>
+                        <p>To settle mortgage a property, 10% interest is added</p>
                     </div>
-
-                    <form action="#" method="post">
-                        <label for="offer-property">Your offer:</label>
-                        <input type="text" id="offer-property" data-action="offer" name="offer" placeholder="Amount">
-                        <button type="button" value="offer" class="button active">offer</button>
-                    </form>
-                </div>
-
-                <div class="time">
-                    <h2>Duration (sec): </h2>
-                    <p>
-                        <!-- display time here -->
-                    </p>
                 </div>
             </div>
-        </section>
-        <section id="auction-railroad" class="auction hidden">
-            <header>
-                <h1><span>Auction</span></h1>
-            </header>
 
-            <div class="main">
-
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
+            </div>
+        </div>
+    </section>
+    <section id="take-mortgage-railroad" class="transaction-board hidden">
+        <header>
+            <h1><span>Take Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
                 <article class="railroad-tile tile" data-tile="" data-position="">
                     <div class="header-grid">
                         <figure>
@@ -553,37 +862,29 @@
                     </div>
                 </article>
 
-                <div class="offer-placeholder">
+                <div class="information flex-container">
+                    <h2>Receiving: <span></span></h2>
                     <div>
-                        <h2>Highest offer:</h2>
-                        <div>
-                            <p><!-- currency bidder --></p>
-                            <p><!-- name bidder --></p>
-                        </div>
+                        <p>All buildings of this color-group need to be sold</p>
+                        <p>To settle mortgage a property, 10% interest is added</p>
                     </div>
-
-                    <form action="#" method="post">
-                        <label for="offer-railroad">Your offer:</label>
-                        <input type="text" id="offer-railroad" data-action="offer" name="offer" placeholder="Amount">
-                        <button type="button" value="offer" class="button active">offer</button>
-                    </form>
-                </div>
-
-                <div class="time">
-                    <h2>Duration (sec): </h2>
-                    <p>
-                        <!-- display time here -->
-                    </p>
                 </div>
             </div>
-        </section>
-        <section id="auction-utility" class="auction hidden">
-            <header>
-                <h1><span>Auction</span></h1>
-            </header>
 
-            <div class="main">
-
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
+            </div>
+        </div>
+    </section>
+    <section id="take-mortgage-utility" class="transaction-board hidden">
+        <header>
+            <h1><span>Take Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
                 <article class="tile utility-tiles" data-tile="" data-position="">
                     <div class="header-grid">
                         <h3>util</h3>
@@ -600,701 +901,411 @@
                     </div>
                 </article>
 
-                <div class="offer-placeholder">
+                <div class="information flex-container">
+                    <h2>Receiving: <span></span></h2>
                     <div>
-                        <h2>Highest offer:</h2>
-                        <div>
-                            <p><!-- currency bidder --></p>
-                            <p><!-- name bidder --></p>
-                        </div>
+                        <p>All buildings of this color-group need to be sold</p>
+                        <p>To settle mortgage a property, 10% interest is added</p>
                     </div>
-
-                    <form action="#" method="post">
-                        <label for="offer-utility">Your offer:</label>
-                        <input type="text" id="offer-utility" data-action="offer" name="offer" placeholder="Amount">
-                        <button type="button" value="offer" class="button active">offer</button>
-                    </form>
-                </div>
-
-                <div class="time">
-                    <h2>Duration (sec): </h2>
-                    <p>
-                        <!-- display time here -->
-                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- buy property -->
-        <section id="buy-property-property" class="transaction-board hidden">
-            <header>
-                <h1><span>Buy Property</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Cost: <span></span></h2>
-                        <p>Unimproved properties, railroads and
-                            utilities (but not buildings) may be sold to any player as a private
-                            transaction for any amount the owner can get; however, no property
-                            can be sold to another player if buildings are standing on any
-                            properties of that color-group.</p>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
-                </div>
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
-        </section>
-        <section id="buy-property-railroad" class="transaction-board hidden">
-            <header>
-                <h1><span>Buy Property</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="railroad-tile tile" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <figure>
-                                <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
-                            </figure>
-                        </div>
-                        <div class="body-grid">
-                            <h3>railroad</h3>
-                            <h4>Cost: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Cost: <span></span></h2>
-                        <p>Unimproved properties, railroads and
-                            utilities (but not buildings) may be sold to any player as a private
-                            transaction for any amount the owner can get; however, no property
-                            can be sold to another player if buildings are standing on any
-                            properties of that color-group.</p>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
-                </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
             </div>
-        </section>
-        <section id="buy-property-utility" class="transaction-board hidden">
-            <header>
-                <h1><span>Buy Property</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="tile utility-tiles" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <h3>util</h3>
-                        </div>
-                        <div class="body-grid">
-                            <figure>
-                                <img src="assets/media/utility.png" alt="utility" title="utility">
-                            </figure>
-                        </div>
-                        <div class="footer-grid">
-                            <h4>Price: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Cost: <span></span></h2>
-                        <p>Unimproved properties, railroads and
-                            utilities (but not buildings) may be sold to any player as a private
-                            transaction for any amount the owner can get; however, no property
-                            can be sold to another player if buildings are standing on any
-                            properties of that color-group.</p>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- take mortgage -->
-        <section id="take-mortgage-property" class="transaction-board hidden">
-            <header>
-                <h1><span>Take Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Receiving: <span></span></h2>
-                        <div>
-                            <p>All buildings of this color-group need to be sold</p>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
-                </div>
-            </div>
-        </section>
-        <section id="take-mortgage-railroad" class="transaction-board hidden">
-            <header>
-                <h1><span>Take Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="railroad-tile tile" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <figure>
-                                <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
-                            </figure>
-                        </div>
-                        <div class="body-grid">
-                            <h3>railroad</h3>
-                            <h4>Cost: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Receiving: <span></span></h2>
-                        <div>
-                            <p>All buildings of this color-group need to be sold</p>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
-                </div>
-            </div>
-        </section>
-        <section id="take-mortgage-utility" class="transaction-board hidden">
-            <header>
-                <h1><span>Take Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="tile utility-tiles" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <h3>util</h3>
-                        </div>
-                        <div class="body-grid">
-                            <figure>
-                                <img src="assets/media/utility.png" alt="utility" title="utility">
-                            </figure>
-                        </div>
-                        <div class="footer-grid">
-                            <h4>Price: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Receiving: <span></span></h2>
-                        <div>
-                            <p>All buildings of this color-group need to be sold</p>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- settle mortgage -->
-        <section id="settle-mortgage-property" class="transaction-board hidden">
-            <header>
-                <h1><span>Settle Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Total cost: <span></span></h2>
-                        <div>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
-                </div>
-            </div>
-        </section>
-        <section id="settle-mortgage-railroad" class="transaction-board hidden">
-            <header>
-                <h1><span>Settle Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="railroad-tile tile" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <figure>
-                                <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
-                            </figure>
-                        </div>
-                        <div class="body-grid">
-                            <h3>railroad</h3>
-                            <h4>Cost: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Total cost: <span></span></h2>
-                        <div>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
-                </div>
-            </div>
-        </section>
-        <section id="settle-mortgage-utility" class="transaction-board hidden">
-            <header>
-                <h1><span>Settle Mortgage</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <article class="tile utility-tiles" data-tile="" data-position="">
-                        <div class="header-grid">
-                            <h3>util</h3>
-                        </div>
-                        <div class="body-grid">
-                            <figure>
-                                <img src="assets/media/utility.png" alt="utility" title="utility">
-                            </figure>
-                        </div>
-                        <div class="footer-grid">
-                            <h4>Price: <span></span></h4>
-                            <h4>Mortgage: <span></span></h4>
-                            <h4>Owner: <span></span></h4>
-                        </div>
-                    </article>
-
-                    <div class="information flex-container">
-                        <h2>Total cost: <span></span></h2>
-                        <div>
-                            <p>To settle mortgage a property, 10% interest is added</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
-                </div>
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- improve properties -->
-        <section id="sell-house" class="transaction-board hidden">
-            <header>
-                <h1><span>Sell house</span></h1>
-            </header>
-
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Receiving: <span></span></h2>
-                        <div>
-                            <p>Houses and hotels may be sold back to the Bank at any time for
-                                one-half of the price paid for them.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="sell-house" value="sell-house" class="button active">Sell house</button>
-                </div>
-            </div>
-        </section>
-        <section id="sell-hotel" class="transaction-board hidden">
-            <header>
-                <h1><span>Sell hotel</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="information flex-container">
-                        <h2>Receiving: <span></span></h2>
-                        <div>
-                            <p>Houses and hotels may be sold back to the Bank at any time for
-                                one-half of the price paid for them.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home"  value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="sell-hotel" value="sell-hotel" class="button active">Sell hotel</button>
-                </div>
-            </div>
-        </section>
-        <section id="buy-hotel" class="transaction-board hidden">
-            <header>
-                <h1><span>Buy hotel</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Paying: <span></span></h2>
-                        <p>Houses and hotels may be sold back to the Bank at any time for
-                            one-half of the price paid for them.</p>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="buy-hotel" value="buy-hotel" class="button active">Buy hotel</button>
-                </div>
-            </div>
-        </section>
-        <section id="buy-house" class="transaction-board hidden">
-            <header>
-                <h1><span>Buy house</span></h1>
-            </header>
-            <div class="main">
-                <div class="flex-container">
-                    <div class="pair-horizontal">
-                        <article class="property-front tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <p>Owner: <span></span></p>
-                                <p>Building(s):</p>
-                                <ul>
-
-                                </ul>
-                                <p>Mortgage: <span></span></p>
-                            </div>
-                        </article>
-
-                        <article class="property-back tile" data-color="" data-tile="" data-position="">
-                            <div class="grid-header">
-                                <h3>card</h3>
-                            </div>
-                            <div class="grid-body">
-                                <div>
-                                    <h4>Rent: <span></span></h4>
-                                    <ul>
-
-                                    </ul>
-                                    <h4>Mortgage value: <span></span></h4>
-                                </div>
-                                <div>
-                                    <p>A house costs <span></span> per piece</p>
-                                    <p>A hotel costs <span></span> plus 4 houses</p>
-                                </div>
-                                <div>
-                                    <p>If a player owns all the properties of the color group, the rent doubles</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="information flex-container">
-                        <h2>Paying: <span></span></h2>
-                        <p>Houses and hotels may be sold back to the Bank at any time for
-                            one-half of the price paid for them.</p>
-                    </div>
-                </div>
-
-                <div class="cancel">
-                    <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
-                </div>
-
-                <div class="proceed">
-                    <button type="button" data-navigate="home" data-action="buy-house" value="buy-house" class="button active">Buy house</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="errormessages">
-            <p></p>
         </div>
-    </footer>
+    </section>
+
+    <!-- settle mortgage -->
+    <section id="settle-mortgage-property" class="transaction-board hidden">
+        <header>
+            <h1><span>Settle Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information flex-container">
+                    <h2>Total cost: <span></span></h2>
+                    <div>
+                        <p>To settle mortgage a property, 10% interest is added</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+            </div>
+        </div>
+    </section>
+    <section id="settle-mortgage-railroad" class="transaction-board hidden">
+        <header>
+            <h1><span>Settle Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <article class="railroad-tile tile" data-tile="" data-position="">
+                    <div class="header-grid">
+                        <figure>
+                            <img src="assets/media/monopoly-train.png" alt="railroad" title="railroad">
+                        </figure>
+                    </div>
+                    <div class="body-grid">
+                        <h3>railroad</h3>
+                        <h4>Cost: <span></span></h4>
+                        <h4>Mortgage: <span></span></h4>
+                        <h4>Owner: <span></span></h4>
+                    </div>
+                </article>
+
+                <div class="information flex-container">
+                    <h2>Total cost: <span></span></h2>
+                    <div>
+                        <p>To settle mortgage a property, 10% interest is added</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+            </div>
+        </div>
+    </section>
+    <section id="settle-mortgage-utility" class="transaction-board hidden">
+        <header>
+            <h1><span>Settle Mortgage</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <article class="tile utility-tiles" data-tile="" data-position="">
+                    <div class="header-grid">
+                        <h3>util</h3>
+                    </div>
+                    <div class="body-grid">
+                        <figure>
+                            <img src="assets/media/utility.png" alt="utility" title="utility">
+                        </figure>
+                    </div>
+                    <div class="footer-grid">
+                        <h4>Price: <span></span></h4>
+                        <h4>Mortgage: <span></span></h4>
+                        <h4>Owner: <span></span></h4>
+                    </div>
+                </article>
+
+                <div class="information flex-container">
+                    <h2>Total cost: <span></span></h2>
+                    <div>
+                        <p>To settle mortgage a property, 10% interest is added</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
+            </div>
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- improve properties -->
+    <section id="sell-house" class="transaction-board hidden">
+        <header>
+            <h1><span>Sell house</span></h1>
+        </header>
+
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information flex-container">
+                    <h2>Receiving: <span></span></h2>
+                    <div>
+                        <p>Houses and hotels may be sold back to the Bank at any time for
+                            one-half of the price paid for them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="sell-house" value="sell-house" class="button active">Sell house</button>
+            </div>
+        </div>
+    </section>
+    <section id="sell-hotel" class="transaction-board hidden">
+        <header>
+            <h1><span>Sell hotel</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="information flex-container">
+                    <h2>Receiving: <span></span></h2>
+                    <div>
+                        <p>Houses and hotels may be sold back to the Bank at any time for
+                            one-half of the price paid for them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home"  value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="sell-hotel" value="sell-hotel" class="button active">Sell hotel</button>
+            </div>
+        </div>
+    </section>
+    <section id="buy-hotel" class="transaction-board hidden">
+        <header>
+            <h1><span>Buy hotel</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information flex-container">
+                    <h2>Paying: <span></span></h2>
+                    <p>Houses and hotels may be sold back to the Bank at any time for
+                        one-half of the price paid for them.</p>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="buy-hotel" value="buy-hotel" class="button active">Buy hotel</button>
+            </div>
+        </div>
+    </section>
+    <section id="buy-house" class="transaction-board hidden">
+        <header>
+            <h1><span>Buy house</span></h1>
+        </header>
+        <div class="main">
+            <div class="flex-container">
+                <div class="pair-horizontal">
+                    <article class="property-front tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <p>Owner: <span></span></p>
+                            <p>Building(s):</p>
+                            <ul>
+
+                            </ul>
+                            <p>Mortgage: <span></span></p>
+                        </div>
+                    </article>
+
+                    <article class="property-back tile" data-color="" data-tile="" data-position="">
+                        <div class="grid-header">
+                            <h3>card</h3>
+                        </div>
+                        <div class="grid-body">
+                            <div>
+                                <h4>Rent: <span></span></h4>
+                                <ul>
+
+                                </ul>
+                                <h4>Mortgage value: <span></span></h4>
+                            </div>
+                            <div>
+                                <p>A house costs <span></span> per piece</p>
+                                <p>A hotel costs <span></span> plus 4 houses</p>
+                            </div>
+                            <div>
+                                <p>If a player owns all the properties of the color group, the rent doubles</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information flex-container">
+                    <h2>Paying: <span></span></h2>
+                    <p>Houses and hotels may be sold back to the Bank at any time for
+                        one-half of the price paid for them.</p>
+                </div>
+            </div>
+
+            <div class="cancel">
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
+            </div>
+
+            <div class="proceed">
+                <button type="button" data-navigate="home" data-action="buy-house" value="buy-house" class="button active">Buy house</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="errormessages">
+        <p></p>
+    </div>
+</footer>
 
 </body>
 </html>
