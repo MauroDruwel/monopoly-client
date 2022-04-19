@@ -120,9 +120,11 @@ function renderPlayerStatsButtons(){
     document.querySelector('#home-board .player-stats-buttons').innerHTML ='';
     let html = '';
     _game['players'] .forEach(player => {
-        $template.dataset.player = player['name'];
-        $template.innerHTML = player['name'];
-        html += $template.outerHTML;
+        if (player['name'] !== _player.username ){
+            $template.dataset.player = player['name'];
+            $template.innerHTML = player['name'];
+            html += $template.outerHTML;
+        }
     });
     document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
 }
