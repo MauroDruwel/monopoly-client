@@ -53,12 +53,9 @@ function canBuyHouse(tile) {
     if (doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
-
         for (const propertyOfStreet of street) {
             // check if there is a property in the street "that is running behind" on house improvement
-            if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4 ||
-                propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage ||
-                property.hotelCount >= 1) {
+            if (checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
                 return false;
             }
         }
@@ -67,6 +64,15 @@ function canBuyHouse(tile) {
     return false;
 }
 
+function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
+    if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
+        return false;
+    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || roperty.hotelCount >= 1){
+        return false;
+    } else {
+        return true;
+    }
+}
 // check if street is sold evenly...
 function canSellHouse(tile) {
     // also checks if tile has an actual street
@@ -98,11 +104,6 @@ function canBuyHotel(tile) {
             if (!checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet)){
                 return false;
             }
-            // if(propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4 ||
-            //     (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage ||
-            //     property.hotelCount >= 1){
-            //     return false;
-            // }
         }
         return true;
     }
@@ -139,11 +140,9 @@ function canSellHotel(tile) {
 }
 
 function canTakeMortgage(tile) {
-    if (doIOwnTile(tile.name)) {
         const property = retrievePropertyWithOwnershipData(tile.name);
         const street = retrieveStreetWithOwnershipData(tile.name);
-
-        if (!property.mortgage) {
+        if (doIOwnTile(tile.name) && !property.mortgage) {
             for (const propertyOfStreet of street) {
                 if (propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0) {
                     return false;
@@ -151,7 +150,6 @@ function canTakeMortgage(tile) {
             }
             return true;
         }
-    }
     return false;
 }
 
