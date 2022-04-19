@@ -30,3 +30,9 @@ function addClassToElements(selector, clss){
         $element.classList.add(clss);
     });
 }
+
+function removeClassFromElements(selector, clss){
+    document.querySelectorAll(selector).forEach($element => {
+        $element.classList.remove(clss);
+    });
+}
