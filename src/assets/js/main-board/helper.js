@@ -182,5 +182,5 @@ function canCollectRent(){
 }
 
 function canIUseAJailCard(){
-    return retrieveIfIAmInPrison() > 0 && retrieveIfIAmInPrison() === true;
+    return retrieveMyAmountOfJailCards() > 0 && retrieveIfIAmInPrison() === true;
 }
