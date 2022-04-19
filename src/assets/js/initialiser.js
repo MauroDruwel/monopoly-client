@@ -63,7 +63,7 @@ function initMainBoard() {
     /* add event listeners here: */
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
-    addEventListenerToElements('click', '#home-board .player-stats-buttons button',processPlayerStats)
+    document.querySelector('#home-board .player-stats-buttons').addEventListener('click',processPlayerStats);
 
     addEventListenerToElements(
         'click',

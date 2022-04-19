@@ -153,11 +153,11 @@ function navigateMainBoard(navigation){
 }
 function processPlayerStats(e) {
     e.preventDefault();
-    const $target = e.target;
-    if (!$target.dataset.player){
+    const $target = e.target.closest('.player-stats-buttons > button');
+    if (!$target){
         return;
     }
     const player = retrievePlayer($target.dataset.player);
-    renderPlayerStats(player);
+   // renderPlayerStats(player);
 
 }
