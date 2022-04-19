@@ -74,3 +74,11 @@ function retrieveStreetWithOwnershipData(propertyName){
 function retrieveMyBalance(){
     return retrievePlayer(_player.username).money;
 }
+
+function retrieveMyAmountOfJailCards(){
+    return retrievePlayer(_player.username).getOutOfJailFreeCards;
+}
+
+function retrieveIfIAmInPrison(){
+    return retrievePlayer(_player.username).jailed;
+}
