@@ -17,7 +17,7 @@ async function reloadGame() {
     rerender();
 
     enableOrDisableButtons();
-    processLog();
+
     // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
 }
@@ -26,6 +26,7 @@ function checkGameState(prevGame) {
     checkEndState();
     checkTurnState(prevGame);
     checkAuctionState();
+    checkLogState();
     // add check state here
 }
 
