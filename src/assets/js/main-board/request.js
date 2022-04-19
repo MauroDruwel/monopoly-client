@@ -134,3 +134,7 @@ function trade(other, offerProperty, offerAmount, wantProperty){
 function collectDebt(property, debtorName){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/visitors/${debtorName}/rent`, "DELETE").catch(errorHandler);
 }
+
+function getOutOfJailWithCard(){
+    fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/free`,"POST").catch(errorHandler);
+}

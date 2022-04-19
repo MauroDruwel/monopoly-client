@@ -180,3 +180,7 @@ function canCollectRent(){
     }
     return false;
 }
+
+function canIUseAJailCard(){
+    return retrieveMyAmountOfJailCards() > 0 && retrieveIfIAmInPrison() === true;
+}
