@@ -26,6 +26,18 @@
     font-weight: bold;
 }
 
+#home-board .top .top-left p{
+    padding: 0.5rem 0;
+}
+
+#home-board .top .top-left .player-activity{
+    background-color: pink;
+    width: 18rem;
+    height: 10rem;
+    overflow: scroll;
+}
+
+
 /* MID */
 
 #home-board .mid{
