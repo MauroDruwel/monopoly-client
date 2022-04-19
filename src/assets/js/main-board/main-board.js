@@ -17,7 +17,7 @@ async function reloadGame() {
     rerender();
 
     enableOrDisableButtons();
-
+    processLog();
     // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
 }
