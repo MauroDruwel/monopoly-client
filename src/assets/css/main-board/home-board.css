@@ -23,10 +23,25 @@
 #home-board .top .top-left span{
     font-weight: bold;
 }
-#home-board .top .top-right .player-stats-button{
+#home-board .top .top-right h2{
+    font-size:1.5rem
+}
+#home-board .top .top-right .player-stats-buttons{
     display: flex;
     flex-direction: column;
 }
+#home-board .top .top-right .player-stats-buttons button{
+    background-image: url("../../media/bg-pixels.png"), url("../../media/button-right-arrow.png");
+    background-repeat: repeat,no-repeat;
+    background-color:#FFFFFF;
+    color: #757575;
+    padding-right: 3rem;
+    background-position: center , right center;
+    background-size: auto, 1.5rem 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
 /* MID */
 
 #home-board .mid{
