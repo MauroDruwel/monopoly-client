@@ -12,9 +12,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.5rem;
-    position: fixed;
-    right: 1rem;
-    left: 1rem;
+
 }
 
 #home-board .top .top-left{
