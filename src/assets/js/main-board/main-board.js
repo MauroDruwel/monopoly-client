@@ -150,3 +150,13 @@ function navigateMainBoard(navigation){
             throw "Unknown navigation";
     }
 }
+function processPlayerStats(e) {
+    e.preventDefault();
+    const $target = e.target;
+    if (!$target.dataset.player){
+        return;
+    }
+    const player = retrievePlayer($target.dataset.player);
+    renderPlayerStats(player);
+
+}
