@@ -129,4 +129,6 @@ function renderPlayerStatsButtons(){
 function renderPlayerStats(player){
     addClassToElements('#main-board > section', 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
+    processTileMap(player.name);
+
 }
