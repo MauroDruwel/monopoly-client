@@ -126,3 +126,7 @@ function renderPlayerStatsButtons(){
     });
     document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
 }
+function renderPlayerStats(player){
+    addClassToElements('#main-board > section', 'hidden');
+    document.querySelector(`#stats`).classList.remove('hidden');
+}

@@ -158,6 +158,6 @@ function processPlayerStats(e) {
         return;
     }
     const player = retrievePlayer($target.dataset.player);
-   // renderPlayerStats(player);
+    renderPlayerStats(player);
 
 }
