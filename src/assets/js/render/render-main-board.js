@@ -114,3 +114,11 @@ function renderPlayerBalance(namePlayer){
 function renderPlayerAtTurn(){
     document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
 }
+
+function renderLog(res){
+    const $container = document.querySelector(".player-activity");
+    $container.innerHTML = "";
+    res.forEach(log => {
+        $container.insertAdjacentHTML("beforeend", `<li>${log}</li>`);
+    });
+}

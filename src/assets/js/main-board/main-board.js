@@ -26,6 +26,7 @@ function checkGameState(prevGame) {
     checkEndState();
     checkTurnState(prevGame);
     checkAuctionState();
+    checkLogState();
     // add check state here
 }
 
