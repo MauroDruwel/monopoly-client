@@ -4,7 +4,6 @@ function renderCarousel(){
     const scale = ["small", "medium", "normal", "medium", "small"];
     const numberOfTiles = scale.length;
     let pointer = _player.carousel + (Math.floor(numberOfTiles / 2));
-
     if(pointer >= _tiles.length){
         pointer -= _tiles.length ;
     }

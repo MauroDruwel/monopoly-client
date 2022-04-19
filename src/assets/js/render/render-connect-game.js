@@ -18,9 +18,10 @@ function renderGames(games){
             $tr.querySelector('td:nth-child(2)').setAttribute("for",game.id);
             $tr.querySelector('td:nth-child(2)').innerHTML=game.numberOfPlayers;
             // radio
-            $tr.querySelector('td:last-of-type input').setAttribute('id',game.id);
-            $tr.querySelector('td:last-of-type input').setAttribute('name','Games');
-            $tr.querySelector('td:last-of-type input').setAttribute('value',game.id);
+            const $trInput = $tr.querySelector('td:last-of-type input');
+            $trInput.setAttribute('id',game.id);
+            $trInput.setAttribute('name','Games');
+            $trInput.setAttribute('value',game.id);
 
             $tbody.insertAdjacentHTML("beforeend",$tr.outerHTML);
         }
