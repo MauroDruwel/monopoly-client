@@ -78,3 +78,7 @@ function retrieveMyBalance(){
 function retrieveMyAmountOfJailCards(){
     return retrievePlayer(_player.username).getOutOfJailFreeCards;
 }
+
+function retrieveIfIAmInPrison(){
+    return retrievePlayer(_player.username).jailed;
+}
