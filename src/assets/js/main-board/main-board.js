@@ -48,6 +48,7 @@ function rerender(){
     renderDiceRoll();
     processTileMap(_player.username);
     renderPlayerBalance(_player.username);
+    renderPlayerAtTurn();
     // add component you would like to reload here
 }
 

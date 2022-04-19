@@ -110,3 +110,7 @@ function renderPlayerBalance(namePlayer){
 
     $container.innerHTML = balance;
 }
+
+function renderPlayerAtTurn(){
+    document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
+}
