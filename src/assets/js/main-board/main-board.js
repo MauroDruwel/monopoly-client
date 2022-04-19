@@ -41,6 +41,7 @@ function setGameState() {
     setPlayerAuctionState();
     setCollectRentState();
     setJailCardState();
+    setPrisonFeeState();
     // add set state here
 }
 
