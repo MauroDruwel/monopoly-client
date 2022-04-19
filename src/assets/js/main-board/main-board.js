@@ -41,6 +41,7 @@ function setGameState() {
     setPlayerAuctionState();
     setCollectRentState();
     setJailCardState();
+    setPrisonFeeState();
     // add set state here
 }
 
@@ -109,6 +110,9 @@ function playerAction(action) {
             break;
         case "use-jail-card":
             getOutOfJailWithCard();
+            break;
+        case "pay-prison-fine":
+            payFeeToGetOutOfJail();
             break;
         default:
             throw "Unknown action";
