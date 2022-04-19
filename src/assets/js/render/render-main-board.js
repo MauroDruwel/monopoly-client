@@ -115,6 +115,7 @@ function renderPlayerAtTurn(){
     document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
 }
 
+
 function renderPlayerStatsButtons(){
     const $template = document.querySelector(`#home-board .player-stat-button-template`).content.firstElementChild.cloneNode(true);
     document.querySelector('#home-board .player-stats-buttons').innerHTML ='';
@@ -139,3 +140,12 @@ function renderPlayerStats(player){
 
 
 }
+
+function renderLog(res){
+    const $container = document.querySelector(".player-activity");
+    $container.innerHTML = "";
+    res.forEach(log => {
+        $container.insertAdjacentHTML("beforeend", `<li>${log}</li>`);
+    });
+}
+

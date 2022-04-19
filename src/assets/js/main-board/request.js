@@ -68,12 +68,12 @@ function settleMortgage(property){
 
 
 // ############################################# Prison #################################################
-function payPrisonFine(){
+function payFeeToGetOutOfJail(){
     fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/fine`, "POST").catch(errorHandler);
 }
 
-function freeFromPrison(){
-    fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/free`, "POST").catch(errorHandler);
+function getOutOfJailWithCard(){
+    fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/free`,"POST").catch(errorHandler);
 }
 
 // ############################################# Auctions #################################################

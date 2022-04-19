@@ -180,3 +180,11 @@ function canCollectRent(){
     }
     return false;
 }
+
+function canIUseAJailCard(){
+    return retrieveMyAmountOfJailCards() > 0 && retrieveIfIAmInPrison() === true;
+}
+
+function canIPayForPrisonFee(){
+    return retrieveMyBalance() > 50 && retrieveIfIAmInPrison() === true;
+}

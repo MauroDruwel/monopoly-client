@@ -26,6 +26,7 @@ function checkGameState(prevGame) {
     checkEndState();
     checkTurnState(prevGame);
     checkAuctionState();
+    checkLogState();
     // add check state here
 }
 
@@ -40,6 +41,8 @@ function setGameState() {
     setSettleMortgageState();
     setPlayerAuctionState();
     setCollectRentState();
+    setJailCardState();
+    setPrisonFeeState();
     // add set state here
 }
 
@@ -106,6 +109,12 @@ function playerAction(action) {
             const property = _game['turns'].at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
             collectDebt(property, debtorName);
             _player.collectedRent = true;
+            break;
+        case "use-jail-card":
+            getOutOfJailWithCard();
+            break;
+        case "pay-prison-fine":
+            payFeeToGetOutOfJail();
             break;
         default:
             throw "Unknown action";
