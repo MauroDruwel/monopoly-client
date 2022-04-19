@@ -115,3 +115,12 @@ function setJailCardState(){
         document.querySelector('[data-action="use-jail-card"]').classList.remove('active');
     }
 }
+
+function setPrisonFeeState(){
+    if(canIPayForPrisonFee()){
+        document.querySelector('[data-action="pay-prison-fine"]').classList.add('active');
+    }
+    else{
+        document.querySelector('[data-action="pay-prison-fine"]').classList.remove('active');
+    }
+}

@@ -12,18 +12,33 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.5rem;
-    position: fixed;
-    right: 1rem;
-    left: 1rem;
 }
 
 #home-board .top .top-left{
     font-size: larger;
-    padding: 0.5rem;
 }
 
 #home-board .top .top-left span{
     font-weight: bold;
+}
+
+#home-board .top .top-left p{
+    padding: 0.5rem 0;
+}
+
+#home-board .top .top-left .player-activity{
+    width: auto;
+    height: 4rem;
+    overflow: auto;
+    font-size: small ;
+    padding-left: 0.5rem;
+    border: solid #C4C4C4 0.1rem;
+    border-radius: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
+}
+
+#home-board .top .top-left .player-activity li{
+    padding: 0.25rem 0;
 }
 
 /* MID */
