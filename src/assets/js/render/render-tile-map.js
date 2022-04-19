@@ -1,7 +1,7 @@
 "use strict";
 
-function renderTileMap(player){
-    const tileMaps = document.querySelectorAll(".tile-map");
+function renderTileMap(section, player){
+    const tileMaps = document.querySelectorAll(`${section} .tile-map`);
 
     tileMaps.forEach(tileMap => {
         tileMap.querySelectorAll('div[data-tile]').forEach(tile => {

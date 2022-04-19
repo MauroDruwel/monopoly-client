@@ -46,7 +46,7 @@ function setGameState(){
 function rerender(){
     renderCarousel();
     renderDiceRoll();
-    processTileMap(_player.username);
+    processTileMap('#home-board', _player.username);
     renderPlayerBalance(_player.username);
     renderPlayerAtTurn();
     renderPlayerStatsButtons();
