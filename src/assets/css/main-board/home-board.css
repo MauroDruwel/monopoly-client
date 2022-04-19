@@ -26,6 +26,11 @@
     padding: 0.5rem 0;
 }
 
+#home-buttons-grid button {
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
 #home-board .top .top-right .player-stats-buttons{
     display: flex;
     flex-direction: column;
@@ -167,9 +172,4 @@
     ". . . ."
     ". . . ."
     ". . . .";
-}
-
-#home-buttons-grid button {
-    text-transform: capitalize;
-    font-size: 1rem;
 }
