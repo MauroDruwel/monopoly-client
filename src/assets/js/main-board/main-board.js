@@ -1,6 +1,6 @@
 "use strict";
 
-async function startGame(){
+async function startGame() {
     await retrieveTiles(); // fetch board tiles
     await retrieveGame(); // fetch game data
 }
@@ -29,7 +29,7 @@ function checkGameState(prevGame) {
     // add check state here
 }
 
-function setGameState(){
+function setGameState() {
     setDiceRollState();
     setBuyPropertyState();
     setBuyHouseState();
@@ -43,7 +43,7 @@ function setGameState(){
     // add set state here
 }
 
-function rerender(){
+function rerender() {
     renderCarousel();
     renderDiceRoll();
     processTileMap('#home-board', _player.username);
@@ -53,7 +53,7 @@ function rerender(){
     // add component you would like to reload here
 }
 
-function enableOrDisableButtons(){
+function enableOrDisableButtons() {
     // disable buttons that don't contain .active class
     document.querySelectorAll('.button:not(.active)').forEach($button => {
         $button.disabled = true;
@@ -66,9 +66,9 @@ function enableOrDisableButtons(){
 
 /* ---------------- event handlers ---------------- */
 
-function playerAction(action){
+function playerAction(action) {
     const tile = retrieveTileOnCarousel();
-    switch (action){
+    switch (action) {
         case "roll-dice":
             rollDice();
             break;
@@ -112,9 +112,9 @@ function playerAction(action){
     }
 }
 
-function navigateMainBoard(navigation){
+function navigateMainBoard(navigation) {
     const tile = retrieveTileOnCarousel();
-    switch (navigation){
+    switch (navigation) {
         case "home":
             // make home board visible
             addClassToElements('#main-board > section', 'hidden');
@@ -151,13 +151,25 @@ function navigateMainBoard(navigation){
             throw "Unknown navigation";
     }
 }
+
 function processPlayerStats(e) {
     e.preventDefault();
     const $target = e.target.closest('.player-stats-buttons > button');
-    if (!$target){
+    if (!$target) {
         return;
     }
     const player = retrievePlayer($target.dataset.player);
     renderPlayerStats(player);
 
+}
+
+function processPlayerStatsTileMap(e) {
+    e.preventDefault();
+    const $tile = e.target.closest('.tile-map div[data-tile]');
+    if (!$tile) {
+        return;
+    }
+    document.querySelector('#stats .property-front').dataset.tile = $tile.dataset.tile;
+    document.querySelector('#stats .property-back').dataset.tile = $tile.dataset.tile;
+    processProperty($tile.dataset.tile);
 }
