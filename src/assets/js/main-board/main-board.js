@@ -107,7 +107,7 @@ function playerAction(action) {
         case "collect-rent":
             const debtorName = _game['turns'].at(-1)['player']; // most recent player who moved
             const property = _game['turns'].at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
-            collectDebt(property, debtorName);
+            collectRent(property, debtorName);
             _player.collectedRent = true;
             break;
         case "use-jail-card":
