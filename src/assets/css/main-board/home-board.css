@@ -12,12 +12,10 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.5rem;
-    /*position: fixed;*/
 }
 
 #home-board .top .top-left{
     font-size: larger;
-    /*padding: 0.5rem;*/
 }
 
 #home-board .top .top-left span{
