@@ -29,7 +29,7 @@
 }
 
 #home-board .top .top-left .player-activity{
-    width: 50rem;
+    width: auto;
     height: 4rem;
     overflow: auto;
     font-size: small ;
