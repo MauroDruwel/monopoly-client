@@ -23,7 +23,12 @@ function renderTile(tile, scale) {
     switch(tile.type) {
         /* tiles that a player can actually own */
         case "street":
-            renderStreetTile(tile, scale);
+            if(document.querySelector("#carousel").classList.contains("show-properties-back")){
+                renderBackOfStreetTile(tile, scale);
+            }
+            else {
+                renderFrontOfStreetTile(tile, scale);
+            }
             break;
         case "utility":
             renderUtilityTile(tile, scale);
@@ -104,12 +109,20 @@ function renderBasicTile(template, scale){
 
 /* tiles that a player can actually own */
 
-function renderStreetTile(tile, scale){
+function renderFrontOfStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
     document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
     processPropertyFront(tile.name);
+}
+
+function renderBackOfStreetTile(tile, scale){
+    const $template = document.querySelector(`#carousel .property-back-template`).content.firstElementChild.cloneNode(true);
+    $template.classList.add(scale);
+    $template.dataset.tile = tile.nameAsPathParameter;
+    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
+    processPropertyBack(tile.name);
 }
 
 function renderUtilityTile(tile, scale){
