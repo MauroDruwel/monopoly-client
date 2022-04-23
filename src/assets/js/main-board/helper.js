@@ -55,7 +55,7 @@ function canBuyHouse(tile) {
         const property = retrievePropertyWithOwnershipData(tile.name);
         for (const propertyOfStreet of street) {
             // check if there is a property in the street "that is running behind" on house improvement
-            if (checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
+            if (!checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
                 return false;
             }
         }
@@ -67,7 +67,7 @@ function canBuyHouse(tile) {
 function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
     if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
         return false;
-    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || roperty.hotelCount >= 1){
+    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1){
         return false;
     } else {
         return true;
