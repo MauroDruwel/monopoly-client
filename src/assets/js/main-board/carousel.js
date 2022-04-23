@@ -41,11 +41,9 @@ function processPropertySide(e){
     e.preventDefault();
     const $target = e.target;
     const $property = $target.closest('#carousel .property-front, #carousel .property-back');
-    
     if(!$property) {
         return;
     }
-
     if($property.classList.contains('property-front')){
         document.querySelector("#carousel").classList.add("show-properties-back");
     }

@@ -64,15 +64,6 @@ function canBuyHouse(tile) {
     return false;
 }
 
-function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
-    if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
-        return false;
-    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1){
-        return false;
-    } else {
-        return true;
-    }
-}
 // check if street is sold evenly...
 function canSellHouse(tile) {
     // also checks if tile has an actual street
@@ -82,8 +73,7 @@ function canSellHouse(tile) {
 
         for (const propertyOfStreet of street) {
             // check if there is a property in the street that has more houses than current property
-            if (propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
-                propertyOfStreet.hotelCount !== property.hotelCount || property.mortgage) {
+            if (checkIfPropertyInStreetHasMoreHouses(propertyOfStreet,property)) {
                 return false;
             }
         }
@@ -110,16 +100,6 @@ function canBuyHotel(tile) {
     return false;
 }
 
-function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
-    if (propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4) {
-        return false;
-    } else if ((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
 // check if street is sold evenly...
 function canSellHotel(tile) {
     // also checks if tile has an actual street
@@ -129,7 +109,7 @@ function canSellHotel(tile) {
 
         for (const propertyOfStreet of street) {
             // check if there is a property in the street "that is running behind" on hotel improvement
-            if (propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0 || property.mortgage) {
+            if (checkIfPropertyIsRunningBehindOnHotelimprovement(propertyOfStreet,property)) {
                 return false;
             }
         }
@@ -143,7 +123,7 @@ function canTakeMortgage(tile) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         if (doIOwnTile(tile.name) && !property.mortgage) {
             for (const propertyOfStreet of street) {
-                if (propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0) {
+                if (checkIfThereAreNoHousesAndHotels(propertyOfStreet)){
                     return false;
                 }
             }
@@ -165,9 +145,8 @@ function canSettleMortgage(tile) {
 function canBeAuctioned(tile) {
     if (doIOwnTile(tile.name)) {
         const street = retrieveStreetWithOwnershipData(tile.name);
-
         for (const propertyOfStreet of street) {
-            if (propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0) {
+            if (checkIfThereAreNoHousesAndHotels(propertyOfStreet)){
                 return false;
             }
         }
@@ -192,6 +171,39 @@ function canCollectRent() {
     return false;
 }
 
+function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
+    if (propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4) {
+        return false;
+    } else if ((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
+    if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
+        return false;
+    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkIfPropertyInStreetHasMoreHouses(propertyOfStreet,property){
+    return propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
+        propertyOfStreet.hotelCount !== property.hotelCount || property.mortgage;
+}
+
+function checkIfPropertyIsRunningBehindOnHotelimprovement(propertyOfStreet,property){
+    return propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0 || property.mortgage;
+}
+
+function checkIfThereAreNoHousesAndHotels(property){
+    return property.hotelCount !== 0 || property.houseCount !== 0;
+}
+
 function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
     return newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame));
 }
@@ -202,4 +214,7 @@ function canIUseAJailCard() {
 
 function canIPayForPrisonFee(){
     return retrieveMyBalance() > 50 && retrieveIfIAmInPrison() === true;
+}
+function isItMyTurnAndCanIStillBuyThisProperty(){
+    return isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null;
 }
