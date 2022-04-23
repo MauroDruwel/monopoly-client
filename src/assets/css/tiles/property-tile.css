@@ -30,6 +30,8 @@
 }
 
 .property-front .grid-body, .property-back .grid-body {
+    display: flex;
+    flex-direction: column;
     padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
@@ -56,11 +58,19 @@
 
 /* specific style for property front */
 
+.property-front .grid-body .prop-cost {
+    margin-top: auto;
+    text-align: center;
+    border: solid #dcdcdc 0.1rem;
+    border-radius: 0.45rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    box-shadow: rgba(141, 141, 141, 0.2) 0 0.125rem 0.5rem 0;
+}
+
 /* specific style for property back */
 
 .property-back .grid-body {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 

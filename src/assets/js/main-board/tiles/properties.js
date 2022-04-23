@@ -25,7 +25,7 @@ function processPropertyFront(name){
         }
     }
 
-    renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCount);
+    renderPropertyFront(property, ownerName, mortgage, property.cost, houseCount, hotelCount);
 }
 
 function processProperty(name){
