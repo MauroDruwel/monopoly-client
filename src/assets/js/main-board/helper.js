@@ -115,8 +115,7 @@ function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
         return false;
     } else if ((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1) {
         return false;
-    }
-    else{
+    } else {
         return true;
     }
 }

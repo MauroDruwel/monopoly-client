@@ -10,6 +10,7 @@ let _player = {
 
 let _game = {}; // don't change to const
 let _tiles = []; // don't change to const
+let _antiDuplicates = {carouselTilesContainerSelector: "#carousel > div:last-of-type",throwInvalidTileType: "Invalid tile type", sectionInMainBoard: "#main-board > section"};
 
 document.addEventListener('DOMContentLoaded', init);
 

@@ -21,7 +21,7 @@ function renderBuyProperty(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw "Invalid tile type";
+            throw `${_antiDuplicates.throwInvalidTileType}`;
     }
 }
 
@@ -46,7 +46,7 @@ function renderSellHotel(tile){
 }
 
 function renderTransactionPage(tile, section, transactionValue){
-    addClassToElements('#main-board > section', 'hidden');
+    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');
     document.querySelectorAll(`${section} .tile`).forEach($element => {
         $element.dataset.tile = tile.nameAsPathParameter;
@@ -70,7 +70,7 @@ function renderTakeMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw "Invalid tile type";
+            throw `${_antiDuplicates.throwInvalidTileType}`;
     }
 }
 
@@ -89,12 +89,12 @@ function renderSettleMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw "Invalid tile type";
+            throw `${_antiDuplicates.throwInvalidTileType}`;
     }
 }
 
 function renderSetupAuction(tile){
-    addClassToElements('#main-board > section', 'hidden');
+    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
     document.querySelector(`#setup-auction`).classList.remove('hidden');
     document.querySelector(`#setup-auction legend > span`).innerHTML = tile.name;
 }
@@ -130,7 +130,7 @@ function renderPlayerStatsButtons(){
     document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
 }
 function renderPlayerStats(player){
-    addClassToElements('#main-board > section', 'hidden');
+    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
 
     removeClassFromElements('#stats .tile-map div[data-tile]', 'owns'); // reset tile map

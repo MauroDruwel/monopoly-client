@@ -126,7 +126,7 @@ function navigateMainBoard(navigation) {
     switch (navigation) {
         case "home":
             // make home board visible
-            addClassToElements('#main-board > section', 'hidden');
+            addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
             document.querySelector('#home-board').classList.remove('hidden');
             break;
         case "buy-property":
