@@ -30,7 +30,7 @@ function renderPropertyBack(property) {
 
 
 
-function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCount) {
+function renderPropertyFront(property, ownerName, mortgage, cost, houseCount, hotelCount) {
 
     // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
     // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
@@ -47,6 +47,7 @@ function renderPropertyFront(property, ownerName, mortgage, houseCount, hotelCou
             `<li>${houseCount} house(s)</li>
                 <li>${hotelCount} hotel(s)</li>`
         );
-        $property.querySelector('.grid-body p:last-of-type span').innerHTML = mortgage;
+        $property.querySelector('.grid-body p:nth-of-type(3) span').innerHTML = mortgage;
+        $property.querySelector('.grid-body .prop-cost span').innerHTML = cost;
     });
 }
