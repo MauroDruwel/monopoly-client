@@ -39,10 +39,6 @@ function checkTurnState(prevGame){
     }
 }
 
-function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
-    return newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame));
-}
-
 function checkLogState(){
     const res = [];
     let log = "";

@@ -192,6 +192,10 @@ function canCollectRent() {
     return false;
 }
 
+function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
+    return newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame));
+}
+
 function canIUseAJailCard() {
     return retrieveMyAmountOfJailCards() > 0 && retrieveIfIAmInPrison() === true;
 }
