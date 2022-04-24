@@ -1,5 +1,7 @@
 "use strict";
 
+const carouselTilesContainerSelector = "#carousel > div:last-of-type";
+
 function renderCarousel(){
     const scale = ["small", "medium", "normal", "medium", "small"];
     const numberOfTiles = scale.length;
@@ -9,7 +11,7 @@ function renderCarousel(){
     }
 
     // reset carousel
-    document.querySelector(`${_antiDuplicates.carouselTilesContainerSelector}`).innerHTML = '';
+    document.querySelector(`${carouselTilesContainerSelector}`).innerHTML = '';
 
     for(let counter = 0; counter < numberOfTiles; counter++){
         renderTile(_tiles.at(pointer), scale[counter]);
@@ -103,7 +105,7 @@ function renderFreeParkingTile(scale){
 function renderBasicTile(template, scale){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    document.querySelector(`${_antiDuplicates.carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
 }
 
 /* tiles that a player can actually own */
@@ -112,7 +114,7 @@ function renderFrontOfStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector(`${_antiDuplicates.carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processPropertyFront(tile.name);
 }
 
@@ -128,7 +130,7 @@ function renderUtilityTile(tile, scale){
     const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector(`${_antiDuplicates.carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processUtility(tile.name);
 }
 
@@ -136,7 +138,7 @@ function renderRailroadTile(tile, scale){
     const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector(`${_antiDuplicates.carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
 }
 

@@ -1,5 +1,6 @@
 "use strict";
-
+const throwInvalidTileType = "Invalid tile type";
+const sectionInMainBoard = "#main-board > section";
 function renderDiceRoll(){
     if(_game["lastDiceRoll"]){
         document.querySelector('#dice-container .dice-right').innerHTML = _game["lastDiceRoll"][0];
@@ -21,7 +22,7 @@ function renderBuyProperty(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${_antiDuplicates.throwInvalidTileType}`;
+            throw `${throwInvalidTileType}`;
     }
 }
 
@@ -46,7 +47,7 @@ function renderSellHotel(tile){
 }
 
 function renderTransactionPage(tile, section, transactionValue){
-    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${sectionInMainBoard}`, 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');
     document.querySelectorAll(`${section} .tile`).forEach($element => {
         $element.dataset.tile = tile.nameAsPathParameter;
@@ -70,7 +71,7 @@ function renderTakeMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${_antiDuplicates.throwInvalidTileType}`;
+            throw `${throwInvalidTileType}`;
     }
 }
 
@@ -89,12 +90,12 @@ function renderSettleMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${_antiDuplicates.throwInvalidTileType}`;
+            throw `${throwInvalidTileType}`;
     }
 }
 
 function renderSetupAuction(tile){
-    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${sectionInMainBoard}`, 'hidden');
     document.querySelector(`#setup-auction`).classList.remove('hidden');
     document.querySelector(`#setup-auction legend > span`).innerHTML = tile.name;
 }
@@ -130,7 +131,7 @@ function renderPlayerStatsButtons(){
     document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
 }
 function renderPlayerStats(player){
-    addClassToElements(`${_antiDuplicates.sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${sectionInMainBoard}`, 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
 
     removeClassFromElements('#stats .tile-map div[data-tile]', 'owns'); // reset tile map
