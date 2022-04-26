@@ -123,7 +123,7 @@ function canTakeMortgage(tile){
         const property = retrievePropertyWithOwnershipData(tile.name);
         const street = retrieveStreetWithOwnershipData(tile.name);
             for(const propertyOfStreet of street){
-                if(checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet)){
+                if(checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property)){
                     return false;
                 }
             }
@@ -175,20 +175,16 @@ function canCollectRent() {
 function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
     if (propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4) {
         return false;
-    } else if ((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1) {
-        return false;
     } else {
-        return true;
+        return !((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1);
     }
 }
 
 function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
     if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
         return false;
-    } else if (propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1){
-        return false;
     } else {
-        return true;
+        return !(propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1);
     }
 }
 
@@ -201,8 +197,8 @@ function checkIfPropertyIsRunningBehindOnHotelImprovement(propertyOfStreet,prope
     return propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0 || property.mortgage;
 }
 
-function checkIfThereAreNoHousesAndHotelsAndNoMortgage(property){
-    return property.hotelCount !== 0 || property.houseCount !== 0 ||property.mortgage;
+function checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property){
+    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 ||property.mortgage;
 }
 
 function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
