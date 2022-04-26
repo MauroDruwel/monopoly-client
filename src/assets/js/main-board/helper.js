@@ -55,7 +55,7 @@ function canBuyHouse(tile) {
         const property = retrievePropertyWithOwnershipData(tile.name);
         for (const propertyOfStreet of street) {
             // check if there is a property in the street "that is running behind" on house improvement
-            if (!checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
+            if (checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
                 return false;
             }
         }
@@ -91,7 +91,7 @@ function canBuyHotel(tile) {
 
         for (const propertyOfStreet of street) {
             // check if there is a property in the street "that is running behind" on hotel improvement
-            if (!checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet)){
+            if (checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet)){
                 return false;
             }
         }
@@ -173,19 +173,19 @@ function canCollectRent() {
 }
 
 function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
-    if (propertyOfStreet.hotelCount < property.hotelCount || property.houseCount < 4) {
-        return false;
-    } else {
-        return !((propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) || propertyOfStreet.mortgage || property.hotelCount >= 1);
-    }
+    return (propertyOfStreet.hotelCount < property.hotelCount ||
+        property.houseCount < 4 ||
+        (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) ||
+        propertyOfStreet.mortgage ||
+        property.hotelCount >= 1);
 }
 
 function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
-    if (propertyOfStreet.houseCount < property.houseCount || property.houseCount > 4){
-        return false;
-    } else {
-        return !(propertyOfStreet.hotelCount !== property.hotelCount || propertyOfStreet.mortgage || property.hotelCount >= 1);
-    }
+    return (propertyOfStreet.houseCount < property.houseCount ||
+        property.houseCount > 4 ||
+        propertyOfStreet.hotelCount !== property.hotelCount ||
+        propertyOfStreet.mortgage ||
+        property.hotelCount >= 1);
 }
 
 function checkIfPropertyInStreetHasMoreHouses(propertyOfStreet,property){
@@ -198,7 +198,7 @@ function checkIfPropertyIsRunningBehindOnHotelImprovement(propertyOfStreet,prope
 }
 
 function checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property){
-    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 ||property.mortgage;
+    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 || property.mortgage;
 }
 function checkIfThereAreNoHousesAndHotels(propertyOfStreet){
     return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0;
