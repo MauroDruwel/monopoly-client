@@ -200,7 +200,9 @@ function checkIfPropertyIsRunningBehindOnHotelImprovement(propertyOfStreet,prope
 function checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property){
     return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 ||property.mortgage;
 }
-
+function checkIfThereAreNoHousesAndHotels(propertyOfStreet){
+    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0;
+}
 function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
     return newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame));
 }
