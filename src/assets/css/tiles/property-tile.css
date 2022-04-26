@@ -40,6 +40,10 @@
 
 }
 
+.property-back li {
+    font-size: 0.9rem;
+}
+
 .property-back li:last-of-type, .property-front li:last-of-type {
     margin-bottom: 1rem;
 }
@@ -92,14 +96,7 @@
     margin-bottom: 0.5rem;
 }
 
-.property-back li {
-    font-size: 0.9rem;
-}
-
-
-
 /* dataset colors on tile header*/
-
 
 [data-color="purple"] .grid-header{
     background-color: purple;

@@ -27,7 +27,7 @@ function checkAuctionState(){
 function checkTurnState(prevGame){
     if(prevGame['turns'].length >= 1){
         // check if there is a new move by the same player or a new move by another player
-        if(newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame))){
+        if(checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame)){
             // collect rent only once on new turn
             _player.collectedRent = false;
 

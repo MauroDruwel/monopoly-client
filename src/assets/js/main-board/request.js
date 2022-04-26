@@ -131,6 +131,6 @@ function trade(other, offerProperty, offerAmount, wantProperty){
 
 // ############################################# Player Interaction #################################################
 
-function collectDebt(property, debtorName){
+function collectRent(property, debtorName){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/visitors/${debtorName}/rent`, "DELETE").catch(errorHandler);
 }

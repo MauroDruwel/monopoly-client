@@ -1,16 +1,17 @@
 "use strict";
 
+const carouselTilesContainerSelector = "#carousel > div:last-of-type";
+
 function renderCarousel(){
     const scale = ["small", "medium", "normal", "medium", "small"];
     const numberOfTiles = scale.length;
     let pointer = _player.carousel + (Math.floor(numberOfTiles / 2));
-
     if(pointer >= _tiles.length){
         pointer -= _tiles.length ;
     }
 
     // reset carousel
-    document.querySelector('#carousel > div:last-of-type').innerHTML = '';
+    document.querySelector(`${carouselTilesContainerSelector}`).innerHTML = '';
 
     for(let counter = 0; counter < numberOfTiles; counter++){
         renderTile(_tiles.at(pointer), scale[counter]);
@@ -39,28 +40,28 @@ function renderTile(tile, scale) {
 
         /* basic tile */
         case "Go":
-            renderGoTile(scale);
+            renderBasicTile(".go-template", scale);
             break;
         case "community chest":
-            renderCommunityChestTile(scale);
+            renderBasicTile(".community-chest-template", scale);
             break;
         case "Tax Income":
-            renderTaxIncomeTile(scale);
+            renderBasicTile(".tax-income-template", scale);
             break;
         case "chance":
-            renderChanceTile(scale);
+            renderBasicTile(".chance-template", scale);
             break;
         case "Jail":
-            renderJailTile(scale);
+            renderBasicTile(".jail-template", scale);
             break;
         case "Free Parking":
-            renderFreeParkingTile(scale);
+            renderBasicTile(".free-parking-template", scale);
             break;
         case "Go to Jail":
-            renderGoToJailTile(scale);
+            renderBasicTile(".go-to-jail-template", scale);
             break;
         case "Luxury Tax":
-            renderLuxuryTaxTile(scale);
+            renderBasicTile(".luxury-tax-template", scale);
             break;
         default:
             throw "Couldn't render tile";
@@ -68,43 +69,10 @@ function renderTile(tile, scale) {
 }
 
 /* Basic Tiles */
-
-function renderGoTile(scale){
-    renderBasicTile(".go-template", scale);
-}
-
-function renderCommunityChestTile(scale){
-    renderBasicTile(".community-chest-template", scale);
-}
-
-function renderChanceTile(scale){
-    renderBasicTile(".chance-template", scale);
-}
-
-function renderJailTile(scale){
-    renderBasicTile(".jail-template", scale);
-}
-
-function renderGoToJailTile(scale){
-    renderBasicTile(".go-to-jail-template", scale);
-}
-
-function renderTaxIncomeTile(scale){
-    renderBasicTile(".tax-income-template", scale);
-}
-
-function renderLuxuryTaxTile(scale){
-    renderBasicTile(".luxury-tax-template", scale);
-}
-
-function renderFreeParkingTile(scale){
-    renderBasicTile(".free-parking-template", scale);
-}
-
 function renderBasicTile(template, scale){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
-    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
 }
 
 /* tiles that a player can actually own */
@@ -113,7 +81,7 @@ function renderFrontOfStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processPropertyFront(tile.name);
 }
 
@@ -129,7 +97,7 @@ function renderUtilityTile(tile, scale){
     const $template = document.querySelector(`#carousel .utility-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processUtility(tile.name);
 }
 
@@ -137,7 +105,7 @@ function renderRailroadTile(tile, scale){
     const $template = document.querySelector(`#carousel .railroad-template`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     $template.dataset.tile = tile.nameAsPathParameter;
-    document.querySelector('#carousel > div:last-of-type').insertAdjacentHTML('beforeend', $template.outerHTML);
+    document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
 }
 
