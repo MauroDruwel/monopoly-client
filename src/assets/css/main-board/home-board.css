@@ -26,6 +26,7 @@
     padding: 0.5rem 0;
 }
 
+<<<<<<< HEAD
 #home-board .top .top-right{
     display: flex;
     flex-direction: row;
@@ -44,6 +45,13 @@
     color: white;
 }
 
+=======
+#home-buttons-grid button {
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+>>>>>>> c065caaad6156b548b587d357a1ce1c107b92e4a
 #home-board .top .top-right .player-stats-buttons{
     display: flex;
     flex-direction: column;
@@ -185,9 +193,4 @@
     ". . . ."
     ". . . ."
     ". . . .";
-}
-
-#home-buttons-grid button {
-    text-transform: capitalize;
-    font-size: 1rem;
 }

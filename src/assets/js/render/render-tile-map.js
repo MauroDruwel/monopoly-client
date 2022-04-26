@@ -10,6 +10,10 @@ function renderTileMap(section, player){
                     tile.classList.add('owns');
                 }
             });
+            if(tile.dataset.tile === _tiles[_player.carousel].nameAsPathParameter){
+                removeClassFromElements(".tile-map div[data-tile]", "carousel-position-tile-map");
+                tile.classList.add("carousel-position-tile-map");
+            }
         });
         tileMap.querySelector('.player span').innerHTML = player.name;
     });
