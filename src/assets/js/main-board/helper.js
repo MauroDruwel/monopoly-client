@@ -118,19 +118,20 @@ function canSellHotel(tile) {
     return false;
 }
 
-function canTakeMortgage(tile) {
+function canTakeMortgage(tile){
+    if(doIOwnTile(tile.name)){
         const property = retrievePropertyWithOwnershipData(tile.name);
         const street = retrieveStreetWithOwnershipData(tile.name);
-        if (doIOwnTile(tile.name) && !property.mortgage) {
-            for (const propertyOfStreet of street) {
-                if (checkIfThereAreNoHousesAndHotels(propertyOfStreet)){
+            for(const propertyOfStreet of street){
+                if(checkIfThereAreNoHousesAndHotels(propertyOfStreet)||property.mortgage){
                     return false;
                 }
             }
             return true;
-        }
+    }
     return false;
 }
+
 
 function canSettleMortgage(tile) {
     if (doIOwnTile(tile.name) && retrieveMyBalance() >= (parseInt(tile.mortgage) * 1.1)) {
