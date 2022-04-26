@@ -184,7 +184,17 @@ function processPlayerStatsTileMap(e) {
     if (!$tile) {
         return;
     }
-    document.querySelector('#stats .property-front').dataset.tile = $tile.dataset.tile;
-    document.querySelector('#stats .property-back').dataset.tile = $tile.dataset.tile;
-    processProperty($tile.dataset.tile);
+    switch(retrieveTileByName($tile.dataset.tile).type){
+        case "street":
+            renderStreetInStats($tile);
+            break;
+        case "railroad":
+            renderRailroadInStats($tile);
+            break;
+        case "utility":
+            renderUtilityInStats($tile);
+            break;
+        default:
+            throw "Invalid tile type";
+    }
 }

@@ -1,12 +1,15 @@
 "use strict";
-const throwInvalidTileType = "Invalid tile type";
-const sectionInMainBoard = "#main-board > section";
+const _throwInvalidTileType = "Invalid tile type";
+const _sectionInMainBoard = "#main-board > section";
+const _articleInStatsSelector = "#stats .pair-horizontal article";
+
 function renderDiceRoll(){
     if(_game["lastDiceRoll"]){
         document.querySelector('#dice-container .dice-right').innerHTML = _game["lastDiceRoll"][0];
         document.querySelector('#dice-container .dice-left').innerHTML = _game["lastDiceRoll"][1];
     }
 }
+
 function renderBuyProperty(tile){
     switch (tile.type){
         case "street":
@@ -22,7 +25,7 @@ function renderBuyProperty(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${throwInvalidTileType}`;
+            throw `${_throwInvalidTileType}`;
     }
 }
 
@@ -47,14 +50,13 @@ function renderSellHotel(tile){
 }
 
 function renderTransactionPage(tile, section, transactionValue){
-    addClassToElements(`${sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${_sectionInMainBoard}`, 'hidden');
     document.querySelector(`${section}`).classList.remove('hidden');
     document.querySelectorAll(`${section} .tile`).forEach($element => {
         $element.dataset.tile = tile.nameAsPathParameter;
     });
     document.querySelector(`${section} .information h2 span`).innerHTML = transactionValue;
 }
-
 
 function renderTakeMortgage(tile){
     switch (tile.type){
@@ -71,7 +73,7 @@ function renderTakeMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${throwInvalidTileType}`;
+            throw `${_throwInvalidTileType}`;
     }
 }
 
@@ -90,12 +92,12 @@ function renderSettleMortgage(tile){
             processRailroad(tile.name);
             break;
         default:
-            throw `${throwInvalidTileType}`;
+            throw `${_throwInvalidTileType}`;
     }
 }
 
 function renderSetupAuction(tile){
-    addClassToElements(`${sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${_sectionInMainBoard}`, 'hidden');
     document.querySelector(`#setup-auction`).classList.remove('hidden');
     document.querySelector(`#setup-auction legend > span`).innerHTML = tile.name;
 }
@@ -116,7 +118,6 @@ function renderPlayerAtTurn(){
     document.querySelector(".top-left p span").innerHTML = _game.currentPlayer;
 }
 
-
 function renderPlayerStatsButtons(){
     const $template = document.querySelector(`#home-board .player-stat-button-template`).content.firstElementChild.cloneNode(true);
     document.querySelector('#home-board .player-stats-buttons').innerHTML ='';
@@ -130,8 +131,9 @@ function renderPlayerStatsButtons(){
     });
     document.querySelector('#home-board .player-stats-buttons').insertAdjacentHTML('beforeend', html);
 }
+
 function renderPlayerStats(player){
-    addClassToElements(`${sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${_sectionInMainBoard}`, 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
 
     removeClassFromElements('#stats .tile-map div[data-tile]', 'owns'); // reset tile map
@@ -152,6 +154,28 @@ function renderLog(res){
 }
 
 function renderBankrupt(){
-    addClassToElements(`${sectionInMainBoard}`, 'hidden');
+    addClassToElements(`${_sectionInMainBoard}`, 'hidden');
     document.querySelector("#bankrupt").classList.remove("hidden");
+}
+
+function renderStreetInStats($tile){
+    addClassToElements(`${_articleInStatsSelector}`, 'hidden');
+    removeClassFromElements('#stats .property-front, #stats .property-back', 'hidden');
+    document.querySelector('#stats .property-front').dataset.tile = $tile.dataset.tile;
+    document.querySelector('#stats .property-back').dataset.tile = $tile.dataset.tile;
+    processProperty($tile.dataset.tile);
+}
+
+function renderUtilityInStats($tile){
+    addClassToElements(`${_articleInStatsSelector}`, 'hidden');
+    removeClassFromElements('#stats .utility-tiles', 'hidden');
+    document.querySelector('#stats .utility-tiles').dataset.tile = $tile.dataset.tile;
+    processUtility($tile.dataset.tile);
+}
+
+function renderRailroadInStats($tile){
+    addClassToElements(`${_articleInStatsSelector}`, 'hidden');
+    removeClassFromElements('#stats .railroad-tile', 'hidden');
+    document.querySelector('#stats .railroad-tile').dataset.tile = $tile.dataset.tile;
+    processRailroad($tile.dataset.tile);
 }
