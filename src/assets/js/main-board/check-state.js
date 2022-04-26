@@ -5,7 +5,7 @@
 function checkEndState(){
     // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
-        location.href = "loss-screen.html";
+        location.href = "lose-screen.html";
     }
     else if (_game.winner === _player.username) {
         location.href = "winner-screen.html";

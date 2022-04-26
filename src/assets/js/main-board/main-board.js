@@ -116,6 +116,9 @@ function playerAction(action) {
         case "pay-prison-fine":
             payFeeToGetOutOfJail();
             break;
+        case "bankrupt":
+            bankrupt();
+            break;
         default:
             throw "Unknown action";
     }
@@ -155,6 +158,9 @@ function navigateMainBoard(navigation) {
             break;
         case "auction":
             // render auction
+            break;
+        case "bankrupt":
+            renderBankrupt();
             break;
         default:
             throw "Unknown navigation";
