@@ -151,3 +151,7 @@ function renderLog(res){
     });
 }
 
+function renderBankrupt(){
+    addClassToElements(`${sectionInMainBoard}`, 'hidden');
+    document.querySelector("#bankrupt").classList.remove("hidden");
+}

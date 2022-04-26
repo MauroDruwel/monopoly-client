@@ -26,6 +26,24 @@
     padding: 0.5rem 0;
 }
 
+#home-board .top .top-right{
+    display: flex;
+    flex-direction: row;
+}
+
+#home-board .top .top-right .bankrupt-button{
+    margin-right: 1rem;
+}
+
+#home-board .top .top-right .bankrupt-button .button{
+    font-size: 1rem;
+}
+
+#home-board .top .top-right .bankrupt-button .button:hover{
+    background-color: red;
+    color: white;
+}
+
 #home-buttons-grid button {
     text-transform: capitalize;
     font-size: 1rem;
