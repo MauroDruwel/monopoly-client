@@ -31,7 +31,7 @@ function processConnectionForm(e){
     if($areGamesLoaded && $selectedGame){
         joinGame($selectedGame.value, username);
     }
-    else if(!$areGamesLoaded){
+    else{
         createGame(numberOfPlayers, username);
     }
 
