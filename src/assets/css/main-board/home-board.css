@@ -106,6 +106,9 @@
     margin-bottom: 0.5rem;
 }
 
+#carousel .property-front, #carousel .property-back{
+    cursor: help;
+}
 
 #carousel-navigation img {
     width: 3rem;
