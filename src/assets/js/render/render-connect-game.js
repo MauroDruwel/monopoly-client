@@ -7,7 +7,6 @@ function renderGames(games) {
 
     const $tbody = document.querySelector('#available-games tbody');
     $tbody.innerHTML = $template.outerHTML; // reset html
-
     games.forEach(game => {
         if (game.started === false) {
 

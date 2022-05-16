@@ -9,9 +9,11 @@ function processAvailableGames(e){
         return;
     }
 
-    retrieveAvailableGames(numberOfPlayers).then(games => {
-        if(games.length > 0){
-            renderGames(games);
+    retrieveAvailableGames(numberOfPlayers)
+        .then(gamesObject => {
+            const gamesList = gamesObject.games;
+        if(gamesList.length > 0){
+            renderGames(gamesList);
         }
         else {
             hideGames();

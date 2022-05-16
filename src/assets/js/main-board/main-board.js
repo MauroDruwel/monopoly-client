@@ -25,7 +25,7 @@ async function reloadGame() {
 function checkGameState(prevGame) {
     checkEndState();
     checkTurnState(prevGame);
-    checkAuctionState();
+    //checkAuctionState();
     checkLogState();
     // add check state here
 }
