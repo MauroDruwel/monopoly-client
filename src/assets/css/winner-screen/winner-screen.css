@@ -7,6 +7,10 @@
      background-position: center;
 
  }
+ #button_container {
+     display: flex;
+     align-content: space-around;
+ }
  #party_background main h2{
     margin-top: 3rem;
 }
