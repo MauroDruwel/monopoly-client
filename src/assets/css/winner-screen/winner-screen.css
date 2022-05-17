@@ -1,4 +1,4 @@
- #party_background main {
+ #winner-screen main {
      background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
      background-size: 30rem;
      padding-top: 15rem;
@@ -11,15 +11,15 @@
      display: flex;
      align-content: space-around;
  }
- #party_background main h2{
+ #winner-screen main h2{
     margin-top: 3rem;
 }
- #party_background main h2,p{
+ #winner-screen main h2,p{
     font-size: 5rem;
     text-align: center;
     text-decoration: #333333;
 }
- #party_background button {
+ #winner-screen button {
     font-size: 2rem;
     padding: 4rem 8rem;
     background-color: #757575;
