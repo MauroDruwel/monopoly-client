@@ -1,6 +1,10 @@
 "use strict";
 function renderQueue(game){
 
+    const $span = document.querySelector("#queue  h2 span");
+
+    $span.innerHTML = beautifyId(_player.gameId);
+
     const $ul = document.querySelector("#queue ul");
     let html = '';
     $ul.innerHTML = html;
