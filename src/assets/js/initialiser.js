@@ -3,7 +3,6 @@ let _player = {
     username: null,
     token: null,
     gameId: null,
-    pawn: null,
     carousel: 0,
     collectedRent: false
 };
@@ -27,9 +26,6 @@ function init() {
     else if (document.querySelector('#queue')) {
         initQueue();
     }
-    else if (document.querySelector('#select-pawn')) {
-        initSelectPawn();
-    }
     else if (document.querySelector('#main-board')) {
         initMainBoard();
         startGame().then(() => {
@@ -52,10 +48,6 @@ function initConnect() {
 
 function initQueue() {
     processQueueState();
-}
-
-function initSelectPawn() {
-    document.querySelector("#select-pawn").addEventListener('click', processSelectedPawn);
 }
 
 function initMainBoard() {

@@ -4,7 +4,7 @@ function processQueueState(){
     fetchFromServer(`/games/${_player.gameId}`,'GET')
         .then(game => {
             if(game.started){
-                location.href = "select-pawn.html";
+                location.href = "main-board.html";
             }
             else {
                 renderQueue(game);
