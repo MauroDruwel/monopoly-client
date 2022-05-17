@@ -1,22 +1,24 @@
- #winner-screen main {
-     background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
-     background-size: 30rem;
-     padding-top: 15rem;
-     text-align: center;
-     background-repeat: no-repeat;
-     background-position: center;
+#winner-screen main {
+    background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
+    background-size: 35rem;
+    padding-top: 15rem;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
 
- }
+}
 
- #winner-screen main h2{
+#winner-screen main h2 {
     margin-top: 3rem;
 }
- #winner-screen main h2,p{
+
+#winner-screen main h2, p {
     font-size: 5rem;
     text-align: center;
     text-decoration: #333333;
 }
- #winner-screen button {
+
+#winner-screen button {
     font-size: 2rem;
     padding: 4rem 8rem;
     background-color: #757575;
@@ -27,7 +29,24 @@
     text-align: center;
 
 }
- #button_container {
-     display: flex;
-     align-content: space-around;
- }
+
+#button_container {
+    display: flex;
+    align-content: space-between;
+}
+.glow {
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}

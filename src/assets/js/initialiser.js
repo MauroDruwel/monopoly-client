@@ -97,4 +97,6 @@ function initLosingScreen(){
 
 function initWinningScreen(){
     document.querySelector("#go-back-to-lobby-button").addEventListener('click',()=> location.href = "connect-game.html");
+    document.querySelector("#party-button").addEventListener('click',changeBackground);
 }
+
