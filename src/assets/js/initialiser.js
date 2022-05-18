@@ -9,6 +9,7 @@ let _player = {
 
 let _game = {}; // don't change to const
 let _tiles = []; // don't change to const
+const _connectGameHref = "connect-game.html";
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -36,7 +37,7 @@ function init() {
 }
 
 function initIndex() {
-    document.querySelector("#start-game").addEventListener('click', () => location.href = "connect-game.html");
+    document.querySelector("#start-game").addEventListener('click', () => location.href = _connectGameHref);
 }
 
 function initConnect() {
@@ -79,11 +80,11 @@ function initMainBoard() {
 }
 
 function initLosingScreen() {
-    document.querySelector("#lost-button").addEventListener('click', () => location.href = "connect-game.html");
+    document.querySelector("#lost-button").addEventListener('click', () => location.href = _connectGameHref);
 }
 
 function initWinningScreen() {
-    document.querySelector("#go-back-to-lobby-button").addEventListener('click', () => location.href = "connect-game.html");
+    document.querySelector("#go-back-to-lobby-button").addEventListener('click', () => location.href =_connectGameHref );
     document.querySelector("#party-button").addEventListener('click', changeBackground);
 }
 
