@@ -1,28 +1,40 @@
- #party_background main {
-     background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
-     background-size: 30rem;
-     padding-top: 15rem;
-     text-align: center;
-     background-repeat: no-repeat;
-     background-position: center;
-
- }
- #party_background main h2{
-    margin-top: 3rem;
+#winner-screen main {
+    background-image: url(https://svgsilh.com/svg/2024235-ffc107.svg);
+    background-size: 15rem;
+    padding-top: 1rem;
+    padding-bottom:15rem;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 100%;
 }
- #party_background main h2,p{
+
+#winner-screen main h2{
+    margin-top: 1rem;
+    color: #757575;
     font-size: 5rem;
     text-align: center;
     text-decoration: #333333;
+    transition-duration: 1s;
+    transition: color;
 }
- #party_background button {
+
+
+
+#winner-screen button {
     font-size: 2rem;
     padding: 4rem 8rem;
     background-color: #757575;
     color: #FFFFFF;
     border-radius: 1rem;
-    display: block;
-    margin: 5rem auto auto;
+    margin: 2rem auto auto;
     text-align: center;
+
+}
+
+#winner-screen #button-container {
+    padding-top: 25rem;
+    display: flex;
+    justify-content: space-between;
 
 }

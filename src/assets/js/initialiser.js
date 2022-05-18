@@ -35,6 +35,9 @@ function init() {
     else if (document.querySelector("#losing-screen")){
         initLosingScreen();
     }
+    else if (document.querySelector("#winner-screen")){
+        initWinningScreen();
+    }
 }
 
 function initIndex() {
@@ -83,3 +86,9 @@ function initMainBoard() {
 function initLosingScreen(){
     document.querySelector("#lost-button").addEventListener('click',() => location.href = "connect-game.html");
 }
+
+function initWinningScreen(){
+    document.querySelector("#go-back-to-lobby-button").addEventListener('click',()=> location.href = "connect-game.html");
+    document.querySelector("#party-button").addEventListener('click',changeBackground);
+}
+
