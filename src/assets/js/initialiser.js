@@ -9,39 +9,35 @@ let _player = {
 
 let _game = {}; // don't change to const
 let _tiles = []; // don't change to const
+const _connectGameHref = "connect-game.html";
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    if(loadFromStorage("_player")){
+    if (loadFromStorage("_player")) {
         _player = loadFromStorage("_player");
     }
 
-    if (document.querySelector('#index')){
+    if (document.querySelector('#index')) {
         initIndex();
-    }
-    else if (document.querySelector('#connect-game')) {
+    } else if (document.querySelector('#connect-game')) {
         initConnect();
-    }
-    else if (document.querySelector('#queue')) {
+    } else if (document.querySelector('#queue')) {
         initQueue();
-    }
-    else if (document.querySelector('#main-board')) {
+    } else if (document.querySelector('#main-board')) {
         initMainBoard();
         startGame().then(() => {
             reloadGame().catch(errorHandler);
         }).catch(errorHandler);
-    }
-    else if (document.querySelector("#losing-screen")){
+    } else if (document.querySelector("#losing-screen")) {
         initLosingScreen();
-    }
-    else if (document.querySelector("#winner-screen")){
+    } else if (document.querySelector("#winner-screen")) {
         initWinningScreen();
     }
 }
 
 function initIndex() {
-    document.querySelector("#start-game").addEventListener('click', () => location.href = "connect-game.html");
+    document.querySelector("#start-game").addEventListener('click', () => location.href = _connectGameHref);
 }
 
 function initConnect() {
@@ -59,7 +55,7 @@ function initMainBoard() {
     addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
     document.querySelector('#carousel').addEventListener('click', processPropertySide); // carousel.js
     document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
-    document.querySelector('#home-board .player-stats-buttons').addEventListener('click',processPlayerStats);
+    document.querySelector('#home-board .player-stats-buttons').addEventListener('click', processPlayerStats);
     addEventListenerToElements('click', processPlayerStatsTileMap, '#stats .tile-map');
 
 
@@ -83,12 +79,12 @@ function initMainBoard() {
 
 }
 
-function initLosingScreen(){
-    document.querySelector("#lost-button").addEventListener('click',() => location.href = "connect-game.html");
+function initLosingScreen() {
+    document.querySelector("#lost-button").addEventListener('click', () => location.href = _connectGameHref);
 }
 
-function initWinningScreen(){
-    document.querySelector("#go-back-to-lobby-button").addEventListener('click',()=> location.href = "connect-game.html");
-    document.querySelector("#party-button").addEventListener('click',changeBackground);
+function initWinningScreen() {
+    document.querySelector("#go-back-to-lobby-button").addEventListener('click', () => location.href =_connectGameHref );
+    document.querySelector("#party-button").addEventListener('click', changeBackground);
 }
 
