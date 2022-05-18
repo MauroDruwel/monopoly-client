@@ -33,6 +33,7 @@
 #button_container {
     display: flex;
     align-content: space-between;
+
 }
 .glow {
     color: #fff;
