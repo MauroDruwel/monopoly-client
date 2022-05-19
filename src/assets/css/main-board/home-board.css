@@ -71,12 +71,14 @@
     height: 4rem;
     overflow: auto;
     font-size: small ;
+    font-weight: 700;
     padding-left: 0.5rem;
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
     padding-right: 0.5rem;
-    max-width: 200%;
+    max-width: 100%;
+    color: #333333;
 }
 
 #home-board .top .top-left .player-activity li{
