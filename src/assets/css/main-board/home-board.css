@@ -52,6 +52,9 @@
 #home-board .top .top-right .player-stats-buttons{
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    max-height: 8rem;
+    padding-right: 1rem;
 }
 #home-board .top .top-right .player-stats-buttons button {
     background-image: url("../../media/bg-pixels.png"), url("../../media/button-right-arrow.png");
