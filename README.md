@@ -26,7 +26,7 @@ Also clarify
 
 |PRIORITY|ENDPOINT                                                                                                |Client                | Client          |Server                       | Server                      | Explenation                 |
 |--------|--------------------------------------------------------------------------------------------------------|----------------------|-----------------|-----------------------------|-----------------------------|-----------------------------|
-|        |                                                                                                        |Visualize ( HTML/CSS) |Consume API (JS) |Process request (API-Bridge) |Implement Game Rules (logic)||
+|        |                                                                                                        |Visualize ( HTML/CSS) |Consume API (JS) |Process request (API-Bridge) |Implement Game Rules (logic) ||
 |        |**General Game and API Info**                                                                           |100%                  |YES/NO           |YES/NO                       |100%                         ||
 |        |GET /                                                                                                   |100%                  |YES              |YES                          |100%                         ||
 |MUSTHAVE|GET /tiles                                                                                              |100%                  |YES              |YES                          |100%                         ||
@@ -87,3 +87,8 @@ Also clarify
 
 ## Client bug(s):
 
+| Bug behaviour  | How to reproduce  | Why it hasn't been fixed    |
+|---|---|---|
+|  Wanneer je scherm teveel ingezoemd is kan je op bijna geen enkele knop duwen. |  De schaling van computers zijn verschillend. (1080p - schaling 100% werkt het beste). |  Tijd: we hebben dit nog niet echt gezien en zouden nog alles moeten opzoeken. Hiervoor hadden we geen tijd meer. |
+|  De carousel beweegt niet mee met de 1ste speler die rolt, de spelers moeten dus eerst eens op de home menu drukken om mee te zijn met het spel.   |  De carousel beweegt pas mee als de aantal turns groter is dan 1. De code faalt als er nog geen turn is in turns. |  De complexiteit om dit op te lossen zou ons nog teveel tijd kosten.  |
+| | | |
