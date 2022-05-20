@@ -122,7 +122,7 @@ function canTakeMortgage(tile){
     if(doIOwnTile(tile.name)){
         const property = retrievePropertyWithOwnershipData(tile.name);
         if (property.mortgage){
-            return false
+            return false;
         }
         const street = retrieveStreetWithOwnershipData(tile.name);
             for(const propertyOfStreet of street){
