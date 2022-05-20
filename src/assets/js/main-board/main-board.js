@@ -145,7 +145,7 @@ function navigateMainBoard(navigation) {
             renderSetupAuction(tile);
             break;
         case "auction":
-            throw "Auction is not implemented on server!"
+            throw "Auction is not implemented on server!";
         case "bankrupt":
             renderBankrupt();
             break;
