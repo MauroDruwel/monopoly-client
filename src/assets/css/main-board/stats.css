@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 
-#stats .balance {
+#stats .balance , .bankrupt-indicator , .number-of-jail-free-cards {
     background-image: url("../../media/bg-pixels.png");
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
