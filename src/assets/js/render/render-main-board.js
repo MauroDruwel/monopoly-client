@@ -141,8 +141,8 @@ function renderPlayerStats(player){
 
     document.querySelector('#stats h2 span').innerHTML =player.name;
     document.querySelector('#stats .balance p:last-of-type').innerHTML = player.money;
-    document.querySelector('#stats .flex-item1 > p:first-of-type span').innerHTML = player.getOutOfJailFreeCards;
-    document.querySelector('#stats .flex-item1 > p:last-of-type span').innerHTML = player.bankrupt;
+    document.querySelector('#stats .number-of-jail-free-cards > p:last-of-type span').innerHTML = player.getOutOfJailFreeCards;
+    document.querySelector('#stats .bankrupt-indicator > p:last-of-type span').innerHTML = player.bankrupt;
 }
 
 function renderLog(res){

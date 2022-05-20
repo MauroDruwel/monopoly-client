@@ -333,19 +333,25 @@
                         <button type="button" class="button" data-navigate="settle-mortgage">Settle Mortgage</button>
                         <!-- second row -->
                         <div></div>
-                        <button type="button" class="button" data-action="collect-rent">Collect Rent</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-action="collect-rent">Collect Rent</button>
+                        <!-- don't navigate -->
                         <button type="button" class="button" data-navigate="sell-house">Sell House</button>
                         <button type="button" class="button" data-navigate="take-mortgage">Take Mortgage</button>
                         <!-- third row -->
-                        <button type="button" class="button" data-action="use-jail-card">Use Jail Card (<span id="amount-jail-cards-player"></span>)</button>
+                        <button type="button" class="button" data-action="use-jail-card">Use Jail Card (<span
+                                id="amount-jail-cards-player"></span>)
+                        </button>
                         <button type="button" class="button" data-navigate="trade-property">Trade Property</button>
                         <button type="button" class="button" data-navigate="buy-hotel">Buy Hotel</button>
-                        <button type="button" class="button" data-navigate="buy-property">Buy Property</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-navigate="buy-property">Buy Property</button>
+                        <!-- don't navigate -->
                         <!-- fourth row -->
-                        <button type="button" class="button" data-action="pay-prison-fine">Pay Prison Fine</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-action="pay-prison-fine">Pay Prison Fine</button>
+                        <!-- don't navigate -->
                         <button type="button" class="button" data-navigate="setup-auction">Auction Property</button>
                         <button type="button" class="button" data-navigate="sell-hotel">Sell Hotel</button>
-                        <button type="button" class="button" data-action="dont-buy-property">Don't Buy Property</button> <!-- don't navigate -->
+                        <button type="button" class="button" data-action="dont-buy-property">Don't Buy Property</button>
+                        <!-- don't navigate -->
                     </div>
                 </div>
             </div>
@@ -364,8 +370,16 @@
                     <p>Player balance:</p>
                     <p><!-- insert balance --></p>
                 </div>
-                <p>Get out of jail free cards: <span></span></p>
-                <p>Bankrupt: <span></span></p>
+                <div class="number-of-jail-free-cards">
+                    <p>Get out of jail free cards:</p>
+                    <p><span></span></p>
+                </div>
+                <div class="bankrupt-indicator">
+                    <p>Bankrupt:</p>
+                    <p><span></span></p>
+                </div>
+            </div>
+            <div class="flex-item2">
                 <img src="assets/media/monopoly-man.png" alt="monopoly man" title="monopoly man">
             </div>
             <div class="flex-item1">
@@ -503,7 +517,9 @@
                 <button type="button" data-navigate="home" class="button active">cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="auction" data-action="setup-auction" class="button active">Start Auction</button>
+                <button type="button" data-navigate="auction" data-action="setup-auction" class="button active">Start
+                    Auction
+                </button>
             </div>
         </div>
     </section>
@@ -730,7 +746,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property"
+                        class="button active">Buy Property
+                </button>
             </div>
         </div>
     </section>
@@ -769,7 +787,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property"
+                        class="button active">Buy Property
+                </button>
             </div>
         </div>
     </section>
@@ -810,7 +830,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property" class="button active">Buy Property</button>
+                <button type="button" data-navigate="home" data-action="buy-property" value="buy-property"
+                        class="button active">Buy Property
+                </button>
             </div>
         </div>
     </section>
@@ -873,7 +895,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage"
+                        class="button active">take mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -910,7 +934,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage"
+                        class="button active">take mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -949,7 +975,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage" class="button active">take mortgage</button>
+                <button type="button" data-navigate="home" data-action="take-mortgage" value="take-mortgage"
+                        class="button active">take mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -1011,7 +1039,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage"
+                        class="button active">settle mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -1047,7 +1077,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage"
+                        class="button active">settle mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -1085,7 +1117,9 @@
                 <button type="button" data-navigate="home" value="cancel" class="button active"> cancel</button>
             </div>
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage" class="button active">settle mortgage</button>
+                <button type="button" data-navigate="home" data-action="settle-mortgage" value="settle-mortgage"
+                        class="button active">settle mortgage
+                </button>
             </div>
         </div>
     </section>
@@ -1151,7 +1185,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="sell-house" value="sell-house" class="button active">Sell house</button>
+                <button type="button" data-navigate="home" data-action="sell-house" value="sell-house"
+                        class="button active">Sell house
+                </button>
             </div>
         </div>
     </section>
@@ -1209,11 +1245,13 @@
             </div>
 
             <div class="cancel">
-                <button type="button" data-navigate="home"  value="cancel" class="button active">Cancel</button>
+                <button type="button" data-navigate="home" value="cancel" class="button active">Cancel</button>
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="sell-hotel" value="sell-hotel" class="button active">Sell hotel</button>
+                <button type="button" data-navigate="home" data-action="sell-hotel" value="sell-hotel"
+                        class="button active">Sell hotel
+                </button>
             </div>
         </div>
     </section>
@@ -1274,7 +1312,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="buy-hotel" value="buy-hotel" class="button active">Buy hotel</button>
+                <button type="button" data-navigate="home" data-action="buy-hotel" value="buy-hotel"
+                        class="button active">Buy hotel
+                </button>
             </div>
         </div>
     </section>
@@ -1335,7 +1375,9 @@
             </div>
 
             <div class="proceed">
-                <button type="button" data-navigate="home" data-action="buy-house" value="buy-house" class="button active">Buy house</button>
+                <button type="button" data-navigate="home" data-action="buy-house" value="buy-house"
+                        class="button active">Buy house
+                </button>
             </div>
         </div>
     </section>
