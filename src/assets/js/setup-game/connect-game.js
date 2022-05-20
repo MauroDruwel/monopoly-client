@@ -12,13 +12,13 @@ function processAvailableGames(e){
     retrieveAvailableGames(numberOfPlayers)
         .then(gamesObject => {
             const gamesList = gamesObject.games;
-        if(gamesList.length > 0){
-            renderGames(gamesList);
-        }
-        else {
-            hideGames();
-        }
-    });
+            if(gamesList.length > 0){
+                renderGames(gamesList);
+            }
+            else {
+                hideGames();
+            }
+        });
 }
 
 function processConnectionForm(e){
