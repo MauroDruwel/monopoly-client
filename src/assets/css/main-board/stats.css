@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 
-#stats .balance , .bankrupt-indicator , .number-of-jail-free-cards {
+#stats .balance, .bankrupt-indicator, .number-of-jail-free-cards {
     background-image: url("../../media/bg-pixels.png");
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
@@ -28,7 +28,7 @@
     margin-bottom: 2rem;
 }
 
-#stats .balance p:last-of-type {
+#stats .balance p:last-of-type , .bankrupt-indicator p:last-of-type, .number-of-jail-free-cards p:last-of-type {
     font-size: 5rem;
     text-align: center;
 }
