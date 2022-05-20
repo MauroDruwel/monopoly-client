@@ -68,7 +68,6 @@ function createGame(numberOfPlayers, username) {
         "numberOfPlayers": parseInt(numberOfPlayers)
     };
 
-    // joinen van een game met dit ID
     fetchFromServer('/games', 'POST', bodyParams)
         .then(game => joinGame(game.id, username));
 }

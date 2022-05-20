@@ -10,19 +10,17 @@ function renderCarousel(){
         pointer -= _tiles.length ;
     }
 
-    // reset carousel
     document.querySelector(`${carouselTilesContainerSelector}`).innerHTML = '';
 
     for(let counter = 0; counter < numberOfTiles; counter++){
         renderTile(_tiles.at(pointer), scale[counter]);
-        pointer -= 1; // index can be negative with array.at(i)
+        pointer -= 1;
     }
     renderPlayerPositionOnCarousel();
 }
 
 function renderTile(tile, scale) {
     switch(tile.type) {
-        /* tiles that a player can actually own */
         case "street":
             if(document.querySelector("#carousel").classList.contains("show-properties-back")){
                 renderBackOfStreetTile(tile, scale);
@@ -38,7 +36,6 @@ function renderTile(tile, scale) {
             renderRailroadTile(tile, scale);
             break;
 
-        /* basic tile */
         case "Go":
             renderBasicTile(".go-template", scale);
             break;
@@ -68,14 +65,11 @@ function renderTile(tile, scale) {
     }
 }
 
-/* Basic Tiles */
 function renderBasicTile(template, scale){
     const $template = document.querySelector(`#carousel ${template}`).content.firstElementChild.cloneNode(true);
     $template.classList.add(scale);
     document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
 }
-
-/* tiles that a player can actually own */
 
 function renderFrontOfStreetTile(tile, scale){
     const $template = document.querySelector(`#carousel .property-front-template`).content.firstElementChild.cloneNode(true);
@@ -108,8 +102,6 @@ function renderRailroadTile(tile, scale){
     document.querySelector(`${carouselTilesContainerSelector}`).insertAdjacentHTML('beforeend', $template.outerHTML);
     processRailroad(tile.name);
 }
-
-/* render player position */
 
 function renderPlayerPositionOnCarousel() {
     const $playerPosition = document.querySelector('#home-board .mid section .player-position');

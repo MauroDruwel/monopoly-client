@@ -1,9 +1,4 @@
-/* --------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------ monopoly actions --------------------------------------- */
-/* --------------------------------------------------------------------------------------------------- */
 
-
-// ###################################### Turn Management ##############################################
 function bankrupt() {
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/bankruptcy`, "POST").catch(errorHandler);
 }
@@ -15,17 +10,6 @@ function rollDice(){
 }
 
 
-// ####################################### Tax Management ##############################################
-function estimateTax(){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/tax/estimate`, "POST").catch(errorHandler);
-}
-
-function computeTax(){
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/tax/compute`, "POST").catch(errorHandler);
-}
-
-
-// ####################################### Buying Property ##############################################
 function buyProperty(property){
     if(!retrieveOwner(property)){
         fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}`, "POST").catch(errorHandler);
@@ -39,7 +23,6 @@ function dontBuyProperty(property){
 }
 
 
-// ##################################### Improving Property ##############################################
 function buyHouse(property){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/houses`, "POST").catch(errorHandler);
 }
@@ -57,7 +40,6 @@ function sellHotel(property){
 }
 
 
-// ########################################### Mortgage #################################################
 function takeMortgage(property){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/mortgage`, "POST").catch(errorHandler);
 }
@@ -67,7 +49,6 @@ function settleMortgage(property){
 }
 
 
-// ############################################# Prison #################################################
 function payFeeToGetOutOfJail(){
     fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/fine`, "POST").catch(errorHandler);
 }
@@ -76,31 +57,12 @@ function getOutOfJailWithCard(){
     fetchFromServer(`/games/${_player.gameId}/prison/${_player.username}/free`,"POST").catch(errorHandler);
 }
 
-// ############################################# Auctions #################################################
 function retrieveBankAuctions(){
     return fetchFromServer(`/games/${_player.gameId}/bank/auctions`, "GET").catch(errorHandler);
 }
 
 function retrievePlayerAuctions(username){
     return fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions`, "GET").catch(errorHandler);
-}
-
-function bidBankAuction(property, amount){
-    const requestBody = {
-        "bidder": _player.username,
-        "amount": amount
-    };
-
-    fetchFromServer(`/games/${_player.gameId}/bank/auctions/${property}/bid`, 'POST', requestBody).catch(errorHandler);
-}
-
-function bidPlayerAuction(property, username, amount){
-    const requestBody = {
-        "bidder": _player.username,
-        "amount": amount
-    };
-
-    fetchFromServer(`/games/${_player.gameId}/players/${username}/auctions/${property}/bid`, 'POST', requestBody).catch(errorHandler);
 }
 
 function startPlayerAuction(property, startBid, duration=40.0){
@@ -111,25 +73,6 @@ function startPlayerAuction(property, startBid, duration=40.0){
     console.log(requestBody);
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/auctions/${property}`, 'POST', requestBody).catch(errorHandler);
 }
-
-
-// ############################################# Trade #################################################
-function trade(other, offerProperty, offerAmount, wantProperty){
-    const requestBody = {
-        "player": other,
-        "offer": [
-            offerProperty,
-            offerAmount
-        ],
-        "return": [
-            wantProperty
-        ]
-    };
-
-    fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/trades`, 'POST', requestBody).catch(errorHandler);
-}
-
-// ############################################# Player Interaction #################################################
 
 function collectRent(property, debtorName){
     fetchFromServer(`/games/${_player.gameId}/players/${_player.username}/properties/${property}/visitors/${debtorName}/rent`, "DELETE").catch(errorHandler);

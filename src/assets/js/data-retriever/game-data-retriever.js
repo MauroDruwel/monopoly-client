@@ -1,10 +1,8 @@
 "use strict";
 
-/* retrieve data from game */
-
 function retrieveGame(){
     return fetchFromServer(`/games/${_player.gameId}`, "GET").then(game => {
-        _game = {}; // empty object
+        _game = {};
         for (const key in game){
             _game[key] = game[key];
         }

@@ -1,9 +1,5 @@
-/* ---------------- check game state ------------------- */
-/* ---------------- part of main-board.js ------------------- */
-
 
 function checkEndState(){
-    // check for winner or loser
     if (retrievePlayer(_player.username).bankrupt){
         location.href = "lose-screen.html";
     }
@@ -26,12 +22,9 @@ function checkAuctionState(){
 
 function checkTurnState(prevGame){
     if(prevGame['turns'].length >= 1){
-        // check if there is a new move by the same player or a new move by another player
         if(checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame)){
-            // collect rent only once on new turn
             _player.collectedRent = false;
 
-            // show tile of a players most recent turn
             const currentTile = retrievePlayer(prevGame.currentPlayer).currentTile;
             _player.carousel = retrieveTilePosition(currentTile);
             rerender();

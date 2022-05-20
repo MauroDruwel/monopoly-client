@@ -1,10 +1,8 @@
 "use strict";
 
-/* retrieve data from tiles */
-
 function retrieveTiles() {
     return fetchFromServer(`/tiles`, "GET").then(tiles => {
-        _tiles = []; // empty array
+        _tiles = [];
         tiles.forEach(tile => {
             _tiles.push(tile);
         });
