@@ -19,18 +19,21 @@
     justify-content: space-between;
 }
 
-#stats .balance {
+#stats .balance, .bankrupt-indicator, .number-of-jail-free-cards {
     background-image: url("../../media/bg-pixels.png");
     border: solid #C4C4C4 0.1rem;
     border-radius: 0.75rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 0.125rem 0.5rem 0;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-bottom: 2rem;
+    font-weight: bold;
 }
 
-#stats .balance p:last-of-type {
+#stats .balance p:last-of-type, .bankrupt-indicator p:last-of-type, .number-of-jail-free-cards p:last-of-type {
     font-size: 5rem;
     text-align: center;
+    text-transform: capitalize;
+    font-weight: normal;
 }
 
 /* make hidden heavier */
