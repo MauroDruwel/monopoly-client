@@ -63,11 +63,12 @@
 
 ::-webkit-scrollbar-track {
     background: lightgrey;
+    border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: grey;
-    border-radius: 15%;
+    background-color: grey;
+    border-radius: 100vw;
 }
 
 #home-board .top .top-right .player-stats-buttons button {
