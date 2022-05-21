@@ -1,15 +1,13 @@
 "use strict";
 
 async function startGame() {
-    await retrieveTiles(); // fetch board tiles
-    await retrieveGame(); // fetch game data
+    await retrieveTiles();
+    await retrieveGame();
 }
 
 async function reloadGame() {
-    // remember previous game state
     const prevGame = Object.assign({}, _game);
 
-    // fetch game data here:
     await retrieveGame();
 
     checkGameState(prevGame);
@@ -18,7 +16,6 @@ async function reloadGame() {
 
     enableOrDisableButtons();
 
-    // this does not reinitialize initMainBoard!
     setTimeout(reloadGame, 1000);
 }
 
@@ -26,7 +23,6 @@ function checkGameState(prevGame) {
     checkEndState();
     checkTurnState(prevGame);
     checkLogState();
-    // add check state here
 }
 
 function setGameState() {
@@ -42,7 +38,6 @@ function setGameState() {
     setCollectRentState();
     setJailCardState();
     setPrisonFeeState();
-    // add set state here
 }
 
 function rerender() {
@@ -52,21 +47,17 @@ function rerender() {
     renderPlayerBalance(_player.username);
     renderPlayerAtTurn();
     renderPlayerStatsButtons();
-    // add component you would like to reload here
 }
 
 function enableOrDisableButtons() {
-    // disable buttons that don't contain .active class
     document.querySelectorAll('.button:not(.active)').forEach($button => {
         $button.disabled = true;
     });
-    // enable buttons that do contain .active class
     document.querySelectorAll('.button.active').forEach($button => {
         $button.disabled = false;
     });
 }
 
-/* ---------------- event handlers ---------------- */
 
 function playerAction(action) {
     const tile = retrieveTileOnCarousel();
@@ -79,7 +70,6 @@ function playerAction(action) {
             break;
         case "dont-buy-property":
             dontBuyProperty(tile.name);
-            // bank auction should start, players redirected to auction with checkAuctionState
             break;
         case "buy-house":
             buyHouse(tile.name);
@@ -104,8 +94,8 @@ function playerAction(action) {
             startPlayerAuction(tile.name, startBid);
             break;
         case "collect-rent":
-            const debtorName = _game['turns'].at(-1)['player']; // most recent player who moved
-            const property = _game['turns'].at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
+            const debtorName = _game['turns'].at(-1)['player'];
+            const property = _game['turns'].at(-1)['moves'].at(-1)['tile'];
             collectRent(property, debtorName);
             _player.collectedRent = true;
             break;
@@ -127,7 +117,6 @@ function navigateMainBoard(navigation) {
     const tile = retrieveTileOnCarousel();
     switch (navigation) {
         case "home":
-            // make home board visible
             addClassToElements("#main-board > section", 'hidden');
             document.querySelector('#home-board').classList.remove('hidden');
             break;
@@ -156,8 +145,7 @@ function navigateMainBoard(navigation) {
             renderSetupAuction(tile);
             break;
         case "auction":
-            // render auction
-            break;
+            throw "Auction is not implemented on server!";
         case "bankrupt":
             renderBankrupt();
             break;

@@ -136,7 +136,7 @@ function renderPlayerStats(player){
     addClassToElements(`${_sectionInMainBoard}`, 'hidden');
     document.querySelector(`#stats`).classList.remove('hidden');
 
-    removeClassFromElements('#stats .tile-map div[data-tile]', 'owns'); // reset tile map
+    removeClassFromElements('#stats .tile-map div[data-tile]', 'owns');
     processTileMap('#stats', player.name);
 
     document.querySelector('#stats h2 span').innerHTML =player.name;

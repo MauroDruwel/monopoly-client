@@ -1,7 +1,3 @@
-/* ---------------- helpers main-board ------------------- */
-/* ---------------- part of main-board ------------------- */
-
-/* ######## boolean helpers ######## */
 
 function isItMyTurn() {
     return _game.currentPlayer === _player.username;
@@ -36,26 +32,50 @@ function doIOwnTheStreet(property) {
     return false;
 }
 
-function newPlayer(prevGame) {
+function isNewPlayer(prevGame) {
     return prevGame['turns'].at(-1)['player'] !== _game['turns'].at(-1)['player'];
 }
 
-function newMove(prevGame) {
+function isNewMove(prevGame) {
     return prevGame['turns'].at(-1)['moves'].at(-1)['tile'] !== _game['turns'].at(-1)['moves'].at(-1)['tile'];
 }
 
+function hasPropertyMortgage(property){
+    return property.mortgage;
+}
 
-/* ######## set state helpers ######## */
+function hasPropertyNotEnoughImprovementsToBuyHotel(property){
+    return property.houseCount < 4 || property.hotelCount >= 1;
+}
 
-// check if street is improved evenly with houses...
+function hasPropertyOfStreetLessHotelsThanProperty(property,propertyOfStreet){
+    return propertyOfStreet.hotelCount < property.hotelCount;
+}
+
+function hasPropertyNotEnoughImprovementsToBuyHouse(property){
+    return property.houseCount >= 4 || property.hotelCount >= 1;
+}
+
+function hasPropertyOfStreetLessHousesThanProperty(property,propertyOfStreet){
+    return propertyOfStreet.houseCount < property.houseCount;
+}
+
+function hasPropertyOfStreetMoreHousesThanProperty(property,propertyOfStreet){
+    return propertyOfStreet.houseCount > property.houseCount;
+}
+
+function hasPropertyOfStreetMoreHotelsThanProperty(property,propertyOfStreet){
+    return propertyOfStreet.hotelCount > property.hotelCount;
+}
+
+
+
 function canBuyHouse(tile) {
-    // also checks if tile has an actual street
     if (doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
         for (const propertyOfStreet of street) {
-            // check if there is a property in the street "that is running behind" on house improvement
-            if (checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet)){
+            if (checkImprovementOfPropertyToBuyHouse(property,propertyOfStreet) || hasPropertyMortgage(propertyOfStreet)){
                 return false;
             }
         }
@@ -64,16 +84,13 @@ function canBuyHouse(tile) {
     return false;
 }
 
-// check if street is sold evenly...
 function canSellHouse(tile) {
-    // also checks if tile has an actual street
     if (doIOwnTheStreet(tile.name)) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for (const propertyOfStreet of street) {
-            // check if there is a property in the street that has more houses than current property
-            if (checkIfPropertyInStreetHasMoreHouses(propertyOfStreet,property)) {
+            if (checkPropertyImprovementToSellHouse(property, propertyOfStreet) || hasPropertyMortgage(property)) {
                 return false;
             }
         }
@@ -82,16 +99,13 @@ function canSellHouse(tile) {
     return false;
 }
 
-// check if street is improved evenly with hotels...
 function canBuyHotel(tile) {
-    // also checks if tile has an actual street
     if (doIOwnTheStreet(tile.name) && retrieveMyBalance() >= tile.housePrice) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for (const propertyOfStreet of street) {
-            // check if there is a property in the street "that is running behind" on hotel improvement
-            if (checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet)){
+            if (checkImprovementOfPropertyToBuyHotel(property, propertyOfStreet) || hasPropertyMortgage(propertyOfStreet)){
                 return false;
             }
         }
@@ -100,16 +114,13 @@ function canBuyHotel(tile) {
     return false;
 }
 
-// check if street is sold evenly...
 function canSellHotel(tile) {
-    // also checks if tile has an actual street
     if (doIOwnTheStreet(tile.name)) {
         const street = retrieveStreetWithOwnershipData(tile.name);
         const property = retrievePropertyWithOwnershipData(tile.name);
 
         for (const propertyOfStreet of street) {
-            // check if there is a property in the street "that is running behind" on hotel improvement
-            if (checkIfPropertyIsRunningBehindOnHotelImprovement(propertyOfStreet,property)) {
+            if (checkPropertyImprovementToSellHotel(property, propertyOfStreet) || hasPropertyMortgage(property)) {
                 return false;
             }
         }
@@ -121,25 +132,24 @@ function canSellHotel(tile) {
 function canTakeMortgage(tile){
     if(doIOwnTile(tile.name)){
         const property = retrievePropertyWithOwnershipData(tile.name);
-        if (property.mortgage){
+        if (hasPropertyMortgage(property)){
             return false;
         }
         const street = retrieveStreetWithOwnershipData(tile.name);
             for(const propertyOfStreet of street){
-                if(checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property)){
+                if(checkIfThereAreNoHousesAndHotels(propertyOfStreet)){
                     return false;
                 }
             }
-            return true;
+        return true;
     }
     return false;
 }
 
-
 function canSettleMortgage(tile) {
     if (doIOwnTile(tile.name) && retrieveMyBalance() >= (parseInt(tile.mortgage) * 1.1)) {
         const property = retrievePropertyWithOwnershipData(tile.name);
-        if (property.mortgage) {
+        if (hasPropertyMortgage(property)) {
             return true;
         }
     }
@@ -162,52 +172,17 @@ function canBeAuctioned(tile) {
 function canCollectRent() {
     const turns = _game['turns'];
     if (Object.keys(turns).length >= 1 && !_player.collectedRent) {
-        const debtorName = turns.at(-1)['player']; // most recent player who moved
-        const tileName = turns.at(-1)['moves'].at(-1)['tile']; // most recent tile from moves
-        // if tile is not a property or not owned by me, if statement will return false
+        const debtorName = turns.at(-1)['player'];
+        const tileName = turns.at(-1)['moves'].at(-1)['tile'];
+
         if (doIOwnTile(tileName) && debtorName !== _player.username) {
             const property = retrievePropertyWithOwnershipData(tileName);
-            if (!property.mortgage) {
+            if (!hasPropertyMortgage(property)) {
                 return true;
             }
         }
     }
     return false;
-}
-
-function checkIfPropertyIsBehindOnHotelImprovement(property, propertyOfStreet) {
-    return (propertyOfStreet.hotelCount < property.hotelCount ||
-        property.houseCount < 4 ||
-        (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0) ||
-        propertyOfStreet.mortgage ||
-        property.hotelCount >= 1);
-}
-
-function checkIfPropertyIsBehindOnHouseImprovement(property,propertyOfStreet){
-    return (propertyOfStreet.houseCount < property.houseCount ||
-        property.houseCount > 4 ||
-        propertyOfStreet.hotelCount !== property.hotelCount ||
-        propertyOfStreet.mortgage ||
-        property.hotelCount >= 1);
-}
-
-function checkIfPropertyInStreetHasMoreHouses(propertyOfStreet,property){
-    return propertyOfStreet.houseCount > property.houseCount || property.houseCount <= 0 ||
-        propertyOfStreet.hotelCount !== property.hotelCount || property.mortgage;
-}
-
-function checkIfPropertyIsRunningBehindOnHotelImprovement(propertyOfStreet,property){
-    return propertyOfStreet.hotelCount > property.hotelCount || property.hotelCount <= 0 || property.mortgage;
-}
-
-function checkIfThereAreNoHousesAndHotelsAndNoMortgage(propertyOfStreet,property){
-    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0 || property.mortgage;
-}
-function checkIfThereAreNoHousesAndHotels(propertyOfStreet){
-    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0;
-}
-function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
-    return newPlayer(prevGame) || (newMove(prevGame) && !newPlayer(prevGame));
 }
 
 function canIUseAJailCard() {
@@ -217,6 +192,41 @@ function canIUseAJailCard() {
 function canIPayForPrisonFee(){
     return retrieveMyBalance() > 50 && retrieveIfIAmInPrison() === true;
 }
+
 function isItMyTurnAndCanIStillBuyThisProperty(){
     return isItMyTurn() && isDirectSaleTileOnCarousel() && _game.directSale != null;
+}
+
+
+function checkImprovementOfPropertyToBuyHotel(property, propertyOfStreet) {
+    return (
+        hasPropertyOfStreetLessHotelsThanProperty(property,propertyOfStreet) ||
+        hasPropertyNotEnoughImprovementsToBuyHotel(property) ||
+        (propertyOfStreet.houseCount < 4 && propertyOfStreet.hotelCount === 0)
+    );
+}
+
+function checkImprovementOfPropertyToBuyHouse(property,propertyOfStreet){
+    return (
+        hasPropertyOfStreetLessHousesThanProperty(property,propertyOfStreet) ||
+        hasPropertyNotEnoughImprovementsToBuyHouse(property) ||
+        propertyOfStreet.hotelCount !== property.hotelCount
+    );
+}
+
+function checkPropertyImprovementToSellHouse(property, propertyOfStreet){
+    return hasPropertyOfStreetMoreHousesThanProperty(property,propertyOfStreet) ||
+        property.houseCount <= 0 || propertyOfStreet.hotelCount !== property.hotelCount;
+}
+
+function checkPropertyImprovementToSellHotel(property, propertyOfStreet){
+    return  hasPropertyOfStreetMoreHotelsThanProperty(property, propertyOfStreet) || property.hotelCount <= 0;
+}
+
+function checkIfThereAreNoHousesAndHotels(propertyOfStreet){
+    return propertyOfStreet.hotelCount !== 0 || propertyOfStreet.houseCount !== 0;
+}
+
+function checkIfThereIsANewMoveByTheSameOrOtherPlayer(prevGame){
+    return isNewPlayer(prevGame) || (isNewMove(prevGame) && !isNewPlayer(prevGame));
 }

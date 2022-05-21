@@ -2,11 +2,9 @@
 
 function renderPropertyBack(property) {
 
-    // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
-    // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
     const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-back.tile`);
     $properties.forEach($property => {
-        // set dataset values
+
         const $propertyUl = $property.querySelector('.grid-body ul');
         $property.dataset.color = property.color.toLowerCase();
         $property.dataset.position = property.position;
@@ -32,16 +30,14 @@ function renderPropertyBack(property) {
 
 function renderPropertyFront(property, ownerName, mortgage, cost, houseCount, hotelCount) {
 
-    // data set in selector is added. Why? Select specific property from html to render with this data-tile value !!!
-    // What does this mean? The data-tile value needs to be set before this function is called! [! IMPORTANT]
     const $properties = document.querySelectorAll(`[data-tile="${property.nameAsPathParameter}"].property-front.tile`);
     $properties.forEach($property => {
-        // set dataset values
+
         const $propertyUl = $property.querySelector('.grid-body ul');
         $property.dataset.color = property.color.toLowerCase();
         $property.dataset.position = property.position;
         $property.querySelector('.grid-header h3').innerHTML = property.name;
-        $property.querySelector('.grid-body p:first-of-type span').innerHTML = ownerName; // set owner
+        $property.querySelector('.grid-body p:first-of-type span').innerHTML = ownerName;
         $propertyUl.innerHTML = '';
         $propertyUl.insertAdjacentHTML("beforeend",
             `<li>${houseCount} house(s)</li>

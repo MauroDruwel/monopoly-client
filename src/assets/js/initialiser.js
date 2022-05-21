@@ -7,8 +7,8 @@ let _player = {
     collectedRent: false
 };
 
-let _game = {}; // don't change to const
-let _tiles = []; // don't change to const
+let _game = {};
+let _tiles = [];
 const _connectGameHref = "connect-game.html";
 
 document.addEventListener('DOMContentLoaded', init);
@@ -51,10 +51,9 @@ function initQueue() {
 
 function initMainBoard() {
 
-    /* add event listeners here: */
-    addEventListenerToElements('click', processTileMapNavigation, '.tile-map'); // tile map template
-    document.querySelector('#carousel').addEventListener('click', processPropertySide); // carousel.js
-    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel); // carousel.js
+    addEventListenerToElements('click', processTileMapNavigation, '.tile-map');
+    document.querySelector('#carousel').addEventListener('click', processPropertySide);
+    document.querySelector('#carousel-navigation').addEventListener('click', navigateCarousel);
     document.querySelector('#home-board .player-stats-buttons').addEventListener('click', processPlayerStats);
     addEventListenerToElements('click', processPlayerStatsTileMap, '#stats .tile-map');
 

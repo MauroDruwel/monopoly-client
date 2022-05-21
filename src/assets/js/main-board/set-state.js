@@ -1,6 +1,3 @@
-/* ---------------- set game state ------------------- */
-/* ---------------- part of main-board.js ------------------- */
-
 
 function setDiceRollState(){
     if(isItMyTurn() && _game.canRoll){

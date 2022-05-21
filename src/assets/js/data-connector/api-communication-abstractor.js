@@ -26,7 +26,7 @@ function constructOptions(httpVerb, requestBody){
     if(_player.token !== null) {
         options.headers["Authorization"] = "Bearer " + _player.token;
     }
-    // Don't forget to add data to the body when needed
+
     options.body = JSON.stringify(requestBody);
     return options;
 }
