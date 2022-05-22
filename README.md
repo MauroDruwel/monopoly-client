@@ -1,7 +1,4 @@
-# Monopoly web project group [number]
-
-## Before you start
-Search for the string XX and **replace it with your group number**.
+# Monopoly web project group 28
 
 ## Parent group
 https://git.ti.howest.be/TI/2021-2022/s2/programming-project/projects/group-28
@@ -14,45 +11,74 @@ https://git.ti.howest.be/TI/2021-2022/s2/programming-project/projects/group-28
 ### Provided API
 * https://project-i.ti.howest.be/monopoly-api-spec/
 
+## Functionality table
 
-## Please complete the following before committing the final version on the project
-Please **add** any **instructions** required to
-* Make your application work if applicable
-* Be able to test the application (login data)
-* View the wireframes
+|PRIORITY|ENDPOINT                                                                                                |Client                | Client          |Server                       | Server                      | Explenation                 |
+|--------|--------------------------------------------------------------------------------------------------------|----------------------|-----------------|-----------------------------|-----------------------------|-----------------------------|
+|        |                                                                                                        |Visualize ( HTML/CSS) |Consume API (JS) |Process request (API-Bridge) |Implement Game Rules (logic) ||
+|        |**General Game and API Info**                                                                           |                      |                 |                             |                             ||
+|        |GET /                                                                                                   |0%                    |NO               |YES                          |100%                         ||
+|MUSTHAVE|GET /tiles                                                                                              |100%                  |YES              |YES                          |100%                         ||
+|MUSTHAVE|GET /tiles /{tileId}                                                                                    |100%                  |YES              |YES                          |100%                         ||
+|        |GET /chance                                                                                             |100%                  |YES              |YES                          |100%                         ||
+|        |GET /community-chest                                                                                    |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Managing Games**                                                                                      |                      |                 |                             |                             ||
+|        |DELETE /games                                                                                           |0%                    |NO               |NO                           |0%                           ||
+|MUSTHAVE|GET /games                                                                                              |100%                  |YES              |YES                          |100%                         ||
+|        |Additional requirement: with filters                                                                    |100%                  |YES              |YES                          |100%                         ||
+|MUSTHAVE|POST /games                                                                                             |100%                  |YES              |YES                          |100%                         ||
+|MUSTHAVE|POST /games /{gameId} /players                                                                          |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |Info                                                                                                    |                      |                 |                             |                             ||
+|        |GET /games /dummy                                                                                       |0%                    |NO               |NO                           |0%                           ||
+|MUSTHAVE|GET /games /{gameId}                                                                                    |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Turn Management**                                                                                     |                      |                 |                             |                             ||
+|MUSTHAVE|POST /games /{gameId} /players /{playerName} /dice                                                      |100%                  |YES              |YES                          |100%                         ||
+|        |With jail                                                                                               |100%                  |YES              |YES                          |100%                         ||
+|MUSTHAVE|POST /games /{gameId} /players /{playerName} /bankruptcy                                                |100%                  |YES              |YES                          |100%                         ||
+|        |Decent distribution of assets                                                                           |0%                    |NO               |YES                          |50%                          |De properties worden niet uitgedeeld aan de andere spelers, alles gaat terug naar de bank.|
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Tax Management**                                                                                      |                      |                 |                             |                             ||
+|        |POST /games /{gameId} /players /{playerName} /tax /estimate                                             |0%                    |NO               |NO                           |0%                           ||
+|        |POST /games /{gameId} /players /{playerName} /tax /compute                                              |0%                    |NO               |NO                           |0%                           ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Buying property**                                                                                     |                      |                 |                             |                             ||
+|MUSTHAVE|POST /games /{gameId} /players /{playerName} /properties /{propertyName}                                |100%                  |YES              |YES                          |100%                         ||
+|MUSTHAVE|DELETE /games /{gameId} /players /{playerName} /properties /{propertyName}                              |100%                  |YES              |YES                          |100%                         ||
+|        |With 1 bank auction                                                                                     |0%                    |NO               |NO                           |0%                           ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Improving property**                                                                                  |                      |                 |                             |                             |Er wordt geen rekening gehouden met available houses/hotels. De totale huizen/hotels in de game heeft dus opzich geen limiet. Er zijn echter wel limieten op het aantal huizen/hotels per property (max 1 hotel)|
+|        |POST /games /{gameId} /players /{playerName} /properties /{propertyName} /houses                        |80%                   |YES              |YES                          |80%                          ||
+|        |DELETE /games /{gameId} /players /{playerName} /properties /{propertyName} /houses                      |80%                   |YES              |YES                          |80%                          ||
+|        |POST /games /{gameId} /players /{playerName} /properties /{propertyName} /hotel                         |80%                   |YES              |YES                          |80%                          ||
+|        |DELETE /games /{gameId} /players /{playerName} /properties /{propertyName} /hotel                       |80%                   |YES              |YES                          |80%                          ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Mortgage**                                                                                            |                      |                 |                             |                             ||
+|        |POST /games /{gameId} /players /{playerName} /properties /{propertyName} /mortgage                      |100%                  |YES              |YES                          |100%                         ||
+|        |DELETE /games /{gameId} /players /{playerName} /properties /{propertyName} /mortgage                    |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Interaction with another player**                                                                     |                      |                 |                             |                             ||
+|MUSTHAVE|DELETE /games /{gameId} /players /{playerName} /properties /{propertyName} /visitors /{debtorName} /rent|100%                  |YES              |YES                          |100%                         ||
+|        |With potential debt                                                                                     |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Prison**                                                                                              |                      |                 |                             |                             ||
+|        |POST /games /{gameId} /prison /{playerName} /fine                                                       |100%                  |YES              |YES                          |100%                         ||
+|        |POST /games /{gameId} /prison /{playerName} /free                                                       |100%                  |YES              |YES                          |100%                         ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Auctions**                                                                                            |                      |                 |                             |                             ||
+|        |GET /games /{gameId} /bank /auctions                                                                    |0%                    |NO               |NO                           |0%                           ||
+|        |POST /games /{gameId} /bank /auctions /{propertyName} /bid                                              |0%                    |NO               |NO                           |0%                           ||
+|        |                                                                                                        |                      |                 |                             |                             ||
+|        |**Token**                                                                                               |                      |                 |                             |                             ||
+|        |authorisation                                                                                           |100%                  |YES              |YES                          |100%                         |Geïmplementeerd zoals meneer zijn token.|
 
-Also clarify
-* If there are known **bugs**
-* If you haven't managed to finish certain required functionality
+## Client bug(s):
 
-## Instructions for local CI testing
-You can **run** the validator and Sonar with CSS and JS rules **locally.** There is no need to push to the server to check if you are compliant with our rules. In the interest of sparing the server, please result to local testing as often as possible.
-
-If everyone will push to test, the remote will not last.
-
-Please consult the Sonar guide at [https://git.ti.howest.be/TI/2021-2022/s2/programming-project/documentation/monopoly-documentation/-/blob/main/sonar-guide/Sonar%20guide.md](https://git.ti.howest.be/TI/2021-2022/s2/programming-project/documentation/monopoly-documentation/-/blob/main/sonar-guide/Sonar%20guide.md)
-
-## Client
-In order to help you along with planning, we've provided a client roadmap
-[https://git.ti.howest.be/TI/2021-2022/s2/programming-project/documentation/monopoly-documentation/-/blob/main/roadmaps/client-roadmap.md](https://git.ti.howest.be/TI/2021-2022/s2/programming-project/documentation/monopoly-documentation/-/blob/main/roadmaps/client-roadmap.md)
-
-## File structure
-All files should be places in the `src` directory.
-
-**Do not** change the file structure of the folders outside of that directory. Within, you may do as you please.
-
-
-## Default files
-
-### CSS
-The `reset.css` has aleady been supplied, but it's up to you and your team to add the rest of the styles. Please feel free to split those up in multiple files. We'll handle efficient delivery for products in production in later semesters.
-
-### JavaScript
-A demonstration for connecting with the API has already been set up. We urge you to separate your JS files as **atomically as possible**. Add folders as you please.
-
-## Extra tips for CSS Grid
-In case you get stuck or confused
-https://learncssgrid.com/
-
-And for your convenience, yet use with caution
-https://grid.layoutit.com/ 
+| Bug behaviour                                                                                                                                                                                                                                                                                                                           | How to reproduce                                                                                                                                                                                                                                                                                                                                                 | Why it hasn't been fixed                                                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Wanneer je scherm teveel vergroot is kan je op bijna geen enkele knop duwen.                                                                                                                                                                                                                                                            | De schaling van computers zijn verschillend. (1080p - schaling 100% werkt het beste).                                                                                                                                                                                                                                                                            | Tijd: we hebben dit nog niet echt gezien en zouden nog alles moeten opzoeken. Hiervoor hadden we geen tijd meer. |
+| De carousel beweegt niet mee met de 1ste speler die rolt, de spelers moeten dus eerst eens op de home menu drukken om mee te zijn met het spel.                                                                                                                                                                                         | De carousel beweegt pas mee als de aantal turns groter is dan 1. De code faalt als er nog geen turn is in turns.                                                                                                                                                                                                                                                 | De complexiteit om dit op te lossen zou ons nog teveel tijd kosten.                                              |
+| Wanneer je een aantal spelers kiest,dan komt er een dropdown waar je alle beschikbare games toont met die aantal spelers. Dit wordt echter alleen maar geupdate wanneer je de select changed. Als je dus al je aantal spelers gekozen hebt en iemand maakt een nieuwe game moet je de select opnieuw changen om de nieuwe game te zien. | Dit komt omdat je enkel een api call doet op de change van de select tag.                                                                                                                                                                                                                                                                                        | We vonden dit niet de grootste prioriteit om op te lossen. We zouden dit kunnen oplossen door polling.           |
+| Als je tegelijkertijd collect rent + roll dice doet gaat de server een error geven.                                                                                                                                                                                                                                                     | Door polling wordt de knop "collect rent" niet rap genoeg gedeactiveerd, waardoor je wel nog een api post kunt doen. De server weet dat de turn al gefinished is door dat de andere persoon een een dice rolt op ongeveer dezelfde tijd doet. Omdat de turn al gefinshed is kan de persoon geen collect rent doen en zal de De api zal dus een error teruggeven. | Hebben geen andere manier dan polling gezien.                                                                    |
