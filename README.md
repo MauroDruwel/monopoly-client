@@ -1,15 +1,11 @@
-# Monopoly web project group 28
+# Monopoly web project
 
-## Parent group
-https://git.ti.howest.be/TI/2021-2022/s2/programming-project/projects/group-28
+we made monopoly on web for a school project and added our personal twist to it.
 
-## Remote urls
-### Your own project
-* https://project-i.ti.howest.be/monopoly-28/
-* https://project-i.ti.howest.be/monopoly-28/api/
+this is the client that shows UI and communicates with the java server[https://github.com/frucassss/monopoly-server]
 
-### Provided API
-* https://project-i.ti.howest.be/monopoly-api-spec/
+
+## made by [Lucas Guillemyn](https://github.com/frucassss), [Thibo Verbeerst](https://github.com/thiboverbeerst), [Michiel Stragier](https://github.com/michielez) and [Luca Verlinde]()
 
 ## Functionality table
 
