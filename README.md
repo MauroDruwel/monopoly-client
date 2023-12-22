@@ -2,7 +2,7 @@
 
 we made monopoly on web for a school project and added our personal twist to it.
 
-this is the client that shows UI and communicates with the java server[https://github.com/frucassss/monopoly-server]
+this is the client that shows UI and communicates with the [java server](https://github.com/frucassss/monopoly-server)
 
 
 ## made by [Lucas Guillemyn](https://github.com/frucassss), [Thibo Verbeerst](https://github.com/thiboverbeerst), [Michiel Stragier](https://github.com/michielez) and [Luca Verlinde]()
